@@ -4,7 +4,9 @@ metaLinks: {}
 
 # Noțiuni introductive
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chloros este o aplicație software de la [MAPIR](https://www.mapir.camera) pentru procesarea imaginilor și a altor date de la senzori.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
+
+Chloros este o aplicație software de la [MAPIR](https://www.mapir.camera) pentru procesarea imaginilor și a altor date de la senzori.
 
 ***
 
