@@ -10,29 +10,27 @@ metaLinks:
 
 Formulele pentru indici de mai jos utilizează o combinație de intervale medii de transmisie ale filtrului Survey3:
 
-<table><thead><tr><th align="center">Survey3 Culoarea filtrului</th><th width="196.199951171875" align="center">Survey3 Numele filtrului</th><th width="159.800048828125" align="center">Interval de transmisie (FWHM)</th><th align="center">Transmisie medie</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468-483 nm</td><td align="center">475 nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476-512 nm</td><td align="center">494 nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558 nm</td><td align="center">547 nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598-640 nm</td><td align="center">619 nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653-668 nm</td><td align="center">661 nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re - RedEdge</td><td align="center">712-735 nm</td><td align="center">724 nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798-848 nm</td><td align="center">823 nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835-865 nm</td><td align="center">850 nm</td></tr></tbody></table>
-
-Când se utilizează aceste formule, numele poate termina în „\_1” sau „\_2”, ceea ce corespunde filtrului NIR, fie NIR1, fie NIR2.
+<table><thead><tr><th align="center">Survey3 Culoarea filtrului</th><th width="196.199951171875" align="center">Survey3 Denumirea filtrului</th><th width="159.800048828125" align="center">Interval de transmisie (FWHM)</th><th align="center">Transmisie medie</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468-483 nm</td><td align="center">475 nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476-512 nm</td><td align="center">494 nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558 nm</td><td align="center">547 nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598-640 nm</td><td align="center">619 nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653-668 nm</td><td align="center">661 nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re - RedEdge</td><td align="center">712-735 nm</td><td align="center">724 nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798-848 nm</td><td align="center">823 nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835-865 nm</td><td align="center">850 nm</td></tr></tbody></table>Când se utilizează aceste formule, numele poate termina în „\_1” sau „\_2”, ceea ce corespunde filtrului NIR, fie NIR1, fie NIR2.
 
 ***
 
 ## EVI - Indicele de vegetație îmbunătățit
 
-Acest indice a fost dezvoltat inițial pentru a fi utilizat cu datele MODIS ca o îmbunătățire față de NDVI, prin optimizarea semnalului de vegetație în zonele cu indice ridicat al suprafeței frunzelor (LAI). Este cel mai util în regiunile cu LAI ridicat, unde NDVI poate ajunge la saturație. Utilizează regiunea de reflexie albastră pentru a corecta semnalele de fond ale solului și pentru a reduce influențele atmosferice, inclusiv împrăștierea aerosolilor.
+Acest indice a fost dezvoltat inițial pentru a fi utilizat cu datele MODIS ca o îmbunătățire față de NDVI, prin optimizarea semnalului de vegetație în zonele cu indice ridicat al suprafeței frunzelor (LAI). Este cel mai util în regiunile cu LAI ridicat, unde NDVI poate ajunge la saturație. Utilizează regiunea de reflexie albastră pentru a corecta semnalele de fond ale solului și pentru a reduce influențele atmosferice, inclusiv dispersia aerosolilor.
 
 $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-Valorile EVI ar trebui să varieze între 0 și 1 pentru pixelii de vegetație. Caracteristicile luminoase, cum ar fi norii și clădirile albe, împreună cu caracteristicile întunecate, cum ar fi apa, pot duce la valori anomale ale pixelilor într-o imagine EVI. Înainte de a crea o imagine EVI, trebuie să mascați norii și caracteristicile luminoase din imaginea de reflexie și, opțional, să stabiliți pragul valorilor pixelilor de la 0 la 1.
+Valorile EVI ar trebui să varieze între 0 și 1 pentru pixelii de vegetație. Elementele luminoase, cum ar fi norii și clădirile albe, împreună cu elementele întunecate, cum ar fi apa, pot duce la valori anomale ale pixelilor într-o imagine EVI. Înainte de a crea o imagine EVI, trebuie să mascați norii și elementele luminoase din imaginea de reflexie și, opțional, să stabiliți pragul valorilor pixelilor între 0 și 1.
 
-_Referință: Huete, A., et al. „Prezentare generală a performanței radiometrice și biofizice a indicilor de vegetație MODIS”. Remote Sensing of Environment 83 (2002):195–213._
+_Referință: Huete, A., et al. „Prezentare generală a performanțelor radiometrice și biofizice ale indicilor de vegetație MODIS”. Remote Sensing of Environment 83 (2002):195–213._
 
 ***
 
 ## FCI1 - Indicele de acoperire forestieră 1
 
-Acest indice distinge coronamentul pădurilor de alte tipuri de vegetație utilizând imagini de reflectanță multispectrală care includ o bandă de margine roșie.
+Acest indice distinge coronamentul forestier de alte tipuri de vegetație utilizând imagini de reflectanță multispectrale care includ o bandă roșie.
 
 $$
 FCI1 = Red * RedEdge
@@ -46,7 +44,7 @@ _Referință: Becker, Sarah J., Craig S.T. Daughtry și Andrew L. Russ. „Indic
 
 ## FCI2 - Indicele de acoperire forestieră 2
 
-Acest indice distinge coronamentul pădurilor de alte tipuri de vegetație utilizând imagini multispectrale de reflexie care nu includ o bandă roșie.
+Acest indice distinge coronamentul pădurilor de alte tipuri de vegetație folosind imagini multispectrale de reflexie care nu includ o bandă roșie.
 
 $$
 FCI2 = Red * NIR
@@ -60,7 +58,7 @@ _Referință: Becker, Sarah J., Craig S.T. Daughtry și Andrew L. Russ. „Indic
 
 ## GEMI - Indicele de monitorizare globală a mediului
 
-Acest indice de vegetație neliniar este utilizat pentru monitorizarea globală a mediului pe baza imaginilor satelitare și încearcă să corecteze efectele atmosferice. Este similar cu NDVI, dar este mai puțin sensibil la efectele atmosferice. Este afectat de solul gol; prin urmare, nu este recomandat pentru utilizarea în zone cu vegetație rară sau moderat de densă.
+Acest indice de vegetație neliniar este utilizat pentru monitorizarea globală a mediului pe baza imaginilor satelitare și încearcă să corecteze efectele atmosferice. Este similar cu NDVI, dar este mai puțin sensibil la efectele atmosferice. Este afectat de solul gol; prin urmare, nu este recomandat pentru utilizarea în zone cu vegetație rară sau moderat densă.
 
 $$
 GEMI = eta (1 - 0.25 * eta) - {Red - 0.125 \over 1 - Red}
@@ -92,7 +90,7 @@ _Referință: Gitelson, A., Y. Kaufman și M. Merzylak. „Utilizarea unui canal
 
 ## GCI - Green Indicele clorofilei
 
-Acest indice este utilizat pentru a estima conținutul de clorofilă din frunze la o gamă largă de specii de plante.
+Acest indice este utilizat pentru a estima conținutul de clorofilă din frunze pentru o gamă largă de specii de plante.
 
 $$
 GCI = {NIR \over Green} - 1
@@ -138,7 +136,7 @@ $$
 GOSAVI = {NIR - Green \over NIR + Green + 0.16)  }
 $$
 
-_Referință: Sripada, R., et al. „Determinarea necesarului de azot al porumbului în timpul sezonului folosind fotografii aeriene în infraroșu color.” Teză de doctorat, Universitatea de Stat din Carolina de Nord, 2005._
+_Referință: Sripada, R., et al. „Determinarea necesarului de azot al porumbului în timpul sezonului folosind fotografia aeriană în infraroșu color”. Teză de doctorat, Universitatea de Stat din Carolina de Nord, 2005._
 
 ***
 
@@ -162,7 +160,7 @@ $$
 GSAVI = 1.5 * {(NIR - Green) \over (NIR + Green + 0.5)  }
 $$
 
-_Referință: Sripada, R., et al. „Determinarea necesarului de azot al porumbului în timpul sezonului folosind fotografii aeriene în infraroșu color.” Teză de doctorat, Universitatea de Stat din Carolina de Nord, 2005._
+_Referință: Sripada, R., et al. „Determinarea necesarului de azot al porumbului în timpul sezonului folosind fotografia aeriană în infraroșu color”. Teză de doctorat, Universitatea de Stat din Carolina de Nord, 2005._
 
 ***
 
@@ -188,13 +186,13 @@ _Referință: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Scheld
 
 ## LCI - Indicele clorofilei frunzelor
 
-Acest indice este utilizat pentru estimarea conținutului de clorofilă în plantele superioare, sensibile la variațiile de reflexie cauzate de absorbția clorofilei.
+Acest indice este utilizat pentru a estima conținutul de clorofilă din plantele superioare, sensibile la variațiile de reflexie cauzate de absorbția clorofilei.
 
 $$
 LCI = {NIR2 - RedEdge \over NIR2 + Red}
 $$
 
-_Referință: Datt, B. „Teledetecția conținutului de apă în frunzele de eucalipt”. Journal of Plant Physiology 154, nr. 1 (1999): 30-36._
+_Referință: Datt, B. „Teledetecția conținutului de apă din frunzele de eucalipt”. Journal of Plant Physiology 154, nr. 1 (1999): 30-36._
 
 ***
 
@@ -212,7 +210,7 @@ _Referință: Yang, Z., P. Willis și R. Mueller. „Impactul imaginii AWIFS îm
 
 ## MSAVI2 - Indicele modificat al vegetației ajustat la sol 2
 
-Acest indice este o versiune mai simplă a indicelui MSAVI propus de Qi et al (1994), care îmbunătățește indicele vegetației ajustat la sol (SAVI). Acesta reduce zgomotul solului și crește gama dinamică a semnalului vegetației. MSAVI2 se bazează pe o metodă inductivă care nu utilizează o valoare constantă _L_ (ca în cazul SAVI) pentru a evidenția vegetația sănătoasă.
+Acest indice este o versiune simplificată a indicelui MSAVI propus de Qi et al (1994), care îmbunătățește indicele de vegetație ajustat la sol (SAVI). Acesta reduce zgomotul solului și crește gama dinamică a semnalului de vegetație. MSAVI2 se bazează pe o metodă inductivă care nu utilizează o valoare constantă _L_ (ca în cazul SAVI) pentru a evidenția vegetația sănătoasă.
 
 $$
 MSAVI2 = {2 * NIR + 1 - \sqrt{(2 * NIR + 1)^{2} - 8(NIR - Red)} \over 2}
@@ -234,7 +232,7 @@ $$
 
 ## NDVI - Indicele de vegetație diferențiat normalizat
 
-Acest indice este o măsură a vegetației sănătoase și verzi. Combinația dintre formularea sa diferențiată normalizată și utilizarea regiunilor cu cea mai mare absorbție și reflexie a clorofilei îl fac robust într-o gamă largă de condiții. Cu toate acestea, poate ajunge la saturație în condiții de vegetație densă, când LAI devine ridicat.
+Acest indice măsoară sănătatea vegetației verzi. Combinația dintre formularea diferenței normalizate și utilizarea regiunilor cu cea mai mare absorbție și reflexie a clorofilei îl fac robust într-o gamă largă de condiții. Cu toate acestea, poate ajunge la saturație în condiții de vegetație densă, când LAI devine ridicat.
 
 $$
 NDVI = {NIR - Red \over NIR + Red  }
@@ -242,7 +240,7 @@ $$
 
 Valoarea acestui indice variază de la -1 la 1. Intervalul obișnuit pentru vegetația verde este de la 0,2 la 0,8.
 
-_Referință: Rouse, J., R. Haas, J. Schell și D. Deering. Monitorizarea sistemelor de vegetație în Great Plains cu ERTS. Al treilea simpozion ERTS, NASA (1973): 309-317._
+_Referință: Rouse, J., R. Haas, J. Schell și D. Deering. Monitorizarea sistemelor de vegetație din Marile Câmpii cu ERTS. Al treilea simpozion ERTS, NASA (1973): 309-317._
 
 ***
 
@@ -278,23 +276,23 @@ $$
 RDVI = {(NIR- Red) \over \sqrt{(NIR + Red)}  }
 $$
 
-_Referință: Roujean, J. și F. Breon. „Estimarea PAR absorbită de vegetație din măsurători bidirecționale de reflexie”. Remote Sensing of Environment 51 (1995): 375-384._
+_Referință: Roujean, J. și F. Breon. „Estimarea PAR absorbită de vegetație din măsurători bidirecționale de reflectanță”. Remote Sensing of Environment 51 (1995): 375-384._
 
 ***
 
-## SAVI - Indicele de vegetație ajustat la sol
+## SAVI - Indicele de vegetație ajustat în funcție de sol
 
-Acest indice este similar cu NDVI, dar suprimă efectele pixelilor solului. Acesta utilizează un factor de ajustare a fundalului coronamentului, _L_, care este o funcție a densității vegetației și necesită adesea cunoștințe prealabile despre cantitățile de vegetație. Huete (1988) sugerează o valoare optimă de _L_=0,5 pentru a ține cont de variațiile de fond ale solului de prim ordin. Acest indice este cel mai bine utilizat în zone cu vegetație relativ rară, unde solul este vizibil prin coronament.
+Acest indice este similar cu NDVI, dar suprimă efectele pixelilor solului. Utilizează un factor de ajustare a fundalului coronamentului, _L_, care este o funcție a densității vegetației și necesită adesea cunoștințe prealabile despre cantitățile de vegetație. Huete (1988) sugerează o valoare optimă de _L_=0,5 pentru a ține cont de variațiile de fond ale solului de ordinul întâi. Acest indice este cel mai bine utilizat în zone cu vegetație relativ rară, unde solul este vizibil prin coronament.
 
 $$
 SAVI = {1.5 * (NIR- Red) \over (NIR + Red + 0.5)  }
 $$
 
-_Referință: Huete, A. „Un indice de vegetație ajustat la sol (SAVI)”. Remote Sensing of Environment 25 (1988): 295-309._
+_Referință: Huete, A. „Un indice de vegetație ajustat în funcție de sol (SAVI).” Remote Sensing of Environment 25 (1988): 295-309._
 
 ***
 
-## TDVI - Indice de vegetație diferențial transformat
+## TDVI - Indicele de vegetație transformat diferențial
 
 Acest indice este util pentru monitorizarea acoperirii vegetale în mediile urbane. Nu se saturează ca NDVI și SAVI.
 
@@ -302,7 +300,7 @@ $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_Referință: Bannari, A., H. Asalhi și P. Teillet. „Transformed Difference Vegetation Index (TDVI) for Vegetation Cover Mapping” În Proceedings of the Geoscience and Remote Sensing Symposium, IGARSS &#x27;02, IEEE International, volumul 5 (2002)._
+_Referință: Bannari, A., H. Asalhi și P. Teillet. „Transformed Difference Vegetation Index (TDVI) for Vegetation Cover Mapping” (Indicele transformat al diferenței de vegetație (TDVI) pentru cartografierea acoperirii vegetale) în Proceedings of the Geoscience and Remote Sensing Symposium, IGARSS &#x27;02, IEEE International, volumul 5 (2002)._
 
 ***
 
@@ -314,7 +312,7 @@ $$
 VARI = {Green - Red \over Green + Red - Blue  }
 $$
 
-_Referință: Gitelson, A., et al. „Linii de vegetație și sol în spațiul spectral vizibil: un concept și o tehnică pentru estimarea de la distanță a fracției de vegetație. International Journal of Remote Sensing 23 (2002): 2537−2562._
+_Referință: Gitelson, A., et al. „Liniile de vegetație și sol în spațiul spectral vizibil: un concept și o tehnică pentru estimarea de la distanță a fracției de vegetație. International Journal of Remote Sensing 23 (2002): 2537−2562._
 
 ***
 

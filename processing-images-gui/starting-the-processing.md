@@ -2,12 +2,12 @@
 
 După ce ați importat imaginile, ați marcat țintele de calibrare și ați configurat setările proiectului, sunteți gata să începeți procesarea. Această pagină vă ghidează prin inițierea procesului de procesare Chloros.
 
-## Listă de verificare înainte de procesare
+## Lista de verificare înainte de procesare
 
 Înainte de a face clic pe butonul Start, verificați dacă totul este pregătit:
 
 * [ ] **Fișiere importate** - Toate imaginile apar în File Browser
-* [ ] **Imagini țintă marcate** - Coloana Target verificată pentru imagini de calibrare
+* [ ] **Imagini țintă marcate** - Coloana țintă verificată pentru imagini de calibrare
 * [ ] **Modele de cameră detectate** - Coloana Model cameră afișează camerele corecte
 * [ ] **Setări configurate** - Setările proiectului revizuite și ajustate
 * [ ] **Indici selectați** - Indici multispectrali doriti adăugați (dacă este necesar)
@@ -80,15 +80,15 @@ Chloros funcționează în două moduri de procesare diferite, în funcție de l
 **Bara de progres afișează 4 etape:**
 
 1. **Detectare** - Găsirea țintelor de calibrare
-2. **Analizare** - Examinarea metadatelor imaginii și pregătirea pipeline-ului
+2. **Analizare** - Examinarea metadatelor imaginii și pregătirea fluxului de lucru
 3. **Calibrare** - Aplicarea corecțiilor și calibrărilor
 4. **Exportare** - Salvarea imaginilor și indexurilor procesate
 
 **Interacțiunea cu bara de progres:**
 
-* **Treceți mouse-ul** peste bară pentru a vedea panoul derulant detaliat cu 4 etape
-* **Faceți clic** pe bara de progres pentru a îngheța panoul derulant în poziție
-* **Faceți clic din nou** pentru a dezgheța și a ascunde panoul
+* **Treceți mouse-ul** peste bară pentru a vedea panoul detaliat cu 4 etape
+* **Faceți clic** pe bara de progres pentru a bloca panoul derulant în poziție
+* **Faceți clic din nou** pentru a debloca și ascunde panoul
 
 **Timp de procesare:**
 
@@ -123,26 +123,26 @@ Chloros funcționează în două moduri de procesare diferite, în funcție de l
 * Aplică un algoritm de demosaicare de înaltă calitate
 * Păstrează calitatea maximă a imaginii și detaliile
 
-**Durată:** Variază în funcție de numărul de imagini și viteza procesorului
+**Durată:** variază în funcție de numărul de imagini și viteza procesorului
 
 ### Etapa 3: Calibrare
 
 **Ce face Chloros:**
 
-* **Corecție vignette**: elimină întunecarea lentilelor la margini
-* **Calibrare reflectanță**: normalizează utilizând valorile reflectanței țintă
+* **Corectarea vignetării**: elimină întunecarea lentilelor la margini
+* **Calibrarea reflectanței**: normalizează utilizând valorile țintă ale reflectanței
 * Aplică corecții pe toate benzile/canalele
 * Utilizează ținta de calibrare adecvată pentru fiecare imagine pe baza timestamp-ului
 
-**Durată:** majoritatea timpului de procesare
+**Durată:** Majoritatea timpului de procesare
 
-### Etapa 4: Calculul indicelui
+### Etapa 4: Calcularea indicelui
 
 **Ce face Chloros:**
 
 * Calculează indicii multispectrali configurați (NDVI, NDRE etc.)
 * Aplică matematica benzii la imaginile calibrate
-* Generează imagini index pentru fiecare indice selectat
+* Generează imagini index pentru fiecare index selectat
 
 **Durată:** Câteva secunde per imagine
 

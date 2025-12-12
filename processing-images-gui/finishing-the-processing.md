@@ -9,7 +9,7 @@ Când procesarea se finalizează cu succes, veți vedea mai mulți indicatori:
 * ✅ **Bara de progres**: ajunge la 100% finalizare
 * ✅ **Jurnal de depanare**: afișează mesajul „Procesare finalizată”
 * ✅ **Butonul Start**: devine din nou activ (gata pentru următoarea rulare a procesării)
-* ✅ **Fișiere de ieșire**: toate imaginile procesate sunt salvate în subfolderul modelului camerei
+* ✅ **Fișiere de ieșire**: toate imaginile procesate sunt salvate în subfolderul modelului de cameră
 
 ***
 
@@ -79,7 +79,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 ***
 
-## Probleme comune de ieșire și soluții
+## Probleme comune legate de ieșire și soluții
 
 ### Problemă: Fișiere de ieșire lipsă
 
@@ -94,7 +94,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 1. Verificați jurnalul de depanare pentru mesaje de omitere/eroare
 2. Verificați dacă spațiul pe disc era suficient
-3. Numărați fișierele: ar trebui să corespundă (numărul original - numărul țintă) × (indici + 1)
+3. Numărați fișierele: ar trebui să se potrivească (numărul original - numărul țintă) × (indici + 1)
 4. Reimportați și reprocesați fișierele lipsă
 
 ### Problemă: Margini întunecate sau luminoase (vignettarea este încă vizibilă)
@@ -123,7 +123,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 **Soluții:**
 
 1. Verificați dacă calibrarea reflectanței a fost activată.
-2. Verificați mesajele „Țintă găsită” din jurnalul de depanare.
+2. Verificați mesajele „Țintă găsită” în jurnalul de depanare.
 3. Verificați calitatea imaginii țintei.
 4. Reprocesați cu țintele marcate corespunzător.
 
@@ -148,7 +148,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 ## Utilizarea imaginilor procesate
 
-### Pentru fotogrammetrie / creare ortomosaic
+### Pentru fotogrammetrie / crearea ortomosaicului
 
 **Flux de lucru recomandat:**
 
@@ -159,7 +159,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
    * WebODM
 2. **Păstrați metadatele EXIF**: asigurați-vă că datele GPS sunt păstrate pentru geotagging
 3. **Fluxuri de lucru calibrate**: utilizați imagini de reflectanță pentru acuratețe științifică
-4. **Procesați mozaicuri indexate**: Creați ortomosaicuri NDVI din imagini index individuale
+4. **Procesați mozaicurile indexate**: creați ortomozaicuri NDVI din imagini indexate individuale
 5. **Exportați GeoTIFF georeferențiat**: pentru utilizare în aplicații GIS
 
 ### Pentru analiza GIS
@@ -167,19 +167,19 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 **Flux de lucru recomandat:**
 
 1. **Încărcați în QGIS, ArcGIS sau similar**
-2. **Utilizați imagini de reflectanță TIFF pe 16 biți** pentru analiza multibandă
+2. **Utilizați imagini de reflexie TIFF** pe 16 biți pentru analiza multibandă
 3. **Utilizați imagini index** (NDVI, NDRE) ca straturi de vegetație gata de utilizare
-4. **Calculator raster**: Combinați benzi pentru analize personalizate
+4. **Calculator raster**: combinați benzile pentru analize personalizate
 5. **Export**: creați hărți de clasificare, detectați modificările, creați hărți ale stării vegetației
 
-### Pentru analiză directă / raportare
+### Pentru analiză directă/raportare
 
 **Flux de lucru recomandat:**
 
 1. **Utilizați imagini index cu culori LUT** pentru rapoarte vizuale
-2. **Extrageți statistici**: media NDVI pe câmp/parcelă
-3. **Seriile temporale**: comparați indicii între mai multe sesiuni
-4. **Generați rapoarte**: includeți hărți, statistici și vizualizări
+2. **Extrageți statistici**: Media NDVI pe câmp/parcelă
+3. **Seriile temporale**: Comparați indicii între mai multe sesiuni
+4. **Generați rapoarte**: Includeți hărți, statistici și vizualizări
 
 ***
 
@@ -221,14 +221,14 @@ Pentru mai multe sesiuni/seturi de date:
 **Opțiunea 1: GUI - Proiecte multiple**
 
 * Creați un proiect separat pentru fiecare sesiune
-* Utilizați setări de șablon consecvente
+* Utilizați setări consistente ale șablonului
 * Procesați câte unul pe rând
 
 **Opțiunea 2: Chloros CLI (numai Chloros+)**
 
 * Automatizați procesarea în lot
-* Procesați mai multe foldere cu scripturi
-* Consultați [Documentația CLI](../CLI.md)
+* Procesează mai multe foldere cu scripturi
+* Vezi [Documentația CLI](../CLI.md)
 
 **Opțiunea 3: Python SDK (numai Chloros+)**
 

@@ -9,8 +9,8 @@ Marcarea imaginilor care conțin ținte de calibrare este un pas crucial care ac
 Fără marcarea imaginilor țintă, Chloros trebuie să:
 
 * Scaneze fiecare imagine din proiectul dvs.
-* Ruleze algoritmi de detectare a țintelor pe fiecare imagine
-* Verifice inutil sute sau mii de imagini
+* Rula algoritmi de detectare a țintelor pe fiecare imagine
+* Verifice sute sau mii de imagini în mod inutil
 
 **Rezultat**: Procesarea poate dura mult mai mult, în special pentru seturi de date mari.
 
@@ -46,7 +46,7 @@ Răsfoiți imaginile importate în File Browser și identificați imaginile care
 Pentru fiecare imagine care conține o țintă de calibrare:
 
 1. Localizați imaginea în tabelul File Browser (Browser fișiere)
-2. Găsiți coloana **Țintă** (coloana din extrema dreaptă)
+2. Găsiți coloana **Țintă** (coloana din dreapta)
 3. Bifați caseta de selectare din coloana Țintă pentru imaginea respectivă
 4. Repetați pentru toate imaginile care conțin ținte
 
@@ -62,7 +62,7 @@ Pentru fiecare imagine care conține o țintă de calibrare:
 
 ## Cele mai bune practici pentru imaginile țintă
 
-### Instrucțiuni de captare a țintelor
+### Linii directoare pentru captarea țintelor
 
 **Momentul:**
 
@@ -200,7 +200,7 @@ Dacă Chloros nu detectează corect țintele, reglați aceste setări în [Setă
 Deși nu este recomandat pentru lucrări științifice, puteți procesa fără ținte:
 
 1. Lăsați toate casetele de selectare din coloana Țintă debifate
-2. **Dezactivați** „Calibrarea reflectanței” în Setările proiectului
+2. **Dezactivați** „Calibrarea reflectanței” în Setări proiect
 3. Corecția vignetării va fi în continuare aplicată
 4. Rezultatul nu va fi calibrat pentru reflectanța absolută
 

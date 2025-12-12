@@ -1,10 +1,10 @@
 # Monitorizarea procesării
 
-Odată ce procesarea a început, Chloros oferă mai multe modalități de a monitoriza progresul, de a verifica eventualele probleme și de a înțelege ce se întâmplă cu setul dvs. de date. Această pagină explică cum să urmăriți procesarea și să interpretați informațiile furnizate de Chloros.
+Odată ce procesarea a început, Chloros oferă mai multe modalități de a monitoriza progresul, de a verifica eventualele probleme și de a înțelege ce se întâmplă cu setul dvs. de date. Această pagină explică modul în care puteți urmări procesarea și interpreta informațiile furnizate de Chloros.
 
 ## Prezentare generală a barei de progres
 
-Bara de progres din antetul superior afișează starea procesării în timp real și procentajul de finalizare.
+Bara de progres din antetul superior afișează starea procesării în timp real și procentul de finalizare.
 
 ### Bara de progres în modul gratuit
 
@@ -37,7 +37,7 @@ Pentru utilizatorii cu licență Chloros+:
 * **Treceți cu mouse-ul peste** bara de progres pentru a vedea panoul extins în 4 etape
 * **Faceți clic** pe bara de progres pentru a îngheța/fixa panoul extins
 * **Faceți clic din nou** pentru a dezgheța și a ascunde automat la îndepărtarea mouse-ului
-* Fiecare etapă afișează progresul individual (0-100%)
+* Fiecare etapă arată progresul individual (0-100%)
 
 ***
 
@@ -69,7 +69,7 @@ Pentru utilizatorii cu licență Chloros+:
 * Dacă durează prea mult, este posibil ca țintele să nu fie marcate
 * Verificați jurnalul de depanare pentru mesajele „Țintă găsită”
 
-### Etapa 2: Analiza
+### Etapa 2: Analizare
 
 **Ce se întâmplă:**
 
@@ -83,12 +83,12 @@ Pentru utilizatorii cu licență Chloros+:
 **Indicator de progres:**
 
 * Analizare: 0% → 100%
-* Etapă rapidă, de obicei finalizată rapid
+* Etapă rapidă, de obicei se finalizează rapid
 
 **Ce trebuie urmărit:**
 
 * Ar trebui să progreseze constant, fără pauze
-* Avertismente privind metadatele lipsă vor apărea în jurnalul de depanare
+* Avertismente despre metadate lipsă vor apărea în jurnalul de depanare
 
 ### Etapa 3: Calibrare
 
@@ -96,7 +96,7 @@ Pentru utilizatorii cu licență Chloros+:
 
 * **Debayering**: Conversia modelului RAW Bayer în 3 canale
 * **Corectarea vignetării**: eliminarea întunecării marginilor obiectivului
-* **Calibrarea reflectanței**: normalizarea cu valori țintă
+* **Calibrarea reflectanței**: normalizarea cu valorile țintă
 * **Calcularea indicelui**: calcularea indicilor multispectrali
 * Procesarea fiecărei imagini prin intermediul întregului proces
 
@@ -105,7 +105,7 @@ Pentru utilizatorii cu licență Chloros+:
 **Indicator de progres:**
 
 * Calibrare: 0% → 100%
-* Imaginea curentă este procesată
+* Imaginea curentă în curs de procesare
 * Imagini finalizate / Total imagini
 
 **Comportament de procesare:**
@@ -179,7 +179,7 @@ Probleme necritice care nu opresc procesarea:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Acțiune:** Examinați avertismentele după procesare, dar nu întrerupeți procesul.
+**Acțiune:** Examinați avertismentele după procesare, dar nu întrerupeți procesarea.
 
 #### Mesaje de eroare (Red)
 
@@ -241,9 +241,9 @@ Pentru a copia jurnalul în scopul depanării sau asistenței:
 
 **Utilizare tipică:**
 
-* Proiecte mici (&lt; 100 de imagini): 2-4 GB
-* Proiecte medii (100-500 de imagini): 4-8 GB
-* Proiecte mari (peste 500 de imagini): 8-16 GB
+* Proiecte mici (&lt; 100 imagini): 2-4 GB
+* Proiecte medii (100-500 imagini): 4-8 GB
+* Proiecte mari (peste 500 imagini): 8-16 GB
 * Chloros+ modul paralel utilizează mai multă memorie RAM
 
 **Dacă memoria este insuficientă:**
@@ -286,7 +286,7 @@ Când accelerarea GPU este activată:
 
 ### Semne de avertizare
 
-**Progresul se blochează (nicio modificare timp de peste 5 minute):**
+**Progresul se blochează (nu se înregistrează nicio modificare timp de peste 5 minute):**
 
 * Verificați jurnalul de depanare pentru erori
 * Verificați spațiul disponibil pe disc
@@ -309,7 +309,7 @@ Când accelerarea GPU este activată:
 Opriți procesarea dacă observați:
 
 * ❌ Erori „Disk full” (Disc plin) sau „Cannot write file” (Nu se poate scrie fișierul)
-* ❌ Erori repetate de corupție a fișierelor imagine
+* ❌ Erori repetate de corupere a fișierelor imagine
 * ❌ Sistem complet blocat (nu răspunde)
 * ❌ S-a constatat că au fost configurate setări greșite
 * ❌ Au fost importate imagini greșite

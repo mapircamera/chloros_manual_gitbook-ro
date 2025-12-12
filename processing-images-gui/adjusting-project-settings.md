@@ -1,234 +1,234 @@
-# Adjusting Project Settings
+# Reglarea setărilor proiectului
 
-Before processing your images, it's important to configure your project settings to match your workflow requirements. The Project Settings <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> panel provides comprehensive control over calibration, processing options, multispectral indices, and export formats.
+Înainte de a procesa imaginile, este important să configurați setările proiectului pentru a se potrivi cerințelor fluxului de lucru. Panoul Setări proiect <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> oferă un control complet asupra calibrării, opțiunilor de procesare, indicilor multispectrali și formatelor de export.
 
-## Accessing Project Settings
+## Accesarea setărilor proiectului
 
-1. Open your project in Chloros
-2. Click the **Project Settings** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> icon in the left sidebar
-3. The Project Settings panel displays all configuration options
+1. Deschideți proiectul în Chloros
+2. Faceți clic pe pictograma **Setări proiect** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> din bara laterală din stânga
+3. Panoul Setări proiect afișează toate opțiunile de configurare
 
-{% hint style="info" %}
-**Settings are saved automatically** with your project. When you reopen a project, all settings are restored.
+{% hint style=&quot;info&quot; %}
+**Setările sunt salvate automat** împreună cu proiectul. Când redeschideți un proiect, toate setările sunt restaurate.
 {% endhint %}
 
 ***
 
-## Quick Setup for Common Workflows
+## Configurare rapidă pentru fluxuri de lucru obișnuite
 
-### Default Settings (Recommended for Most Users)
+### Setări implicite (recomandate pentru majoritatea utilizatorilor)
 
-For typical MAPIR Survey3 camera workflows, the default settings work well:
+Pentru fluxurile de lucru tipice ale camerei MAPIR Survey3, setările implicite funcționează bine:
 
-* ✅ **Vignette correction**: Enabled
-* ✅ **Reflectance calibration**: Enabled (requires images of MAPIR targets)
-* ✅ **Debayer method**: High Quality (Faster)
-* ✅ **Export format**: TIFF (16-bit)
+* ✅ **Corectarea vignetării**: Activată
+* ✅ **Calibrarea reflectanței**: Activată (necesită imagini ale țintelor MAPIR)
+* ✅ **Metoda Debayer**: Calitate înaltă (mai rapidă)
+* ✅ **Format de export**: TIFF (16 biți)
 
-Simply import your images and start processing with these defaults.
+Pur și simplu importați imaginile și începeți procesarea cu aceste setări implicite.
 
 ***
 
-## Project Settings Overview
+## Prezentare generală a setărilor proiectului
 
-The Project Settings panel is organized into several categories. Below is a summary of each section. For complete documentation, see [Project Settings](../project-settings/project-settings.md).
+Panoul Setări proiect este organizat în mai multe categorii. Mai jos găsiți un rezumat al fiecărei secțiuni. Pentru documentația completă, consultați [Setări proiect](../project-settings/project-settings.md).
 
-### Target Detection
+### Detectarea țintelor
 
-Controls how Chloros identifies calibration targets in your images.
+Controlează modul în care Chloros identifică țintele de calibrare din imaginile dvs.
 
-**Key settings:**
+**Setări cheie:**
 
-* **Minimum calibration sample area**: Size threshold for target detection (default: 25 pixels)
-* **Minimum target clustering**: Similarity threshold for grouping target regions (default: 60)
+* **Suprafață minimă de eșantionare pentru calibrare**: pragul de dimensiune pentru detectarea țintelor (implicit: 25 pixeli)
+* **Grupare minimă a țintelor**: pragul de similitudine pentru gruparea regiunilor țintă (implicit: 60)
 
-**When to adjust:**
+**Când se ajustează:**
 
-* Increase sample area if getting false detections
-* Decrease if targets aren't being detected
-* Adjust clustering if targets are being split into multiple detections
+* Măriți suprafața de eșantionare dacă obțineți detectări false.
+* Micșorați-o dacă țintele nu sunt detectate.
+* Ajustați gruparea dacă țintele sunt împărțite în mai multe detectări.
 
-### Processing
+### Procesare
 
-Main image processing and calibration options.
+Opțiuni principale de procesare și calibrare a imaginii.
 
-**Key settings:**
+**Setări cheie:**
 
-* **Vignette correction**: Compensates for lens darkening at edges ✅ Recommended
-* **Reflectance calibration**: Normalizes values using calibration targets ✅ Recommended
-* **Debayer method**: Algorithm for converting RAW to 3-channels multi-spectral
-* **Minimum recalibration interval**: Time between using calibration targets (0 = use all)
+* **Corecție vignetă**: Compensează întunecarea lentilelor la margini ✅ Recomandat
+* **Calibrare reflectanță**: Normalizează valorile utilizând ținte de calibrare ✅ Recomandat
+* **Metoda Debayer**: Algoritm pentru conversia RAW în multispectral cu 3 canale
+* **Interval minim de recalibrare**: Timpul dintre utilizarea țintelor de calibrare (0 = utilizează toate)
 
-**Advanced settings:**
+**Setări avansate:**
 
-* **Light sensor timezone offset**: For PPK time synchronization (default: 0)
-* **Apply PPK corrections**: Uses GPS/exposure pin data from .daq files
-* **Exposure Pin 1/2**: Assigns cameras to exposure pins for dual-camera setups
+* **Decalaj fus orar senzor de lumină**: Pentru sincronizarea orei PPK (implicit: 0)
+* **Aplică corecții PPK**: Utilizează datele GPS/pin de expunere din fișierele .daq
+* **Pin de expunere 1/2**: Alocă camerele pinilor de expunere pentru configurații cu două camere
 
-### Index (Multispectral Indices)
+### Index (Indici multispectrali)
 
-Configure which vegetation indices to calculate and export.
+Configurați indicii de vegetație care trebuie calculați și exportați.
 
-**How to add indices:**
+**Cum se adaugă indici:**
 
-1. Click **"Add index"** button
-2. Select an index from the dropdown menu (NDVI, NDRE, GNDVI, etc.)
-3. Configure visualization settings (LUT colors, value ranges)
-4. Add multiple indices as needed
+1. Faceți clic pe butonul **„Adăugați index”**
+2. Selectați un indice din meniul derulant (NDVI, NDRE, GNDVI etc.)
+3. Configurați setările de vizualizare (culori LUT, intervale de valori)
+4. Adăugați mai mulți indici, după cum este necesar
 
-**Popular indices:**
+**Indici populari:**
 
-* **NDVI**: General vegetation health (most common)
-* **NDRE**: Early stress detection with RedEdge
-* **GNDVI**: Chlorophyll concentration sensitive
-* **OSAVI**: Works well with visible soil
-* **EVI**: High leaf area index (LAI) regions
+* **NDVI**: Starea generală de sănătate a vegetației (cel mai frecvent)
+* **NDRE**: Detectarea timpurie a stresului cu RedEdge
+* **GNDVI**: Sensibil la concentrația de clorofilă
+* **OSAVI**: Funcționează bine cu solul vizibil
+* **EVI**: Regiuni cu indice ridicat al suprafeței frunzelor (LAI)
 
-**Custom formulas (Chloros+ only):**
+**Formule personalizate (numai Chloros+):**
 
-* Create custom multispectral index formulas
-* Use band math with all image channels
-* Save custom formulas for reuse
+* Creați formule personalizate pentru indici multispectrali
+* Utilizați matematica de bandă cu toate canalele de imagine
+* Salvați formulele personalizate pentru reutilizare
 
-For all available indices and formulas, see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md).
+Pentru toți indicii și formulele disponibile, consultați [Formule pentru indici multispectrali](../project-settings/multispectral-index-formulas.md).
 
 ### Export
 
-Controls output file format and quality.
+Controlează formatul și calitatea fișierului de ieșire.
 
-**Available formats:**
+**Formate disponibile:**
 
-* **TIFF (16-bit)**: Recommended for GIS and scientific analysis (0-65,535 range)
-* **TIFF (32-bit, Percent)**: Floating-point reflectance values (0.0-1.0 range)
-* **PNG (8-bit)**: Lossless compression for visualization (0-255 range)
-* **JPG (8-bit)**: Smallest files, lossy compression (0-255 range)
-
-***
-
-## Saving and Loading Settings
-
-### Save Project Template
-
-Create reusable templates for consistent workflows:
-
-1. Configure all desired settings in the Project Settings panel
-2. Scroll to **"Save Project Template"** section at the bottom
-3. Enter a descriptive template name (e.g., "Survey3N\_RGN\_Agriculture")
-4. Click the save icon
-
-**Benefits:**
-
-* Apply identical settings across multiple projects
-* Share configurations with team members
-* Maintain consistency for repeated surveys
-
-### Load Template on New Project
-
-When creating a new project:
-
-1. Select **"New Project"** from main menu
-2. Choose **"Load from template"** option
-3. Select your saved template
-4. All settings are automatically applied
-
-### Working Directory
-
-The **"Save Project Folder"** setting specifies where new projects are created by default:
-
-* **Default location**: `C:\Users\[Username]\Chloros Projects`
-* **Change location**: Click edit icon and select new folder
-* **When to change**:
-  * Network drive for team collaboration
-  * Different drive with more storage space
-  * Organized folder structure by year/client
+* **TIFF (16 biți)**: Recomandat pentru GIS și analize științifice (interval 0-65.535)
+* **TIFF (32 biți, procent)**: Valori de reflexie în virgulă mobilă (interval 0,0-1,0)
+* **PNG (8 biți)**: compresie fără pierderi pentru vizualizare (interval 0-255)
+* **JPG (8 biți)**: fișiere de dimensiuni reduse, compresie cu pierderi (interval 0-255)
 
 ***
 
-## PPK (Post-Processed Kinematic) Setup
+## Salvarea și încărcarea setărilor
 
-If using MAPIR DAQ recorders with GPS for precise geolocation:
+### Salvarea șablonului de proiect
 
-### Prerequisites
+Creați șabloane reutilizabile pentru fluxuri de lucru consecvente:
 
-* MAPIR DAQ with GPS (GNSS) module
-* .daq log file with exposure pin entries
-* Camera connected to DAQ exposure pins during capture session
+1. Configurați toate setările dorite în panoul Setări proiect.
+2. Derulați până la secțiunea **„Salvare șablon proiect”** din partea de jos.
+3. Introduceți un nume descriptiv pentru șablon (de exemplu, „Survey3N\_RGN\_Agriculture”).
+4. Faceți clic pe pictograma de salvare.
 
-### Configuration Steps
+**Avantaje:**
 
-1. Place the .daq log file in your project folder
-2. In Project Settings, enable **"Apply PPK corrections"** checkbox
-3. Set **"Light sensor timezone offset"** if needed (default: 0 for UTC)
-4. Assign cameras to exposure pins:
-   * **Single camera**: Automatically assigned to Pin 1
-   * **Dual cameras**: Manually assign each camera to correct pin
+* Aplicați setări identice pentru mai multe proiecte
+* Partajați configurațiile cu membrii echipei
+* Mențineți consecvența pentru sondajele repetate
 
-**Exposure Pin Assignment:**
+### Încărcarea șablonului într-un proiect nou
 
-* **Exposure Pin 1**: Select camera model from dropdown
-* **Exposure Pin 2**: Select second camera or "Do Not Use"
-* Same camera cannot be assigned to both pins
+Când creați un proiect nou:
 
-{% hint style="warning" %}
-**Important**: Exposure pins must be correctly assigned to their respective cameras. Incorrect assignment will result in wrong geolocation data.
+1. Selectați **„Proiect nou”** din meniul principal
+2. Alegeți opțiunea **„Încărcare din șablon”**
+3. Selectați șablonul salvat
+4. Toate setările sunt aplicate automat
+
+### Director de lucru
+
+Setarea **„Salvare folder proiect”** specifică locul în care sunt create implicit proiectele noi:
+
+* **Locație implicită**: `C:\Users\[Username]\Chloros Projects`
+* **Schimbare locație**: Faceți clic pe pictograma de editare și selectați un folder nou
+* **Când să schimbați**:
+  * Unitate de rețea pentru colaborarea în echipă
+  * Unitate diferită cu mai mult spațiu de stocare
+  * Structură de foldere organizată pe ani/clienți
+
+***
+
+## Configurare PPK (cinematică post-procesată)
+
+Dacă utilizați înregistratoare DAQ MAPIR cu GPS pentru geolocalizare precisă:
+
+### Cerințe preliminare
+
+* DAQ MAPIR cu modul GPS (GNSS)
+* Fișier jurnal .daq cu intrări pentru pini de expunere
+* Cameră conectată la pinii de expunere DAQ în timpul sesiunii de captură
+
+### Pași de configurare
+
+1. Plasați fișierul jurnal .daq în folderul proiectului
+2. În Setări proiect, bifați caseta **„Aplicați corecții PPK”**
+3. Setați **„Decalaj fus orar senzor de lumină”** dacă este necesar (implicit: 0 pentru UTC)
+4. Alocați camerele la pinii de expunere:
+   * **Cameră unică**: Alocată automat pinului 1
+   * **Două camere**: Alocați manual fiecare cameră pinului corect
+
+**Alocarea pinilor de expunere:**
+
+* **Pin de expunere 1**: Selectați modelul camerei din meniul derulant
+* **Pin de expunere 2**: Selectați a doua cameră sau „Nu utilizați”
+* Aceeași cameră nu poate fi alocată ambelor pini
+
+{% hint style=&quot;warning&quot; %}
+**Important**: Pinii de expunere trebuie alocați corect camerelor respective. Alocarea incorectă va duce la date de geolocalizare eronate.
 {% endhint %}
 
 ***
 
-## Advanced Scenarios
+## Scenarii avansate
 
-### Multi-Camera Projects
+### Proiecte cu mai multe camere
 
-When processing images from multiple MAPIR cameras in one project:
+Când procesați imagini de la mai multe camere MAPIR într-un singur proiect:
 
-1. Chloros automatically detects each camera model
-2. Each camera gets appropriate processing profile
-3. PPK: Manually assign each camera to correct exposure pin
-4. All cameras use same export format and indices
+1. Chloros detectează automat fiecare model de cameră
+2. Fiecare cameră primește profilul de procesare adecvat
+3. PPK: atribuiți manual fiecărei camere pinul de expunere corect
+4. Toate camerele utilizează același format de export și indici
 
-**Example**: Survey3W RGN + Survey3N OCN dual-camera rig
+**Exemplu**: Survey3W RGN + Survey3N OCN platformă cu două camere
 
-### Time-Lapse or Multi-Date Surveys
+### Studii time-lapse sau multi-date
 
-For repeated surveys of the same area over time:
+Pentru studii repetate ale aceleiași zone în timp:
 
-1. Create a template with your standard settings
-2. Use consistent calibration target setup each session
-3. Process each date as a separate project
-4. Use identical settings for comparable results
-5. Export in same format for temporal analysis
+1. Creați un șablon cu setările standard
+2. Utilizați o configurare consistentă a țintei de calibrare pentru fiecare sesiune
+3. Procesați fiecare dată ca un proiect separat
+4. Utilizați setări identice pentru rezultate comparabile
+5. Exportați în același format pentru analiză temporală
 
-### Large Datasets
+### Seturi de date mari
 
-For projects with many images (500+):
+Pentru proiecte cu multe imagini (500+):
 
-* Consider breaking into smaller projects by date or area
-* Use Chloros+ parallel processing for faster results
-* Consider CLI or API for batch automation
-* Adjust minimum recalibration interval to reduce target detection time
-
-***
-
-## Verifying Your Settings
-
-Before starting to process, review these key settings:
-
-* [ ] Camera model correctly detected in File Browser
-* [ ] Vignette correction enabled
-* [ ] Reflectance calibration enabled
-* [ ] At least one calibration target image imported
-* [ ] Desired multispectral indices added
-* [ ] Export format appropriate for your workflow
-* [ ] PPK settings configured (if using .daq with expposure events)
+* Luați în considerare împărțirea în proiecte mai mici, în funcție de dată sau zonă
+* Utilizați procesarea paralelă Chloros+ pentru rezultate mai rapide
+* Luați în considerare CLI sau API pentru automatizarea loturilor
+* Reglați intervalul minim de recalibrare pentru a reduce timpul de detectare a țintei
 
 ***
 
-## Next Steps
+## Verificarea setărilor
 
-Once your settings are configured:
+Înainte de a începe procesarea, verificați aceste setări cheie:
 
-1. **Mark calibration target images** - See [Choosing Target Images](choosing-target-images.md)
-2. **Start processing** - See [Starting the Processing](starting-the-processing.md)
-3. **Monitor progress** - See [Monitoring the Processing](monitoring-the-processing.md)
+* [ ] Modelul camerei detectat corect în File Browser
+* [ ] Corecția vignetării activată
+* [ ] Calibrarea reflectanței activată
+* [ ] Cel puțin o imagine țintă de calibrare importată
+* [ ] Indicii multispectrali doriti adăugați
+* [ ] Format de export adecvat pentru fluxul dvs. de lucru
+* [ ] Setări PPK configurate (dacă utilizați .daq cu evenimente de expunere)
 
-For complete details on all available settings, see the [Project Settings](../project-settings/project-settings.md) reference documentation.
+***
+
+## Pași următori
+
+Odată ce setările sunt configurate:
+
+1. **Marcați imaginile țintă de calibrare** - Consultați [Alegerea imaginilor țintă](choosing-target-images.md)
+2. **Începeți procesarea** - Consultați [Începerea procesării](starting-the-processing.md)
+3. **Monitorizați progresul** - Consultați [Monitorizarea procesării](monitoring-the-processing.md)
+
+Pentru detalii complete despre toate setările disponibile, consultați documentația de referință [Setări proiect](../project-settings/project-settings.md).
