@@ -1171,4 +1171,70 @@ pip install --upgrade chloros-sdk
 
 ### Î: Unde sunt salvate imaginile procesate?
 
-În mod impli
+În mod implicit, în calea proiectului:
+
+```
+Project_Path/
+└── MyProject/
+    └── Survey3N_RGN/          # Processed outputs
+```
+
+***
+
+### Î: Pot procesa imagini din scripturile Python care rulează conform programului?
+
+**R:** Da! Utilizați Windows Task Scheduler cu scripturile Python:
+
+```python
+# scheduled_processing.py
+from chloros_sdk import process_folder
+
+# Process today's flights
+results = process_folder("C:\\Flights\\Today")
+```
+
+Programați prin Task Scheduler să ruleze zilnic.
+
+***
+
+### Î: SDK acceptă async/await?
+
+**R:** Versiunea actuală este sincronă. Pentru comportament asincron, utilizați `wait=False` sau rulați într-un thread separat:
+
+```python
+import threading
+
+def process_thread():
+    chloros.process()
+
+thread = threading.Thread(target=process_thread)
+thread.start()
+
+# Continue with other work...
+```
+
+***
+
+## Obținerea de ajutor
+
+### Documentație
+
+* **Referință API**: această pagină
+
+### Canale de asistență
+
+* **E-mail**: info@mapir.camera
+* **Site web**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* **Prețuri**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
+
+### Cod de exemplu
+
+Toate exemplele enumerate aici sunt testate și gata de producție. Copiați-le și adaptați-le pentru cazul dvs. de utilizare.
+
+***
+
+## Licență
+
+**Software proprietar** - Copyright (c) 2025 MAPIR Inc.
+
+SDK necesită un abonament activ Chloros+. Utilizarea, distribuirea sau modificarea neautorizată este interzisă.

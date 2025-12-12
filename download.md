@@ -37,7 +37,7 @@ Descărcați cea mai recentă versiune a Chloros pentru Windows pentru a începe
 * **Versiune**: 1.0.3
 * **Data lansării**: decembrie ?, 2025
 * **Dimensiune fișier**: 1,6 GB
-* **Tip fișier**: .exe (program de instalare Windows)
+* **Tip fișier**: .exe (Instalator Windows)
 
 #### **Pași de instalare:**
 
@@ -82,13 +82,13 @@ Instalarea Chloros include:
 
 ***
 
-## Treceți la Chloros+
+## Actualizați la Chloros+
 
 Deblocați funcții avansate cu un abonament Chloros+:
 
 * 🚀 **Procesare multi-threaded** - Procesați imagini în paralel
 * ⚡ **Accelerare GPU (CUDA)** - Profitați de puterea GPU NVIDIA
-* 💻 **Acces CLI** - Automatizați cu instrumente de linie de comandă
+* 💻 **CLI Access** - Automatizați cu instrumente de linie de comandă
 * 🐍 **Python SDK** - Acces programatic API
 * 📱 **Dispozitive multiple** - Utilizați pe 2-10+ dispozitive (în funcție de plan)
 * 🧮 **Formule personalizate** - Creați indici multispectrali personalizați

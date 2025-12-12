@@ -1,13 +1,13 @@
 # CLI : Linie de comandă
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** oferă acces puternic prin linia de comandă la motorul de procesare a imaginilor Chloros, permițând automatizarea, scriptarea și operarea fără monitor pentru fluxurile de lucru de imagistică.
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** oferă acces puternic prin linie de comandă la motorul de procesare a imaginilor Chloros, permițând automatizarea, scriptarea și operarea fără monitor pentru fluxurile de lucru de imagistică.
 
 ### Caracteristici cheie
 
-* 🚀 **Automatizare** - Procesare script batch a mai multor seturi de date
-* 🔗 **Integrare** - Încorporare în fluxurile de lucru și pipeline-urile existente
+* 🚀 **Automatizare** - Procesare în lot a mai multor seturi de date
+* 🔗 **Integrare** - Încorporare în fluxurile de lucru și conductele existente
 * 💻 **Funcționare fără interfață grafică** - Funcționare fără GUI
-* 🌍 **Multi-limbă** - Suport pentru 38 de limbi
+* 🌍 **Multilingv** - Suport pentru 38 de limbi
 * ⚡ **Procesare paralelă** - Se adaptează dinamic la CPU-ul dvs. (până la 16 procesoare paralele)
 
 ### Cerințe
@@ -313,9 +313,9 @@ chloros-cli set-project-folder "C:\Projects\2025"
 
 ***
 
-### `get-project-folder` - Afișare folder proiect
+### `get-project-folder` - Afișează folderul proiectului
 
-Afișează locația curentă a folderului proiect implicit.
+Afișează locația curentă a folderului proiectului implicit.
 
 **Sintaxă:**
 
@@ -395,13 +395,13 @@ Chloros+ CLI **scalează automat** procesarea paralelă pentru a se potrivi cu c
 
 ### Metode Debayer
 
-CLI utilizează **High Quality (Faster)** (Calitate înaltă (mai rapid)) ca algoritm Debayer implicit și recomandat:
+CLI utilizează **High Quality (Faster)** ca algoritm debayer implicit și recomandat:
 
 | Metodă                      | Calitate | Viteză | Descriere                                 |
 | --------------------------- | ------- | ----- | ------------------------------------------- |
-| **Calitate înaltă (mai rapidă)** ⭐ | ⭐⭐⭐⭐    | ⚡⚡⚡   | Algoritm sensibil la margini (implicit, recomandat) |
+| **Calitate înaltă (mai rapid)** ⭐ | ⭐⭐⭐⭐    | ⚡⚡⚡   | Algoritm sensibil la margini (implicit, recomandat) |
 
-### Corecție vignetă
+### Corecție vignette
 
 **Ce face:** Corectează scăderea luminii la marginile imaginii (colțurile mai întunecate frecvente în imaginile capturate de cameră).
 
@@ -466,7 +466,7 @@ Write-Host "All datasets processed!" -ForegroundColor Green
 
 ### Windows Script în lot
 
-Buclă simplă pentru procesare în lot:
+Buclă simplă pentru procesarea în lot:
 
 ```batch
 @echo off
@@ -823,7 +823,7 @@ Imaginile parțial procesate pot rămâne în folderul de ieșire.
 chloros-cli --version
 ```
 
-**Ieșire:**
+**Rezultat:**
 
 ```
 Chloros CLI 1.0.2
@@ -895,7 +895,7 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ### Exemplul 4: Procesare corectată PPK
 
-Aplicarea corecțiilor PPK cu reflectanță:
+Aplicați corecții PPK cu reflectanță:
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -907,7 +907,7 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ### Exemplul 5: Locație de ieșire personalizată
 
-Procesare pe un alt drive cu format specific:
+Procesați pe o unitate diferită cu format specific:
 
 ```powershell
 chloros-cli process "C:\Input\Raw_Images" ^

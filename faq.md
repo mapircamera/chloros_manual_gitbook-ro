@@ -33,7 +33,7 @@ Nu. Chloros presupune că datele de intrare nu au fost modificate. Nu modificaț
 
 <details>
 
-<summary>Pot seta camerele MAPIR Survey3 pe expunere automată și să procesez imaginile în Chloros?</summary>
+<summary>Pot seta camerele MAPIR Survey3 la expunere automată și pot procesa imaginile în Chloros?</summary>
 
 Nu. Seturile de date de imagini Survey3 trebuie să aibă o expunere fixă/blocată, deci fără viteză automată a obturatorului sau ISO automat. Toate imaginile de la același model de cameră trebuie să aibă viteza obturatorului și ISO (expunerea) identice.
 
@@ -41,7 +41,7 @@ Nu. Seturile de date de imagini Survey3 trebuie să aibă o expunere fixă/bloca
 
 <details>
 
-<summary>Chloros poate procesa sau analiza imagini ortomozaice?</summary>
+<summary>Chloros poate procesa sau analiza imagini ortomosaice?</summary>
 
 Nu. Sunt acceptate numai imaginile individuale ale camerei MAPIR, nu imaginile asamblate, cum ar fi o hartă ortomosaică.
 
@@ -57,7 +57,7 @@ Nu. Sunt acceptate numai imaginile individuale ale camerei MAPIR, nu imaginile a
 
 <details>
 
-<summary>Dacă voi încărca imaginile în <a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud,</a> ar trebui să le procesez în Chloros înainte de încărcare?</summary>
+<summary>Dacă voi încărca imaginile mele în <a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud,</a> ar trebui să le procesez în Chloros înainte de încărcare?</summary>
 
 Dacă intenționați să încărcați pe platforma noastră de procesare online [MAPIR Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), nu editați imaginile înainte de încărcare. Cloud va efectua aceeași procesare și multe altele.
 
