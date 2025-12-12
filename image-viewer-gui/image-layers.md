@@ -6,12 +6,12 @@ Meniul derulant Straturi de imagine din vizualizatorul de imagini Chloros vă pe
 
 În Chloros, **straturile** se referă la diferitele ieșiri de imagine disponibile pentru o singură imagine sursă. Când procesați imagini, Chloros creează mai multe versiuni:
 
-* **Imagini originale** (fișiere JPG și RAW de pe camera dvs.)
+* **Imagini originale** (fișiere JPG și RAW de la camera dvs.)
 * Rezultate **calibrate în funcție de reflectanță** (dacă calibrarea reflectanței a fost activată)
 * **Imagini țintă** (dacă imaginea conține ținte de calibrare)
 * **Imagini index** (NDVI, NDRE, GNDVI etc., dacă au fost configurate indexuri)
 
-**Meniul derulant Layer Selector** din partea dreaptă sus a Image Viewer vă permite să comutați instantaneu între aceste versiuni fără a părăsi vizualizatorul.
+**Meniul derulant Selector de straturi** din partea dreaptă sus a vizualizatorului de imagini vă permite să comutați instantaneu între aceste versiuni fără a părăsi vizualizatorul.
 
 ***
 
@@ -19,22 +19,22 @@ Meniul derulant Straturi de imagine din vizualizatorul de imagini Chloros vă pe
 
 ### JPG
 
-* Imaginea JPG originală de previzualizare din camera dvs. foto
+* Imaginea JPG originală de previzualizare de pe camera dvs.
 * Disponibilă întotdeauna pentru toate imaginile
 * Neprelucrată, așa cum a fost capturată de cameră
 * Cea mai rapidă de încărcat și afișat
 
-**Când să vizualizați:**
+**Când să o vizualizați:**
 
 * Previzualizare rapidă a capturii originale
 * Verificarea compoziției și încadrării imaginii
-* Verificarea calității capturii înainte de procesare
+* Verificarea calității capturii înainte de prelucrare
 
 ### RAW (Original)
 
-* Datele originale RAW ale senzorului din camera dvs.
+* Datele originale RAW ale senzorului de pe camera dvs.
 * Debayered fără aplicarea post-procesării
-* Adâncime de biți mai mare decât JPG (de obicei, date ale senzorului de 12 biți sau 14 biți)
+* Adâncime de biți mai mare decât JPG (de obicei date ale senzorului de 12 biți sau 14 biți)
 
 **Când să vizualizați:**
 
@@ -42,7 +42,7 @@ Meniul derulant Straturi de imagine din vizualizatorul de imagini Chloros vă pe
 * Verificarea problemelor senzorului sau a artefactelor
 * Compararea rezultatelor înainte/după procesare
 
-### RAW (țintă)
+### RAW (Țintă)
 
 * Apare numai pentru imaginile identificate ca conținând ținte de calibrare
 * Afișează imaginea RAW originală cu ținta detectată
@@ -60,14 +60,14 @@ Meniul derulant Straturi de imagine din vizualizatorul de imagini Chloros vă pe
 
 ### RAW (Reflectanță)
 
-* Imaginea de ieșire calibrată a reflectanței
-* Vignette corectată (dacă este activată în procesare)
+* Imaginea de ieșire cu reflectanță calibrată
+* Vignetă corectată (dacă este activată în procesare)
 * Reflectanță calibrată folosind date țintă (dacă este activată)
-* Multi-band TIFF cu toate canalele camerei
-* Valorile pixelilor reprezintă procentul de reflectanță (când se folosește modul procentual)
+* TIFF multibandă cu toate canalele camerei
+* Valorile pixelilor reprezintă procentul de reflectanță (când se utilizează modul procentual)
 * Gata de manipulare cu [Index/LUT Sandbox](index-lut-sandbox.md)
 
-**Când se vizualizează:**
+**Când să vizualizați:**
 
 * Inspectarea rezultatelor calibrate
 * Verificarea calității calibrării
@@ -118,7 +118,7 @@ Meniul derulant Straturi de imagine din vizualizatorul de imagini Chloros vă pe
 
 1. Faceți clic pe meniul derulant al straturilor pentru a deschide lista
 2. Sunt afișate toate straturile disponibile pentru imaginea curentă
-3. Faceți clic pe orice nume de strat pentru a comuta la versiunea respectivă
+3. Faceți clic pe numele oricărui strat pentru a comuta la versiunea respectivă
 4. Imaginea se actualizează imediat pentru a afișa stratul selectat
 
 **Comutare rapidă:**
@@ -144,7 +144,7 @@ Nu toate straturile sunt disponibile pentru fiecare imagine:
 
 ***
 
-## Persistența stratului
+## Persistența straturilor
 
 ### Navigarea între imagini
 
@@ -154,7 +154,7 @@ Când navigați la o altă imagine (folosind tastele săgeți sau făcând clic 
 
 * Dacă vizualizați „RAW (Reflectanță)”, imaginea următoare afișează „RAW (Reflectanță)” (dacă este disponibilă)
 * Dacă vizualizați „RAW (NDVI Index)”, imaginea următoare afișează „RAW (NDVI Index)” (dacă este disponibilă)
-* Dacă același strat nu există, se setează implicit JPG
+* Dacă același strat nu există, se utilizează implicit JPG
 
 **Exemplu de flux de lucru:**
 
@@ -178,16 +178,16 @@ Când navigați la o altă imagine (folosind tastele săgeți sau făcând clic 
 4. Comutați la **RAW (Reflectanță)** din meniul derulant
 5. Comparați - vignetarea a fost eliminată, valorile au fost calibrate
 
-### Flux de lucru 2: Revizuirea indexului
+### Flux de lucru 2: Revizuire index
 
-**Obiectiv**: Revizuirea rapidă a rezultatelor NDVI din setul de date
+**Obiectiv**: Revizuirea rapidă a rezultatelor NDVI pentru întregul set de date
 
 1. Deschideți prima imagine procesată
 2. Selectați **RAW (NDVI Index)** din meniul derulant
 3. Utilizați tasta → săgeată pentru a naviga la imaginea următoare
 4. Stratul NDVI persistă automat
 5. Continuați cu toate imaginile, verificând modelele NDVI
-6. Treceți la **RAW (NDRE Index)** pentru a compara
+6. Comutați la **RAW (NDRE Index)** pentru a compara
 
 ### Flux de lucru 3: Verificarea țintei
 
@@ -206,8 +206,8 @@ Când navigați la o altă imagine (folosind tastele săgeți sau făcând clic 
 1. Deschideți imaginea procesată
 2. Selectați stratul **RAW (Reflexie)**
 3. Activați modul **Procent pixel** (butonul din bara de instrumente din dreapta sus)
-4. Deplasați cursorul peste zonele de vegetație
-5. Verificați dacă valorile pixelilor se încadrează în intervalele așteptate (30-70% pentru NIR, 5-15% pentru Red)
+4. Deplasați cursorul peste zonele cu vegetație
+5. Verificați dacă valorile pixelilor se încadrează în intervalele preconizate (30-70% pentru NIR, 5-15% pentru Red)
 6. Verificați dacă zonele de sol și apă au valori adecvate
 
 ***
@@ -231,17 +231,17 @@ Diferite straturi afișează intervale diferite de valori ale pixelilor:
 ### RAW (Reflectanță)
 
 * **Interval**: 0-65.535 (16 biți TIFF) sau 0,0-1,0 (32 biți procent)
-* **Semnificație**: Reflectanță procentuală calibrată
+* **Semnificație**: Percentaj de reflectanță calibrat
 * **Utilizare**: Măsurători și analize științifice
 
-**Pentru 16 biți TIFF:** Împărțiți la 65.535 pentru a obține reflectanța procentuală **Pentru 32 biți Percent:** Valorile reprezintă direct procentul (0,5 = 50% reflectanță)
+**Pentru 16 biți TIFF:** Împărțiți la 65.535 pentru a obține procentajul de reflectanță **Pentru 32 biți Percent:** Valorile reprezintă direct procentajul (0,5 = 50% reflectanță)
 
-### RAW (imagini indexate)
+### RAW (Imagini index)
 
-* **Interval**: variază în funcție de index (de obicei între -1,0 și +1,0 pentru indicii normalizați)
-* **Semnificație**: rezultatul calculului indexului
+* **Interval**: Variază în funcție de index (de obicei -1,0 până la +1,0 pentru indici normalizați)
+* **Semnificație**: Rezultatul calculului indexului
 * **Exemple**:
-  * NDVI: între -1 și +1 (vegetație de obicei între 0,4 și 0,9)
+  * NDVI: -1 până la +1 (vegetație de obicei 0,4 până la 0,9)
   * NDRE: de la -1 la +1 (detectarea stresului)
   * EVI: de la 0 la 1 (vegetație îmbunătățită)
 
@@ -252,15 +252,15 @@ Diferite straturi afișează intervale diferite de valori ale pixelilor:
 ### Comutarea eficientă între straturi
 
 * **Cunoașterea comenzilor rapide de la tastatură**: Deși nu există comenzi rapide de la tastatură pentru straturi, săgețile de navigare (←/→) funcționează pentru toate straturile
-* **Fluxuri de lucru consecvente**: Alegeți un strat (de exemplu, NDVI) și examinați întregul set de date înainte de a trece la altul
-* **Comparații rapide**: Comutați între Original și Reflectanță pentru a verifica calitatea procesării
+* **Fluxuri de lucru consecvente**: alegeți un strat (de exemplu, NDVI) și examinați întregul set de date înainte de a trece la altul
+* **Comparații rapide**: comutați între Original și Reflectanță pentru a verifica calitatea procesării
 
 ### Considerații privind performanța
 
-* **JPG se încarcă cel mai rapid**: utilizați pentru navigarea rapidă prin multe imagini.
-* **Straturile RAW se încarcă mai lent**: rezoluție și adâncime de biți mai mari.
-* **Straturi index**: viteză similară cu straturile Reflectance.
-* **Prima încărcare este cea mai lentă**: vizualizările ulterioare ale aceluiași strat sunt stocate în cache și sunt mai rapide.
+* **JPG se încarcă cel mai rapid**: utilizați pentru navigarea rapidă prin multe imagini
+* **Straturile RAW se încarcă mai lent**: rezoluție și adâncime de biți mai mari
+* **Straturi index**: viteză similară cu straturile de reflectanță
+* **Prima încărcare este cea mai lentă**: vizualizările ulterioare ale aceluiași strat sunt stocate în cache și sunt mai rapide
 
 ### Verificarea calității
 
@@ -274,22 +274,22 @@ Diferite straturi afișează intervale diferite de valori ale pixelilor:
 
 ### Stratul nu este disponibil
 
-**Problemă**: Stratul așteptat nu apare în meniul derulant
+**Problemă**: stratul așteptat nu apare în meniul derulant
 
 **Cauze posibile:**
 
-* Imaginea nu a fost procesată (sunt disponibile doar JPG și RAW (Original))
+* Imaginea nu a fost procesată (sunt disponibile numai JPG și RAW (Original))
 * Calibrarea reflectanței a fost dezactivată în timpul procesării
 * Indexul specific nu a fost configurat în Setările proiectului
-* Imaginea este o imagine numai pentru țintă (nu s-au generat indici pentru ținte)
+* Imaginea este o imagine numai țintă (nu s-au generat indici pentru ținte)
 
 **Soluții:**
 
 1. Verificați dacă imaginea a fost procesată (verificați folderul de ieșire pentru fișierele procesate)
 2. Verificați Setările proiectului pentru a confirma că indicii au fost configurați
-3. Reprocesați cu indicii doriti activați
+3. Reprocesați cu indicii doriți activați
 
-### Strat incorect afișat
+### Strat afișat greșit
 
 **Problemă**: Imaginea se deschide într-un strat neașteptat
 
@@ -299,18 +299,18 @@ Diferite straturi afișează intervale diferite de valori ale pixelilor:
 
 ### Nu se pot vedea țintele de calibrare
 
-**Problemă**: Stratul RAW (țintă) nu afișează detectarea țintelor
+**Problemă**: Stratul RAW (țintă) nu afișează detectarea țintei.
 
 **Cauze posibile:**
 
-* Țintele nu au fost detectate în timpul procesării
-* Imaginea nu conține de fapt ținte
-* Setările de detectare a țintelor sunt prea stricte
+* Țintele nu au fost detectate în timpul procesării.
+* Imaginea nu conține de fapt ținte.
+* Setările de detectare a țintei sunt prea stricte.
 
 **Soluții:**
 
-1. Verificați jurnalul de depanare pentru mesajele „Țintă găsită”
-2. Verificați dacă imaginea conține efectiv ținte de calibrare vizibile
+1. Verificați jurnalul de depanare pentru mesajele „Țintă găsită”.
+2. Verificați dacă imaginea conține de fapt ținte de calibrare vizibile.
 3. Reglați setările de detectare a țintelor în Setări proiect
 4. Consultați [Alegerea imaginilor țintă](../processing-images-gui/choosing-target-images.md)
 
@@ -318,15 +318,15 @@ Diferite straturi afișează intervale diferite de valori ale pixelilor:
 
 ## Funcții conexe
 
-### Instrumente pentru vizualizarea imaginilor
+### Instrumente de vizualizare a imaginilor
 
 Când vizualizați orice strat, puteți utiliza:
 
 * **Comenzi de zoom**: măriți pentru a inspecta detaliile
 * **Panoramare**: faceți clic și trageți pentru a vă deplasa în jurul imaginii mărite
-* **Inspectarea valorii pixelilor**: vedeți valorile la locația cursorului
+* **Inspectarea valorii pixelilor**: vizualizați valorile la locația cursorului
 * **Săgeți de navigare**: deplasați-vă între imagini menținând stratul
-* **Modul procentaj pixeli**: comutați între afișarea DN și procentaj
+* **Modul procentaj pixel**: comutați între afișarea DN și procentaj
 
 Consultați [Deschiderea unei imagini pe ecran complet](opening-an-image-full-screen.md) pentru documentația completă a vizualizatorului de imagini.
 
@@ -335,8 +335,8 @@ Consultați [Deschiderea unei imagini pe ecran complet](opening-an-image-full-sc
 Pentru testarea și vizualizarea interactivă a indexului:
 
 * **Calcularea indexului în timp real**: Testați diferite formule de index
-* **Mapare culori LUT**: Aplicați gradientele de culoare la indicii în tonuri de gri
-* **Export vizualizări**: Salvați imagini indexate colorate
+* **Maparea culorilor LUT**: Aplicați gradientele de culoare la indicii în tonuri de gri
+* **Exportarea vizualizărilor**: Salvați imaginile indexate colorate
 
 Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru detalii.
 

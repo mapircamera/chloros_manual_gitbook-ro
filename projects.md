@@ -1,17 +1,13 @@
-# GUI : Projects
+# GUI : Proiecte
 
-Chloros allows you to create projects which can be reopened in the future.
+Chloros vă permite să creați proiecte care pot fi redeschise în viitor.
 
-## New Project
+## Proiect nou
 
-<figure><img src=".gitbook/assets/project_new.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/project_new.JPG" alt=""><figcaption></figcaption></figure>Selectați „Proiect nou” din meniul principal și introduceți un nume unic pentru proiectul dvs.
 
-Select "New Project" from the main menu and enter a unique name for your project.
+## Deschideți proiectul
 
-## Open Project
+<figure><img src=".gitbook/assets/project_open.JPG" alt=""><figcaption></figcaption></figure>Selectați „Deschide proiect” pentru a vedea o listă a proiectelor existente în folderul Proiect. Dacă nu există proiecte, meniul secundar nu se va deschide. Puteți vedea câteva proiecte create cu GUI (t1, t2, t3) listate în fotografia de mai sus. Proiectele DATE\_TIME au fost create de CLI utilizând schema de denumire implicită a proiectelor. Făcând clic pe numele oricărui proiect, acesta se va deschide.
 
-<figure><img src=".gitbook/assets/project_open.JPG" alt=""><figcaption></figcaption></figure>
-
-Select "Open Project" to see a list of existing projects in the Project Folder. If no projects exist the secondary side menu will not open. You can see some GUI created projects (t1, t2, t3) listed in the above photo. The DATE\_TIME projects were created by the CLI using the default project naming scheme. Clicking any project name will open it.
-
-Clicking the "Open Project Folder" button opens your computer's file explorer at the project path. You can adjust the project path in the [Project Settings](project-settings/project-settings.md).
+Dacă faceți clic pe butonul „Deschideți folderul proiectului”, se va deschide exploratorul de fișiere al computerului la calea proiectului. Puteți ajusta calea proiectului în [Setări proiect](project-settings/project-settings.md).

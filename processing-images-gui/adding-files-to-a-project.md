@@ -1,6 +1,6 @@
 # Adăugarea fișierelor la un proiect
 
-După ce ați creat sau deschis un proiect în Chloros, următorul pas este să adăugați imaginile multispectrale pentru a începe procesarea. Fila File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> vă permite să importați cu ușurință imagini și să vă gestionați setul de date.
+După ce ați creat sau deschis un proiect în Chloros, următorul pas este să adăugați imaginile multispectrale pentru a începe procesarea. Fila File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> vă permite să importați cu ușurință imagini și să gestionați setul de date.
 
 ## Accesarea browserului de fișiere
 
@@ -24,7 +24,7 @@ Utilizați această opțiune pentru a importa fișiere imagine individuale sau o
 
 1. Faceți clic pe butonul **„Adăugare fișiere”** din partea de sus a panoului File Browser (Browser fișiere).
 2. Navigați la folderul care conține imaginile dvs.
-3. Selectați unul sau mai multe fișiere imagine (țineți apăsat **Ctrl** pentru a selecta mai multe fișiere).
+3. Selectați unul sau mai multe fișiere imagine (țineți apăsată tasta **Ctrl** pentru a selecta mai multe fișiere).
 4. Faceți clic pe **„Deschidere”** pentru a importa fișierele selectate.
 
 ### Metoda 2: Adăugare folder
@@ -113,11 +113,11 @@ Faceți clic pe orice miniatură a imaginii din File Browser pentru a o afișa �
 Chloros detectează și ignoră automat fișierele duplicate:
 
 * Fișierele cu nume identice sunt omise
-* Previne procesarea accidentală dublă
+* Previne procesarea dublă accidentală
 * Se afișează un mesaj de avertizare când sunt detectate duplicate
 
 {% hint style=&quot;warning&quot; %}
-**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de importare. Chloros se bazează pe numele fișierelor originale și metadatele pentru o procesare corectă.
+**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de import. Chloros se bazează pe numele fișierelor originale și metadatele pentru o procesare corectă.
 {% endhint %}
 
 ***

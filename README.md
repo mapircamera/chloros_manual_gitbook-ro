@@ -4,9 +4,7 @@ metaLinks: {}
 
 # Noțiuni introductive
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
-
-Chloros este o aplicație software de la [MAPIR](https://www.mapir.camera) pentru procesarea imaginilor și a altor date de la senzori.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chloros este o aplicație software de la [MAPIR](https://www.mapir.camera) pentru procesarea imaginilor și a altor date de la senzori.
 
 ***
 
@@ -22,7 +20,7 @@ Se execută în browserul dvs. web (Chrome/Edge). Ideal pentru computere mai len
 
 ## [Chloros CLI: Interfață linie de comandă](CLI.md)
 
-Procesare în lot prin linie de comandă. Perfectă pentru automatizare, scripting și fluxuri de lucru avansate. _CLI necesită o licență Chloros+ pentru acces._
+Procesare batch linie de comandă. Perfectă pentru automatizare, scripting și fluxuri de lucru avansate. _CLI necesită o licență Chloros+ pentru acces._
 
 ## [Chloros API: Python SDK](api-python-sdk.md)
 

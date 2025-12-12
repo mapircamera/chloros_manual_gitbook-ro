@@ -15,7 +15,7 @@
 
 ## Procesarea imaginilor (GUI)
 
-* [Reglarea setărilor proiectului](processing-images-gui/adjusting-project-settings.md)
+* [Ajustarea setărilor proiectului](processing-images-gui/adjusting-project-settings.md)
 * [Adăugarea fișierelor la un proiect](processing-images-gui/adding-files-to-a-project.md)
 * [Alegerea imaginilor țintă](processing-images-gui/choosing-target-images.md)
 * [Pornirea procesării](processing-images-gui/starting-the-processing.md)

@@ -93,7 +93,7 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 
 * **Număr flotant și linie roșie în legenda gradientului LUT din indexul din partea dreaptă**
 * **Când măriți imaginea, valoarea flotantă apare lângă cursor și pixelul evidențiat**
-* Afișează valorile pixelilor **de sub cursor sau evidențiați**
+* Afișează valorile pixelilor **aflați sub cursor sau evidențiați**
 * Se actualizează pe măsură ce mutați mouse-ul
 
 ***
@@ -106,9 +106,9 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 
 * Afișează datele RAW așa cum sunt previzualizate
 * Afișează valorile originale, necorectate
-* Utile pentru verificarea calității imaginii înainte de procesare
+* Util pentru verificarea calității imaginii înainte de procesare
 
-### Imagini cu reflectanță calibrată
+### Imagini calibrate de reflectanță
 
 **După procesare:**
 
@@ -119,11 +119,11 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 
 ### Imagini index
 
-**NDVI, NDRE, GNDVI etc. (fișiere \_NDVI.tif):**
+**NDVI, NDRE, GNDVI, etc. (fișiere \_NDVI.tif):**
 
 * Imagini monocromatice în tonuri de gri
 * Valorile pixelilor reprezintă rezultatele calculului indicelui
-* Intervalul tipic este de la -1 la +1 pentru indicii normalizați
+* Intervalul este de obicei între -1 și +1 pentru indicii normalizați
 * Se pot aplica LUT-uri de culoare pentru vizualizare
 
 ***
@@ -133,7 +133,7 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 Aplicați indici multispectrali și tabele de căutare a culorilor:
 
 1. Localizați **Index/LUT Sandbox** în **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> bara laterală
-2. Selectați indicele de vegetație (NDVI, NDRE, etc.)
+2. Selectați indicele de vegetație (NDVI, NDRE etc.)
 3. Selectați formula multispectrală sau creați-vă propria formulă personalizată (numai Chloros+)
 4. Aplicați gradientul LUT de culoare pentru vizualizare
 5. Reglați intervalele de valori și pragurile
@@ -160,7 +160,7 @@ Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru instrucțiuni detal
 
 ### Comenzi de vizualizare
 
-* **P**: Comutare mod procent pixel
+* **P**: Comutare mod procentaj pixeli
 * **L**: Comutare panou straturi
 * **Esc**: Închidere ecran complet sau revenire la browserul de fișiere
 
