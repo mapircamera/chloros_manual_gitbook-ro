@@ -37,7 +37,7 @@ pip install chloros-sdk
 ```
 
 {% hint style=&quot;info&quot; %}
-**Configurare inițială**: Înainte de a utiliza SDK, activați licența Chloros+ deschizând Chloros, Chloros (browser) sau Chloros CLI și conectându-vă cu datele dvs. de autentificare. Această operațiune trebuie efectuată o singură dată.
+**Configurare inițială**: Înainte de a utiliza SDK, activați licența Chloros+ deschizând Chloros, Chloros (browser) sau Chloros CLI și conectându-vă cu datele dvs. de autentificare. Acest lucru trebuie făcut o singură dată.
 {% endhint %}
 
 ### Utilizare de bază
@@ -125,11 +125,11 @@ print(f"Chloros SDK version: {chloros_sdk.__version__}")
 
 ### Activarea licenței
 
-SDK utilizează aceeași licență ca Chloros, Chloros (browser) și Chloros CLI. Activați o singură dată prin GUI sau CLI:
+SDK utilizează aceeași licență ca Chloros, Chloros (Browser) și Chloros CLI. Activați o singură dată prin GUI sau CLI:
 
 1. Deschideți **Chloros sau Chloros (Browser)** și conectați-vă la fila Utilizator <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> . Sau deschideți **CLI**.
 2. Introduceți datele de autentificare Chloros+ și conectați-vă
-3. Licența este stocată local în memoria cache (persistă după repornire)
+3. Licența este stocată în memoria cache locală (persistă după repornire)
 
 {% hint style=&quot;success&quot; %}
 **Configurare unică**: După conectarea prin GUI sau CLI, SDK utilizează automat licența stocată în cache. Nu este necesară nicio autentificare suplimentară!
@@ -178,7 +178,7 @@ ChlorosLocal(
 | `auto_start_backend`      | bool | `True`                    | Pornește automat backend-ul dacă este necesar |
 | `backend_exe`             | str  | `None` (detectare automată)      | Calea către executabilul backend            |
 | `timeout`                 | int  | `30`                      | Timp de expirare a cererii în secunde            |
-| `backend_startup_timeout` | int  | `60`                      | Timp de expirare pentru pornirea backend-ului (secunde) |
+| `backend_startup_timeout` | int  | `60`                      | Timp de expirare pentru pornirea backend-ului(secunde) |
 
 **Exemple:**
 
@@ -233,10 +233,10 @@ Importă imagini dintr-un folder.
 
 | Parametru     | Tip     | Obligatoriu | Descriere                        |
 | ------------- | -------- | -------- | ---------------------------------- |
-| `folder_path` | str/Cale | Da      | Calea către folderul cu imagini         |
-| `recursive`   | bool     | Nu       | Căutare subfoldere (implicit: Fals) |
+| `folder_path` | str/Path | Da      | Calea către folderul cu imagini         |
+| `recursive`   | bool     | Nu       | Căutare subfoldere (implicit: False) |
 
-**Returnează:** `dict` - Rezultate import cu număr de fișiere
+**Returnează:** `dict` - Rezultatele importului cu numărul de fișiere
 
 **Exemplu:**
 
@@ -261,7 +261,7 @@ Configurează setările de procesare.
 | `debayer`                 | str  | „Calitate înaltă (mai rapidă)” | Metoda Debayer                  |
 | `vignette_correction`     | bool | `True`                  | Activare corecție vignetă      |
 | `reflectance_calibration` | bool | `True`                  | Activare calibrare reflectanță  |
-| `indices`                 | list | `None`                  | Indici de vegetație de calculat |
+| `indices`                 | list | `None`                  | Indici de vegetație pentru calcul |
 | `export_format`           | str  | „TIFF (16 biți)”         | Format de ieșire                   |
 | `ppk`                     | bool | `False`                 | Activare corecții PPK          |
 | `custom_settings`         | dict | `None`                  | Setări personalizate avansate        |
@@ -311,12 +311,12 @@ Procesați imaginile proiectului.
 | `mode`              | str      | `"parallel"` | Mod de procesare: „paralel” sau „serial”   |
 | `wait`              | bool     | `True`       | Așteptare finalizare                       |
 | `progress_callback` | callable | `None`       | Funcție de apel invers pentru progres (progress, msg) |
-| `poll_interval`     | float    | `2.0`        | Interval de sondare pentru progres (secunde)   |
+| `poll_interval`     | float    | `2.0`        | Interval de interogare pentru progres (secunde)   |
 
 **Returnează:** `dict` - Rezultate procesare
 
 {% hint style=&quot;warning&quot; %}
-**Mod paralel**: Necesită licență Chloros+. Se scalează automat la nucleele CPU (până la 16 procesoare).
+**Mod paralel**: Necesită licență Chloros+. Se adaptează automat la nucleele procesorului (până la 16 procesoare).
 {% endhint %}
 
 **Exemplu:**
@@ -374,7 +374,7 @@ print(f"URL: {status['url']}")
 
 #### `shutdown_backend()`
 
-Opriți backend-ul (dacă a fost pornit de SDK).
+Oprește backend-ul (dacă a fost pornit de SDK).
 
 **Exemplu:**
 
@@ -402,7 +402,7 @@ Funcție utilă dintr-o singură linie pentru procesarea unui folder.
 | `reflectance_calibration` | bool     | `True`          | Activare calibrare reflectanță |
 | `export_format`           | str      | „TIFF (16 biți)” | Format de ieșire                  |
 | `mode`                    | str      | `"parallel"`    | Mod de procesare                |
-| `progress_callback`       | apelabil | `None`          | Apel invers de progres              |
+| `progress_callback`       | callable | `None`          | Apel invers de progres              |
 
 **Returnează:** `dict` - Rezultate de procesare
 
@@ -470,9 +470,9 @@ print(f"Processing complete: {results}")
 
 ***
 
-### Exemplul 2: flux de lucru personalizat
+### Exemplul 2: Flux de lucru personalizat
 
-Control complet asupra procesării:
+Control complet asupra fluxului de prelucrare:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -512,7 +512,7 @@ print("Processing complete!")
 
 ***
 
-### Exemplul 3: procesare în lot a mai multor foldere
+### Exemplul 3: Procesare în lot a mai multor foldere
 
 Procesarea mai multor seturi de date de zbor:
 
@@ -564,9 +564,9 @@ print("All flights processed!")
 
 ***
 
-### Exemplul 4: integrarea procesării în cercetare
+### Exemplul 4: Integrarea fluxului de cercetare
 
-Integrați Chloros cu analiza datelor:
+Integrarea Chloros cu analiza datelor:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -660,7 +660,7 @@ logging.info("Processing complete!")
 
 ### Exemplul 6: Gestionarea erorilor
 
-Gestionare robustă a erorilor pentru utilizare în producție:
+Gestionarea robustă a erorilor pentru utilizare în producție:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -712,7 +712,7 @@ else:
 
 ### Exemplul 7: Instrument de linie de comandă
 
-Construiți un instrument personalizat CLI cu SDK:
+Creați un instrument CLI personalizat cu SDK:
 
 ```python
 #!/usr/bin/env python
@@ -826,9 +826,9 @@ except ChlorosError as e:
 
 ## Subiecte avansate
 
-### Configurare personalizată a backend-ului
+### Configurarea personalizată a backend-ului
 
-Utilizați o locație sau o configurare personalizată a backend-ului:
+Utilizați o locație sau o configurație personalizată a backend-ului:
 
 ```python
 chloros = ChlorosLocal(
@@ -892,7 +892,7 @@ for i in range(0, len(images), batch_size):
 
 ### Backend-ul nu pornește
 
-**Problemă:** SDK nu reușește să pornească backend-ul
+**Problemă:** SDK nu reușește să pornească backend-ul.
 
 **Soluții:**
 
@@ -913,7 +913,7 @@ chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
 
 ***
 
-### Licența nu a fost detectată
+### Licența nu este detectată
 
 **Problemă:** SDK avertizează că licența lipsește
 
@@ -955,9 +955,9 @@ python -c "import sys; print(sys.path)"
 
 ***
 
-### Timp de expirare al procesării
+### Timp de procesare expirat
 
-**Problemă:** Timpul de expirare al procesării
+**Problemă:** Timpul de procesare a expirat
 
 **Soluții:**
 
@@ -995,7 +995,7 @@ Get-NetTCPConnection -LocalPort 5000
 
 ## Sfaturi de performanță
 
-### Optimizarea vitezei de procesare
+### Optimizați viteza de procesare
 
 1. **Utilizați modul paralel** (necesită Chloros+)
 
@@ -1121,9 +1121,9 @@ chloros.process(progress_callback=notebook_progress)
 
 ## Întrebări frecvente
 
-### Î: SDK necesită conexiune la internet?
+### Î: SDK necesită o conexiune la internet?
 
-**R:** Doar pentru activarea inițială a licenței. După conectarea prin Chloros, Chloros (browser) sau Chloros CLI, licența este stocată local și funcționează offline timp de 30 de zile.
+**R:** Doar pentru activarea inițială a licenței. După conectarea prin Chloros, Chloros (browser) sau Chloros CLI, licența este stocată local în memoria cache și funcționează offline timp de 30 de zile.
 
 ***
 
@@ -1133,16 +1133,16 @@ chloros.process(progress_callback=notebook_progress)
 
 * Windows Server 2016 sau o versiune ulterioară
 * Chloros instalat (o singură dată)
-* Licență activată pe orice mașină (licență stocată în cache copiată pe server)
+* Licență activată pe orice computer (licență stocată în cache copiată pe server)
 
 ***
 
-### Î: Care este diferența dintre Desktop, CLI și SDK?
+### Î: Care este diferența între Desktop, CLI și SDK?
 
 | Caracteristică         | GUI Desktop | CLI Linie de comandă | Python SDK  |
 | --------------- | ----------- | ---------------- | ----------- |
 | **Interfață**   | Point-click | Comandă          | Python API  |
-| **Ideal pentru**    | Lucru vizual | Scripting        | Integrare |
+| **Cel mai potrivit pentru**    | Lucru vizual | Scripting        | Integrare |
 | **Automatizare**  | Limitată     | Bună             | Excelentă   |
 | **Flexibilitate** | De bază       | Bună             | Maximă     |
 | **Licență**     | Chloros+    | Chloros+         | Chloros+    |
@@ -1153,9 +1153,9 @@ chloros.process(progress_callback=notebook_progress)
 
 **R:** Codul SDK poate fi integrat în aplicațiile dvs., dar:
 
-* Utilizatorii finali trebuie să aibă instalat Chloros.
-* Utilizatorii finali au nevoie de licențe active Chloros+
-* Distribuția comercială necesită licențiere OEM.
+* Utilizatorii finali trebuie să aibă instalat Chloros
+* Utilizatorii finali trebuie să aibă licențe active Chloros+
+* Distribuția comercială necesită licențe OEM.
 
 Contactați info@mapir.camera pentru întrebări legate de OEM.
 
@@ -1171,70 +1171,4 @@ pip install --upgrade chloros-sdk
 
 ### Î: Unde sunt salvate imaginile procesate?
 
-În mod implicit, în calea proiectului:
-
-```
-Project_Path/
-└── MyProject/
-    └── Survey3N_RGN/          # Processed outputs
-```
-
-***
-
-### Î: Pot procesa imagini din scripturile Python care rulează conform programului?
-
-**R:** Da! Utilizați Windows Task Scheduler cu scripturile Python:
-
-```python
-# scheduled_processing.py
-from chloros_sdk import process_folder
-
-# Process today's flights
-results = process_folder("C:\\Flights\\Today")
-```
-
-Programați prin Task Scheduler să ruleze zilnic.
-
-***
-
-### Î: SDK acceptă async/await?
-
-**R:** Versiunea actuală este sincronă. Pentru comportament asincron, utilizați `wait=False` sau rulați într-un thread separat:
-
-```python
-import threading
-
-def process_thread():
-    chloros.process()
-
-thread = threading.Thread(target=process_thread)
-thread.start()
-
-# Continue with other work...
-```
-
-***
-
-## Obținerea de ajutor
-
-### Documentație
-
-* **Referință API**: această pagină
-
-### Canale de asistență
-
-* **E-mail**: info@mapir.camera
-* **Site web**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **Prețuri**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-### Cod de exemplu
-
-Toate exemplele enumerate aici sunt testate și gata de producție. Copiați-le și adaptați-le pentru cazul dvs. de utilizare.
-
-***
-
-## Licență
-
-**Software proprietar** - Copyright (c) 2025 MAPIR Inc.
-
-SDK necesită un abonament activ Chloros+. Utilizarea, distribuirea sau modificarea neautorizată este interzisă.
+În mod impli
