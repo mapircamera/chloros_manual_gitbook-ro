@@ -14,7 +14,9 @@ Din meniul principal puteți începe un proiect nou, deschide un proiect existen
 
 Când este activat, butonul de pornire a procesării pornește procesarea imaginii.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Bara de progres <img src=".gitbook/assets/image (5).png" alt="" data-size="line">În modul gratuit Chloros, care procesează toate fișierele secvențial, bara de progres va afișa 2 etape: Detectare țintă și Procesare.
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Bara de progres <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+
+În modul gratuit Chloros, care procesează toate fișierele secvențial, bara de progres va afișa 2 etape: Detectare țintă și Procesare.
 
 În modul licențiat Chloros+, care procesează toate fișierele simultan, bara de progres afișează 4 etape: Detectare, Analizare, Calibrare, Exportare. Dacă plasați cursorul mouse-ului peste bara de progres Chloros+, se va afișa un panou extins cu 4 bare de progres, astfel încât să puteți urmări procesul. Dacă faceți clic pe bara de progres din partea de sus, panoul derulant se va bloca, iar dacă faceți clic din nou, acesta se va debloca.
 
