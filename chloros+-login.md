@@ -1,43 +1,39 @@
-# Chloros+ Login
+# Chloros+ Autentificare
 
-## Chloros and Chloros (Browser) Login
+## Chloros și Chloros (Browser) Autentificare
 
-The user <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sidebar menu allows you to log into your Chloros+ account and unlock additional features.
+Meniul lateral <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> din bara laterală vă permite să vă conectați la contul dvs. Chloros+ și să deblocați funcții suplimentare.
 
-When logged in your account details will be shown:
+După conectare, vor fi afișate detaliile contului dvs.:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Autentificare
 
-## CLI Login
+Autentificați-vă cu datele de autentificare Chloros+ pentru a activa procesarea CLI.
 
-Login with your Chloros+ credentials to enable CLI processing.
-
-**Syntax:**
+**Sintaxă:**
 
 ```bash
 chloros-cli login <email> <password>
 ```
 
-**Example:**
+**Exemplu:**
 
 ```powershell
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style="warning" %}
-**Special Characters**: Use single quotes around passwords containing characters like `$`, `!`, or spaces.
+{% hint style=&quot;warning&quot; %}
+**Caractere speciale**: Utilizați ghilimele simple în jurul parolelor care conțin caractere precum `$`, `!` sau spații.
 {% endhint %}
 
-**Output:**
+**Rezultat:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Expirarea planului
 
-### Plan Expiration
+Expirarea planului în GUI arată când licența dvs. va deveni invalidă. Pentru abonamentele lunare recurente, expirarea are loc la sfârșitul lunii. Pentru abonamentele anuale, expirarea are loc la un an după începerea abonamentului. Verificarea licenței necesită o conexiune lunară la internet, cu o perioadă de grație de 30 de zile.
 
-The plan expiration in the GUI shows when your license will become invalid. For recurring monthly subscriptions the expiration is at the end of the month. For yearly subscriptions it is a year after you started the subscription. The license check requires a monthly internet connection to verify, with a 30 day grace period.
+### Limită de dispozitive
 
-### Device Limit
+Fiecare plan Chloros+ oferă un număr diferit de dispozitive înregistrate. Fiecare dispozitiv pe care vă conectați cu un cont Chloros+ va fi luat în calcul la numărul de dispozitive înregistrate. Puteți redenumi și elimina un dispozitiv din pagina contului dvs. MAPIR Cloud.
 
-Each Chloros+ plan offers a different number of registered devices. Each device you log into with a Chloros+ account will count towards your number of registered devices. You can rename and remove a device on your MAPIR Cloud account page.
-
-<table><thead><tr><th width="168.5999755859375" align="right">Chloros+ Plan</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Devices Supported</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+<table><thead><tr><th width="168.5999755859375" align="right">Planul Chloros</th><th align="center">COPPER</th><th align="center">BRONZ</th><th align="center">SILVER</th><th align="center">AUR</th></tr></thead><tbody><tr><td align="right">Dispozitive acceptate</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

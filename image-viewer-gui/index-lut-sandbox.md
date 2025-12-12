@@ -1,86 +1,86 @@
 # Index/LUT Sandbox
 
-The Index/LUT Sandbox is an interactive workspace within the Chloros Image Viewer that allows you to experiment with multispectral index calculations and color visualizations in real-time. This powerful tool helps you test different indices, refine value ranges, and create publication-ready visualizations without reprocessing your entire dataset.
+Index/LUT Sandbox este un spațiu de lucru interactiv din cadrul Chloros Image Viewer care vă permite să experimentați calculele indicelui multispectral și vizualizările culorilor în timp real. Acest instrument puternic vă ajută să testați diferite indici, să rafinați intervalele de valori și să creați vizualizări gata de publicare fără a reprocesa întregul set de date.
 
-## What is the Index/LUT Sandbox?
+## Ce este Index/LUT Sandbox?
 
-### Purpose
+### Scop
 
-The Sandbox provides:
+Sandbox oferă:
 
-* **Real-time index calculation** - Apply any vegetation index instantly
-* **Interactive LUT adjustment** - Fine-tune color gradients and ranges
-* **Workflow optimization** - Determine best settings before batch processing
+* **Calcularea indicelui în timp real** - Aplicați instantaneu orice indice de vegetație
+* **Ajustarea interactivă a LUT** - Reglați cu precizie gradientele și intervalele de culori
+* **Optimizarea fluxului de lucru** - Determinați cele mai bune setări înainte de procesarea în lot
 
-### Sandbox vs. Project Processing
+### Sandbox vs. Procesarea proiectului
 
-**Index/LUT Sandbox (Interactive):**
+**Index/LUT Sandbox (interactiv):**
 
-* Single image at a time
-* Instant feedback
-* Experimental and iterative
-* No permanent changes to files
-* Perfect for exploring and testing
+* O singură imagine la un moment dat
+* Feedback instantaneu
+* Experimental și iterativ
+* Fără modificări permanente ale fișierelor
+* Perfect pentru explorare și testare
 
-**Project Processing (Batch):**
+**Procesarea proiectului (în lot):**
 
-* Entire dataset at once
-* Pre-configured settings
-* Permanent output files
-* Time-intensive
-* Best when settings are finalized
+* Întregul set de date simultan
+* Setări preconfigurate
+* Fișiere de ieșire permanente
+* Necesită mult timp
+* Ideal când setările sunt finalizate
 
-{% hint style="success" %}
-**Best Workflow**: Use the Sandbox to experiment and find optimal index and LUT settings, then apply those settings during Project Processing for your entire dataset.
+{% hint style=&quot;success&quot; %}
+**Cel mai bun flux de lucru**: Utilizați Sandbox pentru a experimenta și a găsi setările optime pentru index și LUT, apoi aplicați aceste setări în timpul procesării proiectului pentru întregul set de date.
 {% endhint %}
 
 ***
 
-## Working with the Index/LUT Sandbox
+## Lucrul cu Index/LUT Sandbox
 
-### Understanding Pre-Calculated Indices
+### Înțelegerea indexurilor precalculate
 
-In Chloros, indices can be applied during project processing. To determine which index and LUT settings you want to apply to exports it is easiest to use the image viewer sandbox.
+În Chloros, indexurile pot fi aplicate în timpul procesării proiectului. Pentru a determina ce setări de index și LUT doriți să aplicați exporturilor, cel mai simplu este să utilizați sandbox-ul vizualizatorului de imagini.
 
-The sandbox allows you to:
+Sandbox-ul vă permite să:
 
-* **Apply new index and color gradients (LUTs)** to visualize the data
-* **Adjust visualization settings** interactively
-* **View** already-calculated index images
-* **Inspect** pixel values at all zoom levels
+* **Aplicați noi indici și gradientele de culoare (LUT)** pentru a vizualiza datele
+* **Reglați setările de vizualizare** în mod interactiv
+* **Vizualizați** imaginile indexate deja calculate
+* **Inspectați** valorile pixelilor la toate nivelurile de zoom
 
-### Opening the Sandbox
+### Deschiderea Sandbox-ului
 
-The Index/LUT Sandbox is accessed in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sidebar tab:
+Index/LUT Sandbox este accesat în **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> :
 
-1. Click an image in the file browser image grid, it opens in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab
-2. Click **the Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab to open the left pop-out sidebar if it's not already open
+1. Faceți clic pe o imagine din grila de imagini a browserului de fișiere, aceasta se deschide în fila **Vizualizator de imagini** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> .
+2. Faceți clic pe fila **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> pentru a deschide bara laterală pop-out din stânga, dacă nu este deja deschisă
 
-### Selecting an Image to Apply an Index/LUT to
+### Selectarea unei imagini pentru a aplica un index/LUT
 
-To work with an index in the Image Viewer <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox:
+Pentru a lucra cu un index în Image Viewer <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> :
 
-1. **Open an image** from the main image grid by clicking on it
-2. The **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab will then open
-3. Click the **Layer dropdown** (top-right of viewer)
-4. Select the layer from the dropdown:
-   * RAW (Reflectance)
+1. **Deschideți o imagine** din grila principală de imagini făcând clic pe ea
+2. Se va deschide fila **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> se va deschide
+3. Faceți clic pe **meniul derulant Layer** (în partea dreaptă sus a vizualizatorului)
+4. Selectați stratul din meniul derulant:
+   * RAW (Reflectanță)
 
-### Applying an Index to an Image
+### Aplicarea unui index la o imagine
 
-Once the image is fullscreen and the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar is open:
+Odată ce imaginea este pe ecran complet și bara laterală **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> este deschisă:
 
-1. Check the Index box at the top of the sidebar
-2. Choose your camera's filter from the left dropdown
-3. Choose the desired index formula from the right dropdown
-4. Drag the filter channel color circles to the locations in the index formula below
-5. Once the formula is valid the image will update and show the index values
-6. Move your mouse cursor around to see the values at the cursor's location
-7. Zoom in to see individual pixels and their associated values
+1. Bifați caseta Index din partea de sus a barei laterale
+2. Alegeți filtrul camerei dvs. din meniul derulant din stânga
+3. Alegeți formula de index dorită din meniul derulant din dreapta
+4. Trageți cercurile colorate ale canalului de filtrare în locațiile din formula de index de mai jos
+5. Odată ce formula este validă, imaginea se va actualiza și va afișa valorile indexului
+6. Mișcați cursorul mouse-ului pentru a vedea valorile din locația cursorului
+7. Măriți imaginea pentru a vedea pixelii individuali și valorile asociate acestora.
 
-Each index has a specific value range and meaning:
+Fiecare index are un interval de valori și o semnificație specifice:
 
-#### NDVI Example
+#### NDVI Exemplu
 
 ```
 Formula: (NIR - Red) / (NIR + Red)
@@ -96,293 +96,293 @@ Bare soil: 0.0 to 0.2
 Water: -0.1 to 0.1
 ```
 
-For complete index formula documentation, see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md).
+Pentru documentația completă a formulei indexului, consultați [Formule index multispectrale](../project-settings/multispectral-index-formulas.md).
 
 ***
 
-## Working with LUTs (Look-Up Tables)
+## Lucrul cu LUT-uri (tabele de consultare)
 
-### What is a LUT?
+### Ce este un LUT?
 
-A **Look-Up Table (LUT)** maps numerical index values to colors for visualization:
+O **tabelă de consultare (LUT)** mapează valorile numerice ale indicelui la culori pentru vizualizare:
 
-* **Input**: Index pixel value (e.g., NDVI 0.65)
-* **Output**: RGB color (e.g., bright green)
-* **Purpose**: Make patterns easier to see and interpret
+* **Intrare**: Valoarea pixelului indicelui (de exemplu, NDVI 0,65)
+* **Ieșire**: culoarea RGB (de exemplu, verde strălucitor)
+* **Scop**: Facilitează vizualizarea și interpretarea modelelor
 
-**Grayscale vs. Color LUT:**
+**LUT în tonuri de gri vs. LUT color:**
 
-* Grayscale: Scientific and neutral, shows raw data
-* Color LUT: Intuitive and impactful, highlights patterns and differences
+* Tonuri de gri: științific și neutru, afișează datele brute
+* LUT color: intuitiv și impactant, evidențiază modelele și diferențele
 
-{% hint style="success" %}
-**Visualization Power**: Applying a color LUT to a grayscale index image makes it dramatically easier to identify patterns, anomalies, and areas of interest at a glance.
+{% hint style=&quot;success&quot; %}
+**Puterea vizualizării**: Aplicarea unui LUT color unei imagini indexate în tonuri de gri facilitează considerabil identificarea modelelor, anomaliilor și zonelor de interes dintr-o singură privire.
 {% endhint %}
 
-### Applying a LUT to an Index Image
+### Aplicarea unui LUT la o imagine index
 
-Once you have an index image showing
+Odată ce aveți o imagine index care afișează
 
-1. Click the <img src="../.gitbook/assets/image.png" alt="" data-size="line"> "+Add LUT" button
-2. Select the color gradient
-3. Adjust the clipping min/max end points
-4. Adjust the Clipping Mode
-5. Check the Index box in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar to apply the LUT
+1. Faceți clic pe <img src="../.gitbook/assets/image.png" alt="" data-size="line"> „+Adăugați LUT”
+2. Selectați gradientul de culoare
+3. Reglați punctele finale minime/maxime de decupare
+4. Reglați modul de decupare
+5. Bifați caseta Index din bara laterală **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> din bara laterală pentru a aplica LUT-ul.
 
-### Choosing a Color Gradient
+### Alegerea unui gradient de culoare
 
-**Selecting a gradient:**
+**Selectarea unui gradient:**
 
-1. In the LUT panel, locate the **colored gradient bar**
-2. Hover your mouse over it to view available gradient presets
-3. Select desired gradient
-4. The image **updates immediately** with new colors when the Index box is checked
+1. În panoul LUT, localizați **bara de gradient colorat**
+2. Treceți mouse-ul peste ea pentru a vizualiza presetările de gradient disponibile
+3. Selectați gradientul dorit
+4. Imaginea **se actualizează imediat** cu culori noi atunci când caseta Index este bifată
 
-{% hint style="success" %}
-**Best Practice**: For vegetation indices like NDVI, the Red-Yellow-Green gradient is most intuitive because it aligns with natural color associations (green=healthy, yellow=moderate, red=stressed).
+{% hint style=&quot;success&quot; %}
+**Cele mai bune practici**: Pentru indici de vegetație precum NDVI, gradientul Red-Yellow-Green este cel mai intuitiv, deoarece se aliniază cu asocierile naturale de culori (verde = sănătos, galben = moderat, roșu = stresat).
 {% endhint %}
 
-### Adjusting Color Classes
+### Reglarea claselor de culori
 
-The **Classes control** determines how many discrete color steps appear in your gradient:
+**Controlul claselor** determină numărul de trepte de culoare discrete care apar în gradientul dvs.:
 
-**Class count options:**
+**Opțiuni pentru numărul de clase:**
 
-* **2-5 classes**: Very broad categories, distinct zones
-* **6-10 classes**: Balanced, good for classification
-* **11-20 classes**: Smooth gradients, continuous appearance
-* **20+ classes**: Near-continuous, maximum smoothness
+* **2-5 clase**: categorii foarte largi, zone distincte
+* **6-10 clase**: echilibrate, bune pentru clasificare
+* **11-20 clase**: gradienturi line, aspect continuu
+* **20+ clase**: aproape continuu, linie maximă
 
-**How to adjust:**
+**Cum se ajustează:**
 
-1. In the LUT panel, locate the **color swatch squares below the gradient bar**
-2. Adjust the number of classes by adding with the + button
-3. Remove the number of classes by double clicking on a color swatch
-4. The gradient updates **in real-time** on the image
+1. În panoul LUT, localizați **pătratele cu mostre de culoare sub bara de gradient**
+2. Reglați numărul de clase adăugând cu butonul +
+3. Eliminați numărul de clase făcând dublu clic pe o mostră de culoare
+4. Gradientul se actualizează **în timp real** pe imagine
 
-**Effect on visualization:**
+**Efectul asupra vizualizării:**
 
-* **Fewer classes** (3-5): Creates distinct zones, simplified classification, easier to distinguish categories
-* **Medium classes** (6-10): Balanced approach, good for most applications
-* **More classes** (15-20): Smooth transitions, detailed variation, photographic appearance
+* **Mai puține clase** (3-5): Creează zone distincte, clasificare simplificată, categorii mai ușor de distins
+* **Clasă medie** (6-10): Abordare echilibrată, potrivită pentru majoritatea aplicațiilor
+* **Mai multe clase** (15-20): tranziții fluide, variații detaliate, aspect fotografic
 
-**When to use:**
+**Când se utilizează:**
 
-* **Few classes (3-5)**: Presentation slides, classification maps, simple reports
-* **Medium classes (6-10)**: General analysis, balanced detail, standard reports
-* **Many classes (15-20)**: Scientific analysis, detailed inspection, publication-quality outputs
+* **Puține clase (3-5)**: diapozitive de prezentare, hărți de clasificare, rapoarte simple
+* **Clasele medii (6-10)**: analiză generală, detalii echilibrate, rapoarte standard
+* **Multe clase (15-20)**: Analiză științifică, inspecție detaliată, rezultate de calitate pentru publicare
 
-### Fine-Tuning Value Ranges
+### Reglarea fină a intervalelor de valori
 
-The **value range controls** determine which index values map to which colors in your gradient:
+**Controalele intervalului de valori** determină care valori ale indexului sunt asociate cu care culori din gradientul dvs.:
 
-**Range controls in LUT panel:**
+**Controale interval în panoul LUT:**
 
-* **Minimum value**: Lower bound of the color scale
-* **Maximum value**: Upper bound of the color scale
-* **Intermediate values**: Automatically distributed between min and max (based on class count)
+* **Valoare minimă**: limita inferioară a scalei de culori
+* **Valoare maximă**: limita superioară a scalei de culori
+* **Valori intermediare**: Distribuite automat între minim și maxim (pe baza numărului de clase)
 
-#### Adjusting Min/Max Values
+#### Reglarea valorilor minime/maxime
 
-**To adjust value ranges:**
+**Pentru a regla intervalele de valori:**
 
-1. In the LUT panel, locate the **Min Value** and **Max Value** input fields
-2. Click the **Min Value** field
-3. Type the desired minimum value (e.g., `0.2`)
-4. Press **Enter** or click outside the field
-5. Repeat for **Max Value** field (e.g., `0.9`)
-6. The visualization **updates immediately**
+1. În panoul LUT, localizați câmpurile de introducere **Valoare minimă** și **Valoare maximă**
+2. Faceți clic pe câmpul **Valoare minimă**
+3. Introduceți valoarea minimă dorită (de exemplu, `0.2`)
+4. Apăsați **Enter** sau faceți clic în afara câmpului
+5. Repetați pentru câmpul **Valoare max** (de exemplu, `0.9`)
+6. Vizualizarea **se actualizează imediat**
 
-{% hint style="info" %}
-**Auto-Scaling**: When you first apply a LUT, Chloros automatically sets the min/max to the actual data range in the image. You can then narrow this range to focus on specific value ranges of interest.
+{% hint style=&quot;info&quot; %}
+**Scalare automată**: Când aplicați pentru prima dată un LUT, Chloros setează automat minimul/maximul la intervalul de date real din imagine. Puteți apoi restrânge acest interval pentru a vă concentra pe intervale de valori specifice de interes.
 {% endhint %}
 
-**Example NDVI range adjustments:**
+**Exemplu de ajustări ale intervalului NDVI:**
 
-* **Full range**: `-1.0` to `1.0` (show all possible values)
-* **Vegetation-focused**: `0.2` to `0.9` (exclude bare soil and water)
-* **Healthy vegetation only**: `0.5` to `0.9` (highlight only vigorous plants)
-* **Stress detection**: `0.2` to `0.5` (emphasize problem areas)
-* **Custom range**: Adjust based on your observed pixel values
+* **Interval complet**: `-1.0` până la `1.0` (afișează toate valorile posibile)
+* **Concentrat pe vegetație**: `0.2` până la `0.9` (exclude solul gol și apa)
+* **Numai vegetație sănătoasă**: `0.5` până la `0.9` (evidențiază numai plantele viguroase)
+* **Detectarea stresului**: `0.2` până la `0.5` (evidențiază zonele cu probleme)
+* **Interval personalizat**: Ajustați în funcție de valorile pixelilor observate
 
-**Why adjust ranges?**
+**De ce să ajustați intervalele?**
 
-* **Increase contrast** in your area of interest
-* **Exclude irrelevant values** (e.g., water bodies, bare soil)
-* **Standardize visualization** across multiple images or dates
-* **Emphasize subtle differences** within a narrow value range
+* **Creșteți contrastul** în zona de interes
+* **Excludeți valorile irelevante** (de exemplu, corpuri de apă, sol gol)
+* **Standardizați vizualizarea** pe mai multe imagini sau date
+* **Evidențiați diferențele subtile** într-un interval de valori restrâns
 
-### Clipping Out-of-Range Values
+### Decuparea valorilor în afara intervalului
 
-When pixel values fall outside your defined min/max range, you can control how they're displayed using **clipping modes**.
+Când valorile pixelilor se situează în afara intervalului minim/maxim definit, puteți controla modul în care sunt afișate utilizând **modurile de decupare**.
 
-#### **Available clipping mode options:**
+#### **Opțiuni disponibile pentru modul de decupare:**
 
-#### 1. Minimum and Maximum
+#### 1. Minim și maxim
 
-* Pixels **below minimum** → display using the **first color** in gradient (e.g., red)
-* Pixels **above maximum** → display using the **last color** in gradient (e.g., green)
-* **Use case**: Emphasize extremes, show full data range with saturated colors at limits
-* **Example**: NDVI values below 0.2 all appear red, values above 0.9 all appear green
+* Pixelii **sub minim** → afișare utilizând **prima culoare** din gradient (de exemplu, roșu)
+* Pixelii **peste maxim** → afișare utilizând **ultima culoare** din gradient (de exemplu, verde)
+* **Caz de utilizare**: Evidențiați valorile extreme, afișați intervalul complet de date cu culori saturate la limite
+* **Exemplu**: Valorile NDVI sub 0,2 apar toate în roșu, valorile peste 0,9 apar toate în verde
 
-#### 2. Transparent Background
+#### 2. Fundal transparent
 
-* Pixels **outside the range** become **fully transparent**
-* Only pixels **within range** show color gradient
-* **Use case**: GIS overlay, isolating specific value ranges, highlighting only areas of interest
-* **Example**: Show only NDVI 0.4-0.7 in color, everything else transparent
+* Pixelii **în afara intervalului** devin **complet transparenți**
+* Numai pixelii **din interval** afișează gradientul de culoare
+* **Caz de utilizare**: suprapunere GIS, izolarea intervalelor de valori specifice, evidențierea numai a zonelor de interes
+* **Exemplu**: Afișează numai NDVI 0,4-0,7 în culori, restul fiind transparent
 
-{% hint style="warning" %}
-**Transparency Limitation**: Transparent pixels will appear as the background color in the viewer. When exported during processing, transparency is preserved in PNG format but not in JPG.
+{% hint style=&quot;warning&quot; %}
+**Limitare transparență**: Pixelii transparenți vor apărea ca culoarea de fundal în vizualizator. Când sunt exportați în timpul procesării, transparența este păstrată în formatul PNG, dar nu și în JPG.
 {% endhint %}
 
-#### 3. Index Background
+#### 3. Fundal index
 
-* Pixels **outside range** display in **grayscale** (showing raw index values)
-* Pixels **within range** show **color gradient**
-* **Use case**: Subtle highlighting, maintain context while emphasizing areas of interest
-* **Example**: Color-highlight stressed vegetation (NDVI 0.3-0.5) while showing healthy areas in gray
+* Pixelii **în afara intervalului** sunt afișați în **tonuri de gri** (afișând valorile index brute)
+* Pixelii **în interval** afișează **gradient de culoare**
+* **Caz de utilizare**: evidențiere subtilă, menținerea contextului în timp ce se accentuează zonele de interes
+* **Exemplu**: evidențierea cu culori a vegetației stresate (NDVI 0,3-0,5) în timp ce zonele sănătoase sunt afișate în gri
 
-#### 4. Original Background
+#### 4. Fundal original
 
-* Pixels **outside range** display the **original multispectral image**
-* Pixels **within range** show **color gradient**
-* **Use case**: Most intuitive - combines natural image context with analytical color overlay
-* **Example**: See the actual field/crop appearance with color-coded stress areas overlaid
+* Pixelii **în afara intervalului** sunt afișați ca **imagine multispectrală originală**
+* Pixelii **din interval** afișează **gradientul de culoare**
+* **Caz de utilizare**: Cel mai intuitiv - combină contextul natural al imaginii cu suprapunerea analitică a culorilor
+* **Exemplu**: Vedeți aspectul real al câmpului/recoltei cu zonele stresate suprapuse și codificate prin culori
 
-### Choosing the Right Clipping Mode
+### Alegerea modului de decupare potrivit
 
-| Clipping Mode              | Best For                                   | Visualization Style          |
+| Mod de decupare              | Cel mai potrivit pentru                                   | Stil de vizualizare          |
 | -------------------------- | ------------------------------------------ | ---------------------------- |
-| **Minimum and Maximum**    | Full data display, scientific analysis     | All pixels colored           |
-| **Transparent Background** | GIS overlays, isolating specific ranges    | Color on range, blank beyond |
-| **Index Background**       | Subtle emphasis, maintaining data context  | Color on range, gray beyond  |
-| **Original Background**    | Reports, presentations, intuitive analysis | Color on range, photo beyond |
+| **Minim și maxim**    | Afișare completă a datelor, analiză științifică     | Toți pixelii colorați           |
+| **Fundal transparent** | Suprapuneri GIS, izolarea anumitor intervale    | Culoare pe interval, gol în afara intervalului |
+| **Fundal index**       | Accent subtil, menținerea contextului datelor  | Culoare pe interval, gri în afara intervalului  |
+| **Fundal original**    | Rapoarte, prezentări, analiză intuitivă | Culoare pe interval, fotografie în afara intervalului |
 
-### Creating Custom LUT Colors
+### Crearea culorilor LUT personalizate
 
-For full control over your visualization, you can create **custom color gradients** by editing individual color stops.
+Pentru un control deplin asupra vizualizării, puteți crea **gradiente de culori personalizate** prin editarea opririlor individuale de culoare.
 
-**To create a custom gradient:**
+**Pentru a crea un gradient personalizat:**
 
-1. In the LUT panel, locate the **gradient preview bar**
-2. Look for **color swatch squares** below the gradient
-3. **Click a color stop** to select it
-4. A **color picker** opens
-5. Choose a new color using:
-   * **Color wheel**: Visual color selection
-   * **RGB/HSV sliders**: Precise color control
-   * **Hex code entry**: Exact color specification (e.g., `#FF0000` for red)
-6. Click off the color picker **to apply the new color**
-7. The gradient **updates immediately** on the image
+1. În panoul LUT, localizați **bara de previzualizare a gradientului**.
+2. Căutați **pătratele de mostre de culoare** sub gradient.
+3. **Faceți clic pe o oprire de culoare** pentru a o selecta.
+4. Se deschide un **selector de culori**
+5. Alegeți o nouă culoare utilizând:
+   * **Roata de culori**: selecție vizuală a culorilor
+   * **Cursorii RGB/HSV**: control precis al culorilor
+   * **Introducerea codului hexadecimal**: specificarea exactă a culorii (de exemplu, `#FF0000` pentru roșu)
+6. Faceți clic în afara selectorului de culori **pentru a aplica noua culoare**
+7. Gradientul **se actualizează imediat** pe imagine
 
-**Adding or removing color stops:**
+**Adăugarea sau eliminarea opririlor de culoare:**
 
-* **Add a stop**: Click the + icon to add a new swatch at the end
-* **Remove a stop**: Double click the color square to remove the swatch
+* **Adăugați o oprire**: faceți clic pe pictograma + pentru a adăuga o nouă mostră la sfârșit
+* **Eliminați o oprire**: faceți dublu clic pe pătratul colorat pentru a elimina mostra
 
-**Customization strategies:**
+**Strategii de personalizare:**
 
-* **Invert gradient**: Flip color order to reverse the meaning (e.g., green=low, red=high)
-* **Brand colors**: Match your organization's color palette for reports
-* **Colorblind-friendly**: Use orange-blue or purple-yellow combinations
-* **Print optimization**: Choose colors that work in both color and grayscale printing
-* **Multi-threshold**: Use distinct colors at specific value thresholds for classification
+* **Inversați gradientul**: inversați ordinea culorilor pentru a inversa semnificația (de exemplu, verde = scăzut, roșu = ridicat)
+* **Culori de marcă**: potriviți paleta de culori a organizației dvs. pentru rapoarte
+* **Potrivit pentru persoanele cu daltonism**: utilizați combinații de portocaliu-albastru sau violet-galben
+* **Optimizare pentru imprimare**: alegeți culori care funcționează atât pentru imprimarea color, cât și pentru imprimarea în tonuri de gri
+* **Praguri multiple**: utilizați culori distincte la praguri de valori specifice pentru clasificare
 
-{% hint style="info" %}
-**Saving Custom Gradients**: Custom gradients can be saved and reused. Click the save icon in the LUT panel to preserve your custom color schemes for future use.
+{% hint style=&quot;info&quot; %}
+**Salvarea gradientelor personalizate**: gradientele personalizate pot fi salvate și reutilizate. Faceți clic pe pictograma de salvare din panoul LUT pentru a păstra schemele de culori personalizate pentru utilizare ulterioară.
 {% endhint %}
 
 ***
 
-## Interactive Workflow
+## Flux de lucru interactiv
 
-### Real-Time Updates
+### Actualizări în timp real
 
-All LUT adjustments in the sandbox update the image **instantly and interactively**:
+Toate ajustările LUT din sandbox actualizează imaginea **instantaneu și interactiv**:
 
-* **Switch layer** → Image changes immediately
-* **Select gradient** → Colors update instantly
-* **Adjust value range** → Contrast changes in real-time
-* **Change classes** → Gradient smoothness updates immediately
-* **Modify clipping** → Background display changes instantly
-* **Edit colors** → Custom gradient applies immediately
+* **Comutați stratul** → Imaginea se modifică imediat
+* **Selectați gradientul** → Culorile se actualizează instantaneu
+* **Reglați intervalul de valori** → Contrastul se modifică în timp real
+* **Modificați clasele** → Nivelul de netezime al gradientului se actualizează imediat
+* **Modificați decuparea** → Afișarea fundalului se modifică instantaneu
+* **Editați culorile** → Gradientul personalizat se aplică imediat
 
-**No "Apply" button needed** - all changes are live and interactive!
+**Nu este necesar butonul „Aplicare”** - toate modificările sunt live și interactive!
 
-{% hint style="success" %}
-**Live Feedback**: The instant visual feedback allows you to rapidly experiment with different settings until you find the optimal visualization for your analysis needs.
+{% hint style=&quot;success&quot; %}
+**Feedback în timp real**: Feedbackul vizual instantaneu vă permite să experimentați rapid diferite setări până când găsiți vizualizarea optimă pentru nevoile dvs. de analiză.
 {% endhint %}
 
-### Iterative Refinement Workflow
+### Flux de lucru iterativ de rafinare
 
-**Typical LUT optimization workflow:**
+**Flux de lucru tipic de optimizare LUT:**
 
-1. **Select index layer** (e.g., RAW (Reflectance))
-2. **Apply index** - Choose camera filter and index formula, drag colored circles to appropriate location in the index formula
-3. **Apply LUT gradient** - Start with Red-Yellow-Green preset
-4. **Inspect pixel values** - Move cursor around, note value ranges
-5. **Adjust min/max** - Narrow to focus on vegetation (e.g., 0.2 to 0.9)
-6. **Choose clipping** - Try "Original Background" for context
-7. **Refine colors** - Customize gradient if needed for specific emphasis
-8. **Finalize settings** - Document settings and copy to Project Settings for export processing
+1. **Selectați stratul index** (de exemplu, RAW (Reflectanță))
+2. **Aplicați indexul** - Alegeți filtrul camerei și formula indexului, trageți cercurile colorate în locația corespunzătoare din formula indexului
+3. **Aplicați gradientul LUT** - Începeți cu presetarea Red-Yellow-Green
+4. **Verificați valorile pixelilor** - Mutați cursorul, notați intervalele de valori
+5. **Reglați min/max** - Restrângeți pentru a vă concentra pe vegetație (de exemplu, 0,2 până la 0,9)
+6. **Alegeți decuparea** - Încercați „Fundal original” pentru context
+7. **Rafinați culorile** - Personalizați gradientul dacă este necesar pentru accentuarea specifică
+8. **Finalizați setările** - Documentați setările și copiați-le în Setări proiect pentru procesarea exportului
 
-### Pixel Value Inspection
+### Verificarea valorilor pixelilor
 
-Understanding actual pixel values is crucial for setting effective LUT ranges:
+Înțelegerea valorilor reale ale pixelilor este esențială pentru setarea intervalelor LUT eficiente:
 
-**How to inspect values:**
+**Cum se inspectează valorile:**
 
-1. Pixel values show when the image has either the Index, or both the Index and LUT **boxes checked**.
-2. **Move your cursor** over different areas of the image
-3. **Observe pixel values** displayed in the legend as you hover
-4. Zoom in to see individual pixels highlighted with a floating value
-5. **Take notes** of value ranges for different features:
-   * **Healthy vegetation**: e.g., NDVI 0.55-0.85
-   * **Stressed vegetation**: e.g., NDVI 0.30-0.50
-   * **Bare soil**: e.g., NDVI 0.05-0.25
-   * **Water** (if present): e.g., NDVI -0.05 to 0.10
+1. Valorile pixelilor sunt afișate când imaginea are **caseta Index** sau **casetele Index și LUT** bifate.
+2. **Mutați cursorul** peste diferite zone ale imaginii
+3. **Observați valorile pixelilor** afișate în legendă când treceți cu cursorul peste ele
+4. Măriți imaginea pentru a vedea pixelii individuali evidențiați cu o valoare flotantă
+5. **Luați notițe** cu privire la intervalele de valori pentru diferite caracteristici:
+   * **Vegetație sănătoasă**: de exemplu, NDVI 0,55-0,85
+   * **Vegetație stresată**: de exemplu, NDVI 0,30-0,50
+   * **Sol gol**: de exemplu, NDVI 0,05-0,25
+   * **Apă** (dacă este prezentă): de exemplu, NDVI -0,05 până la 0,10
 
-**Using pixel values to set LUT ranges:**
+**Utilizarea valorilor pixelilor pentru a seta intervalele LUT:**
 
-After inspecting pixel values, adjust your LUT min/max accordingly:
+După inspectarea valorilor pixelilor, reglați LUT min/max în consecință:
 
-**Example scenario:**
+**Exemplu de scenariu:**
 
-* **Observation**: Soil values = 0.05-0.25, Stressed = 0.25-0.50, Healthy = 0.50-0.85
-* **Goal**: Visualize only plant health (exclude soil)
-* **LUT settings**: Min = `0.25`, Max = `0.85`
-* **Clipping**: "Original Background" to see soil in natural color
-* **Result**: Color gradient only applies to vegetation, soil shows as original image
+* **Observație**: Valori sol = 0,05-0,25, Stresat = 0,25-0,50, Sănătos = 0,50-0,85
+* **Obiectiv**: Vizualizați numai starea de sănătate a plantelor (excludeți solul)
+* **Setări LUT**: Min = `0.25`, Max = `0.85`
+* **Decupare**: „Fundal original” pentru a vedea solul în culori naturale
+* **Rezultat**: Gradientul de culoare se aplică numai vegetației, solul apare ca imagine originală
 
-{% hint style="info" %}
-**Dynamic Range**: Different crops, seasons, and growth stages will have different value ranges. Always inspect pixel values in your specific dataset before setting LUT ranges.
+{% hint style=&quot;info&quot; %}
+**Interval dinamic**: Culturi, anotimpuri și stadii de creștere diferite vor avea intervale de valori diferite. Verificați întotdeauna valorile pixelilor din setul de date specific înainte de a seta intervalele LUT.
 {% endhint %}
 
 ***
 
-## Custom Indices (Chloros+)
+## Indici personalizați (Chloros+)
 
-### Creating Custom Index Formulas
+### Crearea formulelor de indici personalizați
 
-{% hint style="info" %}
-**Where to Create**: Custom indices can be configured in **Project Settings** before processing, as well as in the Image Viewer sandbox sidebar.
+{% hint style=&quot;info&quot; %}
+**Unde se creează**: Indicii personalizați pot fi configurați în **Setări proiect** înainte de procesare, precum și în bara laterală a sandbox-ului Image Viewer.
 {% endhint %}
 
-**To create a custom index:**
+**Pentru a crea un index personalizat:**
 
-1. **Open Project Settings** (before processing) or Image Viewer sandbox sidebar
-2. Navigate to the **Index formula dropdown**
-3. Look for **"Custom"** option (must be logged in with Chloros+ license)
-4. **Define your formula** using band variables:
-   * Band names: `NIR`, `Red`, `Green`, `Blue`, `RedEdge`, etc.
-   * Operators: `+`, `-`, `*`, `/`, `^` (exponent)
-   * Functions: `sqrt()`, `abs()`, etc. (if supported)
-   * Parentheses: `()` for order of operations
-5. **Name your index** (e.g., "MyIndex" or "CustomNDVI")
-6. **Save the configuration**
+1. **Deschideți Setări proiect** (înainte de procesare) sau bara laterală a sandbox-ului Image Viewer
+2. Navigați la **meniul derulant Formula index**
+3. Căutați opțiunea **„Personalizat”** (trebuie să fiți conectat cu licența Chloros+)
+4. **Definiți formula** utilizând variabile de bandă:
+   * Nume de bandă: `NIR`, `Red`, `Green`, `Blue`, `RedEdge` etc.
+   * Operatori: `+`, `-`, `*`, `/`, `^` (exponent)
+   * Funcții: `sqrt()`, `abs()` etc. (dacă sunt acceptate)
+   * Paranteze: `()` pentru ordinea operațiilor
+5. **Denumiți indexul** (de exemplu, „MyIndex” sau „CustomNDVI”)
+6. **Salvați configurația**
 
-**Example custom formulas:**
+**Exemple de formule personalizate:**
 
 ```
 Modified NDVI with offset:
@@ -398,22 +398,22 @@ Exponential index:
 (NIR / Red) ^ 2
 ```
 
-{% hint style="warning" %}
-**Formula Validation**: Ensure your formula uses bands available in your camera. For example, RedEdge is only available on cameras with a RedEdge filter.
+{% hint style=&quot;warning&quot; %}
+**Validarea formulei**: Asigurați-vă că formula dvs. utilizează benzile disponibile în camera dvs. De exemplu, RedEdge este disponibil numai pe camerele cu filtru RedEdge.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Pași următori
 
-Now that you understand the Index/LUT Sandbox:
+Acum că ați înțeles Index/LUT Sandbox:
 
-* **Apply to processing**: Use discovered settings in [Project Settings](../project-settings/page-2.md)
-* **Batch process**: Apply optimized indices to full datasets
-* **Learn more**: Read [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md)
+* **Aplicați la procesare**: Utilizați setările descoperite în [Setări proiect](../project-settings/project-settings.md)
+* **Procesare în lot**: aplicați indici optimizați la seturi de date complete
+* **Aflați mai multe**: citiți [Formule de indici multispectrali](../project-settings/multispectral-index-formulas.md)
 
-Related documentation:
+Documentație conexă:
 
-* [**Image Layers**](image-layers.md) - Layer management and visualization
-* [**Opening an Image Full Screen**](page-3.md) - Image Viewer basics
-* [**Processing Images (GUI)**](../processing-images-gui/page-1.md) - Full processing workflow
+* [**Straturi de imagine**](image-layers.md) - Gestionarea și vizualizarea straturilor
+* [**Deschiderea unei imagini pe ecran complet**](opening-an-image-full-screen.md) - Noțiuni de bază despre vizualizatorul de imagini
+* [**Prelucrarea imaginilor (GUI)**](../processing-images-gui/adding-files-to-a-project.md) - Fluxul complet de lucru pentru prelucrare

@@ -1,92 +1,92 @@
-# Image Layers
+# Straturi de imagine
 
-The Image Layers dropdown in the Chloros Image Viewer allows you to quickly switch between different versions of the same image - from the original captures to processed reflectance outputs and calculated index images.
+Meniul derulant Straturi de imagine din vizualizatorul de imagini Chloros vă permite să comutați rapid între diferite versiuni ale aceleiași imagini - de la capturile originale la ieșirile de reflectanță procesate și imaginile index calculate.
 
-## What are Image Layers?
+## Ce sunt straturile de imagine?
 
-In Chloros, **layers** refer to the different image outputs available for a single source image. When you process images, Chloros creates multiple versions:
+În Chloros, **straturile** se referă la diferitele ieșiri de imagine disponibile pentru o singură imagine sursă. Când procesați imagini, Chloros creează mai multe versiuni:
 
-* **Original images** (JPG and RAW files from your camera)
-* **Reflectance calibrated** outputs (if reflectance calibration was enabled)
-* **Target images** (if the image contains calibration targets)
-* **Index images** (NDVI, NDRE, GNDVI, etc. if indices were configured)
+* **Imagini originale** (fișiere JPG și RAW de pe camera dvs.)
+* Rezultate **calibrate în funcție de reflectanță** (dacă calibrarea reflectanței a fost activată)
+* **Imagini țintă** (dacă imaginea conține ținte de calibrare)
+* **Imagini index** (NDVI, NDRE, GNDVI etc., dacă au fost configurate indexuri)
 
-The **Layer Selector dropdown** in the top-right of the Image Viewer lets you instantly switch between these versions without leaving the viewer.
+**Meniul derulant Layer Selector** din partea dreaptă sus a Image Viewer vă permite să comutați instantaneu între aceste versiuni fără a părăsi vizualizatorul.
 
 ***
 
-## Available Layer Types
+## Tipuri de straturi disponibile
 
 ### JPG
 
-* The original JPG preview image from your camera
-* Always available for all images
-* Unprocessed, as captured by the camera
-* Fastest to load and display
+* Imaginea JPG originală de previzualizare din camera dvs. foto
+* Disponibilă întotdeauna pentru toate imaginile
+* Neprelucrată, așa cum a fost capturată de cameră
+* Cea mai rapidă de încărcat și afișat
 
-**When to view:**
+**Când să vizualizați:**
 
-* Quick preview of original capture
-* Checking image composition and framing
-* Verifying capture quality before processing
+* Previzualizare rapidă a capturii originale
+* Verificarea compoziției și încadrării imaginii
+* Verificarea calității capturii înainte de procesare
 
 ### RAW (Original)
 
-* The original RAW sensor data from your camera
-* Debayered with no post processing applied
-* Higher bit depth than JPG (typically 12-bit or 14-bit sensor data)
+* Datele originale RAW ale senzorului din camera dvs.
+* Debayered fără aplicarea post-procesării
+* Adâncime de biți mai mare decât JPG (de obicei, date ale senzorului de 12 biți sau 14 biți)
 
-**When to view:**
+**Când să vizualizați:**
 
-* Inspecting original sensor data quality
-* Checking for sensor issues or artifacts
-* Comparing before/after processing results
+* Inspectarea calității datelor originale ale senzorului
+* Verificarea problemelor senzorului sau a artefactelor
+* Compararea rezultatelor înainte/după procesare
 
-### RAW (Target)
+### RAW (țintă)
 
-* Only appears for images identified as containing calibration targets
-* Shows the original RAW image with target detected
-* Used to verify target detection was successful
+* Apare numai pentru imaginile identificate ca conținând ținte de calibrare
+* Afișează imaginea RAW originală cu ținta detectată
+* Utilizat pentru a verifica dacă detectarea țintei a fost reușită
 
-**When to view:**
+**Când se vizualizează:**
 
-* Confirming calibration targets were detected correctly
-* Checking target image quality
-* Troubleshooting calibration issues
+* Confirmarea detectării corecte a țintelor de calibrare
+* Verificarea calității imaginii țintei
+* Depanarea problemelor de calibrare
 
-{% hint style="info" %}
-**Target Layer**: This layer only appears in the dropdown for images that contain calibration targets. Regular capture images will not have this option.
+{% hint style=&quot;info&quot; %}
+**Strat țintă**: Acest strat apare numai în meniul derulant pentru imaginile care conțin ținte de calibrare. Imaginile capturate în mod obișnuit nu vor avea această opțiune.
 {% endhint %}
 
-### RAW (Reflectance)
+### RAW (Reflectanță)
 
-* The calibrated reflectance output image
-* Vignette corrected (if enabled in processing)
-* Reflectance calibrated using target data (if enabled)
-* Multi-band TIFF with all camera channels
-* Pixel values represent percent reflectance (when using percent mode)
-* Ready to manipulate with the [Index/LUT Sandbox](index-lut-sandbox.md)
+* Imaginea de ieșire calibrată a reflectanței
+* Vignette corectată (dacă este activată în procesare)
+* Reflectanță calibrată folosind date țintă (dacă este activată)
+* Multi-band TIFF cu toate canalele camerei
+* Valorile pixelilor reprezintă procentul de reflectanță (când se folosește modul procentual)
+* Gata de manipulare cu [Index/LUT Sandbox](index-lut-sandbox.md)
 
-**When to view:**
+**Când se vizualizează:**
 
-* Inspecting calibrated results
-* Verifying calibration quality
-* Checking pixel values for scientific accuracy
-* Comparing with original to see calibration effects
+* Inspectarea rezultatelor calibrate
+* Verificarea calității calibrării
+* Verificarea valorilor pixelilor pentru acuratețe științifică
+* Compararea cu originalul pentru a vedea efectele calibrării
 
-{% hint style="success" %}
-**Recommended**: Use RAW (Reflectance) layer when checking pixel values for scientific measurements and analysis.
+{% hint style=&quot;success&quot; %}
+**Recomandat**: Utilizați stratul RAW (Reflectanță) atunci când verificați valorile pixelilor pentru măsurători și analize științifice.
 {% endhint %}
 
-### RAW (NDVI Index)... and similar
+### RAW (NDVI Index)... și similare
 
-* Calculated vegetation index image (NDVI in this example)
-* The index name changes based on which index was configured during processing
-* Examples: RAW (NDVI Index), RAW (NDRE Index), RAW (GNDVI Index), etc.
-* Single-band grayscale image showing index calculation results
-* One layer appears for each index configured in Project Settings
+* Imaginea indicelui de vegetație calculat (NDVI în acest exemplu)
+* Numele indicelui se modifică în funcție de indicele configurat în timpul procesării.
+* Exemple: RAW (NDVI Index), RAW (NDRE Index), RAW (GNDVI Index) etc.
+* Imagine monocromă cu o singură bandă care arată rezultatele calculului indicelui
+* Apare un strat pentru fiecare indice configurat în Setări proiect
 
-**Possible index names:**
+**Nume posibile pentru indici:**
 
 * RAW (NDVI Index)
 * RAW (NDRE Index)
@@ -94,259 +94,259 @@ The **Layer Selector dropdown** in the top-right of the Image Viewer lets you in
 * RAW (OSAVI Index)
 * RAW (EVI Index)
 * RAW (SAVI Index)
-* And many more... (see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md))
+* Și multe altele... (vezi [Formule index multispectrale](../project-settings/multispectral-index-formulas.md))
 
-**When to view:**
+**Când să vizualizați:**
 
-* Examining index calculation results
-* Checking index value ranges
-* Identifying areas of interest
-* Verifying index images before using in GIS or analysis
-
-***
-
-## Using the Layer Selector
-
-### Opening the Dropdown
-
-1. Open an image in fullscreen mode (click any thumbnail in the Image Viewer)
-2. Locate the **layer dropdown** in the top-right corner of the viewer
-3. The dropdown shows the currently selected layer (e.g., "JPG")
-4. Click the dropdown to see all available layers
-
-### Switching Layers
-
-1. Click the layer dropdown to open the list
-2. All available layers for the current image are shown
-3. Click any layer name to switch to that version
-4. The image updates immediately to show the selected layer
-
-**Quick switching:**
-
-* The dropdown remembers your last selection
-* When navigating to the next image, Chloros attempts to show the same layer type
-* If that layer doesn't exist on the next image, it defaults to JPG
-
-### Layer Availability
-
-Not all layers are available for every image:
-
-**Always available:**
-
-* ✅ JPG (every image has a JPG preview)
-
-**Conditionally available:**
-
-* ⚠️ RAW (Original) - Only if image was captured in RAW or RAW+JPG mode
-* ⚠️ RAW (Target) - Only if image contains detected calibration targets
-* ⚠️ RAW (Reflectance) - Only after processing with reflectance calibration enabled
-* ⚠️ RAW (\[Index] Index) - Only after processing with indices configured
+* Examinarea rezultatelor calculului indicelui
+* Verificarea intervalelor valorilor indicelui
+* Identificarea zonelor de interes
+* Verificarea imaginilor indicelui înainte de utilizarea în GIS sau analiză
 
 ***
 
-## Layer Persistence
+## Utilizarea selectorului de straturi
 
-### Navigating Between Images
+### Deschiderea meniului derulant
 
-When you navigate to a different image (using arrow keys or clicking thumbnails):
+1. Deschideți o imagine în modul ecran complet (faceți clic pe orice miniatură din vizualizatorul de imagini)
+2. Localizați **meniul derulant al straturilor** în colțul din dreapta sus al vizualizatorului
+3. Meniul derulant afișează stratul selectat în prezent (de exemplu, „JPG”)
+4. Faceți clic pe meniul derulant pentru a vedea toate straturile disponibile
 
-**Layer preference is preserved:**
+### Comutarea straturilor
 
-* If viewing "RAW (Reflectance)", next image shows "RAW (Reflectance)" (if available)
-* If viewing "RAW (NDVI Index)", next image shows "RAW (NDVI Index)" (if available)
-* If the same layer doesn't exist, defaults to JPG
+1. Faceți clic pe meniul derulant al straturilor pentru a deschide lista
+2. Sunt afișate toate straturile disponibile pentru imaginea curentă
+3. Faceți clic pe orice nume de strat pentru a comuta la versiunea respectivă
+4. Imaginea se actualizează imediat pentru a afișa stratul selectat
 
-**Example workflow:**
+**Comutare rapidă:**
 
-1. Open Image 1, switch to RAW (NDVI Index)
-2. Press → to view Image 2
-3. Image 2 automatically displays RAW (NDVI Index) layer
-4. Continue navigating - all images show NDVI layer
-5. Very efficient for reviewing index results across many images
+* Meniul derulant reține ultima selecție
+* Când navigați la imaginea următoare, Chloros încearcă să afișeze același tip de strat
+* Dacă stratul respectiv nu există în imaginea următoare, se setează implicit JPG
 
-***
+### Disponibilitatea straturilor
 
-## Common Workflows
+Nu toate straturile sunt disponibile pentru fiecare imagine:
 
-### Workflow 1: Before/After Comparison
+**Disponibile întotdeauna:**
 
-**Goal**: Compare original vs. calibrated image
+* ✅ JPG (fiecare imagine are o previzualizare JPG)
 
-1. Open processed image in Image Viewer
-2. Select **RAW (Original)** from dropdown
-3. Note the vignetting and uncalibrated values
-4. Switch to **RAW (Reflectance)** from dropdown
-5. Compare - vignetting removed, values calibrated
+**Disponibile condiționat:**
 
-### Workflow 2: Index Review
-
-**Goal**: Quickly review NDVI results across dataset
-
-1. Open first processed image
-2. Select **RAW (NDVI Index)** from dropdown
-3. Use → arrow key to navigate to next image
-4. NDVI layer persists automatically
-5. Continue through all images, checking NDVI patterns
-6. Switch to **RAW (NDRE Index)** to compare
-
-### Workflow 3: Target Verification
-
-**Goal**: Verify all target images were detected correctly
-
-1. Navigate to a target image
-2. Select **RAW (Target)** from dropdown
-3. Verify calibration targets are clearly visible and detected
-4. Navigate to next target image
-5. Repeat verification for all targets
-
-### Workflow 4: Pixel Value Inspection
-
-**Goal**: Check reflectance values for scientific accuracy
-
-1. Open processed image
-2. Select **RAW (Reflectance)** layer
-3. Enable **Pixel Percent** mode (button in top-right toolbar)
-4. Move cursor over vegetation areas
-5. Verify pixel values are in expected ranges (30-70% for NIR, 5-15% for Red)
-6. Check soil and water areas for appropriate values
+* ⚠️ RAW (Original) - Numai dacă imaginea a fost capturată în modul RAW sau RAW+JPG
+* ⚠️ RAW (Țintă) - Numai dacă imaginea conține ținte de calibrare detectate
+* ⚠️ RAW (Reflectanță) - Numai după procesarea cu calibrarea reflectanței activată
+* ⚠️ RAW (\[Index] Index) - Numai după procesarea cu indici configurați
 
 ***
 
-## Understanding Pixel Values by Layer
+## Persistența stratului
 
-Different layers show different pixel value ranges:
+### Navigarea între imagini
 
-### JPG Layer
+Când navigați la o altă imagine (folosind tastele săgeți sau făcând clic pe miniaturi):
 
-* **Range**: 0-255 (8-bit)
-* **Meaning**: Display values, gamma-corrected
-* **Use**: Visual inspection only, not for scientific measurement
+**Preferința stratului este păstrată:**
+
+* Dacă vizualizați „RAW (Reflectanță)”, imaginea următoare afișează „RAW (Reflectanță)” (dacă este disponibilă)
+* Dacă vizualizați „RAW (NDVI Index)”, imaginea următoare afișează „RAW (NDVI Index)” (dacă este disponibilă)
+* Dacă același strat nu există, se setează implicit JPG
+
+**Exemplu de flux de lucru:**
+
+1. Deschideți imaginea 1, comutați la RAW (NDVI Index)
+2. Apăsați → pentru a vizualiza imaginea 2
+3. Imaginea 2 afișează automat stratul RAW (NDVI Index)
+4. Continuați navigarea - toate imaginile afișează stratul NDVI
+5. Foarte eficient pentru revizuirea rezultatelor indexului pe mai multe imagini
+
+***
+
+## Fluxuri de lucru comune
+
+### Flux de lucru 1: Comparație înainte/după
+
+**Obiectiv**: Comparați imaginea originală cu cea calibrată
+
+1. Deschideți imaginea procesată în Image Viewer
+2. Selectați **RAW (Original)** din meniul derulant
+3. Observați vignetarea și valorile necalibrate
+4. Comutați la **RAW (Reflectanță)** din meniul derulant
+5. Comparați - vignetarea a fost eliminată, valorile au fost calibrate
+
+### Flux de lucru 2: Revizuirea indexului
+
+**Obiectiv**: Revizuirea rapidă a rezultatelor NDVI din setul de date
+
+1. Deschideți prima imagine procesată
+2. Selectați **RAW (NDVI Index)** din meniul derulant
+3. Utilizați tasta → săgeată pentru a naviga la imaginea următoare
+4. Stratul NDVI persistă automat
+5. Continuați cu toate imaginile, verificând modelele NDVI
+6. Treceți la **RAW (NDRE Index)** pentru a compara
+
+### Flux de lucru 3: Verificarea țintei
+
+**Obiectiv**: Verificați dacă toate imaginile țintă au fost detectate corect
+
+1. Navigați la o imagine țintă
+2. Selectați **RAW (Target)** din meniul derulant
+3. Verificați dacă țintele de calibrare sunt clar vizibile și detectate
+4. Navigați la următoarea imagine țintă
+5. Repetați verificarea pentru toate țintele
+
+### Flux de lucru 4: Inspecția valorii pixelilor
+
+**Obiectiv**: Verificați valorile de reflexie pentru acuratețe științifică
+
+1. Deschideți imaginea procesată
+2. Selectați stratul **RAW (Reflexie)**
+3. Activați modul **Procent pixel** (butonul din bara de instrumente din dreapta sus)
+4. Deplasați cursorul peste zonele de vegetație
+5. Verificați dacă valorile pixelilor se încadrează în intervalele așteptate (30-70% pentru NIR, 5-15% pentru Red)
+6. Verificați dacă zonele de sol și apă au valori adecvate
+
+***
+
+## Înțelegerea valorilor pixelilor pe straturi
+
+Diferite straturi afișează intervale diferite de valori ale pixelilor:
+
+### Strat JPG
+
+* **Interval**: 0-255 (8 biți)
+* **Semnificație**: Afișează valori, corectate gamma
+* **Utilizare**: Numai inspecție vizuală, nu pentru măsurători științifice
 
 ### RAW (Original)
 
-* **Range**: 0-65535 (16-bit)
-* **Meaning**: Raw sensor digital numbers
-* **Use**: Checking sensor performance, not calibrated
+* **Interval**: 0-65535 (16 biți)
+* **Semnificație**: Numere digitale brute ale senzorului
+* **Utilizare**: Verificarea performanței senzorului, necalibrat
 
-### RAW (Reflectance)
+### RAW (Reflectanță)
 
-* **Range**: 0-65,535 (16-bit TIFF) or 0.0-1.0 (32-bit Percent)
-* **Meaning**: Calibrated percent reflectance
-* **Use**: Scientific measurements and analysis
+* **Interval**: 0-65.535 (16 biți TIFF) sau 0,0-1,0 (32 biți procent)
+* **Semnificație**: Reflectanță procentuală calibrată
+* **Utilizare**: Măsurători și analize științifice
 
-**For 16-bit TIFF:** Divide by 65,535 to get percent reflectance **For 32-bit Percent:** Values directly represent percent (0.5 = 50% reflectance)
+**Pentru 16 biți TIFF:** Împărțiți la 65.535 pentru a obține reflectanța procentuală **Pentru 32 biți Percent:** Valorile reprezintă direct procentul (0,5 = 50% reflectanță)
 
-### RAW (Index Images)
+### RAW (imagini indexate)
 
-* **Range**: Varies by index (typically -1.0 to +1.0 for normalized indices)
-* **Meaning**: Index calculation result
-* **Examples**:
-  * NDVI: -1 to +1 (vegetation typically 0.4 to 0.9)
-  * NDRE: -1 to +1 (stress detection)
-  * EVI: 0 to 1 (enhanced vegetation)
-
-***
-
-## Tips and Best Practices
-
-### Efficient Layer Switching
-
-* **Keyboard shortcut awareness**: While there's no keyboard shortcut for layers, navigation arrows (←/→) work across all layers
-* **Consistent workflows**: Pick one layer (e.g., NDVI) and review entire dataset before switching to another
-* **Quick comparisons**: Toggle between Original and Reflectance to verify processing quality
-
-### Performance Considerations
-
-* **JPG loads fastest**: Use for quick navigation through many images
-* **RAW layers load slower**: Higher resolution and bit depth
-* **Index layers**: Similar speed to Reflectance layers
-* **First load is slowest**: Subsequent views of same layer are cached and faster
-
-### Quality Verification
-
-* **Always check RAW (Original)**: Verify source data quality before trusting processed outputs
-* **Compare layers**: Use layer switching to validate processing worked correctly
-* **Check index ranges**: Use Pixel Percent mode with index layers to verify values are reasonable
+* **Interval**: variază în funcție de index (de obicei între -1,0 și +1,0 pentru indicii normalizați)
+* **Semnificație**: rezultatul calculului indexului
+* **Exemple**:
+  * NDVI: între -1 și +1 (vegetație de obicei între 0,4 și 0,9)
+  * NDRE: de la -1 la +1 (detectarea stresului)
+  * EVI: de la 0 la 1 (vegetație îmbunătățită)
 
 ***
 
-## Troubleshooting
+## Sfaturi și bune practici
 
-### Layer Not Available
+### Comutarea eficientă între straturi
 
-**Problem**: Expected layer doesn't appear in dropdown
+* **Cunoașterea comenzilor rapide de la tastatură**: Deși nu există comenzi rapide de la tastatură pentru straturi, săgețile de navigare (←/→) funcționează pentru toate straturile
+* **Fluxuri de lucru consecvente**: Alegeți un strat (de exemplu, NDVI) și examinați întregul set de date înainte de a trece la altul
+* **Comparații rapide**: Comutați între Original și Reflectanță pentru a verifica calitatea procesării
 
-**Possible causes:**
+### Considerații privind performanța
 
-* Image wasn't processed (only JPG and RAW (Original) available)
-* Reflectance calibration was disabled during processing
-* Specific index wasn't configured in Project Settings
-* Image is a target-only image (no indices generated for targets)
+* **JPG se încarcă cel mai rapid**: utilizați pentru navigarea rapidă prin multe imagini.
+* **Straturile RAW se încarcă mai lent**: rezoluție și adâncime de biți mai mari.
+* **Straturi index**: viteză similară cu straturile Reflectance.
+* **Prima încărcare este cea mai lentă**: vizualizările ulterioare ale aceluiași strat sunt stocate în cache și sunt mai rapide.
 
-**Solutions:**
+### Verificarea calității
 
-1. Verify image was processed (check output folder for processed files)
-2. Check Project Settings to confirm indices were configured
-3. Reprocess with desired indices enabled
-
-### Wrong Layer Shown
-
-**Problem**: Image opens in unexpected layer
-
-**Cause**: Layer preference from previous image carried forward, but that layer doesn't exist on current image
-
-**Solution**: Chloros automatically falls back to JPG when preferred layer unavailable - this is normal behavior
-
-### Can't See Calibration Targets
-
-**Problem**: RAW (Target) layer doesn't show target detection
-
-**Possible causes:**
-
-* Targets weren't detected during processing
-* Image doesn't actually contain targets
-* Target detection settings too strict
-
-**Solutions:**
-
-1. Check Debug Log for "Target found" messages
-2. Verify image actually contains visible calibration targets
-3. Adjust target detection settings in Project Settings
-4. See [Choosing Target Images](../processing-images-gui/choosing-target-images.md)
+* **Verificați întotdeauna RAW (Original)**: verificați calitatea datelor sursă înainte de a avea încredere în rezultatele procesate
+* **Comparați straturile**: utilizați comutarea straturilor pentru a valida funcționarea corectă a procesării
+* **Verificați intervalele indexului**: utilizați modul Pixel Percent cu straturile index pentru a verifica dacă valorile sunt rezonabile
 
 ***
 
-## Related Features
+## Depanare
 
-### Image Viewer Tools
+### Stratul nu este disponibil
 
-When viewing any layer, you can use:
+**Problemă**: Stratul așteptat nu apare în meniul derulant
 
-* **Zoom controls**: Magnify to inspect details
-* **Pan**: Click and drag to move around zoomed image
-* **Pixel value inspection**: See values at cursor location
-* **Navigation arrows**: Move between images while maintaining layer
-* **Pixel Percent mode**: Toggle between DN and percent display
+**Cauze posibile:**
 
-See [Opening an Image Full Screen](page-3.md) for complete Image Viewer documentation.
+* Imaginea nu a fost procesată (sunt disponibile doar JPG și RAW (Original))
+* Calibrarea reflectanței a fost dezactivată în timpul procesării
+* Indexul specific nu a fost configurat în Setările proiectului
+* Imaginea este o imagine numai pentru țintă (nu s-au generat indici pentru ținte)
+
+**Soluții:**
+
+1. Verificați dacă imaginea a fost procesată (verificați folderul de ieșire pentru fișierele procesate)
+2. Verificați Setările proiectului pentru a confirma că indicii au fost configurați
+3. Reprocesați cu indicii doriti activați
+
+### Strat incorect afișat
+
+**Problemă**: Imaginea se deschide într-un strat neașteptat
+
+**Cauză**: Preferința de strat din imaginea anterioară a fost preluată, dar acel strat nu există în imaginea curentă
+
+**Soluție**: Chloros revine automat la JPG când stratul preferat nu este disponibil - acesta este un comportament normal
+
+### Nu se pot vedea țintele de calibrare
+
+**Problemă**: Stratul RAW (țintă) nu afișează detectarea țintelor
+
+**Cauze posibile:**
+
+* Țintele nu au fost detectate în timpul procesării
+* Imaginea nu conține de fapt ținte
+* Setările de detectare a țintelor sunt prea stricte
+
+**Soluții:**
+
+1. Verificați jurnalul de depanare pentru mesajele „Țintă găsită”
+2. Verificați dacă imaginea conține efectiv ținte de calibrare vizibile
+3. Reglați setările de detectare a țintelor în Setări proiect
+4. Consultați [Alegerea imaginilor țintă](../processing-images-gui/choosing-target-images.md)
+
+***
+
+## Funcții conexe
+
+### Instrumente pentru vizualizarea imaginilor
+
+Când vizualizați orice strat, puteți utiliza:
+
+* **Comenzi de zoom**: măriți pentru a inspecta detaliile
+* **Panoramare**: faceți clic și trageți pentru a vă deplasa în jurul imaginii mărite
+* **Inspectarea valorii pixelilor**: vedeți valorile la locația cursorului
+* **Săgeți de navigare**: deplasați-vă între imagini menținând stratul
+* **Modul procentaj pixeli**: comutați între afișarea DN și procentaj
+
+Consultați [Deschiderea unei imagini pe ecran complet](opening-an-image-full-screen.md) pentru documentația completă a vizualizatorului de imagini.
 
 ### Index/LUT Sandbox
 
-For interactive index testing and visualization:
+Pentru testarea și vizualizarea interactivă a indexului:
 
-* **Real-time index calculation**: Test different index formulas
-* **LUT color mapping**: Apply color gradients to grayscale indices
-* **Export visualizations**: Save colored index images
+* **Calcularea indexului în timp real**: Testați diferite formule de index
+* **Mapare culori LUT**: Aplicați gradientele de culoare la indicii în tonuri de gri
+* **Export vizualizări**: Salvați imagini indexate colorate
 
-See [Index/LUT Sandbox](index-lut-sandbox.md) for details.
+Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru detalii.
 
 ***
 
-## Next Steps
+## Pași următori
 
-Now that you understand image layers:
+Acum că înțelegeți straturile de imagine:
 
-* [**Opening an Image Full Screen**](page-3.md) - Complete Image Viewer guide
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Interactive index visualization
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Available indices reference
-* [**Finishing the Processing**](../processing-images-gui/finishing-the-processing.md) - Understanding processed outputs
+* [**Deschiderea unei imagini pe ecran complet**](opening-an-image-full-screen.md) - Ghid complet pentru vizualizatorul de imagini
+* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Vizualizare interactivă a indexului
+* [**Formule index multispectrale**](../project-settings/multispectral-index-formulas.md) - Referință indexuri disponibile
+* [**Finalizarea procesării**](../processing-images-gui/finishing-the-processing.md) - Înțelegerea rezultatelor procesate

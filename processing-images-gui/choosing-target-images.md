@@ -1,221 +1,221 @@
-# Choosing Target Images
+# Alegerea imaginilor țintă
 
-Marking which images contain calibration targets is a crucial step that significantly speeds up the Chloros processing pipeline. By pre-selecting target images, you eliminate the need for Chloros to scan every image in your dataset for calibration targets.
+Marcarea imaginilor care conțin ținte de calibrare este un pas crucial care accelerează semnificativ procesul de prelucrare Chloros. Prin preselectarea imaginilor țintă, eliminați necesitatea ca Chloros să scaneze fiecare imagine din setul de date pentru a găsi ținte de calibrare.
 
-## Why Mark Target Images?
+## De ce să marcați imaginile țintă?
 
-### Processing Speed
+### Viteza de procesare
 
-Without marking target images, Chloros must:
+Fără marcarea imaginilor țintă, Chloros trebuie să:
 
-* Scan every single image in your project
-* Run target detection algorithms on each image
-* Check hundreds or thousands of images unnecessarily
+* Scaneze fiecare imagine din proiectul dvs.
+* Ruleze algoritmi de detectare a țintelor pe fiecare imagine
+* Verifice inutil sute sau mii de imagini
 
-**Result**: Processing can take significantly longer, especially for large datasets.
+**Rezultat**: Procesarea poate dura mult mai mult, în special pentru seturi de date mari.
 
-### With Marked Target Images
+### Cu imagini țintă marcate
 
-When you check the Target column for specific images:
+Când bifați coloana Țintă pentru imagini specifice:
 
-* Chloros only scans the checked images for targets
-* Target detection completes much faster
-* Overall processing time is greatly reduced
+* Chloros scanează numai imaginile bifate pentru ținte
+* Detectarea țintelor se finalizează mult mai repede
+* Timpul total de procesare este redus considerabil
 
-{% hint style="success" %}
-**Speed Improvement**: Marking 2-3 target images in a 500-image dataset can reduce target detection time from 30+ minutes to under 1 minute.
+{% hint style=&quot;success&quot; %}
+**Îmbunătățirea vitezei**: Marcarea a 2-3 imagini țintă într-un set de date de 500 de imagini poate reduce timpul de detectare a țintelor de la peste 30 de minute la mai puțin de 1 minut.
 {% endhint %}
 
 ***
 
-## How to Mark Target Images
+## Cum să marcați imaginile țintă
 
-### Step 1: Identify Your Target Images
+### Pasul 1: Identificați imaginile țintă
 
-Look through your imported images in the File Browser and identify which images contain calibration targets.
+Răsfoiți imaginile importate în File Browser și identificați imaginile care conțin ținte de calibrare.
 
-**Common scenarios:**
+**Scenarii comune:**
 
-* **Pre-capture target**: Captured before starting the session
-* **Post-capture target**: Captured after completing the session
-* **In-field targets**: Targets placed within the capture area
-* **Multiple targets**: 2-3 target images per session (recommended)
+* **Țintă pre-captură**: capturată înainte de începerea sesiunii
+* **Țintă post-captură**: capturată după finalizarea sesiunii
+* **Ținte în câmp**: ținte plasate în zona de captură
+* **Ținte multiple**: 2-3 imagini țintă per sesiune (recomandat)
 
-### Step 2: Check the Target Column
+### Pasul 2: Verificați coloana Țintă
 
-For each image containing a calibration target:
+Pentru fiecare imagine care conține o țintă de calibrare:
 
-1. Locate the image in the File Browser table
-2. Find the **Target** column (rightmost column)
-3. Click the checkbox in the Target column for that image
-4. Repeat for all images containing targets
+1. Localizați imaginea în tabelul File Browser (Browser fișiere)
+2. Găsiți coloana **Țintă** (coloana din extrema dreaptă)
+3. Bifați caseta de selectare din coloana Țintă pentru imaginea respectivă
+4. Repetați pentru toate imaginile care conțin ținte
 
-### Step 3: Verify Your Selection
+### Pasul 3: Verificați selecția
 
-Before processing, double-check:
+Înainte de procesare, verificați din nou:
 
-* [ ] All images with calibration targets are checked
-* [ ] No non-target images are accidentally checked
-* [ ] Targets are clearly visible in checked images
-
-***
-
-## Best Practices for Target Images
-
-### Target Capture Guidelines
-
-**Timing:**
-
-* Capture target images immediately before and throughout your capture session
-* Within the same lighting conditions as your DAQ light sensor
-* Ideally capture target images as often as possible for the best results. Otherwise, the light sensor data will be used to adjust the calibration over time.
-
-**Camera Position:**
-
-* Hold camera above target such that is is centered and fills around 40-60% of the image center.
-* Keep camera parallel/nadir to target surface
-
-**Lighting:**
-
-* Same ambient lighting as your DAQ light sensor
-* Avoid shadows on the target surfaces
-* Don't block your light source with your body, vehicle or vegetation
-* Overcast conditions provide most consistent results
-
-**Target Condition:**
-
-* Keep target panels clean and dry
-* All 4 panels should be clearly visible and unobstructed
-* Targets perpendicular/nadir to the light source if possible
-
-### How Many Target Images?
-
-**Minimum:** 1 target image per session. **Recommended:** 3-5 target images per session.
-
-**Best practice schedule:**
-
-* 3-5 images captured shortly after the light sensor is recording
-* Rotate the camera between captures for the best results
-* Optional: periodically mid-session if lighting conditions change constantly
+* [ ] Toate imaginile cu ținte de calibrare sunt bifate
+* [ ] Nicio imagine care nu este țintă nu este bifată accidental
+* [ ] Țintele sunt clar vizibile în imaginile bifate
 
 ***
 
-## Working with Multiple Cameras
+## Cele mai bune practici pentru imaginile țintă
 
-### Dual-Camera Setups
+### Instrucțiuni de captare a țintelor
 
-If using two MAPIR cameras simultaneously (e.g., Survey3W RGN + Survey3N OCN):
+**Momentul:**
 
-1. Capture target images with **both cameras** at the same time
-2. Use the **same physical target** for both cameras
-3. Mark target images for **both camera types** in the File Browser
-4. Chloros will use appropriate targets for each camera's calibration
+* Captarea imaginilor țintă imediat înainte și pe parcursul sesiunii de captare
+* În aceleași condiții de iluminare ca senzorul de lumină DAQ
+* În mod ideal, capturați imagini țintă cât mai des posibil pentru a obține cele mai bune rezultate. În caz contrar, datele senzorului de lumină vor fi utilizate pentru a ajusta calibrarea în timp.
 
-### Camera Model Column
+**Poziția camerei:**
 
-The **Camera Model** column helps identify which images came from which camera:
+* Țineți camera deasupra țintei, astfel încât aceasta să fie centrată și să ocupe aproximativ 40-60% din centrul imaginii.
+* Mențineți camera paralelă/nadir cu suprafața țintei
+
+**Iluminare:**
+
+* Aceeași iluminare ambientală ca senzorul de lumină DAQ
+* Evitați umbrele pe suprafețele țintei
+* Nu blocați sursa de lumină cu corpul, vehiculul sau vegetația
+* Condițiile de cer înnorat oferă cele mai consistente rezultate
+
+**Condiția țintei:**
+
+* Mențineți panourile țintei curate și uscate
+* Toate cele 4 panouri trebuie să fie clar vizibile și neobstrucționate
+* Ținte perpendiculare/nadir față de sursa de lumină, dacă este posibil
+
+### Câte imagini țintă?
+
+**Minim:** 1 imagine țintă per sesiune. **Recomandat:** 3-5 imagini țintă per sesiune.
+
+**Programul de bune practici:**
+
+* 3-5 imagini capturate la scurt timp după ce senzorul de lumină începe înregistrarea
+* Rotiți camera între capturi pentru rezultate optime
+* Opțional: periodic, la jumătatea sesiunii, dacă condițiile de iluminare se schimbă constant
+
+***
+
+## Lucrul cu mai multe camere
+
+### Configurații cu două camere
+
+Dacă utilizați simultan două camere MAPIR (de exemplu, Survey3W RGN + Survey3N OCN):
+
+1. Capturați imaginile țintă cu **ambele camere** în același timp.
+2. Utilizați **aceeași țintă fizică** pentru ambele camere.
+3. Marcați imaginile țintă pentru **ambele tipuri de camere** în browserul de fișiere.
+4. Chloros va utiliza ținte adecvate pentru calibrarea fiecărei camere.
+
+### Coloana Model cameră
+
+Coloana **Model cameră** ajută la identificarea imaginilor provenite de la fiecare cameră:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
 * Survey3W\_RGB
 * etc.
 
-Use this column to verify you've marked targets for each camera type in your project.
+Utilizați această coloană pentru a verifica dacă ați marcat ținte pentru fiecare tip de cameră din proiectul dvs.
 
 ***
 
-## Target Detection Settings
+## Setări de detectare a țintelor
 
-### Adjusting Detection Sensitivity
+### Reglarea sensibilității de detectare
 
-If Chloros isn't detecting your targets correctly, adjust these settings in [Project Settings](adjusting-project-settings.md):
+Dacă Chloros nu detectează corect țintele, reglați aceste setări în [Setări proiect](adjusting-project-settings.md):
 
-**Minimum calibration sample area:**
+**Zona minimă de eșantionare pentru calibrare:**
 
-* **Default**: 25 pixels
-* **Increase** if getting false detections on small artifacts
-* **Decrease** if targets aren't being detected
+* **Implicit**: 25 pixeli
+* **Creșteți** dacă obțineți detectări false pe artefacte mici
+* **Reduceți** dacă țintele nu sunt detectate
 
-**Minimum target clustering:**
+**Gruparea minimă a țintelor:**
 
-* **Default**: 60
-* **Increase** if targets are being split into multiple detections
-* **Decrease** if targets with color variation aren't fully detected
-
-***
-
-## Common Target Image Issues
-
-### Problem: No Targets Detected
-
-**Possible causes:**
-
-* Target images not marked in File Browser
-* Target too small in frame (< 30% of image)
-* Poor lighting (shadows, glare)
-* Target detection settings too strict
-
-**Solutions:**
-
-1. Verify Target column is checked for correct images
-2. Review target image quality in preview
-3. Recapture targets if quality is poor
-4. Adjust target detection settings if needed
-
-### Problem: False Target Detections
-
-**Possible causes:**
-
-* White buildings, vehicles, or ground cover mistaken for targets
-* Bright patches in vegetation
-* Detection sensitivity too low
-
-**Solutions:**
-
-1. Mark only actual target images to limit detection scope
-2. Increase minimum calibration sample area
-3. Increase minimum target clustering value
-4. Ensure target images show only the target (minimal background clutter)
+* **Implicit**: 60
+* **Creșteți** dacă țintele sunt împărțite în mai multe detectări
+* **Reduceți** dacă țintele cu variații de culoare nu sunt detectate complet
 
 ***
 
-## Verification Checklist
+## Probleme comune cu imaginile țintelor
 
-Before starting processing, verify your target image selection:
+### Problemă: Nu sunt detectate ținte
 
-* [ ] At least 1 target image marked per session
-* [ ] Target column checkboxes are checked for all target images
-* [ ] Target images captured within same timeframe as survey
-* [ ] Targets clearly visible in preview when clicked
-* [ ] All 4 calibration panels visible in each target image
-* [ ] No shadows or obstructions on targets
-* [ ] For dual-camera: Targets marked for both camera types
+**Cauze posibile:**
+
+* Imaginile țintelor nu sunt marcate în File Browser (Browser fișiere)
+* Ținta este prea mică în cadru (&lt; 30% din imagine)
+* Iluminare slabă (umbre, strălucire)
+* Setări de detectare a țintelor prea stricte
+
+**Soluții:**
+
+1. Verificați dacă coloana Țintă este bifată pentru imaginile corecte
+2. Verificați calitatea imaginii țintei în previzualizare
+3. Recapturați țintele dacă calitatea este slabă
+4. Reglați setările de detectare a țintelor, dacă este necesar
+
+### Problemă: Detectări false ale țintelor
+
+**Cauze posibile:**
+
+* Clădiri albe, vehicule sau acoperirea solului confundate cu ținte
+* Pete luminoase în vegetație
+* Sensibilitate de detectare prea scăzută
+
+**Soluții:**
+
+1. Marcați numai imaginile țintă reale pentru a limita domeniul de detectare
+2. Măriți zona minimă de eșantionare pentru calibrare
+3. Măriți valoarea minimă de grupare a țintelor
+4. Asigurați-vă că imaginile țintă afișează numai ținta (dezordine minimă în fundal)
 
 ***
 
-## Target-Free Processing
+## Listă de verificare
 
-### Processing Without Calibration Targets
+Înainte de a începe procesarea, verificați selecția imaginilor țintă:
 
-While not recommended for scientific work, you can process without targets:
+* [ ] Cel puțin o imagine țintă marcată per sesiune
+* [ ] Casetele de selectare din coloana Țintă sunt bifate pentru toate imaginile țintă
+* [ ] Imaginile țintă capturate în același interval de timp ca și sondajul
+* [ ] Țintele sunt clar vizibile în previzualizare când se face clic pe ele
+* [ ] Toate cele 4 panouri de calibrare sunt vizibile în fiecare imagine țintă
+* [ ] Nu există umbre sau obstacole pe ținte
+* [ ] Pentru cameră duală: ținte marcate pentru ambele tipuri de cameră
 
-1. Leave all Target column checkboxes unchecked
-2. **Disable** "Reflectance calibration" in Project Settings
-3. Vignette correction will still be applied
-4. Output will not be calibrated for absolute reflectance
+***
 
-{% hint style="warning" %}
-**Not Recommended**: Without reflectance calibration, pixel values represent relative brightness only, not scientific reflectance measurements. Use calibration targets for accurate, repeatable results.
+## Procesare fără ținte
+
+### Procesare fără ținte de calibrare
+
+Deși nu este recomandat pentru lucrări științifice, puteți procesa fără ținte:
+
+1. Lăsați toate casetele de selectare din coloana Țintă debifate
+2. **Dezactivați** „Calibrarea reflectanței” în Setările proiectului
+3. Corecția vignetării va fi în continuare aplicată
+4. Rezultatul nu va fi calibrat pentru reflectanța absolută
+
+{% hint style=&quot;warning&quot; %}
+**Nu este recomandat**: Fără calibrarea reflectanței, valorile pixelilor reprezintă doar luminozitatea relativă, nu măsurători științifice ale reflectanței. Utilizați ținte de calibrare pentru rezultate precise și repetabile.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Pași următori
 
-Once you've marked your target images:
+După ce ați marcat imaginile țintă:
 
-1. **Review your settings** - See [Adjusting Project Settings](adjusting-project-settings.md)
-2. **Start processing** - See [Starting the Processing](starting-the-processing.md)
-3. **Monitor progress** - See [Monitoring the Processing](monitoring-the-processing.md)
+1. **Verificați setările** - Consultați [Ajustarea setărilor proiectului](adjusting-project-settings.md)
+2. **Începeți procesarea** - Consultați [Pornirea procesării](starting-the-processing.md)
+3. **Monitorizați progresul** - Consultați [Monitorizarea procesării](monitoring-the-processing.md)
 
-For more information about calibration targets themselves, see [Calibration Targets](../calibration-targets.md).
+Pentru mai multe informații despre țintele de calibrare, consultați [Ținte de calibrare](../calibration-targets.md).

@@ -1,366 +1,366 @@
-# Starting the Processing
+# Începerea procesării
 
-Once you've imported your images, marked your calibration targets, and configured your project settings, you're ready to begin processing. This page guides you through initiating the Chloros processing pipeline.
+După ce ați importat imaginile, ați marcat țintele de calibrare și ați configurat setările proiectului, sunteți gata să începeți procesarea. Această pagină vă ghidează prin inițierea procesului de procesare Chloros.
 
-## Pre-Processing Checklist
+## Listă de verificare înainte de procesare
 
-Before clicking the Start button, verify that everything is ready:
+Înainte de a face clic pe butonul Start, verificați dacă totul este pregătit:
 
-* [ ] **Files imported** - All images appear in File Browser
-* [ ] **Target images marked** - Target column checked for calibration images
-* [ ] **Camera models detected** - Camera Model column shows correct cameras
-* [ ] **Settings configured** - Project Settings reviewed and adjusted
-* [ ] **Indices selected** - Desired multispectral indices added (if needed)
-* [ ] **Export format chosen** - Output format appropriate for your workflow
+* [ ] **Fișiere importate** - Toate imaginile apar în File Browser
+* [ ] **Imagini țintă marcate** - Coloana Target verificată pentru imagini de calibrare
+* [ ] **Modele de cameră detectate** - Coloana Model cameră afișează camerele corecte
+* [ ] **Setări configurate** - Setările proiectului revizuite și ajustate
+* [ ] **Indici selectați** - Indici multispectrali doriti adăugați (dacă este necesar)
+* [ ] **Format de export ales** - Format de ieșire adecvat pentru fluxul dvs. de lucru
 
-{% hint style="info" %}
-**Tip**: Click through a few images in the File Browser to verify they loaded correctly before processing.
+{% hint style=&quot;info&quot; %}
+**Sfat**: Faceți clic pe câteva imagini în File Browser pentru a verifica dacă s-au încărcat corect înainte de procesare.
 {% endhint %}
 
 ***
 
-## Starting the Processing
+## Începerea procesării
 
-### Locate the Start Button
+### Localizați butonul Start
 
-The Start/Play button is located in the top header bar of Chloros:
+Butonul Start/Play se află în bara de antet din partea de sus a Chloros:
 
-* Position: Top center of the window
-* Icon: **Play/Start button** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
-* Status: Button is enabled (bright) when ready to process
+* Poziție: în centrul ferestrei, în partea de sus
+* Pictogramă: **Butonul Play/Start** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
+* Stare: Butonul este activat (luminos) când este gata de procesare
 
-### Click to Start
+### Faceți clic pentru a începe
 
-1. Click the **Play/Start button** in the top header
-2. Processing begins immediately
-3. The button becomes disabled (grayed out) during processing
-4. Progress bar updates, showing processing status
+1. Faceți clic pe **butonul Redare/Start** din bara de sus
+2. Procesarea începe imediat
+3. Butonul devine dezactivat (gri) în timpul procesării
+4. Bara de progres se actualizează, afișând starea procesării
 
-{% hint style="success" %}
-**Processing Started**: Once clicked, Chloros automatically handles all processing steps - target detection, debayering, calibration, index calculation, and export.
+{% hint style=&quot;success&quot; %}
+**Procesare începută**: Odată ce ați făcut clic, Chloros gestionează automat toate etapele de procesare - detectarea țintei, debayering, calibrare, calculul indexului și exportul.
 {% endhint %}
 
 ***
 
-## Understanding Processing Modes
+## Înțelegerea modurilor de procesare
 
-Chloros operates in two different processing modes depending on your license:
+Chloros funcționează în două moduri de procesare diferite, în funcție de licența dvs.:
 
-### Free Mode (Sequential Processing)
+### Mod gratuit (procesare secvențială)
 
-**Available to all users**
+**Disponibil pentru toți utilizatorii**
 
-**How it works:**
+**Cum funcționează:**
 
-* Processes images one at a time, sequentially
-* Single-threaded operation
-* Lower memory usage
+* Procesează imaginile una câte una, secvențial
+* Funcționare cu un singur thread
+* Utilizare redusă a memoriei
 
-**Progress bar shows 2 stages:**
+**Bara de progres afișează 2 etape:**
 
-1. **Target Detect** - Scanning for calibration targets
-2. **Processing** - Applying calibration and exporting images
+1. **Detectarea țintei** - Scanarea țintelor de calibrare
+2. **Procesare** - Aplicarea calibrării și exportarea imaginilor
 
-**Processing time:**
+**Timp de procesare:**
 
-* Much slower than Chloros+ parallel mode
-* Suitable for small to medium datasets (< 200 images)
+* Mult mai lent decât modul paralel Chloros+
+* Potrivit pentru seturi de date mici și medii (&lt; 200 de imagini)
 
-### Chloros+ Mode (Parallel Processing)
+### Modul Chloros+ (procesare paralelă)
 
-**Requires Chloros+ license**
+**Necesită licență Chloros+**
 
-**How it works:**
+**Cum funcționează:**
 
-* Processes multiple images simultaneously
-* Multi-threaded operation (up to 16 parallel workers)
-* Utilizes multiple CPU cores
-* Optional GPU (CUDA) acceleration with NVIDIA graphics cards
+* Procesează simultan mai multe imagini
+* Funcționare multi-thread (până la 16 procesoare paralele)
+* Utilizează mai multe nuclee CPU
+* Accelerare GPU (CUDA) opțională cu plăci grafice NVIDIA
 
-**Progress bar shows 4 stages:**
+**Bara de progres afișează 4 etape:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining image metadata and preparing pipeline
-3. **Calibrating** - Applying corrections and calibrations
-4. **Exporting** - Saving processed images and indices
+1. **Detectare** - Găsirea țintelor de calibrare
+2. **Analizare** - Examinarea metadatelor imaginii și pregătirea pipeline-ului
+3. **Calibrare** - Aplicarea corecțiilor și calibrărilor
+4. **Exportare** - Salvarea imaginilor și indexurilor procesate
 
-**Progress bar interaction:**
+**Interacțiunea cu bara de progres:**
 
-* **Hover mouse** over bar to see detailed 4-stage dropdown panel
-* **Click** progress bar to freeze the dropdown panel in place
-* **Click again** to unfreeze and hide panel
+* **Treceți mouse-ul** peste bară pentru a vedea panoul derulant detaliat cu 4 etape
+* **Faceți clic** pe bara de progres pentru a îngheța panoul derulant în poziție
+* **Faceți clic din nou** pentru a dezgheța și a ascunde panoul
 
-**Processing time:**
+**Timp de procesare:**
 
-* Significantly faster than free mode
-* Scales with CPU core count
-* GPU acceleration further improves speed
+* Semnificativ mai rapid decât modul gratuit
+* Se scalează în funcție de numărul de nuclee CPU
+* Accelerarea GPU îmbunătățește și mai mult viteza
 
-{% hint style="info" %}
-**Chloros+ Speed**: Parallel processing can be 5-10x faster than sequential mode for large datasets. A 500-image project that takes 2 hours in free mode may complete in 15-20 minutes with Chloros+.
+{% hint style=&quot;info&quot; %}
+**Chloros+ Viteză**: Procesarea paralelă poate fi de 5-10 ori mai rapidă decât modul secvențial pentru seturi de date mari. Un proiect de 500 de imagini care durează 2 ore în modul gratuit poate fi finalizat în 15-20 de minute cu Chloros+.
 {% endhint %}
 
 ***
 
-## What Happens During Processing
+## Ce se întâmplă în timpul procesării
 
-### Stage 1: Target Detection
+### Etapa 1: Detectarea țintei
 
-**What Chloros does:**
+**Ce face Chloros:**
 
-* Scans marked target images (or all images if none marked)
-* Identifies the 4 calibration panels in each target
-* Extracts reflectance values from target panels
-* Records target timestamps for calibration scheduling
+* Scanează imaginile țintă marcate (sau toate imaginile dacă nu este marcată niciuna)
+* Identifică cele 4 panouri de calibrare din fiecare țintă
+* Extrage valorile de reflexie din panourile țintă
+* Înregistrează marcajele temporale ale țintelor pentru programarea calibrării
 
-**Duration:** 1-30 seconds (with marked targets), 5-30+ minutes (unmarked)
+**Durată:** 1-30 secunde (cu ținte marcate), 5-30+ minute (nemarcate)
 
-### Stage 2: Debayering (RAW Conversion)
+### Etapa 2: Debayering (conversie RAW)
 
-**What Chloros does:**
+**Ce face Chloros:**
 
-* Converts RAW Bayer pattern data to full RGB images
-* Applies high-quality demosaicing algorithm
-* Preserves maximum image quality and detail
+* Convertește datele RAW în format Bayer în imagini complete RGB
+* Aplică un algoritm de demosaicare de înaltă calitate
+* Păstrează calitatea maximă a imaginii și detaliile
 
-**Duration:** Varies by image count and CPU speed
+**Durată:** Variază în funcție de numărul de imagini și viteza procesorului
 
-### Stage 3: Calibration
+### Etapa 3: Calibrare
 
-**What Chloros does:**
+**Ce face Chloros:**
 
-* **Vignette correction**: Removes lens darkening at edges
-* **Reflectance calibration**: Normalizes using target reflectance values
-* Applies corrections across all bands/channels
-* Uses appropriate calibration target for each image based on timestamp
+* **Corecție vignette**: elimină întunecarea lentilelor la margini
+* **Calibrare reflectanță**: normalizează utilizând valorile reflectanței țintă
+* Aplică corecții pe toate benzile/canalele
+* Utilizează ținta de calibrare adecvată pentru fiecare imagine pe baza timestamp-ului
 
-**Duration:** Majority of processing time
+**Durată:** majoritatea timpului de procesare
 
-### Stage 4: Index Calculation
+### Etapa 4: Calculul indicelui
 
-**What Chloros does:**
+**Ce face Chloros:**
 
-* Calculates configured multispectral indices (NDVI, NDRE, etc.)
-* Applies band math to calibrated images
-* Generates index images for each selected index
+* Calculează indicii multispectrali configurați (NDVI, NDRE etc.)
+* Aplică matematica benzii la imaginile calibrate
+* Generează imagini index pentru fiecare indice selectat
 
-**Duration:** A few seconds per image
+**Durată:** Câteva secunde per imagine
 
-### Stage 5: Export
+### Etapa 5: Export
 
-**What Chloros does:**
+**Ce face Chloros:**
 
-* Saves calibrated images in selected format
-* Exports index images with configured LUT colors
-* Writes files to camera model subfolders
-* Preserves original filenames with suffixes
+* Salvează imaginile calibrate în formatul selectat
+* Exportă imagini index cu culori LUT configurate
+* Scrie fișiere în subfoldere ale modelului de cameră
+* Păstrează numele fișierelor originale cu sufixe
 
-**Duration:** Varies by export format and file size
+**Durată:** Variază în funcție de formatul de export și dimensiunea fișierului
 
 ***
 
-## Processing Behavior
+## Comportamentul procesării
 
-### Automatic Processing Pipeline
+### Pipeline de procesare automată
 
-Once started, the entire pipeline runs automatically:
+Odată pornit, întregul pipeline rulează automat:
 
-* No user interaction needed
-* All configured steps execute in sequence
-* Progress updates shown in real-time
+* Nu este necesară interacțiunea utilizatorului
+* Toate etapele configurate se execută în ordine
+* Actualizări ale progresului afișate în timp real
 
-### Computer Usage During Processing
+### Utilizarea computerului în timpul procesării
 
-**Free Mode:**
+**Mod liber:**
 
-* Relatively low CPU usage (single-threaded)
-* Computer remains responsive for other tasks
-* Safe to minimize Chloros and work in other applications
+* Utilizare relativ redusă a procesorului (single-threaded)
+* Computerul rămâne receptiv pentru alte sarcini
+* Este sigur să minimizați Chloros și să lucrați în alte aplicații
 
-**Chloros+ Parallel Mode:**
+**Chloros+ Mod paralel:**
 
-* High CPU usage (multi-threaded, up to 16 cores)
-* With GPU acceleration: High GPU usage
-* Computer may be less responsive during processing
-* Avoid starting other CPU-intensive tasks
+* Utilizare ridicată a procesorului (multi-threaded, până la 16 nuclee)
+* Cu accelerare GPU: utilizare ridicată a GPU-ului
+* Computerul poate fi mai puțin receptiv în timpul procesării
+* Evitați să porniți alte sarcini care solicită intens procesorul
 
-{% hint style="warning" %}
-**Performance Tip**: For best Chloros+ performance, close other applications and let Chloros use full system resources.
+{% hint style=&quot;warning&quot; %}
+**Sfat privind performanța**: Pentru o performanță optimă a Chloros+, închideți alte aplicații și lăsați Chloros să utilizeze toate resursele sistemului.
 {% endhint %}
 
-### Processing Cannot Be Paused
+### Procesarea nu poate fi întreruptă
 
-**Important limitations:**
+**Limitări importante:**
 
-* Once started, processing cannot be paused
-* You can cancel processing, but progress is lost
-* Partial results are not saved
-* Must restart from beginning if canceled
+* Odată începută, procesarea nu poate fi întreruptă.
+* Puteți anula procesarea, dar progresul se pierde.
+* Rezultatele parțiale nu sunt salvate.
+* Dacă se anulează, trebuie să reporniți de la început.
 
-**Planning tip:** For very large projects, consider processing in batches or using CLI for better control.
-
-***
-
-## Monitoring Your Processing
-
-While processing runs, you can:
-
-* **Watch progress bar** - See overall completion percentage
-* **View current stage** - Detect, Analyze, Calibrate, or Export
-* **Check log tab** - See detailed processing messages and warnings
-* **Preview completed images** - Some export files may appear during processing
-
-For detailed information on monitoring, see [Monitoring the Processing](monitoring-the-processing.md).
+**Sfat de planificare:** Pentru proiecte foarte mari, luați în considerare procesarea în loturi sau utilizarea CLI pentru un control mai bun.
 
 ***
 
-## Canceling Processing
+## Monitorizarea procesării
 
-If you need to stop processing:
+În timp ce procesarea rulează, puteți:
 
-### How to Cancel
+* **Urmărirea barei de progres** - Vedeți procentajul general de finalizare
+* **Vizualizarea etapei curente** - Detectare, analiză, calibrare sau export
+* **Verificarea filei jurnal** - Vedeți mesaje și avertismente detaliate privind procesarea
+* **Previzualizarea imaginilor finalizate** - Unele fișiere exportate pot apărea în timpul procesării
 
-1. Locate the **Stop/Cancel button** (replaces Start button during processing)
-2. Click the Stop button
-3. Processing halts immediately
-4. Partial results are discarded
+Pentru informații detaliate despre monitorizare, consultați [Monitorizarea procesării](monitoring-the-processing.md).
 
-### When to Cancel
+***
 
-**Valid reasons to cancel:**
+## Anularea procesării
 
-* Realized incorrect settings were used
-* Forgot to mark target images
-* Wrong images imported
-* System running too slow or unresponsive
+Dacă trebuie să opriți procesarea:
 
-**After canceling:**
+### Cum se anulează
 
-* Review and fix any issues
-* Adjust settings as needed
-* Restart processing from the beginning
-* For the cleanest experience, completely close Chloros and restart
+1. Localizați **butonul Oprire/Anulare** (înlocuiește butonul Start în timpul procesării)
+2. Faceți clic pe butonul Oprire
+3. Procesarea se oprește imediat
+4. Rezultatele parțiale sunt eliminate
 
-{% hint style="warning" %}
-**No Partial Results**: Canceling discards all progress. Chloros does not save partially processed images.
+### Când să anulați
+
+**Motive valabile pentru anulare:**
+
+* S-a constatat că au fost utilizate setări incorecte
+* Ați uitat să marcați imaginile țintă
+* Au fost importate imagini greșite
+* Sistemul funcționează prea lent sau nu răspunde
+
+**După anulare:**
+
+* Verificați și remediați eventualele probleme
+* Reglați setările după cum este necesar
+* Reporniți procesarea de la început
+* Pentru o experiență optimă, închideți complet Chloros și reporniți
+
+{% hint style=&quot;warning&quot; %}
+**Fără rezultate parțiale**: Anularea elimină toate progresele. Chloros nu salvează imaginile procesate parțial.
 {% endhint %}
 
 ***
 
-## Processing Time Estimates
+## Estimări privind timpul de procesare
 
-Actual processing time varies greatly based on:
+Timpul real de procesare variază foarte mult în funcție de:
 
-* Number of images
-* Image resolution
-* RAW vs JPG input format
-* Processing mode (Free vs Chloros+)
-* CPU speed and core count
-* GPU availability (Chloros+ only)
-* Number of indices to calculate
-* Export format complexity
+* Numărul de imagini
+* Rezoluția imaginii
+* Formatul de intrare RAW vs JPG
+* Modul de procesare (Free vs Chloros+)
+* Viteza procesorului și numărul de nuclee
+* Disponibilitatea GPU (numai Chloros+)
+* Numărul de indici de calculat
+* Complexitatea formatului de export
 
-### Rough Estimates (Chloros+, 12MP images, modern CPU)
+### Estimări aproximative (Chloros+, imagini de 12 MP, procesor modern)
 
-| Image Count | Free Mode | Chloros+ (CPU) | Chloros+ (GPU) |
+| Număr de imagini | Mod gratuit | Chloros+ (CPU) | Chloros+ (GPU) |
 | ----------- | --------- | -------------- | -------------- |
-| 50 images   | 15-20 min | 5-8 min        | 3-5 min        |
-| 100 images  | 30-40 min | 10-15 min      | 5-8 min        |
-| 200 images  | 1-1.5 hrs | 20-30 min      | 10-15 min      |
-| 500 images  | 2-3 hrs   | 45-60 min      | 20-30 min      |
-| 1000 images | 4-6 hrs   | 1.5-2 hrs      | 40-60 min      |
+| 50 imagini   | 15-20 min | 5-8 min        | 3-5 min        |
+| 100 imagini  | 30-40 min | 10-15 min      | 5-8 min        |
+| 200 imagini  | 1-1,5 ore | 20-30 min      | 10-15 min      |
+| 500 imagini  | 2-3 ore   | 45-60 min      | 20-30 min      |
+| 1000 imagini | 4-6 ore   | 1,5-2 ore      | 40-60 min      |
 
-{% hint style="info" %}
-**First Run**: Initial processing may take longer as Chloros builds caches and profiles. Subsequent processing of similar datasets will be faster.
+{% hint style=&quot;info&quot; %}
+**Prima rulare**: Procesarea inițială poate dura mai mult, deoarece Chloros creează cache-uri și profiluri. Procesarea ulterioară a seturilor de date similare va fi mai rapidă.
 {% endhint %}
 
 ***
 
-## Common Issues at Start
+## Probleme frecvente la pornire
 
-### Start Button Disabled (Grayed Out)
+### Butonul Start dezactivat (gri)
 
-**Possible causes:**
+**Cauze posibile:**
 
-* No images imported
-* Backend not fully started
-* Previous processing still running
-* Project not fully loaded
+* Nu au fost importate imagini
+* Backend-ul nu a pornit complet
+* Procesarea anterioară încă rulează
+* Proiectul nu a fost încărcat complet
 
-**Solutions:**
+**Soluții:**
 
-1. Wait for backend to fully initialize (check main menu icon)
-2. Verify images are imported in File Browser
-3. Restart Chloros if button remains disabled
-4. Check Debug Log for error messages
+1. Așteptați inițializarea completă a backend-ului (verificați pictograma din meniul principal)
+2. Verificați dacă imaginile sunt importate în File Browser (Browser fișiere)
+3. Reporniți Chloros dacă butonul rămâne dezactivat
+4. Verificați jurnalul de depanare pentru mesaje de eroare
 
-### Processing Starts Then Immediately Fails
+### Procesarea începe, apoi eșuează imediat
 
-**Possible causes:**
+**Cauze posibile:**
 
-* No valid images in project
-* Corrupted image files
-* Insufficient disk space
-* Insufficient memory (RAM)
+* Nu există imagini valide în proiect
+* Fișiere imagine corupte
+* Spațiu insuficient pe disc
+* Memorie insuficientă (RAM)
 
-**Solutions:**
+**Soluții:**
 
-1. Check Debug Log <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> for error messages
-2. Verify disk space available
-3. Try processing a smaller subset of images
-4. Verify images are not corrupted
+1. Verificați jurnalul de depanare <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> pentru mesaje de eroare
+2. Verificați spațiul disponibil pe disc
+3. Încercați să procesați un subset mai mic de imagini
+4. Verificați dacă imaginile nu sunt corupte
 
-### "No Targets Detected" Warning
+### Avertisment „Nu s-au detectat ținte”
 
-**Possible causes:**
+**Cauze posibile:**
 
-* Forgot to mark target images
-* Target images don't contain visible targets
-* Target detection settings too strict
+* Ați uitat să marcați imaginile țintă
+* Imaginile țintă nu conțin ținte vizibile
+* Setările de detectare a țintelor sunt prea stricte
 
-**Solutions:**
+**Soluții:**
 
-1. Review [Choosing Target Images](choosing-target-images.md)
-2. Mark appropriate images in Target column
-3. Verify targets are visible in marked images
-4. Adjust target detection settings if needed
-
-***
-
-## Tips for Successful Processing
-
-### Before Starting
-
-1. **Test with small subset first** - Process 10-20 images to verify settings
-2. **Check available disk space** - Ensure 2-3x dataset size free
-3. **Close unnecessary applications** - Free up system resources
-4. **Verify target images** - Preview marked targets to ensure quality
-5. **Save project** - Project auto-saves, but good practice to save manually
-
-### During Processing
-
-1. **Avoid system sleep** - Disable power saving modes
-2. **Keep Chloros in foreground** - Or at least visible in taskbar
-3. **Monitor progress occasionally** - Check for warnings or errors
-4. **Don't load other heavy applications** - Especially with Chloros+ parallel mode
-
-### Chloros+ GPU Acceleration
-
-If using NVIDIA GPU acceleration:
-
-1. Update NVIDIA drivers to latest version
-2. Ensure GPU has 4GB+ VRAM
-3. Close GPU-intensive applications (games, video editing)
-4. Monitor GPU temperature (ensure adequate cooling)
+1. Consultați [Alegerea imaginilor țintă](choosing-target-images.md)
+2. Marcați imaginile corespunzătoare în coloana Țintă
+3. Verificați dacă țintele sunt vizibile în imaginile marcate
+4. Reglați setările de detectare a țintelor, dacă este necesar
 
 ***
 
-## Next Steps
+## Sfaturi pentru o procesare reușită
 
-Once processing has started:
+### Înainte de a începe
 
-1. **Monitor the progress** - See [Monitoring the Processing](monitoring-the-processing.md)
-2. **Wait for completion** - Processing runs automatically
-3. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
+1. **Testați mai întâi cu un subset mic** - Procesați 10-20 de imagini pentru a verifica setările
+2. **Verificați spațiul disponibil pe disc** - Asigurați-vă că aveți spațiu liber de 2-3 ori mai mare decât dimensiunea setului de date
+3. **Închideți aplicațiile inutile** - Eliberați resursele sistemului
+4. **Verificați imaginile țintă** - Previzualizați țintele marcate pentru a vă asigura de calitate
+5. **Salvați proiectul** - Proiectul se salvează automat, dar este recomandat să îl salvați manual
 
-For information about what to do during processing, see [Monitoring the Processing](monitoring-the-processing.md).
+### În timpul procesării
+
+1. **Evitați intrarea sistemului în stare de repaus** - Dezactivați modurile de economisire a energiei
+2. **Păstrați Chloros în prim-plan** - Sau cel puțin vizibil în bara de activități
+3. **Monitorizați ocazional progresul** - Verificați dacă există avertismente sau erori
+4. **Nu încărcați alte aplicații grele** - În special cu Chloros+ în modul paralel
+
+### Chloros+ Accelerare GPU
+
+Dacă utilizați accelerarea GPU NVIDIA:
+
+1. Actualizați driverele NVIDIA la cea mai recentă versiune
+2. Asigurați-vă că GPU-ul are 4 GB+ VRAM
+3. Închideți aplicațiile care solicită intens GPU-ul (jocuri, editare video)
+4. Monitorizați temperatura GPU-ului (asigurați-vă că răcirea este adecvată)
+
+***
+
+## Pași următori
+
+Odată ce procesarea a început:
+
+1. **Monitorizați progresul** - Consultați [Monitorizarea procesării](monitoring-the-processing.md)
+2. **Așteptați finalizarea** - Procesarea se execută automat
+3. **Verificați rezultatele** - Consultați [Finalizarea procesării](finishing-the-processing.md)
+
+Pentru informații despre ce trebuie să faceți în timpul procesării, consultați [Monitorizarea procesării](monitoring-the-processing.md).

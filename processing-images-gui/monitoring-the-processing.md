@@ -1,165 +1,165 @@
-# Monitoring the Processing
+# Monitorizarea procesării
 
-Once processing has started, Chloros provides several ways to monitor progress, check for issues, and understand what's happening with your dataset. This page explains how to track your processing and interpret the information Chloros provides.
+Odată ce procesarea a început, Chloros oferă mai multe modalități de a monitoriza progresul, de a verifica eventualele probleme și de a înțelege ce se întâmplă cu setul dvs. de date. Această pagină explică cum să urmăriți procesarea și să interpretați informațiile furnizate de Chloros.
 
-## Progress Bar Overview
+## Prezentare generală a barei de progres
 
-The progress bar in the top header shows real-time processing status and completion percentage.
+Bara de progres din antetul superior afișează starea procesării în timp real și procentajul de finalizare.
 
-### Free Mode Progress Bar
+### Bara de progres în modul gratuit
 
-For users without Chloros+ license:
+Pentru utilizatorii fără licență Chloros+:
 
-**2-Stage Progress Display:**
+**Afișare progres în 2 etape:**
 
-1. **Target Detect** - Finding calibration targets in images
-2. **Processing** - Applying corrections and exporting
+1. **Detectare țintă** - Găsirea țintelor de calibrare în imagini
+2. **Procesare** - Aplicarea corecțiilor și exportarea
 
-**Progress bar shows:**
+**Bara de progres afișează:**
 
-* Overall completion percentage (0-100%)
-* Current stage name
-* Simple horizontal bar visualization
+* Procentul total de finalizare (0-100%)
+* Numele etapei curente
+* Vizualizare simplă cu bară orizontală
 
-### Chloros+ Progress Bar
+### Bara de progres Chloros+
 
-For users with Chloros+ license:
+Pentru utilizatorii cu licență Chloros+:
 
-**4-Stage Progress Display:**
+**Afișare progres în 4 etape:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining images and preparing pipeline
-3. **Calibrating** - Applying vignette and reflectance corrections
-4. **Exporting** - Saving processed files
+1. **Detectare** - Găsirea țintelor de calibrare
+2. **Analizare** - Examinarea imaginilor și pregătirea fluxului de lucru
+3. **Calibrare** - Aplicarea corecțiilor de vignetă și reflectanță
+4. **Exportare** - Salvarea fișierelor procesate
 
-**Interactive Features:**
+**Funcții interactive:**
 
-* **Hover over** progress bar to see expanded 4-stage panel
-* **Click** progress bar to freeze/pin the expanded panel
-* **Click again** to unfreeze and auto-hide on mouse leave
-* Each stage shows individual progress (0-100%)
-
-***
-
-## Understanding Each Processing Stage
-
-### Stage 1: Detecting (Target Detection)
-
-**What's happening:**
-
-* Chloros scans images marked with Target checkbox
-* Computer vision algorithms identify the 4 calibration panels
-* Reflectance values extracted from each panel
-* Target timestamps recorded for proper calibration scheduling
-
-**Duration:**
-
-* With marked targets: 10-60 seconds
-* Without marked targets: 5-30+ minutes (scans all images)
-
-**Progress indicator:**
-
-* Detecting: 0% → 100%
-* Number of images scanned
-* Targets found count
-
-**What to watch for:**
-
-* Should complete quickly if targets properly marked
-* If taking too long, targets may not be marked
-* Check Debug Log for "Target found" messages
-
-### Stage 2: Analyzing
-
-**What's happening:**
-
-* Reading image EXIF metadata (timestamps, exposure settings)
-* Determining calibration strategy based on target timestamps
-* Organizing image processing queue
-* Preparing parallel processing workers (Chloros+ only)
-
-**Duration:** 5-30 seconds
-
-**Progress indicator:**
-
-* Analyzing: 0% → 100%
-* Fast stage, usually completes quickly
-
-**What to watch for:**
-
-* Should progress steadily without pauses
-* Warnings about missing metadata will appear in Debug Log
-
-### Stage 3: Calibrating
-
-**What's happening:**
-
-* **Debayering**: Converting RAW Bayer pattern to 3 channels
-* **Vignette correction**: Removing lens edge darkening
-* **Reflectance calibration**: Normalizing with target values
-* **Index calculation**: Computing multispectral indices
-* Processing each image through the full pipeline
-
-**Duration:** Majority of total processing time (60-80%)
-
-**Progress indicator:**
-
-* Calibrating: 0% → 100%
-* Current image being processed
-* Images completed / Total images
-
-**Processing behavior:**
-
-* **Free mode**: Processes one image at a time sequentially
-* **Chloros+ mode**: Processes up to 16 images simultaneously
-* **GPU acceleration**: Significantly speeds up this stage
-
-**What to watch for:**
-
-* Steady progress through image count
-* Check Debug Log for per-image completion messages
-* Warnings about image quality or calibration issues
-
-### Stage 4: Exporting
-
-**What's happening:**
-
-* Writing calibrated images to disk in selected format
-* Exporting multispectral index images with LUT colors
-* Creating camera model subfolders
-* Preserving original filenames with appropriate suffixes
-
-**Duration:** 10-20% of total processing time
-
-**Progress indicator:**
-
-* Exporting: 0% → 100%
-* Files being written
-* Export format and destination
-
-**What to watch for:**
-
-* Disk space warnings
-* File write errors
-* Completion of all configured outputs
+* **Treceți cu mouse-ul peste** bara de progres pentru a vedea panoul extins în 4 etape
+* **Faceți clic** pe bara de progres pentru a îngheța/fixa panoul extins
+* **Faceți clic din nou** pentru a dezgheța și a ascunde automat la îndepărtarea mouse-ului
+* Fiecare etapă afișează progresul individual (0-100%)
 
 ***
 
-## Debug Log Tab
+## Înțelegerea fiecărei etape de procesare
 
-The Debug Log provides detailed information about processing progress and any issues encountered.
+### Etapa 1: Detectare (detectarea țintelor)
 
-### Accessing the Debug Log
+**Ce se întâmplă:**
 
-1. Click the **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> icon in the left sidebar
-2. Log panel opens showing real-time processing messages
-3. Auto-scrolls to show latest messages
+* Chloros scanează imaginile marcate cu caseta de selectare Țintă
+* Algoritmii de vizualizare computerizată identifică cele 4 panouri de calibrare
+* Valorile de reflexie extrase din fiecare panou
+* Marcajele temporale ale țintelor înregistrate pentru programarea corectă a calibrării
 
-### Understanding Log Messages
+**Durată:**
 
-#### Information Messages (White/Gray)
+* Cu ținte marcate: 10-60 secunde
+* Fără ținte marcate: 5-30+ minute (scanează toate imaginile)
 
-Normal processing updates:
+**Indicator de progres:**
+
+* Detectare: 0% → 100%
+* Număr de imagini scanate
+* Număr de ținte găsite
+
+**Ce trebuie urmărit:**
+
+* Ar trebui să se finalizeze rapid dacă țintele sunt marcate corespunzător
+* Dacă durează prea mult, este posibil ca țintele să nu fie marcate
+* Verificați jurnalul de depanare pentru mesajele „Țintă găsită”
+
+### Etapa 2: Analiza
+
+**Ce se întâmplă:**
+
+* Citirea metadatelor EXIF ale imaginii (marcaje temporale, setări de expunere)
+* Determinarea strategiei de calibrare pe baza marcajelor temporale ale țintelor
+* Organizarea cozii de procesare a imaginilor
+* Pregătirea lucrătorilor de procesare paralelă (numai Chloros+)
+
+**Durată:** 5-30 secunde
+
+**Indicator de progres:**
+
+* Analizare: 0% → 100%
+* Etapă rapidă, de obicei finalizată rapid
+
+**Ce trebuie urmărit:**
+
+* Ar trebui să progreseze constant, fără pauze
+* Avertismente privind metadatele lipsă vor apărea în jurnalul de depanare
+
+### Etapa 3: Calibrare
+
+**Ce se întâmplă:**
+
+* **Debayering**: Conversia modelului RAW Bayer în 3 canale
+* **Corectarea vignetării**: eliminarea întunecării marginilor obiectivului
+* **Calibrarea reflectanței**: normalizarea cu valori țintă
+* **Calcularea indicelui**: calcularea indicilor multispectrali
+* Procesarea fiecărei imagini prin intermediul întregului proces
+
+**Durată:** majoritatea timpului total de procesare (60-80%)
+
+**Indicator de progres:**
+
+* Calibrare: 0% → 100%
+* Imaginea curentă este procesată
+* Imagini finalizate / Total imagini
+
+**Comportament de procesare:**
+
+* **Mod liber**: Procesează o singură imagine la un moment dat, în mod secvențial
+* **Mod Chloros+**: Procesează până la 16 imagini simultan
+* **Accelerare GPU**: Accelerează semnificativ această etapă
+
+**Ce trebuie urmărit:**
+
+* Progres constant prin numărul de imagini
+* Verificați jurnalul de depanare pentru mesaje de finalizare per imagine
+* Avertismente despre calitatea imaginii sau probleme de calibrare
+
+### Etapa 4: Exportare
+
+**Ce se întâmplă:**
+
+* Scrierea imaginilor calibrate pe disc în formatul selectat
+* Exportarea imaginilor cu indice multispectral cu culori LUT
+* Crearea subfolderelor pentru modelele de camere
+* Păstrarea numelor originale ale fișierelor cu sufixele corespunzătoare
+
+**Durată:** 10-20% din timpul total de procesare
+
+**Indicator de progres:**
+
+* Exportare: 0% → 100%
+* Fișiere în curs de scriere
+* Format și destinație de export
+
+**Ce trebuie urmărit:**
+
+* Avertismente privind spațiul pe disc
+* Erori de scriere a fișierelor
+* Finalizarea tuturor ieșirilor configurate
+
+***
+
+## Fila Jurnal de depanare
+
+Jurnalul de depanare oferă informații detaliate despre progresul procesării și orice probleme întâmpinate.
+
+### Accesarea jurnalului de depanare
+
+1. Faceți clic pe pictograma **Jurnal de depanare** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> din bara laterală din stânga
+2. Se deschide panoul jurnalului, afișând mesaje de procesare în timp real
+3. Derulează automat pentru a afișa cele mai recente mesaje
+
+### Înțelegerea mesajelor din jurnal
+
+#### Mesaje informative (alb/gri)
+
+Actualizări normale de procesare:
 
 ```
 [INFO] Processing started
@@ -169,9 +169,9 @@ Normal processing updates:
 [INFO] Processing complete
 ```
 
-#### Warning Messages (Yellow)
+#### Mesaje de avertizare (galben)
 
-Non-critical issues that don't stop processing:
+Probleme necritice care nu opresc procesarea:
 
 ```
 [WARN] No GPS data found in IMG_0145.RAW
@@ -179,11 +179,11 @@ Non-critical issues that don't stop processing:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Action:** Review warnings after processing, but don't interrupt
+**Acțiune:** Examinați avertismentele după procesare, dar nu întrerupeți procesul.
 
-#### Error Messages (Red)
+#### Mesaje de eroare (Red)
 
-Critical issues that may cause processing to fail:
+Probleme critice care pot cauza eșecul procesării:
 
 ```
 [ERROR] Cannot write file - disk full
@@ -191,202 +191,202 @@ Critical issues that may cause processing to fail:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Action:** Stop processing, resolve error, restart
+**Acțiune:** Opriți procesarea, remediați eroarea, reporniți.
 
-### Common Log Messages
+### Mesaje comune din jurnal
 
-| Message                          | Meaning                                | Action Needed                                         |
+| Mesaj                          | Semnificație                                | Acțiune necesară                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| "Target detected in \[filename]" | Calibration target found successfully  | None - normal                                         |
-| "Processing image X of Y"        | Current progress update                | None - normal                                         |
-| "No targets found"               | No calibration targets detected        | Mark target images or disable reflectance calibration |
-| "Insufficient disk space"        | Not enough storage for output          | Free up disk space                                    |
-| "Skipping corrupted file"        | Image file is damaged                  | Re-copy file from SD card                             |
-| "PPK data applied"               | GPS corrections from .daq file applied | None - normal                                         |
+| „Țintă detectată în \[numele fișierului]” | Ținta de calibrare a fost găsită cu succes  | Niciuna - normal                                         |
+| „Se procesează imaginea X din Y”        | Actualizare progres curent                | Niciuna - normal                                         |
+| „Nu s-au găsit ținte”               | Nu s-au detectat ținte de calibrare        | Marcați imaginile țintă sau dezactivați calibrarea reflectanței |
+| „Spațiu insuficient pe disc”        | Spațiu de stocare insuficient pentru ieșire          | Eliberați spațiu pe disc                                    |
+| „Săriți peste fișierul corupt”        | Fișierul imagine este deteriorat                  | Recopiați fișierul de pe cardul SD                             |
+| „Date PPK aplicate”               | Corecții GPS din fișierul .daq aplicate | Niciuna - normal                                         |
 
-### Copying Log Data
+### Copierea datelor din jurnal
 
-To copy log for troubleshooting or support:
+Pentru a copia jurnalul în scopul depanării sau asistenței:
 
-1. Open Debug Log panel
-2. Click **"Copy Log"** button (or right-click → Select All)
-3. Paste into text file or email
-4. Send to MAPIR support if needed
+1. Deschideți panoul Jurnal de depanare.
+2. Faceți clic pe butonul **„Copiere jurnal”** (sau faceți clic dreapta → Selectați tot).
+3. Lipiți în fișierul text sau e-mail.
+4. Trimiteți la asistența MAPIR, dacă este necesar.
 
 ***
 
-## System Resource Monitoring
+## Monitorizarea resurselor sistemului
 
-### CPU Usage
+### Utilizarea procesorului
 
-**Free Mode:**
+**Mod liber:**
 
-* 1 CPU core at \~100%
-* Other cores idle or available
-* System remains responsive
+* 1 nucleu de procesor la ~100%
+* Alte nuclee inactive sau disponibile
+* Sistemul rămâne receptiv
 
-**Chloros+ Parallel Mode:**
+**Chloros+ Mod paralel:**
 
-* Multiple cores at 80-100% (up to 16 cores)
-* High overall CPU utilization
-* System may feel less responsive
+* Mai multe nuclee la 80-100% (până la 16 nuclee)
+* Utilizare generală ridicată a procesorului
+* Sistemul poate părea mai puțin receptiv
 
-**To monitor:**
+**Pentru monitorizare:**
 
 * Windows Task Manager (Ctrl+Shift+Esc)
-* Performance tab → CPU section
-* Look for "Chloros" or "chloros-backend" processes
+* Fila Performanță → secțiunea CPU
+* Căutați procesele „Chloros” sau „chloros-backend”
 
-### Memory (RAM) Usage
+### Utilizarea memoriei (RAM)
 
-**Typical usage:**
+**Utilizare tipică:**
 
-* Small projects (< 100 images): 2-4 GB
-* Medium projects (100-500 images): 4-8 GB
-* Large projects (500+ images): 8-16 GB
-* Chloros+ parallel mode uses more RAM
+* Proiecte mici (&lt; 100 de imagini): 2-4 GB
+* Proiecte medii (100-500 de imagini): 4-8 GB
+* Proiecte mari (peste 500 de imagini): 8-16 GB
+* Chloros+ modul paralel utilizează mai multă memorie RAM
 
-**If memory is low:**
+**Dacă memoria este insuficientă:**
 
-* Process smaller batches
-* Close other applications
-* Upgrade RAM if regularly processing large datasets
+* Procesați loturi mai mici
+* Închideți alte aplicații
+* Actualizați memoria RAM dacă procesați în mod regulat seturi de date mari
 
-### GPU Usage (Chloros+ with CUDA)
+### Utilizarea GPU (Chloros+ cu CUDA)
 
-When GPU acceleration is enabled:
+Când accelerarea GPU este activată:
 
-* NVIDIA GPU shows high utilization (60-90%)
-* VRAM usage increases (requires 4GB+ VRAM)
-* Calibrating stage is significantly faster
+* GPU NVIDIA prezintă o utilizare ridicată (60-90%)
+* Utilizarea VRAM crește (necesită 4 GB+ VRAM)
+* Etapa de calibrare este semnificativ mai rapidă
 
-**To monitor:**
+**Pentru monitorizare:**
 
-* NVIDIA System Tray icon
-* Task Manager → Performance → GPU
-* GPU-Z or similar monitoring tool
+* Pictograma NVIDIA din bara de sistem
+* Task Manager → Performanță → GPU
+* GPU-Z sau un instrument de monitorizare similar
 
-### Disk I/O
+### I/O disc
 
-**What to expect:**
+**Ce să vă așteptați:**
 
-* High disk read during Analyzing stage
-* High disk write during Exporting stage
-* SSD significantly faster than HDD
+* Citire mare a discului în timpul etapei de analiză
+* Scriere mare a discului în timpul etapei de exportare
+* SSD semnificativ mai rapid decât HDD
 
-**Performance tip:**
+**Sfat de performanță:**
 
-* Use SSD for project folder when possible
-* Avoid network drives for large datasets
-* Ensure disk isn't near capacity (affects write speed)
-
-***
-
-## Detecting Problems During Processing
-
-### Warning Signs
-
-**Progress stalls (no change for 5+ minutes):**
-
-* Check Debug Log for errors
-* Verify disk space available
-* Check Task Manager to ensure Chloros is running
-
-**Error messages appear frequently:**
-
-* Stop processing and review errors
-* Common causes: disk space, corrupted files, memory issues
-* See Troubleshooting section below
-
-**System becomes unresponsive:**
-
-* Chloros+ parallel mode using too many resources
-* Consider reducing concurrent tasks or upgrading hardware
-* Free mode is less resource-intensive
-
-### When to Stop Processing
-
-Stop processing if you see:
-
-* ❌ "Disk full" or "Cannot write file" errors
-* ❌ Repeated image file corruption errors
-* ❌ System completely frozen (not responding)
-* ❌ Realized wrong settings were configured
-* ❌ Wrong images imported
-
-**How to stop:**
-
-1. Click **Stop/Cancel button** (replaces Start button)
-2. Processing halts, progress is lost
-3. Fix issues and restart from beginning
+* Utilizați SSD pentru folderul proiectului, dacă este posibil
+* Evitați unitățile de rețea pentru seturi de date mari
+* Asigurați-vă că discul nu este aproape de capacitate maximă (afectează viteza de scriere)
 
 ***
 
-## Troubleshooting During Processing
+## Detectarea problemelor în timpul procesării
 
-### Processing is Very Slow
+### Semne de avertizare
 
-**Possible causes:**
+**Progresul se blochează (nicio modificare timp de peste 5 minute):**
 
-* Unmarked target images (scanning all images)
-* HDD instead of SSD storage
-* Insufficient system resources
-* Many indices configured
-* Network drive access
+* Verificați jurnalul de depanare pentru erori
+* Verificați spațiul disponibil pe disc
+* Verificați Task Manager pentru a vă asigura că Chloros rulează
 
-**Solutions:**
+**Mesajele de eroare apar frecvent:**
 
-1. If just started and in Detecting stage: Cancel, mark targets, restart
-2. For future: Use SSD, reduce indices, upgrade hardware
-3. Consider CLI for batch processing large datasets
+* Opriți procesarea și verificați erorile
+* Cauze frecvente: spațiu pe disc, fișiere corupte, probleme de memorie
+* Consultați secțiunea Depanare de mai jos
 
-### "Disk Space" Warnings
+**Sistemul nu mai răspunde:**
 
-**Solutions:**
+* Chloros+ modul paralel utilizează prea multe resurse
+* Luați în considerare reducerea sarcinilor simultane sau actualizarea hardware-ului
+* Modul liber consumă mai puține resurse
 
-1. Free up disk space immediately
-2. Move project to drive with more space
-3. Reduce number of indices to export
-4. Use JPG format instead of TIFF (smaller files)
+### Când să opriți procesarea
 
-### Frequent "Corrupted File" Messages
+Opriți procesarea dacă observați:
 
-**Solutions:**
+* ❌ Erori „Disk full” (Disc plin) sau „Cannot write file” (Nu se poate scrie fișierul)
+* ❌ Erori repetate de corupție a fișierelor imagine
+* ❌ Sistem complet blocat (nu răspunde)
+* ❌ S-a constatat că au fost configurate setări greșite
+* ❌ Au fost importate imagini greșite
 
-1. Re-copy images from SD card to ensure integrity
-2. Test SD card for errors
-3. Remove corrupted files from project
-4. Continue processing remaining images
+**Cum se oprește:**
 
-### System Overheating / Throttling
-
-**Solutions:**
-
-1. Ensure adequate ventilation
-2. Clean dust from computer vents
-3. Reduce processing load (use Free mode instead of Chloros+)
-4. Process during cooler times of day
+1. Faceți clic pe **butonul Stop/Anulare** (înlocuiește butonul Start)
+2. Procesarea se oprește, progresul se pierde
+3. Remediați problemele și reporniți de la început
 
 ***
 
-## Processing Complete Notification
+## Depanare în timpul procesării
 
-When processing finishes:
+### Procesarea este foarte lentă
 
-* Progress bar reaches 100%
-* **"Processing Complete"** message appears in Debug Log
-* Start button becomes enabled again
-* All output files are in camera model subfolder
+**Cauze posibile:**
+
+* Imagini țintă nemarcate (scanarea tuturor imaginilor)
+* Stocare pe HDD în loc de SSD
+* Resurse de sistem insuficiente
+* Multe indexuri configurate
+* Acces la unitatea de rețea
+
+**Soluții:**
+
+1. Dacă abia ați început și sunteți în etapa de detectare: anulați, marcați țintele, reporniți
+2. Pentru viitor: utilizați SSD, reduceți indicii, actualizați hardware-ul
+3. Luați în considerare CLI pentru procesarea în lot a seturilor de date mari
+
+### Avertismente „Spațiu pe disc”
+
+**Soluții:**
+
+1. Eliberați imediat spațiu pe disc
+2. Mutați proiectul pe o unitate cu mai mult spațiu
+3. Reduceți numărul de indici de exportat
+4. Utilizați formatul JPG în loc de TIFF (fișiere mai mici)
+
+### Mesaje frecvente „Fișier corupt”
+
+**Soluții:**
+
+1. Recopiați imaginile de pe cardul SD pentru a asigura integritatea
+2. Testați cardul SD pentru erori
+3. Eliminați fișierele corupte din proiect
+4. Continuați procesarea imaginilor rămase
+
+### Supraîncălzirea/limitarea sistemului
+
+**Soluții:**
+
+1. Asigurați-vă că ventilația este adecvată.
+2. Curățați praful din orificiile de ventilație ale computerului.
+3. Reduceți sarcina de procesare (utilizați modul Free în loc de Chloros+).
+4. Efectuați procesarea în perioadele mai răcoroase ale zilei.
 
 ***
 
-## Next Steps
+## Notificare de finalizare a procesării
 
-Once processing completes:
+Când procesarea se termină:
 
-1. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
-2. **Check output folder** - Verify all files exported correctly
-3. **Review Debug Log** - Check for any warnings or errors
-4. **Preview processed images** - Use Image Viewer or external software
+* Bara de progres ajunge la 100%
+* Mesajul **„Procesare finalizată”** apare în jurnalul de depanare
+* Butonul Start devine din nou activ
+* Toate fișierele de ieșire se află în subfolderul modelului de cameră
 
-For information about reviewing and using your processed results, see [Finishing the Processing](finishing-the-processing.md).
+***
+
+## Pași următori
+
+Odată ce procesarea este finalizată:
+
+1. **Verificați rezultatele** - Consultați [Finalizarea procesării](finishing-the-processing.md)
+2. **Verificați folderul de ieșire** - Verificați dacă toate fișierele au fost exportate corect
+3. **Verificați jurnalul de depanare** - Verificați dacă există avertismente sau erori
+4. **Previzualizați imaginile procesate** - Utilizați Image Viewer sau un software extern
+
+Pentru informații despre verificarea și utilizarea rezultatelor procesate, consultați [Finalizarea procesării](finishing-the-processing.md).

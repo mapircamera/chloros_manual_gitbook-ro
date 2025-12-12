@@ -1,47 +1,45 @@
-# GUI : Navigation
+# GUI : Navigare
 
-When you first launch Chloros and Chloros (Browser) it will start up its backend. Once it is ready the top left main menu icon will be revealed <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
+Când lansați pentru prima dată Chloros și Chloros (Browser), acesta va porni backend-ul. Odată ce este gata, pictograma meniului principal din stânga sus va fi afișată <img src=".gitbook/assets/image (1).png" alt="" data-size="line"> .
 
 <figure><img src=".gitbook/assets/header.JPG" alt=""><figcaption></figcaption></figure>
 
-From left to right the top header contains:
+De la stânga la dreapta, antetul superior conține:
 
-### <img src=".gitbook/assets/image (1) (1).png" alt="" data-size="line"> Main Menu
+### <img src=".gitbook/assets/image (1) (1).png" alt="" data-size="line"> Meniul principal
 
-From the main menu you can start a new project, open an existing project or open the project folder.
+Din meniul principal puteți începe un proiect nou, deschide un proiect existent sau deschide folderul proiectului.
 
-### <img src=".gitbook/assets/image (2).png" alt="" data-size="line"> Play/Start Button
+### <img src=".gitbook/assets/image (2).png" alt="" data-size="line"> Butonul Redare/Pornire
 
-When enabled, the start processing button starts the image processing pipeline.
+Când este activat, butonul de pornire a procesării pornește procesarea imaginii.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Progress Bar <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> Bara de progres <img src=".gitbook/assets/image (5).png" alt="" data-size="line">În modul gratuit Chloros, care procesează toate fișierele secvențial, bara de progres va afișa 2 etape: Detectare țintă și Procesare.
 
-In the free Chloros mode, which processes all files sequentially, the progress bar will show 2 stages: Target Detect and Processing.
-
-In the paid Chloros+ licensed mode, which process all files simultaneously, the progress bar shows 4 stages: Detecting, Analyzing, Calibrating, Exporting. If you hover your mouse cursor over the Chloros+ progress bar it will drop down the extended 4 progress bar panel so you can follow along. Clicking the top progress bar will freeze the dropdown panel, clicking again unfreezes it.
+În modul cu licență plătită Chloros+, care procesează toate fișierele simultan, bara de progres afișează 4 etape: Detectare, Analizare, Calibrare, Exportare. Dacă plasați cursorul mouse-ului peste bara de progres Chloros+, se va afișa un panou extins cu 4 bare de progres, astfel încât să puteți urmări procesul. Dacă faceți clic pe bara de progres din partea de sus, panoul derulant se va bloca, iar dacă faceți clic din nou, acesta se va debloca.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
-## Side Menu
+## Meniu lateral
 
-The left sidebar menu contains various icons to interact with:
+Meniul din bara laterală din stânga conține diverse pictograme cu care puteți interacționa:
 
-#### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [Project Settings](project-settings/page-2.md)
+#### <img src=".gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> [Setări proiect](project-settings/project-settings.md)
 
-The Project Setting tab allows you to adjust project global and project processing settings. Adjust these prior to starting to process your files.
+Fila Setări proiect vă permite să reglați setările globale ale proiectului și setările de procesare ale proiectului. Reglați aceste setări înainte de a începe procesarea fișierelor.
 
-#### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> File Browser
+#### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Browser de fișiere
 
-Add files/folders and remove files from the project. Duplicate files are ignored. Check the target column box for any target image, and the processing will only look at checked images for targets, greatly speeding up your processing time.
+Adăugați fișiere/foldere și eliminați fișiere din proiect. Fișierele duplicate sunt ignorate. Bifați caseta coloanei țintă pentru orice imagine țintă, iar procesarea va lua în considerare numai imaginile bifate ca ținte, accelerând considerabil timpul de procesare.
 
-#### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Image Viewer](image-viewer-gui/page-3.md)
+#### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Vizualizator de imagini](image-viewer-gui/opening-an-image-full-screen.md)
 
-When an image is clicked in the main image viewer it is opened full screen in the Image Viewer tab.
+Când faceți clic pe o imagine în vizualizatorul principal de imagini, aceasta se deschide pe ecran complet în fila Vizualizator de imagini.
 
-#### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> Debug Log
+#### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> Jurnal de depanare
 
-Review the log for debug prints when issues happen. Copy/download the log and send to [MAPIR Support](https://www.mapir.camera/community/contact) for assistance.
+Verificați jurnalul pentru imprimări de depanare atunci când apar probleme. Copiați/descărcați jurnalul și trimiteți-l la [MAPIR Support](https://www.mapir.camera/community/contact) pentru asistență.
 
-#### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [User Login](chloros+-login.md)
+#### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [Autentificare utilizator](chloros+-login.md)
 
-The user login sidebar allows you to log into your Chloros+ account to unlock advanced features. You can also view the current application version, as well as adjust the language of the displayed text in Chloros GUI and CLI.
+Bara laterală de conectare a utilizatorului vă permite să vă conectați la contul Chloros+ pentru a debloca funcții avansate. De asemenea, puteți vizualiza versiunea curentă a aplicației, precum și ajusta limba textului afișat în Chloros GUI și CLI.

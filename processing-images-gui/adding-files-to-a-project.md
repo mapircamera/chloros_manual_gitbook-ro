@@ -1,204 +1,204 @@
-# Adding Files to a Project
+# Adăugarea fișierelor la un proiect
 
-Once you've created or opened a project in Chloros, the next step is to add your multispectral images to begin processing. The File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> tab makes it easy to import images and manage your dataset.
+După ce ați creat sau deschis un proiect în Chloros, următorul pas este să adăugați imaginile multispectrale pentru a începe procesarea. Fila File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> vă permite să importați cu ușurință imagini și să vă gestionați setul de date.
 
-## Accessing the File Browser
+## Accesarea browserului de fișiere
 
-1. Open or create a project in Chloros
-2. Click the **File Browser** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> icon in the left sidebar
-3. The File Browser panel will display your project's file list
+1. Deschideți sau creați un proiect în Chloros
+2. Faceți clic pe pictograma **Browser de fișiere** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> din bara laterală din stânga
+3. Panoul File Browser va afișa lista de fișiere a proiectului dvs.
 
-{% hint style="info" %}
-**Supported File Types**: Chloros supports RAW+JPG and JPG image files from MAPIR Survey3W and Survey3N cameras. Only RAW+JPG are recommended.
+{% hint style=&quot;info&quot; %}
+**Tipuri de fișiere acceptate**: Chloros acceptă fișiere imagine RAW+JPG și JPG de la camerele MAPIR Survey3W și Survey3N. Se recomandă numai RAW+JPG.
 {% endhint %}
 
 ***
 
-## Adding Images to Your Project
+## Adăugarea de imagini la proiectul dvs.
 
-There are two primary ways to add images to your project:
+Există două modalități principale de a adăuga imagini la proiectul dvs.:
 
-### Method 1: Add Files
+### Metoda 1: Adăugarea de fișiere
 
-Use this option to import individual image files or a small selection of files.
+Utilizați această opțiune pentru a importa fișiere imagine individuale sau o selecție mică de fișiere.
 
-1. Click the **"Add Files"** button at the top of the File Browser panel
-2. Navigate to the folder containing your images
-3. Select one or more image files (hold **Ctrl** to select multiple files)
-4. Click **"Open"** to import the selected files
+1. Faceți clic pe butonul **„Adăugare fișiere”** din partea de sus a panoului File Browser (Browser fișiere).
+2. Navigați la folderul care conține imaginile dvs.
+3. Selectați unul sau mai multe fișiere imagine (țineți apăsat **Ctrl** pentru a selecta mai multe fișiere).
+4. Faceți clic pe **„Deschidere”** pentru a importa fișierele selectate.
 
-### Method 2: Add Folder
+### Metoda 2: Adăugare folder
 
-Use this option to import all images from a folder at once.
+Utilizați această opțiune pentru a importa toate imaginile dintr-un folder simultan.
 
-1. Click the **"Add Folder"** button at the top of the File Browser panel
-2. Navigate to and select the folder containing your capture session images
-3. Click **"Select Folder"** to import all supported images from that folder
-
-***
-
-## Understanding the File Browser Table
-
-Once images are imported, they appear in a table with the following columns:
-
-### Thumbnail
-
-* Small preview of each image
-* Click thumbnail to view full image in the main preview area
-
-### File Name
-
-* Original filename from the camera
-* Maintains camera naming convention (e.g., IMG\_0001.RAW)
-
-### Timestamp
-
-* Date and time the image was captured
-* Extracted from image EXIF metadata
-* Used for PPK synchronization and calibration target detection
-
-### Camera Model
-
-* Automatically detected camera and filter configuration
-* Examples: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
-* Used to apply correct processing profiles
-
-### Target Column (Checkbox)
-
-* Check this box for images that contain calibration targets
-* Greatly speeds up target detection during processing
-* See [Choosing Target Images](choosing-target-images.md) for details
+1. Faceți clic pe butonul **„Adăugați folder”** din partea de sus a panoului File Browser (Browser fișiere).
+2. Navigați și selectați folderul care conține imaginile sesiunii de captură.
+3. Faceți clic pe **„Selectați folder”** pentru a importa toate imaginile acceptate din acel folder.
 
 ***
 
-## Managing Files in Your Project
+## Înțelegerea tabelului File Browser (Browser fișiere)
 
-### Removing Files
+Odată importate, imaginile apar într-un tabel cu următoarele coloane:
 
-To remove unwanted images from your project:
+### Miniatură
 
-1. Select one or more images in the File Browser table
-2. Click the **"Remove Selected"** button
-3. Confirm removal (files are not deleted from disk, only removed from the project)
+* Previzualizare mică a fiecărei imagini
+* Faceți clic pe miniatură pentru a vizualiza imaginea completă în zona principală de previzualizare
 
-### Sorting and Filtering
+### Nume fișier
 
-* **Sort by column**: Click any column header to sort images
-* **Timestamp sort**: Useful for organizing chronological capture sequences
-* **Camera model filter**: Group images by camera type if using multiple cameras
+* Numele original al fișierului din cameră
+* Păstrează convenția de denumire a camerei (de exemplu, IMG\_0001.RAW)
 
-***
+### Marcaj temporal
 
-## Image Preview
+* Data și ora la care a fost capturată imaginea
+* Extras din metadatele EXIF ale imaginii
+* Utilizată pentru sincronizarea PPK și detectarea țintei de calibrare
 
-### Viewing Full Image
+### Modelul camerei
 
-Click any image thumbnail in the File Browser to display it in the main preview area:
+* Configurația camerei și a filtrului detectată automat
+* Exemple: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
+* Utilizată pentru aplicarea profilurilor de procesare corecte
 
-1. Image appears in the center preview panel
-2. Use zoom controls to inspect image details
-3. Navigate between images using arrow keys
+### Coloana țintă (casetă de selectare)
 
-### Quick Navigation
-
-* **Previous Image**: Click left arrow or press ← key
-* **Next Image**: Click right arrow or press → key
-* **Zoom In/Out**: Use mouse wheel or zoom buttons
-* **Pan**: Click and drag on image when zoomed in
+* Bifați această casetă pentru imaginile care conțin ținte de calibrare
+* Accelerează considerabil detectarea țintelor în timpul procesării
+* Consultați [Alegerea imaginilor țintă](choosing-target-images.md) pentru detalii
 
 ***
 
-## Duplicate File Handling
+## Gestionarea fișierelor din proiectul dvs.
 
-Chloros automatically detects and ignores duplicate files:
+### Eliminarea fișierelor
 
-* Files with identical filenames are skipped
-* Prevents accidental double-processing
-* Warning message displayed when duplicates are detected
+Pentru a elimina imaginile nedorite din proiectul dvs.:
 
-{% hint style="warning" %}
-**Important**: Do not rename or modify your original image files before importing. Chloros relies on original filenames and metadata for proper processing.
+1. Selectați una sau mai multe imagini din tabelul File Browser (Browser fișiere)
+2. Faceți clic pe butonul **„Remove Selected” (Eliminare selectate)**
+3. Confirmați eliminarea (fișierele nu sunt șterse de pe disc, ci doar eliminate din proiect)
+
+### Sortare și filtrare
+
+* **Sortare după coloană**: faceți clic pe orice antet de coloană pentru a sorta imaginile
+* **Sortare după data și ora capturii**: utilă pentru organizarea secvențelor de captură în ordine cronologică
+* **Filtru după modelul camerei**: grupați imaginile după tipul camerei dacă utilizați mai multe camere
+
+***
+
+## Previzualizarea imaginilor
+
+### Vizualizarea imaginii complete
+
+Faceți clic pe orice miniatură a imaginii din File Browser pentru a o afișa în zona principală de previzualizare:
+
+1. Imaginea apare în panoul central de previzualizare
+2. Utilizați comenzile de zoom pentru a inspecta detaliile imaginii
+3. Navigați între imagini folosind tastele săgeată
+
+### Navigare rapidă
+
+* **Imaginea anterioară**: Faceți clic pe săgeata stânga sau apăsați tasta ←
+* **Imaginea următoare**: Faceți clic pe săgeata dreapta sau apăsați tasta →
+* **Mărire/micșorare**: Utilizați rotița mouse-ului sau butoanele de zoom
+* **Panoramare**: Faceți clic și trageți pe imagine când este mărită
+
+***
+
+## Gestionarea fișierelor duplicate
+
+Chloros detectează și ignoră automat fișierele duplicate:
+
+* Fișierele cu nume identice sunt omise
+* Previne procesarea accidentală dublă
+* Se afișează un mesaj de avertizare când sunt detectate duplicate
+
+{% hint style=&quot;warning&quot; %}
+**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de importare. Chloros se bazează pe numele fișierelor originale și metadatele pentru o procesare corectă.
 {% endhint %}
 
 ***
 
-## Mixed Camera Datasets
+## Seturi de date mixte ale camerei
 
-If your project contains images from multiple MAPIR cameras:
+Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 
-1. Chloros automatically detects each camera model
-2. Each camera type is processed with its appropriate calibration profile
-3. File Browser displays camera model in the Camera Model column
-4. Processing applies correct settings for each camera type
+1. Chloros detectează automat fiecare model de cameră
+2. Fiecare tip de cameră este procesat cu profilul de calibrare corespunzător
+3. Browserul de fișiere afișează modelul camerei în coloana Model cameră
+4. Procesarea aplică setările corecte pentru fiecare tip de cameră
 
-**Example scenario**: Survey3W RGN + Survey3N OCN dual-camera setup
-
-***
-
-## Best Practices
-
-### Organize Before Import
-
-* Keep calibration target images in the same folder as survey images
-* Maintain original folder structure from your camera/SD card
-* Don't mix datasets from different sessions in one project
-
-### File Naming
-
-* Preserve original camera filenames (IMG\_0001.RAW, etc.)
-* Don't rename files before import
-* Original names contain important metadata
-
-### Calibration Target Images
-
-* Always include 1-2 calibration target images per session
-* Capture targets before and after the capture session
-* Place targets in the same lighting conditions as capture area
-* Mark target images using the Target checkbox to speed up processing
+**Exemplu de scenariu**: Survey3W RGN + Survey3N OCN configurare cu două camere
 
 ***
 
-## Common Issues and Solutions
+## Cele mai bune practici
 
-### Images Not Appearing After Import
+### Organizați înainte de import
 
-**Possible causes:**
+* Păstrați imaginile țintă de calibrare în același folder cu imaginile de sondaj
+* Păstrați structura originală a folderului de pe camera foto/cardul SD
+* Nu amestecați seturi de date din sesiuni diferite într-un singur proiect
 
-* File format not supported (only RAW+JPG and JPG from MAPIR cameras)
-* Images are from non-MAPIR cameras (see [Supported Cameras](../supported-cameras.md))
-* File corruption or incomplete transfer from SD card
+### Denumirea fișierelor
 
-**Solution**: Verify file format and camera model compatibility
+* Păstrați numele originale ale fișierelor camerei foto (IMG\_0001.RAW etc.)
+* Nu redenumiți fișierele înainte de import
+* Numele originale conțin metadate importante
 
-### Camera Model Not Detected
+### Imagini țintă de calibrare
 
-**Possible causes:**
-
-* Modified EXIF metadata
-* Images edited in external software
-* Incomplete file transfer
-
-**Solution**: Re-import original, unmodified files from camera/SD card
-
-### Missing Timestamps
-
-**Possible causes:**
-
-* Camera clock not set correctly
-* EXIF data stripped by external software
-
-**Solution**: Verify camera time settings were correct during capture
+* Includeți întotdeauna 1-2 imagini țintă de calibrare per sesiune
+* Capturați țintele înainte și după sesiunea de captură
+* Plasați țintele în aceleași condiții de iluminare ca și zona de captură
+* Marcați imaginile țintă folosind caseta de selectare Țintă pentru a accelera procesarea
 
 ***
 
-## Next Steps
+## Probleme frecvente și soluții
 
-Once your files are imported:
+### Imaginile nu apar după import
 
-1. **Review the file list** - Ensure all images loaded correctly
-2. **Check camera models** - Verify correct camera detection
-3. **Mark target images** - See [Choosing Target Images](choosing-target-images.md)
-4. **Adjust settings** - Configure processing options in [Project Settings](adjusting-project-settings.md)
-5. **Start processing** - See [Starting the Processing](starting-the-processing.md)
+**Cauze posibile:**
 
-For detailed information about project configuration, see [Adjusting Project Settings](adjusting-project-settings.md).
+* Format de fișier neacceptat (numai RAW+JPG și JPG de la camerele MAPIR)
+* Imaginile provin de la camere care nu sunt MAPIR (consultați [Camere acceptate](../supported-cameras.md))
+* Fișier corupt sau transfer incomplet de pe cardul SD
+
+**Soluție**: Verificați compatibilitatea formatului fișierului și a modelului camerei foto.
+
+### Modelul camerei foto nu este detectat
+
+**Cauze posibile:**
+
+* Metadate EXIF modificate
+* Imagini editate în software extern
+* Transfer de fișiere incomplet
+
+**Soluție**: Reimportați fișierele originale, nemodificate, de pe camera foto/cardul SD.
+
+### Lipsa marcajelor temporale
+
+**Cauze posibile:**
+
+* Ceasul camerei nu este setat corect
+* Datele EXIF au fost șterse de un software extern
+
+**Soluție**: Verificați dacă setările de timp ale camerei erau corecte în timpul capturii
+
+***
+
+## Pași următori
+
+După ce fișierele sunt importate:
+
+1. **Verificați lista de fișiere** - Asigurați-vă că toate imaginile au fost încărcate corect
+2. **Verificați modelele de cameră** - Verificați detectarea corectă a camerei
+3. **Marcați imaginile țintă** - Consultați [Alegerea imaginilor țintă](choosing-target-images.md)
+4. **Reglați setările** - Configurați opțiunile de procesare în [Setări proiect](adjusting-project-settings.md)
+5. **Porniți procesarea** - Consultați [Pornirea procesării](starting-the-processing.md)
+
+Pentru informații detaliate despre configurarea proiectului, consultați [Ajustarea setărilor proiectului](adjusting-project-settings.md).

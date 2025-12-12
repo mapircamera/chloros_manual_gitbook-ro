@@ -1,247 +1,247 @@
-# Opening an Image Full Screen
+# Deschiderea unei imagini pe ecran complet
 
-The Chloros Image Viewer provides a dedicated full-screen interface for viewing, analyzing, and manipulating your multispectral images. Whether viewing original images or processed outputs, the Image Viewer offers powerful tools for inspection and analysis.
+Chloros Image Viewer oferă o interfață dedicată pe ecran complet pentru vizualizarea, analizarea și manipularea imaginilor multispectrale. Fie că vizualizați imagini originale sau rezultate procesate, Image Viewer oferă instrumente puternice pentru inspecție și analiză.
 
-## Accessing the Image Viewer
+## Accesarea Image Viewer
 
-### From the File Browser
+### Din browserul de fișiere
 
-The most common way to open an image in the Image Viewer:
+Cea mai comună modalitate de a deschide o imagine în Image Viewer:
 
-1. Ensure you're in the **File Browser** tab <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
-2. Click any **image thumbnail** in the image grid
-3. The image opens in the **main preview area** (center of screen)
-4. The image is now loaded and ready for full-screen viewing
+1. Asigurați-vă că vă aflați în fila **File Browser** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
+2. Faceți clic pe orice **miniatură de imagine** din grila de imagini
+3. Imaginea se deschide în **zona principală de previzualizare** (centrul ecranului)
+4. Imaginea este acum încărcată și gata pentru vizualizare pe ecran complet
 
-### Opening the Image Viewer Tab
+### Deschiderea filei Image Viewer
 
-Once an image is loaded in the preview area:
+Odată ce o imagine este încărcată în zona de previzualizare:
 
-1. Click the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> icon in the left sidebar
-2. The Image Viewer tab opens, displaying the selected image full-screen
-3. Advanced viewing and analysis tools become available in the left sidebar
-
-***
-
-## Image Viewer Interface Overview
-
-### Main Display Area
-
-The largest portion of the screen shows your image:
-
-* **Full resolution**: Images displayed at native resolution
-* **Zoomable**: Use controls or mouse wheel to zoom
-* **Pannable**: Click and drag to move around when zoomed
-* **Aspect ratio maintained**: Images scale proportionally
+1. Faceți clic pe pictograma **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> din bara laterală din stânga
+2. Se deschide fila Vizualizator de imagini, afișând imaginea selectată pe ecran complet
+3. Instrumentele avansate de vizualizare și analiză devin disponibile în bara laterală din stânga
 
 ***
 
-## Viewing Options
+## Prezentare generală a interfeței Vizualizatorului de imagini
 
-### Basic Image Navigation
+### Zona principală de afișare
 
-#### Browse Through Images
+Cea mai mare parte a ecranului afișează imaginea:
 
-Navigate through your image set using keyboard shortcuts or buttons:
-
-* **Next image**: Click → button or press **→** (Right Arrow) key
-* **Previous image**: Click ← button or press **←** (Left Arrow) key
-* **Jump to specific image**: Return to File Browser and click desired thumbnail
-
-#### Zoom Controls
-
-Adjust magnification to inspect image details:
-
-**Zoom In:**
-
-* Click **+** (Plus) button
-* Press **+** or **=** key
-* Scroll mouse wheel **up**
-
-**Zoom Out:**
-
-* Click **−** (Minus) button
-* Press **−** (Minus) key
-* Scroll mouse wheel **down**
-
-**Fit to Screen:**
-
-* Click **↔** (Fit) button
-* Press **0** (Zero) key
-* Double-click on image
-
-#### Pan When Zoomed
-
-When zoomed in beyond screen size:
-
-1. Move mouse cursor over image
-2. Click and **hold left mouse button**
-3. **Drag** to move image around
-4. Release to stop panning
-
-**Alternative**: Use arrow keys to pan in small increments
+* **Rezoluție completă**: imagini afișate la rezoluția nativă
+* **Zoomabil**: utilizați comenzile sau rotița mouse-ului pentru a mări
+* **Panoramabil**: faceți clic și trageți pentru a vă deplasa atunci când măriți
+* **Raportul de aspect menținut**: imaginile se scalează proporțional
 
 ***
 
-## Pixel Value Inspection
+## Opțiuni de vizualizare
 
-### Viewing Pixel Values at Cursor
+### Navigare de bază în imagini
 
-As you move your mouse cursor over the image, pixel values display in real-time:
+#### Răsfoiți imaginile
 
-**Value display location:**
+Navigați prin setul de imagini utilizând comenzi rapide de la tastatură sau butoane:
 
-* **Floating number and red line in right side index LUT gradient legend**
-* **When zoomed in further, floating value near cursor and highlighted pixel**
-* Shows values for pixel **under cursor or highlighted**
-* Updates as you move mouse
+* **Imaginea următoare**: faceți clic pe butonul → sau apăsați tasta **→** (săgeată dreapta)
+* **Imaginea anterioară**: faceți clic pe butonul ← sau apăsați tasta **←** (săgeată stânga)
+* **Salt la o imagine specifică**: reveniți la browserul de fișiere și faceți clic pe miniatura dorită
 
-***
+#### Comenzi de zoom
 
-## Image Types You Can View
+Reglați mărirea pentru a inspecta detaliile imaginii:
 
-### Original Images (Pre-Processing)
+**Mărire:**
 
-**RAW + JPG images from camera:**
+* Faceți clic pe butonul **+** (Plus)
+* Apăsați tasta **+** sau **=**
+* Derulați rotița mouse-ului **în sus**
 
-* Display RAW data as previewed
-* Show original, uncorrected values
-* Useful for checking image quality before processing
+**Micșorare:**
 
-### Calibrated Reflectance Images
+* Faceți clic pe butonul **−** (Minus)
+* Apăsați tasta **−** (Minus)
+* Derulați rotița mouse-ului **în jos**
 
-**After processing:**
+**Potrivire ecran:**
 
-* Vignette corrected
-* Reflectance calibrated
-* Multi-band TIFF (Red, Green, NIR, etc.)
-* Scientific data ready for analysis
+* Faceți clic pe butonul **↔** (Potrivire)
+* Apăsați tasta **0** (Zero)
+* Faceți dublu clic pe imagine
 
-### Index Images
+#### Panoramare la mărire
 
-**NDVI, NDRE, GNDVI, etc. (\_NDVI.tif files):**
+Când măriți peste dimensiunea ecranului:
 
-* Single-band grayscale images
-* Pixel values represent index calculation results
-* Range typically -1 to +1 for normalized indices
-* Can apply color LUTs for visualization
+1. Deplasați cursorul mouse-ului peste imagine
+2. Faceți clic și **țineți apăsat butonul stâng al mouse-ului**
+3. **Trageți** pentru a muta imaginea
+4. Eliberați pentru a opri panoramarea
 
-***
-
-## Index and LUT Application
-
-Apply multispectral indices and color Look-Up Tables:
-
-1. Locate **Index/LUT Sandbox** in **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sidebar
-2. Select vegetation index (NDVI, NDRE, etc.)
-3. Select multispectral formula, or create your own custom one (Chloros+ only)
-4. Apply color LUT gradient for visualization
-5. Adjust value ranges and thresholds
-
-See [Index/LUT Sandbox](index-lut-sandbox.md) for detailed instructions.
+**Alternativă**: Utilizați tastele săgeată pentru a panorama în pași mici
 
 ***
 
-## Keyboard Shortcuts
+## Verificarea valorii pixelilor
 
-### Navigation
+### Vizualizarea valorilor pixelilor la cursor
 
-* **→** (Right Arrow): Next image
-* **←** (Left Arrow): Previous image
-* **Home**: First image in list
-* **End**: Last image in list
+Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sunt afișate în timp real:
+
+**Locația afișării valorii:**
+
+* **Număr flotant și linie roșie în legenda gradientului LUT din indexul din partea dreaptă**
+* **Când măriți imaginea, valoarea flotantă apare lângă cursor și pixelul evidențiat**
+* Afișează valorile pixelilor **de sub cursor sau evidențiați**
+* Se actualizează pe măsură ce mutați mouse-ul
+
+***
+
+## Tipuri de imagini pe care le puteți vizualiza
+
+### Imagini originale (pre-procesare)
+
+**Imagini RAW + JPG de la cameră:**
+
+* Afișează datele RAW așa cum sunt previzualizate
+* Afișează valorile originale, necorectate
+* Utile pentru verificarea calității imaginii înainte de procesare
+
+### Imagini cu reflectanță calibrată
+
+**După procesare:**
+
+* Vigneta corectată
+* Reflectanță calibrată
+* Multi-bandă TIFF (Red, Green, NIR, etc.)
+* Date științifice gata pentru analiză
+
+### Imagini index
+
+**NDVI, NDRE, GNDVI etc. (fișiere \_NDVI.tif):**
+
+* Imagini monocromatice în tonuri de gri
+* Valorile pixelilor reprezintă rezultatele calculului indicelui
+* Intervalul tipic este de la -1 la +1 pentru indicii normalizați
+* Se pot aplica LUT-uri de culoare pentru vizualizare
+
+***
+
+## Aplicarea indicelui și a LUT-ului
+
+Aplicați indici multispectrali și tabele de căutare a culorilor:
+
+1. Localizați **Index/LUT Sandbox** în **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> bara laterală
+2. Selectați indicele de vegetație (NDVI, NDRE, etc.)
+3. Selectați formula multispectrală sau creați-vă propria formulă personalizată (numai Chloros+)
+4. Aplicați gradientul LUT de culoare pentru vizualizare
+5. Reglați intervalele de valori și pragurile
+
+Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru instrucțiuni detaliate.
+
+***
+
+## Comenzi rapide de la tastatură
+
+### Navigare
+
+* **→** (Săgeată dreapta): Imaginea următoare
+* **←** (Săgeată stânga): Imaginea anterioară
+* **Home**: Prima imagine din listă
+* **End**: Ultima imagine din listă
 
 ### Zoom
 
-* **+** or **=**: Zoom in
-* **−**: Zoom out
-* **0** (Zero): Fit to screen
-* **Mouse Wheel**: Zoom in/out
+* **+** sau **=**: Mărire
+* **−**: Micșorare
+* **0** (Zero): Potrivire la ecran
+* **Roata mouse-ului**: Mărire/micșorare
 
-### View Controls
+### Comenzi de vizualizare
 
-* **P**: Toggle pixel percent mode
-* **L**: Toggle layers panel
-* **Esc**: Close full-screen or return to File Browser
+* **P**: Comutare mod procent pixel
+* **L**: Comutare panou straturi
+* **Esc**: Închidere ecran complet sau revenire la browserul de fișiere
 
-### Other
+### Altele
 
-* **Ctrl+S**: Save current image
-* **F**: Full-screen mode (if available)
-
-***
-
-### Verifying Index Calculations
-
-Check that indices calculated correctly:
-
-1. Open NDVI or other index image
-2. Check vegetation areas:
-   * **NDVI**: Should show 0.4-0.9 for healthy plants
-   * **NDRE**: Higher values for vigorous growth
-   * **GNDVI**: Similar to NDVI but chlorophyll-sensitive
-3. Check non-vegetation:
-   * **Soil**: Near 0 or slightly negative
-   * **Water**: Negative values (-0.5 to 0)
+* **Ctrl+S**: Salvare imagine curentă
+* **F**: Mod ecran complet (dacă este disponibil)
 
 ***
 
-## Troubleshooting Viewing Issues
+### Verificarea calculelor indicelui
 
-### Image Won't Open
+Verificați dacă indicii au fost calculați corect:
 
-**Possible causes:**
-
-* File corrupted during processing
-* Unsupported file format
-* Insufficient memory for large image
-
-**Solutions:**
-
-1. Try opening in external viewer to verify file integrity
-2. Check file format matches expected type
-3. Close other applications to free memory
-4. Try smaller/different image
-
-### Black or White Image Display
-
-**Possible causes:**
-
-* Value range outside display capability
-* 32-bit float image with unusual values
-* Index calculation error
-
-**Solutions:**
-
-1. Check pixel values - if all very low or very high, adjust display range
-2. Try opening in QGIS or similar with auto-range adjustment
-3. Check Debug Log from processing for errors
-
-### Pixel Values Seem Wrong
-
-**Possible causes:**
-
-* Viewing wrong image (original vs processed)
-* Calibration didn't apply correctly
-* Light sensor data wasn't included in input
-* Percent mode toggled incorrectly
-
-**Solutions:**
-
-1. Verify you're viewing processed output (check filename suffix)
-2. Check percent mode button state
-3. Compare with known-good images from same dataset
+1. Deschideți NDVI sau altă imagine a indicelui
+2. Verificați zonele de vegetație:
+   * **NDVI**: Ar trebui să afișeze 0,4-0,9 pentru plantele sănătoase
+   * **NDRE**: Valori mai mari pentru creștere viguroasă
+   * **GNDVI**: Similar cu NDVI, dar sensibil la clorofilă
+3. Verificați zonele fără vegetație:
+   * **Sol**: Aproape 0 sau ușor negativ
+   * **Apă**: Valori negative (-0,5 până la 0)
 
 ***
 
-## Next Steps
+## Depanarea problemelor de vizualizare
 
-Now that you can view images full-screen:
+### Imaginea nu se deschide
 
-* [**Image Layers**](image-layers.md) - Learn about multi-band visualization
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Apply custom indices and color mapping
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Understand available indices
+**Cauze posibile:**
 
-For processing workflow, see:
+* Fișier corupt în timpul procesării
+* Format de fișier neacceptat
+* Memorie insuficientă pentru imagini mari
 
-* [**Processing Images (GUI)**](../processing-images-gui/page-1.md) - Complete processing guide
+**Soluții:**
+
+1. Încercați să deschideți imaginea într-un vizualizator extern pentru a verifica integritatea fișierului
+2. Verificați dacă formatul fișierului corespunde tipului așteptat
+3. Închideți alte aplicații pentru a elibera memorie
+4. Încercați o imagine mai mică/diferită
+
+### Afișare imagine alb-negru
+
+**Cauze posibile:**
+
+* Intervalul de valori depășește capacitatea de afișare
+* Imagine flotantă pe 32 de biți cu valori neobișnuite
+* Eroare de calcul al indexului
+
+**Soluții:**
+
+1. Verificați valorile pixelilor - dacă toate sunt foarte mici sau foarte mari, reglați intervalul de afișare
+2. Încercați să deschideți în QGIS sau similar, cu reglare automată a intervalului
+3. Verificați jurnalul de depanare din procesare pentru erori
+
+### Valorile pixelilor par greșite
+
+**Cauze posibile:**
+
+* Vizualizarea unei imagini greșite (originală vs. procesată)
+* Calibrarea nu s-a aplicat corect
+* Datele senzorului de lumină nu au fost incluse în intrare
+* Modul procentual a fost comutat incorect
+
+**Soluții:**
+
+1. Verificați dacă vizualizați rezultatul procesat (verificați sufixul numelui fișierului)
+2. Verificați starea butonului modului procentual
+3. Comparați cu imagini cunoscute ca fiind bune din același set de date
+
+***
+
+## Pași următori
+
+Acum că puteți vizualiza imaginile pe ecran complet:
+
+* [**Straturi de imagini**](image-layers.md) - Aflați mai multe despre vizualizarea multibandă
+* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Aplicați indici personalizați și mapare de culori
+* [**Formule index multispectrale**](../project-settings/multispectral-index-formulas.md) - Înțelegeți indicii disponibili
+
+Pentru fluxul de lucru de procesare, consultați:
+
+* [**Procesarea imaginilor (GUI)**](../processing-images-gui/adding-files-to-a-project.md) - Ghid complet de procesare
