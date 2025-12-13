@@ -1,10 +1,9 @@
 ---
-description: Frequently Asked Questions
+description: Întrebări frecvente
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/faq
 ---
-
 # Întrebări frecvente
 
 <details>
@@ -33,7 +32,7 @@ Nu. Chloros presupune că datele de intrare nu au fost modificate. Nu modificaț
 
 <details>
 
-<summary>Pot seta camerele MAPIR Survey3 la expunere automată și pot procesa imaginile în Chloros?</summary>
+<summary>Pot seta camerele MAPIR Survey3 pe expunere automată și să procesez imaginile în Chloros?</summary>
 
 Nu. Seturile de date de imagini Survey3 trebuie să aibă o expunere fixă/blocată, deci fără viteză automată a obturatorului sau ISO automat. Toate imaginile de la același model de cameră trebuie să aibă viteza obturatorului și ISO (expunerea) identice.
 
@@ -41,9 +40,9 @@ Nu. Seturile de date de imagini Survey3 trebuie să aibă o expunere fixă/bloca
 
 <details>
 
-<summary>Chloros poate procesa sau analiza imagini ortomosaice?</summary>
+<summary>Chloros poate procesa sau analiza imagini ortomozaice?</summary>
 
-Nu. Sunt acceptate numai imaginile individuale ale camerei MAPIR, nu imaginile asamblate, cum ar fi o hartă ortomosaică.
+Nu. Sunt acceptate numai imagini individuale MAPIR, nu imagini asamblate, cum ar fi o hartă ortomosaică.
 
 </details>
 
@@ -51,7 +50,7 @@ Nu. Sunt acceptate numai imaginile individuale ale camerei MAPIR, nu imaginile a
 
 <summary>Cum pot accelera etapa de detectare a țintei din Chloros?</summary>
 
-În tabelul browserului de fișiere, preselectarea imaginilor țintă din coloana din dreapta va indica Chloros să caute ținte de calibrare numai în acele imagini, accelerând considerabil procesarea.
+În tabelul browserului de fișiere, preselectarea imaginilor țintă din coloana din dreapta va indica Chloros să caute țintele de calibrare numai în acele imagini, accelerând considerabil procesarea.
 
 </details>
 
@@ -67,6 +66,6 @@ Dacă intenționați să încărcați pe platforma noastră de procesare online 
 
 <summary>MAPIR va suporta vreodată funcția X? Mi-aș dori foarte mult ca MAPIR să ofere funcția X.</summary>
 
-Suntem întotdeauna interesați să primim feedback despre produsele noastre. Dacă descoperiți o problemă cu produsele noastre sau aveți sugestii despre cum le putem îmbunătăți, vă rugăm să ne contactați pentru a ne împărtăși opiniile dumneavoastră. Cea mai mare parte a activității noastre de cercetare și dezvoltare se bazează pe ascultarea nevoilor cele mai importante ale clienților noștri.
+Suntem întotdeauna interesați să primim feedback despre produsele noastre. Dacă descoperiți o problemă cu produsele noastre sau aveți sugestii despre cum le putem îmbunătăți, vă rugăm să [NE CONTACTAȚI](https://www.mapir.camera/community/contact) pentru a ne împărtăși opiniile dumneavoastră. Cea mai mare parte a activității noastre de cercetare și dezvoltare se bazează pe ascultarea nevoilor cele mai importante ale clienților noștri.
 
 </details>
