@@ -9,8 +9,8 @@ Marcarea imaginilor care conțin ținte de calibrare este un pas crucial care ac
 Fără marcarea imaginilor țintă, Chloros trebuie să:
 
 * Scaneze fiecare imagine din proiectul dvs.
-* Rula algoritmi de detectare a țintelor pe fiecare imagine
-* Verifice sute sau mii de imagini în mod inutil
+* Ruleze algoritmi de detectare a țintelor pe fiecare imagine
+* Verifice inutil sute sau mii de imagini
 
 **Rezultat**: Procesarea poate dura mult mai mult, în special pentru seturi de date mari.
 
@@ -19,7 +19,7 @@ Fără marcarea imaginilor țintă, Chloros trebuie să:
 Când bifați coloana Țintă pentru imagini specifice:
 
 * Chloros scanează numai imaginile bifate pentru ținte
-* Detectarea țintelor se finalizează mult mai repede
+* Detectarea țintelor se finalizează mult mai rapid
 * Timpul total de procesare este redus considerabil
 
 {% hint style=&quot;success&quot; %}
@@ -183,7 +183,7 @@ Dacă Chloros nu detectează corect țintele, reglați aceste setări în [Setă
 
 Înainte de a începe procesarea, verificați selecția imaginilor țintă:
 
-* [ ] Cel puțin o imagine țintă marcată per sesiune
+* [ ] Cel puțin 1 imagine țintă marcată per sesiune
 * [ ] Casetele de selectare din coloana Țintă sunt bifate pentru toate imaginile țintă
 * [ ] Imaginile țintă capturate în același interval de timp ca și sondajul
 * [ ] Țintele sunt clar vizibile în previzualizare când se face clic pe ele
@@ -215,7 +215,7 @@ Deși nu este recomandat pentru lucrări științifice, puteți procesa fără �
 După ce ați marcat imaginile țintă:
 
 1. **Verificați setările** - Consultați [Ajustarea setărilor proiectului](adjusting-project-settings.md)
-2. **Începeți procesarea** - Consultați [Pornirea procesării](starting-the-processing.md)
+2. **Începeți procesarea** - Consultați [Începerea procesării](starting-the-processing.md)
 3. **Monitorizați progresul** - Consultați [Monitorizarea procesării](monitoring-the-processing.md)
 
 Pentru mai multe informații despre țintele de calibrare, consultați [Ținte de calibrare](../calibration-targets.md).

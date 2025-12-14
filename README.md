@@ -1,7 +1,6 @@
 ---
 metaLinks: {}
 ---
-
 # Noțiuni introductive
 
 <div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
@@ -22,7 +21,7 @@ Se execută în browserul dvs. web (Chrome/Edge). Ideal pentru computere mai len
 
 ## [Chloros CLI: Interfață linie de comandă](CLI.md)
 
-Procesare batch linie de comandă. Perfectă pentru automatizare, scripting și fluxuri de lucru avansate. _CLI necesită o licență Chloros+ pentru acces._
+Procesare în lot prin linie de comandă. Perfectă pentru automatizare, scripting și fluxuri de lucru avansate. _CLI necesită o licență Chloros+ pentru acces._
 
 ## [Chloros API: Python SDK](api-python-sdk.md)
 
@@ -37,7 +36,7 @@ Deși Chloros poate fi utilizat gratuit pentru majoritatea sarcinilor, este posi
 * **Procesare multi-threaded**: accelerați considerabil procesarea imaginilor pentru proiecte mai mari, prin procesarea simultană a imaginilor prin intermediul pipeline-ului.
 * **Accelerare GPU (CUDA)**: profitați de opțiunile actuale de memorie GPU mai mari pentru a accelera și mai mult pipeline-ul de procesare a imaginilor. Pentru rezultate optime, recomandăm 4 GB sau mai mult VRAM.
 * **Chloros+** [**CLI**](CLI.md) **Acces**: rulați Chloros+ din linia de comandă pentru a automatiza și integra în propriul software.
-* **Chloros+** [**API**](api-python-sdk.md) **Acces:** rulați Chloros+ din Python pentru control programatic, permițând integrarea perfectă cu procesele dvs. de cercetare, fluxurile de lucru de analiză a datelor și aplicațiile personalizate.
+* **Chloros+** [**API**](api-python-sdk.md) **Acces:** rulați Chloros+ din Python pentru control programatic, permițând integrarea perfectă cu fluxurile de cercetare, fluxurile de lucru de analiză a datelor și aplicațiile personalizate.
 * **Utilizare pe mai multe dispozitive**: fiecare licență Chloros+ permite înregistrarea a 2+ dispozitive. Utilizați contul dvs. MAPIR Cloud pentru a gestiona dispozitivele înregistrate. Adăugați suport pentru mai multe dispozitive prin actualizarea licenței dvs. Chloros+.
 * **Formule personalizate pentru indici multispectrali:** introduceți indici multispectrali personalizați în calculatoarele raster Chloros, atât pentru procesare, cât și pentru vizualizarea imaginilor.
 

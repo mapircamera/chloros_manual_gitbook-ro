@@ -80,13 +80,13 @@ Chloros funcționează în două moduri de procesare diferite, în funcție de l
 **Bara de progres afișează 4 etape:**
 
 1. **Detectare** - Găsirea țintelor de calibrare
-2. **Analizare** - Examinarea metadatelor imaginii și pregătirea fluxului de lucru
+2. **Analizare** - Examinarea metadatelor imaginii și pregătirea pipeline-ului
 3. **Calibrare** - Aplicarea corecțiilor și calibrărilor
 4. **Exportare** - Salvarea imaginilor și indexurilor procesate
 
 **Interacțiunea cu bara de progres:**
 
-* **Treceți mouse-ul** peste bară pentru a vedea panoul detaliat cu 4 etape
+* **Treceți mouse-ul** peste bară pentru a vedea panoul derulant detaliat cu 4 etape
 * **Faceți clic** pe bara de progres pentru a bloca panoul derulant în poziție
 * **Faceți clic din nou** pentru a debloca și ascunde panoul
 
@@ -108,7 +108,7 @@ Chloros funcționează în două moduri de procesare diferite, în funcție de l
 
 **Ce face Chloros:**
 
-* Scanează imaginile țintă marcate (sau toate imaginile dacă nu este marcată niciuna)
+* Scanează imaginile țintă marcate (sau toate imaginile dacă nu sunt marcate)
 * Identifică cele 4 panouri de calibrare din fiecare țintă
 * Extrage valorile de reflexie din panourile țintă
 * Înregistrează marcajele temporale ale țintelor pentru programarea calibrării
@@ -123,26 +123,26 @@ Chloros funcționează în două moduri de procesare diferite, în funcție de l
 * Aplică un algoritm de demosaicare de înaltă calitate
 * Păstrează calitatea maximă a imaginii și detaliile
 
-**Durată:** variază în funcție de numărul de imagini și viteza procesorului
+**Durată:** Variază în funcție de numărul de imagini și viteza procesorului
 
 ### Etapa 3: Calibrare
 
 **Ce face Chloros:**
 
-* **Corectarea vignetării**: elimină întunecarea lentilelor la margini
-* **Calibrarea reflectanței**: normalizează utilizând valorile țintă ale reflectanței
+* **Corecție vignette**: Elimină întunecarea lentilelor la margini
+* **Calibrarea reflectanței**: Normalizează utilizând valorile țintă ale reflectanței
 * Aplică corecții pe toate benzile/canalele
 * Utilizează ținta de calibrare adecvată pentru fiecare imagine pe baza timestamp-ului
 
 **Durată:** Majoritatea timpului de procesare
 
-### Etapa 4: Calcularea indicelui
+### Etapa 4: Calculul indexului
 
 **Ce face Chloros:**
 
 * Calculează indicii multispectrali configurați (NDVI, NDRE etc.)
-* Aplică matematica benzii la imaginile calibrate
-* Generează imagini index pentru fiecare index selectat
+* Aplică matematică de bandă imaginilor calibrate
+* Generează imagini index pentru fiecare indice selectat
 
 **Durată:** Câteva secunde per imagine
 
@@ -175,27 +175,27 @@ Odată pornit, întregul pipeline rulează automat:
 
 * Utilizare relativ redusă a procesorului (single-threaded)
 * Computerul rămâne receptiv pentru alte sarcini
-* Este sigur să minimizați Chloros și să lucrați în alte aplicații
+* Se poate minimiza Chloros și se poate lucra în alte aplicații în siguranță
 
 **Chloros+ Mod paralel:**
 
 * Utilizare ridicată a procesorului (multi-threaded, până la 16 nuclee)
 * Cu accelerare GPU: utilizare ridicată a GPU-ului
 * Computerul poate fi mai puțin receptiv în timpul procesării
-* Evitați să porniți alte sarcini care solicită intens procesorul
+* Evitați pornirea altor sarcini care solicită intens procesorul
 
 {% hint style=&quot;warning&quot; %}
-**Sfat privind performanța**: Pentru o performanță optimă a Chloros+, închideți alte aplicații și lăsați Chloros să utilizeze toate resursele sistemului.
+**Sfat de performanță**: Pentru o performanță optimă a Chloros+, închideți alte aplicații și lăsați Chloros să utilizeze toate resursele sistemului.
 {% endhint %}
 
 ### Procesarea nu poate fi întreruptă
 
 **Limitări importante:**
 
-* Odată începută, procesarea nu poate fi întreruptă.
-* Puteți anula procesarea, dar progresul se pierde.
-* Rezultatele parțiale nu sunt salvate.
-* Dacă se anulează, trebuie să reporniți de la început.
+* Odată începută, procesarea nu poate fi întreruptă
+* Puteți anula procesarea, dar progresul va fi pierdut
+* Rezultatele parțiale nu sunt salvate
+* Dacă anulați, trebuie să reporniți de la început
 
 **Sfat de planificare:** Pentru proiecte foarte mari, luați în considerare procesarea în loturi sau utilizarea CLI pentru un control mai bun.
 
@@ -207,10 +207,10 @@ Odată pornit, întregul pipeline rulează automat:
 
 * **Urmărirea barei de progres** - Vedeți procentajul general de finalizare
 * **Vizualizarea etapei curente** - Detectare, analiză, calibrare sau export
-* **Verificarea filei jurnal** - Vedeți mesaje și avertismente detaliate privind procesarea
-* **Previzualizarea imaginilor finalizate** - Unele fișiere exportate pot apărea în timpul procesării
+* **Verificați fila jurnal** - Vedeți mesaje și avertismente detaliate privind procesarea
+* **Previzualizați imaginile finalizate** - Unele fișiere exportate pot apărea în timpul procesării
 
-Pentru informații detaliate despre monitorizare, consultați [Monitorizarea procesării](monitoring-the-processing.md).
+Pentru informații detaliate privind monitorizarea, consultați [Monitorizarea procesării](monitoring-the-processing.md).
 
 ***
 
@@ -260,7 +260,7 @@ Timpul real de procesare variază foarte mult în funcție de:
 * Numărul de indici de calculat
 * Complexitatea formatului de export
 
-### Estimări aproximative (Chloros+, imagini de 12 MP, procesor modern)
+### Estimări aproximative (Chloros+, imagini de 12 MP, CPU modern)
 
 | Număr de imagini | Mod gratuit | Chloros+ (CPU) | Chloros+ (GPU) |
 | ----------- | --------- | -------------- | -------------- |
@@ -341,7 +341,7 @@ Timpul real de procesare variază foarte mult în funcție de:
 
 1. **Evitați intrarea sistemului în stare de repaus** - Dezactivați modurile de economisire a energiei
 2. **Păstrați Chloros în prim-plan** - Sau cel puțin vizibil în bara de activități
-3. **Monitorizați ocazional progresul** - Verificați dacă există avertismente sau erori
+3. **Monitorizați progresul ocazional** - Verificați dacă există avertismente sau erori
 4. **Nu încărcați alte aplicații grele** - În special cu Chloros+ în modul paralel
 
 ### Chloros+ Accelerare GPU

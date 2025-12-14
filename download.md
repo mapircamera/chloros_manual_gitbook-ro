@@ -3,7 +3,6 @@ metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
-
 # Descărcare
 
 Descărcați cea mai recentă versiune a Chloros pentru Windows pentru a începe procesarea imaginilor multispectrale.
@@ -16,7 +15,7 @@ Descărcați cea mai recentă versiune a Chloros pentru Windows pentru a începe
 | **Procesor**        | Intel Core i5 sau echivalent     | Intel Core i7 sau superior         |
 | **Memorie (RAM)**     | 8 GB                             | 16 GB sau mai mult                    |
 | **Placă grafică**    | Compatibilă cu DirectX 11           | GPU NVIDIA cu 4 GB+ VRAM       |
-| **Stocare**          | 2 GB spațiu liber                  | SSD cu 10 GB+ spațiu liber       |
+| **Spațiu de stocare**          | 2 GB spațiu liber                  | SSD cu 10 GB+ spațiu liber       |
 | **Afișaj**          | 1920x1080                       | 2560x1440 sau mai mare             |
 | **Internet**         | Necesar pentru activarea licenței | Necesar pentru activarea licenței |
 
@@ -37,15 +36,15 @@ Descărcați cea mai recentă versiune a Chloros pentru Windows pentru a începe
 * **Versiune**: 1.0.3
 * **Data lansării**: decembrie ?, 2025
 * **Dimensiune fișier**: 1,6 GB
-* **Tip fișier**: .exe (Instalator Windows)
+* **Tip fișier**: .exe (program de instalare Windows)
 
 #### **Pași de instalare:**
 
-1. Descărcați fișierul `CHLOROS INSTALLER - CURRENT VERSION.exe`.
-2. Faceți dublu clic pe programul de instalare pentru a începe instalarea.
-3. Urmați instrucțiunile asistentului de instalare.
-4. Alegeți directorul de instalare (implicit: `C:\Program Files\Chloros\`).
-5. Finalizați instalarea și lansați Chloros.
+1. Descărcați fișierul `CHLOROS INSTALLER - CURRENT VERSION.exe`
+2. Faceți dublu clic pe programul de instalare pentru a începe instalarea
+3. Urmați instrucțiunile asistentului de instalare
+4. Alegeți directorul de instalare (implicit: `C:\Program Files\Chloros\`)
+5. Finalizați instalarea și lansați Chloros
 6. Conectați-vă cu contul dvs. MAPIR Cloud Chloros+ (sau continuați cu versiunea gratuită)
 
 {% hint style=&quot;success&quot; %}
@@ -88,9 +87,9 @@ Deblocați funcții avansate cu un abonament Chloros+:
 
 * 🚀 **Procesare multi-threaded** - Procesați imagini în paralel
 * ⚡ **Accelerare GPU (CUDA)** - Profitați de puterea GPU NVIDIA
-* 💻 **CLI Access** - Automatizați cu instrumente de linie de comandă
+* 💻 **Acces CLI** - Automatizați cu instrumente de linie de comandă
 * 🐍 **Python SDK** - Acces programatic API
-* 📱 **Dispozitive multiple** - Utilizați pe 2-10+ dispozitive (în funcție de plan)
+* 📱 **Dispozitive multiple** - Utilizare pe 2-10+ dispozitive (în funcție de plan)
 * 🧮 **Formule personalizate** - Creați indici multispectrali personalizați
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Vizualizați planurile și prețurile Chloros+</a></p>***
@@ -125,7 +124,7 @@ Deblocați funcții avansate cu un abonament Chloros+:
 Aveți nevoie de ajutor cu instalarea sau configurarea?
 
 * 📧 **E-mail**: info@mapir.camera
-* 🌐 **Site web**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 🌐 **Website**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Documentație**: [Noțiuni introductive](./)
 * ❓ **Întrebări frecvente**: [Întrebări frecvente](faq.md)
 
@@ -163,6 +162,8 @@ Aveți nevoie de ajutor cu instalarea sau configurarea?
 
 Utilizarea, distribuirea sau modificarea neautorizată este interzisă.
 
-**Versiune gratuită**: Disponibilă pentru uz personal și comercial, cu limitări ale funcționalităților.
+**Versiune gratuită**: Disponibilă pentru uz personal și comercial, cu limitări ale funcționalităților
 
-**Chloros+**: Licență pe bază de abonament pentru funcționalități avansate și implementări comerciale.
+**Chloros+**: Licență pe bază de abonament pentru funcționalități avansate și implementări comerciale
+
+<figure><img src=".gitbook/assets/t3-125_2.jpg" alt=""><figcaption></figcaption></figure>

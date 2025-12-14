@@ -23,10 +23,10 @@
 | **Internet**         | Necesar pentru activarea licenței                                     |
 
 {% hint style=&quot;warning&quot; %}
-**Cerințe de licență**: Python SDK necesită un abonament plătit Chloros+ pentru accesul la API. Planurile standard (gratuite) nu au acces la API/SDK. Vizitați [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing) pentru a face upgrade.
+**Cerințe de licență**: Python SDK necesită un abonament Chloros+ plătit pentru accesul la API. Planurile standard (gratuite) nu au acces la API/SDK. Vizitați [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing) pentru a face upgrade.
 {% endhint %}
 
-## Începere rapidă
+## Început rapid
 
 ### Instalare
 
@@ -129,7 +129,7 @@ SDK utilizează aceeași licență ca Chloros, Chloros (Browser) și Chloros CLI
 
 1. Deschideți **Chloros sau Chloros (Browser)** și conectați-vă la fila Utilizator <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> . Sau deschideți **CLI**.
 2. Introduceți datele de autentificare Chloros+ și conectați-vă
-3. Licența este stocată în memoria cache locală (persistă după repornire)
+3. Licența este stocată local în memoria cache (persistă după repornire)
 
 {% hint style=&quot;success&quot; %}
 **Configurare unică**: După conectarea prin GUI sau CLI, SDK utilizează automat licența stocată în cache. Nu este necesară nicio autentificare suplimentară!
@@ -156,7 +156,7 @@ print(f"Backend running: {status['running']}")
 
 ### Clasa ChlorosLocal
 
-Clasă principală pentru procesarea locală a imaginilor Chloros.
+Clasa principală pentru procesarea locală a imaginilor Chloros.
 
 #### Constructor
 
@@ -176,9 +176,9 @@ ChlorosLocal(
 | ------------------------- | ---- | ------------------------- | ------------------------------------- |
 | `api_url`                 | str  | `"http://localhost:5000"` | URL al backend-ului local Chloros          |
 | `auto_start_backend`      | bool | `True`                    | Pornește automat backend-ul dacă este necesar |
-| `backend_exe`             | str  | `None` (detectare automată)      | Calea către executabilul backend            |
+| `backend_exe`             | str  | `None` (detectare automată)      | Calea către executabilul backend-ului            |
 | `timeout`                 | int  | `30`                      | Timp de expirare a cererii în secunde            |
-| `backend_startup_timeout` | int  | `60`                      | Timp de expirare pentru pornirea backend-ului(secunde) |
+| `backend_startup_timeout` | int  | `60`                      | Timp de expirare pentru pornirea backend-ului (secunde) |
 
 **Exemple:**
 
@@ -209,7 +209,7 @@ Creați un nou proiect Chloros.
 | Parametru      | Tip | Obligatoriu | Descriere                                              |
 | -------------- | ---- | -------- | -------------------------------------------------------- |
 | `project_name` | str  | Da      | Numele proiectului                                     |
-| `camera`       | str  | Nu       | Șablon cameră (de exemplu, „Survey3N\_RGN”, „Survey3W\_OCN”) |
+| `camera`       | str  | Nu       | Șablon cameră (de ex., „Survey3N\_RGN”, „Survey3W\_OCN”) |
 
 **Returnează:** `dict` - Răspuns la crearea proiectului
 
@@ -233,10 +233,10 @@ Importă imagini dintr-un folder.
 
 | Parametru     | Tip     | Obligatoriu | Descriere                        |
 | ------------- | -------- | -------- | ---------------------------------- |
-| `folder_path` | str/Path | Da      | Calea către folderul cu imagini         |
-| `recursive`   | bool     | Nu       | Căutare subfoldere (implicit: False) |
+| `folder_path` | str/Cale | Da      | Calea către folderul cu imagini         |
+| `recursive`   | bool     | Nu       | Căutare în subfoldere (implicit: Fals) |
 
-**Returnează:** `dict` - Rezultatele importului cu numărul de fișiere
+**Returnează:** `dict` - Rezultate import cu numărul de fișiere
 
 **Exemplu:**
 
@@ -308,8 +308,8 @@ Procesați imaginile proiectului.
 
 | Parametru           | Tip     | Implicit      | Descriere                               |
 | ------------------- | -------- | ------------ | ----------------------------------------- |
-| `mode`              | str      | `"parallel"` | Mod de procesare: „paralel” sau „serial”   |
-| `wait`              | bool     | `True`       | Așteptare finalizare                       |
+| `mode`              | str      | `"parallel"` | Mod de procesare: „parallel” sau „serial”   |
+| `wait`              | bool     | `True`       | Așteaptă finalizarea                       |
 | `progress_callback` | callable | `None`       | Funcție de apel invers pentru progres (progress, msg) |
 | `poll_interval`     | float    | `2.0`        | Interval de interogare pentru progres (secunde)   |
 
@@ -374,7 +374,7 @@ print(f"URL: {status['url']}")
 
 #### `shutdown_backend()`
 
-Oprește backend-ul (dacă a fost pornit de SDK).
+Opriți backend-ul (dacă a fost pornit de SDK).
 
 **Exemplu:**
 
@@ -388,13 +388,13 @@ chloros.shutdown_backend()
 
 #### `process_folder(folder_path, **options)`
 
-Funcție utilă dintr-o singură linie pentru procesarea unui folder.
+Funcție utilă de o singură linie pentru procesarea unui folder.
 
 **Parametri:**
 
 | Parametru                 | Tip     | Implicit         | Descriere                    |
 | ------------------------- | -------- | --------------- | ------------------------------ |
-| `folder_path`             | str/Path | Obligatoriu        | Calea către folderul cu imagini     |
+| `folder_path`             | str/Cale | Obligatoriu        | Calea către folderul cu imagini     |
 | `project_name`            | str      | Generat automat  | Numele proiectului                   |
 | `camera`                  | str      | `None`          | Șablon cameră                |
 | `indices`                 | list     | `["NDVI"]`      | Indici de calculat           |
@@ -619,9 +619,9 @@ print(df)
 
 ***
 
-### Exemplul 5: Monitorizarea personalizată a progresului
+### Exemplul 5: Monitorizare personalizată a progresului
 
-Urmărirea avansată a progresului cu înregistrare:
+Urmărire avansată a progresului cu înregistrare:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -660,7 +660,7 @@ logging.info("Processing complete!")
 
 ### Exemplul 6: Gestionarea erorilor
 
-Gestionarea robustă a erorilor pentru utilizare în producție:
+Gestionare robustă a erorilor pentru utilizare în producție:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -712,7 +712,7 @@ else:
 
 ### Exemplul 7: Instrument de linie de comandă
 
-Creați un instrument CLI personalizat cu SDK:
+Construiți un instrument personalizat CLI cu SDK:
 
 ```python
 #!/usr/bin/env python
@@ -828,7 +828,7 @@ except ChlorosError as e:
 
 ### Configurarea personalizată a backend-ului
 
-Utilizați o locație sau o configurație personalizată a backend-ului:
+Utilizați o locație sau o configurație personalizată pentru backend:
 
 ```python
 chloros = ChlorosLocal(
@@ -920,7 +920,7 @@ chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
 **Soluții:**
 
 1. Deschideți Chloros, Chloros (browser) sau Chloros CLI și conectați-vă.
-2. Verificați dacă licența este stocată în cache:
+2. Verificați dacă licența este stocată în memoria cache:
 
 ```python
 from pathlib import Path
@@ -931,7 +931,7 @@ cache_path = Path(os.getenv('APPDATA')) / 'Chloros' / 'cache'
 print(f"Cache exists: {cache_path.exists()}")
 ```
 
-3. Contactați asistența tehnică: info@mapir.camera
+3. Contactați serviciul de asistență: info@mapir.camera
 
 ***
 
@@ -955,9 +955,9 @@ python -c "import sys; print(sys.path)"
 
 ***
 
-### Timp de procesare expirat
+### Timp de expirare al procesării
 
-**Problemă:** Timpul de procesare a expirat
+**Problemă:** Timpul de expirare al procesării
 
 **Soluții:**
 
@@ -995,7 +995,7 @@ Get-NetTCPConnection -LocalPort 5000
 
 ## Sfaturi de performanță
 
-### Optimizați viteza de procesare
+### Optimizarea vitezei de procesare
 
 1. **Utilizați modul paralel** (necesită Chloros+)
 
@@ -1121,9 +1121,9 @@ chloros.process(progress_callback=notebook_progress)
 
 ## Întrebări frecvente
 
-### Î: SDK necesită o conexiune la internet?
+### Î: SDK necesită conexiune la internet?
 
-**R:** Doar pentru activarea inițială a licenței. După conectarea prin Chloros, Chloros (browser) sau Chloros CLI, licența este stocată local în memoria cache și funcționează offline timp de 30 de zile.
+**R:** Doar pentru activarea inițială a licenței. După conectarea prin Chloros, Chloros (browser) sau Chloros CLI, licența este stocată local și funcționează offline timp de 30 de zile.
 
 ***
 
@@ -1137,12 +1137,12 @@ chloros.process(progress_callback=notebook_progress)
 
 ***
 
-### Î: Care este diferența între Desktop, CLI și SDK?
+### Î: Care este diferența dintre Desktop, CLI și SDK?
 
 | Caracteristică         | GUI Desktop | CLI Linie de comandă | Python SDK  |
 | --------------- | ----------- | ---------------- | ----------- |
 | **Interfață**   | Point-click | Comandă          | Python API  |
-| **Cel mai potrivit pentru**    | Lucru vizual | Scripting        | Integrare |
+| **Ideal pentru**    | Lucru vizual | Scripting        | Integrare |
 | **Automatizare**  | Limitată     | Bună             | Excelentă   |
 | **Flexibilitate** | De bază       | Bună             | Maximă     |
 | **Licență**     | Chloros+    | Chloros+         | Chloros+    |
@@ -1153,15 +1153,15 @@ chloros.process(progress_callback=notebook_progress)
 
 **R:** Codul SDK poate fi integrat în aplicațiile dvs., dar:
 
-* Utilizatorii finali trebuie să aibă instalat Chloros
-* Utilizatorii finali trebuie să aibă licențe active Chloros+
-* Distribuția comercială necesită licențe OEM.
+* Utilizatorii finali trebuie să aibă instalat Chloros.
+* Utilizatorii finali au nevoie de licențe active Chloros+.
+* Distribuția comercială necesită licențiere OEM.
 
 Contactați info@mapir.camera pentru întrebări legate de OEM.
 
 ***
 
-### Î: Cum actualizez SDK?
+### Î: Cum pot actualiza SDK?
 
 ```bash
 pip install --upgrade chloros-sdk

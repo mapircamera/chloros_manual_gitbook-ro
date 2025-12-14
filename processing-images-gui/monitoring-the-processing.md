@@ -1,10 +1,10 @@
 # Monitorizarea procesării
 
-Odată ce procesarea a început, Chloros oferă mai multe modalități de a monitoriza progresul, de a verifica eventualele probleme și de a înțelege ce se întâmplă cu setul dvs. de date. Această pagină explică modul în care puteți urmări procesarea și interpreta informațiile furnizate de Chloros.
+Odată ce procesarea a început, Chloros oferă mai multe modalități de a monitoriza progresul, de a verifica eventualele probleme și de a înțelege ce se întâmplă cu setul dvs. de date. Această pagină explică cum să urmăriți procesarea și să interpretați informațiile furnizate de Chloros.
 
 ## Prezentare generală a barei de progres
 
-Bara de progres din antetul superior afișează starea procesării în timp real și procentul de finalizare.
+Bara de progres din antetul superior afișează starea procesării în timp real și procentajul de finalizare.
 
 ### Bara de progres în modul gratuit
 
@@ -19,7 +19,7 @@ Pentru utilizatorii fără licență Chloros+:
 
 * Procentul total de finalizare (0-100%)
 * Numele etapei curente
-* Vizualizare simplă cu bară orizontală
+* Vizualizare simplă sub formă de bară orizontală
 
 ### Bara de progres Chloros+
 
@@ -37,7 +37,7 @@ Pentru utilizatorii cu licență Chloros+:
 * **Treceți cu mouse-ul peste** bara de progres pentru a vedea panoul extins în 4 etape
 * **Faceți clic** pe bara de progres pentru a îngheța/fixa panoul extins
 * **Faceți clic din nou** pentru a dezgheța și a ascunde automat la îndepărtarea mouse-ului
-* Fiecare etapă arată progresul individual (0-100%)
+* Fiecare etapă afișează progresul individual (0-100%)
 
 ***
 
@@ -82,13 +82,13 @@ Pentru utilizatorii cu licență Chloros+:
 
 **Indicator de progres:**
 
-* Analizare: 0% → 100%
-* Etapă rapidă, de obicei se finalizează rapid
+* Analiză: 0% → 100%
+* Etapă rapidă, de obicei finalizată rapid
 
 **Ce trebuie urmărit:**
 
-* Ar trebui să progreseze constant, fără pauze
-* Avertismente despre metadate lipsă vor apărea în jurnalul de depanare
+* Progresul ar trebui să fie constant, fără pauze
+* Avertismentele privind metadatele lipsă vor apărea în jurnalul de depanare
 
 ### Etapa 3: Calibrare
 
@@ -96,7 +96,7 @@ Pentru utilizatorii cu licență Chloros+:
 
 * **Debayering**: Conversia modelului RAW Bayer în 3 canale
 * **Corectarea vignetării**: eliminarea întunecării marginilor obiectivului
-* **Calibrarea reflectanței**: normalizarea cu valorile țintă
+* **Calibrarea reflectanței**: normalizarea cu valori țintă
 * **Calcularea indicelui**: calcularea indicilor multispectrali
 * Procesarea fiecărei imagini prin intermediul întregului proces
 
@@ -118,7 +118,7 @@ Pentru utilizatorii cu licență Chloros+:
 
 * Progres constant prin numărul de imagini
 * Verificați jurnalul de depanare pentru mesaje de finalizare per imagine
-* Avertismente despre calitatea imaginii sau probleme de calibrare
+* Avertismente privind calitatea imaginii sau probleme de calibrare
 
 ### Etapa 4: Exportare
 
@@ -126,7 +126,7 @@ Pentru utilizatorii cu licență Chloros+:
 
 * Scrierea imaginilor calibrate pe disc în formatul selectat
 * Exportarea imaginilor cu indice multispectral cu culori LUT
-* Crearea subfolderelor pentru modelele de camere
+* Crearea subfolderelor pentru modelul camerei
 * Păstrarea numelor originale ale fișierelor cu sufixele corespunzătoare
 
 **Durată:** 10-20% din timpul total de procesare
@@ -135,7 +135,7 @@ Pentru utilizatorii cu licență Chloros+:
 
 * Exportare: 0% → 100%
 * Fișiere în curs de scriere
-* Format și destinație de export
+* Format de export și destinație
 
 **Ce trebuie urmărit:**
 
@@ -179,7 +179,7 @@ Probleme necritice care nu opresc procesarea:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Acțiune:** Examinați avertismentele după procesare, dar nu întrerupeți procesarea.
+**Acțiune:** Examinați avertismentele după procesare, dar nu întrerupeți procesul.
 
 #### Mesaje de eroare (Red)
 
@@ -204,7 +204,7 @@ Probleme critice care pot cauza eșecul procesării:
 | „Săriți peste fișierul corupt”        | Fișierul imagine este deteriorat                  | Recopiați fișierul de pe cardul SD                             |
 | „Date PPK aplicate”               | Corecții GPS din fișierul .daq aplicate | Niciuna - normal                                         |
 
-### Copierea datelor din jurnal
+### Copierea datelor jurnalului
 
 Pentru a copia jurnalul în scopul depanării sau asistenței:
 
@@ -270,8 +270,8 @@ Când accelerarea GPU este activată:
 
 **Ce să vă așteptați:**
 
-* Citire mare a discului în timpul etapei de analiză
-* Scriere mare a discului în timpul etapei de exportare
+* Citire discul mare în timpul etapei de analiză
+* Scriere discul mare în timpul etapei de exportare
 * SSD semnificativ mai rapid decât HDD
 
 **Sfat de performanță:**
@@ -286,7 +286,7 @@ Când accelerarea GPU este activată:
 
 ### Semne de avertizare
 
-**Progresul se blochează (nu se înregistrează nicio modificare timp de peste 5 minute):**
+**Progresul se blochează (nicio schimbare timp de peste 5 minute):**
 
 * Verificați jurnalul de depanare pentru erori
 * Verificați spațiul disponibil pe disc
@@ -336,8 +336,8 @@ Opriți procesarea dacă observați:
 
 **Soluții:**
 
-1. Dacă abia ați început și sunteți în etapa de detectare: anulați, marcați țintele, reporniți
-2. Pentru viitor: utilizați SSD, reduceți indicii, actualizați hardware-ul
+1. Dacă abia ați început și sunteți în etapa de detectare: Anulați, marcați țintele, reporniți
+2. Pentru viitor: Utilizați SSD, reduceți indicii, actualizați hardware-ul
 3. Luați în considerare CLI pentru procesarea în lot a seturilor de date mari
 
 ### Avertismente „Spațiu pe disc”
@@ -362,10 +362,10 @@ Opriți procesarea dacă observați:
 
 **Soluții:**
 
-1. Asigurați-vă că ventilația este adecvată.
-2. Curățați praful din orificiile de ventilație ale computerului.
-3. Reduceți sarcina de procesare (utilizați modul Free în loc de Chloros+).
-4. Efectuați procesarea în perioadele mai răcoroase ale zilei.
+1. Asigurați-vă că ventilația este adecvată
+2. Curățați praful din orificiile de ventilație ale computerului
+3. Reduceți sarcina de procesare (utilizați modul Free în loc de Chloros+)
+4. Procesați în perioadele mai răcoroase ale zilei
 
 ***
 

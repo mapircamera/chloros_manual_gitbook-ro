@@ -1,6 +1,6 @@
 # Reglarea setărilor proiectului
 
-Înainte de a procesa imaginile, este important să configurați setările proiectului pentru a se potrivi cerințelor fluxului de lucru. Panoul Setări proiect <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> oferă un control complet asupra calibrării, opțiunilor de procesare, indicilor multispectrali și formatelor de export.
+Înainte de a procesa imaginile, este important să configurați setările proiectului astfel încât să corespundă cerințelor fluxului de lucru. Panoul Setări proiect <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> oferă un control complet asupra calibrării, opțiunilor de procesare, indicilor multispectrali și formatelor de export.
 
 ## Accesarea setărilor proiectului
 
@@ -9,7 +9,7 @@
 3. Panoul Setări proiect afișează toate opțiunile de configurare
 
 {% hint style=&quot;info&quot; %}
-**Setările sunt salvate automat** împreună cu proiectul. Când redeschideți un proiect, toate setările sunt restaurate.
+**Setările sunt salvate automat** odată cu proiectul. Când redeschideți un proiect, toate setările sunt restaurate.
 {% endhint %}
 
 ***
@@ -54,7 +54,7 @@ Opțiuni principale de procesare și calibrare a imaginii.
 
 **Setări cheie:**
 
-* **Corecție vignetă**: Compensează întunecarea lentilelor la margini ✅ Recomandat
+* **Corecție vignetă**: Compensează întunecarea lentilei la margini ✅ Recomandat
 * **Calibrare reflectanță**: Normalizează valorile utilizând ținte de calibrare ✅ Recomandat
 * **Metoda Debayer**: Algoritm pentru conversia RAW în multispectral cu 3 canale
 * **Interval minim de recalibrare**: Timpul dintre utilizarea țintelor de calibrare (0 = utilizează toate)
@@ -62,7 +62,7 @@ Opțiuni principale de procesare și calibrare a imaginii.
 **Setări avansate:**
 
 * **Decalaj fus orar senzor de lumină**: Pentru sincronizarea orei PPK (implicit: 0)
-* **Aplică corecții PPK**: Utilizează datele GPS/pin de expunere din fișierele .daq
+* **Aplică corecții PPK**: Utilizează date GPS/pin de expunere din fișiere .daq
 * **Pin de expunere 1/2**: Alocă camerele pinilor de expunere pentru configurații cu două camere
 
 ### Index (Indici multispectrali)
@@ -99,7 +99,7 @@ Controlează formatul și calitatea fișierului de ieșire.
 **Formate disponibile:**
 
 * **TIFF (16 biți)**: Recomandat pentru GIS și analize științifice (interval 0-65.535)
-* **TIFF (32 biți, procent)**: Valori de reflexie în virgulă mobilă (interval 0,0-1,0)
+* **TIFF (32 biți, procent)**: Valori de reflectanță în virgulă mobilă (interval 0,0-1,0)
 * **PNG (8 biți)**: compresie fără pierderi pentru vizualizare (interval 0-255)
 * **JPG (8 biți)**: fișiere de dimensiuni reduse, compresie cu pierderi (interval 0-255)
 
@@ -113,7 +113,7 @@ Creați șabloane reutilizabile pentru fluxuri de lucru consecvente:
 
 1. Configurați toate setările dorite în panoul Setări proiect.
 2. Derulați până la secțiunea **„Salvare șablon proiect”** din partea de jos.
-3. Introduceți un nume descriptiv pentru șablon (de exemplu, „Survey3N\_RGN\_Agriculture”).
+3. Introduceți un nume descriptiv pentru șablon (de exemplu, „Survey3N\_RGN\_Agricultură”).
 4. Faceți clic pe pictograma de salvare.
 
 **Avantaje:**
@@ -133,10 +133,10 @@ Când creați un proiect nou:
 
 ### Director de lucru
 
-Setarea **„Salvare folder proiect”** specifică locul în care sunt create implicit proiectele noi:
+Setarea **„Salvați folderul proiectului”** specifică locul în care sunt create implicit proiectele noi:
 
 * **Locație implicită**: `C:\Users\[Username]\Chloros Projects`
-* **Schimbare locație**: Faceți clic pe pictograma de editare și selectați un folder nou
+* **Schimbați locația**: Faceți clic pe pictograma de editare și selectați un folder nou
 * **Când să schimbați**:
   * Unitate de rețea pentru colaborarea în echipă
   * Unitate diferită cu mai mult spațiu de stocare
@@ -159,11 +159,11 @@ Dacă utilizați înregistratoare DAQ MAPIR cu GPS pentru geolocalizare precisă
 1. Plasați fișierul jurnal .daq în folderul proiectului
 2. În Setări proiect, bifați caseta **„Aplicați corecții PPK”**
 3. Setați **„Decalaj fus orar senzor de lumină”** dacă este necesar (implicit: 0 pentru UTC)
-4. Alocați camerele la pinii de expunere:
+4. Alocați camerele pinilor de expunere:
    * **Cameră unică**: Alocată automat pinului 1
    * **Două camere**: Alocați manual fiecare cameră pinului corect
 
-**Alocarea pinilor de expunere:**
+**Alocarea pinurilor de expunere:**
 
 * **Pin de expunere 1**: Selectați modelul camerei din meniul derulant
 * **Pin de expunere 2**: Selectați a doua cameră sau „Nu utilizați”
@@ -192,7 +192,7 @@ Când procesați imagini de la mai multe camere MAPIR într-un singur proiect:
 
 Pentru studii repetate ale aceleiași zone în timp:
 
-1. Creați un șablon cu setările standard
+1. Creați un șablon cu setările dvs. standard
 2. Utilizați o configurare consistentă a țintei de calibrare pentru fiecare sesiune
 3. Procesați fiecare dată ca un proiect separat
 4. Utilizați setări identice pentru rezultate comparabile
@@ -213,7 +213,7 @@ Pentru proiecte cu multe imagini (500+):
 
 Înainte de a începe procesarea, verificați aceste setări cheie:
 
-* [ ] Modelul camerei detectat corect în File Browser
+* [ ] Modelul camerei detectat corect în File Browser (Browser fișiere)
 * [ ] Corecția vignetării activată
 * [ ] Calibrarea reflectanței activată
 * [ ] Cel puțin o imagine țintă de calibrare importată
@@ -225,7 +225,7 @@ Pentru proiecte cu multe imagini (500+):
 
 ## Pași următori
 
-Odată ce setările sunt configurate:
+După configurarea setărilor:
 
 1. **Marcați imaginile țintă de calibrare** - Consultați [Alegerea imaginilor țintă](choosing-target-images.md)
 2. **Începeți procesarea** - Consultați [Începerea procesării](starting-the-processing.md)

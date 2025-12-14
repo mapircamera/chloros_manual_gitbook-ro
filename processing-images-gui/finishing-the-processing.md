@@ -9,7 +9,7 @@ Când procesarea se finalizează cu succes, veți vedea mai mulți indicatori:
 * ✅ **Bara de progres**: ajunge la 100% finalizare
 * ✅ **Jurnal de depanare**: afișează mesajul „Procesare finalizată”
 * ✅ **Butonul Start**: devine din nou activ (gata pentru următoarea rulare a procesării)
-* ✅ **Fișiere de ieșire**: toate imaginile procesate sunt salvate în subfolderul modelului de cameră
+* ✅ **Fișiere de ieșire**: toate imaginile procesate sunt salvate în subfolderul modelului camerei
 
 ***
 
@@ -28,12 +28,12 @@ Când procesarea se finalizează cu succes, veți vedea mai mulți indicatori:
 
 ### Previzualizare rapidă în exploratorul de fișiere
 
-**Previzualizare integrată Windows:**
+**Windows previzualizare încorporată:**
 
-1. Navigați la subfolderul modelului de cameră
+1. Navigați la subfolderul modelului camerei
 2. Selectați un fișier imagine
 3. Previzualizarea apare în panoul de previzualizare Windows Explorer
-4. Utilizați tastele săgeată pentru a naviga printre imagini
+4. Utilizați tastele săgeți pentru a naviga prin imagini
 
 ### Previzualizare în vizualizatoare de imagini externe
 
@@ -94,7 +94,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 1. Verificați jurnalul de depanare pentru mesaje de omitere/eroare
 2. Verificați dacă spațiul pe disc era suficient
-3. Numărați fișierele: ar trebui să se potrivească (numărul original - numărul țintă) × (indici + 1)
+3. Numărați fișierele: ar trebui să corespundă (numărul original - numărul țintă) × (indici + 1)
 4. Reimportați și reprocesați fișierele lipsă
 
 ### Problemă: Margini întunecate sau luminoase (vignettarea este încă vizibilă)
@@ -107,7 +107,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 **Soluții:**
 
-1. Verificați dacă corectarea vignetării a fost activată în Setări proiect
+1. Verificați dacă corectarea vignetării a fost activată în Setările proiectului
 2. Verificați dacă modelul camerei a fost detectat corect
 3. Contactați asistența MAPIR dacă vignetarea persistă
 
@@ -123,9 +123,9 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 **Soluții:**
 
 1. Verificați dacă calibrarea reflectanței a fost activată.
-2. Verificați mesajele „Țintă găsită” în jurnalul de depanare.
-3. Verificați calitatea imaginii țintei.
-4. Reprocesați cu țintele marcate corespunzător.
+2. Verificați mesajele „Țintă găsită” din jurnalul de depanare.
+3. Verificați calitatea imaginii țintă.
+4. Reprocesați cu țintele corespunzătoare marcate.
 
 ### Problemă: Valorile NDVI par incorecte.
 
@@ -159,7 +159,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
    * WebODM
 2. **Păstrați metadatele EXIF**: asigurați-vă că datele GPS sunt păstrate pentru geotagging
 3. **Fluxuri de lucru calibrate**: utilizați imagini de reflectanță pentru acuratețe științifică
-4. **Procesați mozaicurile indexate**: creați ortomozaicuri NDVI din imagini indexate individuale
+4. **Procesați mozaicurile indexate**: creați ortomosaicuri NDVI din imagini indexate individuale
 5. **Exportați GeoTIFF georeferențiat**: pentru utilizare în aplicații GIS
 
 ### Pentru analiza GIS
@@ -169,7 +169,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 1. **Încărcați în QGIS, ArcGIS sau similar**
 2. **Utilizați imagini de reflexie TIFF** pe 16 biți pentru analiza multibandă
 3. **Utilizați imagini index** (NDVI, NDRE) ca straturi de vegetație gata de utilizare
-4. **Calculator raster**: combinați benzile pentru analize personalizate
+4. **Calculator raster**: Combinați benzi pentru analize personalizate
 5. **Export**: creați hărți de clasificare, detectați modificările, creați hărți ale stării vegetației
 
 ### Pentru analiză directă/raportare
@@ -177,9 +177,9 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 **Flux de lucru recomandat:**
 
 1. **Utilizați imagini index cu culori LUT** pentru rapoarte vizuale
-2. **Extrageți statistici**: Media NDVI pe câmp/parcelă
-3. **Seriile temporale**: Comparați indicii între mai multe sesiuni
-4. **Generați rapoarte**: Includeți hărți, statistici și vizualizări
+2. **Extrageți statistici**: media NDVI pe câmp/parcelă
+3. **Seriile temporale**: comparați indicii între mai multe sesiuni
+4. **Generați rapoarte**: includeți hărți, statistici și vizualizări
 
 ***
 
@@ -191,7 +191,7 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 * ✅ **Imagini RAW/JPG originale** - Arhivați pe unitate separată/cloud
 * ✅ **Rezultate procesate** - Păstrați imaginile calibrate și indicii
-* ✅ **Fișier de proiect** - Conține toate setările pentru reprocesare, dacă este necesar
+* ✅ **Fișierul proiectului** - Conține toate setările pentru reprocesare, dacă este necesar
 * ✅ **Jurnal de depanare** - Documentează detaliile procesării
 * ✅ **Imagini țintă de calibrare** - Pentru verificare și reprocesare
 
@@ -221,19 +221,19 @@ Pentru mai multe sesiuni/seturi de date:
 **Opțiunea 1: GUI - Proiecte multiple**
 
 * Creați un proiect separat pentru fiecare sesiune
-* Utilizați setări consistente ale șablonului
+* Utilizați setări de șablon consecvente
 * Procesați câte unul pe rând
 
 **Opțiunea 2: Chloros CLI (numai Chloros+)**
 
 * Automatizați procesarea în lot
-* Procesează mai multe foldere cu scripturi
-* Vezi [Documentația CLI](../CLI.md)
+* Procesați mai multe foldere cu scripturi
+* Consultați [Documentația CLI](../CLI.md)
 
 **Opțiunea 3: Python SDK (numai Chloros+)**
 
 * Control programatic
-* Integrare cu conductele de analiză
+* Integrare cu conducte de analiză
 * Consultați [Documentația API](../api-python-sdk.md)
 
 ***

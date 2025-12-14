@@ -1,5 +1,5 @@
 ---
-description: Panouri măsurate în laborator utilizate pentru calibrarea datelor capturate în post-procesare
+description: Lab-measured panels used to calibrate captured data in post-processing
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/calibration-targets
@@ -14,7 +14,7 @@ MAPIR oferă diverse ținte de calibrare pentru a acoperi o gamă largă de apli
 
 <figure><img src=".gitbook/assets/MAPIR Diffuse Reflectance Standard Calibration Target Data T4 (400-1000nm).png" alt=""><figcaption><p>MAPIR T4 Reflectanță :: 400-1000 nm</p></figcaption></figure>
 
-Privind graficul de reflectanță, puteți observa că valorile sunt lungimea de undă (axa x) versus procentul de reflectanță (axa y). Când capturăm o imagine a țintei de calibrare, creăm o relație între valoarea pixelilor și procentul de reflectanță, în spectrul la care sunt sensibile fiecare dintre benzile senzorului camerei.
+Privind graficul de reflexie, puteți observa că valorile sunt lungimea de undă (axa x) versus procentul de reflexie (axa y). Când capturăm o imagine a țintei de calibrare, creăm o relație între valoarea pixelului și procentul de reflexie, în spectrul la care sunt sensibile fiecare dintre benzile senzorului camerei.
 
 Aceasta înseamnă că, pentru fiecare imagine capturată cu camerele noastre, puteți utiliza o fotografie a țintelor noastre de reflectanță, cum ar fi [T4-R50](https://www.mapir.camera/collections/calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t3-r50) sau [T4-R125](https://www.mapir.camera/collections/multispectral-reflectance-reference-calibration-targets/products/diffuse-reflectance-standard-calibration-target-package-t4-r125), pentru a calibra imaginile în funcție de reflectanță. Odată calibrat, fiecare pixel din imagine este egal cu procentul de reflectanță.
 
