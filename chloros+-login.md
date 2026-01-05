@@ -6,7 +6,7 @@ Meniul lateral <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line">
 
 După conectare, vor fi afișate detaliile contului dvs.:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Autentificare
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" data-size="line"><figcaption></figcaption></figure>## CLI Autentificare
 
 Autentificați-vă cu datele de autentificare Chloros+ pentru a activa procesarea CLI.
 

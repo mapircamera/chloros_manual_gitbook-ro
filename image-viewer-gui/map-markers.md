@@ -88,7 +88,7 @@ Fila Hartă acceptă doi furnizori de plăci pentru imaginile de fundal ale hăr
 
 Puteți alege tipul stratului de hartă (de la stânga la dreapta):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Teren
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Teren
 
 Afișează profiluri de altitudine și imagini cu detalii (drumuri etc.)
 
