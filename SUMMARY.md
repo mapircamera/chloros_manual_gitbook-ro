@@ -27,8 +27,10 @@
 * [Setări proiect](project-settings/project-settings.md)
 * [Formule index multispectral](project-settings/multispectral-index-formulas.md)
 
-## VIZUALIZATOR IMAGINI (GUI)
+## VIZUALIZATOR DE IMAGINI (GUI)
 
+* [Grila de imagini](image-viewer-gui/image-grid.md)
 * [Deschiderea unei imagini pe ecran complet](image-viewer-gui/opening-an-image-full-screen.md)
-* [Straturi de imagine](image-viewer-gui/image-layers.md)
+* [Straturi de imagini](image-viewer-gui/image-layers.md)
 * [Sandbox index/LUT](image-viewer-gui/index-lut-sandbox.md)
+* [Marcaje hartă](image-viewer-gui/map-markers.md)

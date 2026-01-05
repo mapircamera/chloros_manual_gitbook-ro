@@ -1,6 +1,6 @@
 # Adăugarea fișierelor la un proiect
 
-După ce ați creat sau deschis un proiect în Chloros, următorul pas este să adăugați imaginile multispectrale pentru a începe procesarea. Fila File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> vă permite să importați cu ușurință imagini și să gestionați setul de date.
+După ce ați creat sau deschis un proiect în Chloros, următorul pas este să adăugați imaginile multispectrale pentru a începe procesarea. Fila File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> vă permite să importați cu ușurință imagini și să vă gestionați setul de date.
 
 ## Accesarea browserului de fișiere
 
@@ -22,46 +22,39 @@ Există două modalități principale de a adăuga imagini la proiectul dvs.:
 
 Utilizați această opțiune pentru a importa fișiere imagine individuale sau o selecție mică de fișiere.
 
-1. Faceți clic pe butonul **„Adăugare fișiere”** din partea de sus a panoului File Browser (Browser fișiere).
+1. Faceți clic pe butonul **„Adăugați fișiere”** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> din partea de sus a panoului File Browser (Browser fișiere)
 2. Navigați la folderul care conține imaginile dvs.
-3. Selectați unul sau mai multe fișiere imagine (țineți apăsată tasta **Ctrl** pentru a selecta mai multe fișiere).
-4. Faceți clic pe **„Deschidere”** pentru a importa fișierele selectate.
+3. Selectați unul sau mai multe fișiere imagine (țineți apăsat **Ctrl** pentru a selecta mai multe fișiere)
+4. Faceți clic pe **„Open”** (Deschidere) pentru a importa fișierele selectate
 
-### Metoda 2: Adăugare folder
+### Metoda 2: Adăugarea unui folder
 
 Utilizați această opțiune pentru a importa toate imaginile dintr-un folder simultan.
 
-1. Faceți clic pe butonul **„Adăugați folder”** din partea de sus a panoului File Browser (Browser fișiere).
-2. Navigați și selectați folderul care conține imaginile sesiunii de captură.
-3. Faceți clic pe **„Selectați folder”** pentru a importa toate imaginile acceptate din acel folder.
-
-***
+1. Faceți clic pe butonul **„Adăugați folder”** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> din partea de sus a panoului File Browser (Browser fișiere)
+2. Navigați la și selectați folderul care conține imaginile sesiunii de captură
+3. Faceți clic pe **„Select Folder” (Selectați folderul)** pentru a importa toate imaginile acceptate din acel folder***
 
 ## Înțelegerea tabelului File Browser (Browser fișiere)
 
-Odată importate, imaginile apar într-un tabel cu următoarele coloane:
+Odată ce imaginile sunt importate, acestea apar într-un tabel cu următoarele coloane:
 
-### Miniatură
+### File Name (Nume fișier)
 
-* Previzualizare mică a fiecărei imagini
-* Faceți clic pe miniatură pentru a vizualiza imaginea completă în zona principală de previzualizare
-
-### Nume fișier
-
-* Numele original al fișierului din cameră
-* Păstrează convenția de denumire a camerei (de exemplu, IMG\_0001.RAW)
+* Numele original al fișierului din aparatul foto
+* Păstrează convenția de denumire a aparatului foto (de exemplu, IMG\_0001.RAW)
 
 ### Marcaj temporal
 
 * Data și ora la care a fost capturată imaginea
 * Extras din metadatele EXIF ale imaginii
-* Utilizată pentru sincronizarea PPK și detectarea țintei de calibrare
+* Utilizat pentru sincronizarea PPK și detectarea țintei de calibrare
 
-### Modelul camerei
+### Modelul aparatului foto
 
-* Configurația camerei și a filtrului detectată automat
+* Configurația aparatului foto și a filtrului detectată automat
 * Exemple: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
-* Utilizată pentru aplicarea profilurilor de procesare corecte
+* Utilizat pentru aplicarea profilurilor de procesare corecte
 
 ### Coloana țintă (casetă de selectare)
 
@@ -78,18 +71,16 @@ Odată importate, imaginile apar într-un tabel cu următoarele coloane:
 Pentru a elimina imaginile nedorite din proiectul dvs.:
 
 1. Selectați una sau mai multe imagini din tabelul File Browser (Browser fișiere)
-2. Faceți clic pe butonul **„Remove Selected” (Eliminare selectate)**
-3. Confirmați eliminarea (fișierele nu sunt șterse de pe disc, ci doar eliminate din proiect)
+2. Faceți clic pe butonul **„Remove Selected” (Eliminare selectate)** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> .
+3. Confirmați eliminarea (fișierele nu sunt șterse de pe disc, ci doar eliminate din proiect).
 
 ### Sortare și filtrare
 
-* **Sortare după coloană**: faceți clic pe orice antet de coloană pentru a sorta imaginile
-* **Sortare după data și ora capturii**: utilă pentru organizarea secvențelor de captură în ordine cronologică
-* **Filtru după modelul camerei**: grupați imaginile după tipul camerei dacă utilizați mai multe camere
+* **Sortare după coloană**: faceți clic pe orice antet de coloană pentru a sorta imaginile.
+* **Sortare după data și ora**: utilă pentru organizarea secvențelor de captură cronologice.
+* **Filtru model cameră**: grupați imaginile după tipul de cameră dacă utilizați mai multe camere***
 
-***
-
-## Previzualizarea imaginilor
+## Previzualizare imagine
 
 ### Vizualizarea imaginii complete
 
@@ -97,27 +88,25 @@ Faceți clic pe orice miniatură a imaginii din File Browser pentru a o afișa �
 
 1. Imaginea apare în panoul central de previzualizare
 2. Utilizați comenzile de zoom pentru a inspecta detaliile imaginii
-3. Navigați între imagini folosind tastele săgeată
+3. Navigați între imagini utilizând tastele săgeată
 
 ### Navigare rapidă
 
-* **Imaginea anterioară**: Faceți clic pe săgeata stânga sau apăsați tasta ←
-* **Imaginea următoare**: Faceți clic pe săgeata dreapta sau apăsați tasta →
-* **Mărire/micșorare**: Utilizați rotița mouse-ului sau butoanele de zoom
-* **Panoramare**: Faceți clic și trageți pe imagine când este mărită
-
-***
+* **Imaginea anterioară**: faceți clic pe săgeata stânga sau apăsați tasta ←
+* **Imaginea următoare**: faceți clic pe săgeata dreapta sau apăsați tasta →
+* **Mărire/micșorare**: utilizați rotița mouse-ului sau butoanele de zoom
+* **Panoramare**: faceți clic și trageți pe imagine când este mărită***
 
 ## Gestionarea fișierelor duplicate
 
 Chloros detectează și ignoră automat fișierele duplicate:
 
 * Fișierele cu nume identice sunt omise
-* Previne procesarea dublă accidentală
+* Previne procesarea accidentală dublă
 * Se afișează un mesaj de avertizare când sunt detectate duplicate
 
 {% hint style=&quot;warning&quot; %}
-**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de import. Chloros se bazează pe numele fișierelor originale și metadatele pentru o procesare corectă.
+**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de importare. Chloros se bazează pe numele fișierelor originale și metadatele pentru o procesare corectă.
 {% endhint %}
 
 ***
@@ -131,9 +120,7 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 3. Browserul de fișiere afișează modelul camerei în coloana Model cameră
 4. Procesarea aplică setările corecte pentru fiecare tip de cameră
 
-**Exemplu de scenariu**: Survey3W RGN + Survey3N OCN configurare cu două camere
-
-***
+**Exemplu de scenariu**: Survey3W RGN + Survey3N OCN configurare cu două camere***
 
 ## Cele mai bune practici
 
@@ -187,9 +174,7 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 * Ceasul camerei nu este setat corect
 * Datele EXIF au fost șterse de un software extern
 
-**Soluție**: Verificați dacă setările de timp ale camerei erau corecte în timpul capturii
-
-***
+**Soluție**: Verificați dacă setările de timp ale camerei erau corecte în timpul capturii***
 
 ## Pași următori
 

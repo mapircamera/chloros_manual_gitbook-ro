@@ -6,9 +6,7 @@ Meniul lateral <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line">
 
 După conectare, vor fi afișate detaliile contului dvs.:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
-
-## CLI Autentificare
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Autentificare
 
 Autentificați-vă cu datele de autentificare Chloros+ pentru a activa procesarea CLI.
 
@@ -17,6 +15,10 @@ Autentificați-vă cu datele de autentificare Chloros+ pentru a activa procesare
 ```bash
 chloros-cli login <email> <password>
 ```
+
+{% hint style=&quot;info&quot; %}
+**Utilizatori SDK**: Python SDK oferă, de asemenea, o metodă programatică `logout()` pentru ștergerea datelor de autentificare stocate în memoria cache. Pentru detalii, consultați [documentația Python SDK](api-python-sdk.md#logout).
+{% endhint %}
 
 **Exemplu:**
 
@@ -28,15 +30,13 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 **Caractere speciale**: Utilizați ghilimele simple în jurul parolelor care conțin caractere precum `$`, `!` sau spații.
 {% endhint %}
 
-**Rezultat:**
+**Ieșire:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Expirarea planului
 
-### Expirarea planului
+Expirarea planului în GUI arată când licența dvs. va deveni invalidă. Pentru abonamentele lunare recurente, expirarea are loc la sfârșitul lunii. Pentru abonamentele anuale, expirarea are loc la un an după începerea abonamentului. Verificarea licenței necesită o conexiune lunară la internet, cu o perioadă de grație de 30 de zile.
 
-Expirarea planului în GUI arată când licența dvs. va deveni invalidă. Pentru abonamentele lunare recurente, expirarea are loc la sfârșitul lunii. Pentru abonamentele anuale, expirarea are loc la un an după ce ați început abonamentul. Verificarea licenței necesită o conexiune lunară la internet, cu o perioadă de grație de 30 de zile.
-
-### Limita de dispozitive
+### Limită de dispozitive
 
 Fiecare plan Chloros+ oferă un număr diferit de dispozitive înregistrate. Fiecare dispozitiv pe care vă conectați cu un cont Chloros+ va fi luat în calcul la numărul de dispozitive înregistrate. Puteți redenumi și elimina un dispozitiv din pagina contului dvs. MAPIR Cloud.
 

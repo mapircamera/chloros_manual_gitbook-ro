@@ -9,16 +9,15 @@ Când procesarea se finalizează cu succes, veți vedea mai mulți indicatori:
 * ✅ **Bara de progres**: ajunge la 100% finalizare
 * ✅ **Jurnal de depanare**: afișează mesajul „Procesare finalizată”
 * ✅ **Butonul Start**: devine din nou activ (gata pentru următoarea rulare a procesării)
-* ✅ **Fișiere de ieșire**: toate imaginile procesate sunt salvate în subfolderul modelului camerei
-
-***
+* ✅ **Fișiere de ieșire**: toate imaginile procesate sunt salvate în subfolderul modelului camerei***
 
 ## Localizarea imaginilor procesate
 
 ### Deschiderea folderului de ieșire
 
-1. Faceți clic pe pictograma **Meniu principal** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> (stânga sus)
+1. Faceți clic pe pictograma **Meniu principal** <img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line"> (stânga sus)
 2. Selectați **„Deschideți folderul proiectului”**
+
 3. Exploratorul de fișiere se deschide în directorul proiectului
 4. Localizați proiectul după nume
 
@@ -28,18 +27,16 @@ Când procesarea se finalizează cu succes, veți vedea mai mulți indicatori:
 
 ### Previzualizare rapidă în exploratorul de fișiere
 
-**Windows previzualizare încorporată:**
+**Previzualizare integrată Windows:**
 
-1. Navigați la subfolderul modelului camerei
+1. Navigați la subfolderul modelului de cameră
 2. Selectați un fișier imagine
 3. Previzualizarea apare în panoul de previzualizare Windows Explorer
-4. Utilizați tastele săgeți pentru a naviga prin imagini
+4. Utilizați tastele săgeată pentru a naviga printre imagini
 
 ### Previzualizare în vizualizatoare de imagini externe
 
-**Vizualizatoare recomandate:**
-
-* **QGIS** - Software GIS gratuit (cel mai bun pentru analiza multispectrală georeferențiată)
+**Vizualizatoare recomandate:*** **QGIS** - Software GIS gratuit (cel mai bun pentru analiza multispectrală georeferențiată)
 * **IrfanView** - Vizualizator de imagini rapid și ușor (suportă TIFF)
 * **Adobe Photoshop** - Editare profesională (suportă TIFF)
 * **GIMP** - Alternativă gratuită la Photoshop
@@ -72,14 +69,15 @@ Consultați [Image Viewer](../image-viewer-gui/opening-an-image-full-screen.md) 
 
 Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența MAPIR:
 
-1. Faceți clic pe butonul **„Copiere”** sau **„Descărcare”**
+1. Faceți clic pe butonul **„Copiere”**sau**„Descărcare”**
+
 2. Salvați ca fișier text în folderul proiectului
 3. Includeți în documentația proiectului
 4. Trimiteți la asistența MAPIR dacă întâmpinați probleme
 
 ***
 
-## Probleme comune legate de ieșire și soluții
+## Probleme comune de ieșire și soluții
 
 ### Problemă: Fișiere de ieșire lipsă
 
@@ -97,17 +95,17 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 3. Numărați fișierele: ar trebui să corespundă (numărul original - numărul țintă) × (indici + 1)
 4. Reimportați și reprocesați fișierele lipsă
 
-### Problemă: Margini întunecate sau luminoase (vignettarea este încă vizibilă)
+### Problemă: Margini întunecate sau luminoase (vignettarea încă vizibilă)
 
 **Cauze posibile:**
 
-* Corecția vignettării este dezactivată
+* Corecția vignettării dezactivată
 * Camera/obiectivul nu se află în baza de date a profilurilor Chloros
-* Vignettare extremă, care depășește capacitatea de corecție
+* Vignettare extremă, dincolo de capacitatea de corecție
 
 **Soluții:**
 
-1. Verificați dacă corectarea vignetării a fost activată în Setările proiectului
+1. Verificați dacă corectarea vignetării a fost activată în Setări proiect
 2. Verificați dacă modelul camerei a fost detectat corect
 3. Contactați asistența MAPIR dacă vignetarea persistă
 
@@ -129,19 +127,15 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 ### Problemă: Valorile NDVI par incorecte.
 
-**Intervale NDVI așteptate:**
-
-* **Apă, roci, sol**: -0,1 până la 0,2
+**Intervale NDVI preconizate:*** **Apă, roci, sol**: -0,1 până la 0,2
 * **Vegetație rară/nesănătoasă**: 0,2 până la 0,4
 * **Vegetație moderată**: 0,4 până la 0,6
-* **Vegetație sănătoasă, densă**: 0,6 până la 0,9
-
-**Dacă valorile sunt în afara acestor intervale:**
+* **Vegetație sănătoasă, densă**: 0,6 până la 0,9**Dacă valorile sunt în afara acestor intervale:**
 
 1. Verificați dacă a fost aplicată calibrarea reflectanței.
 2. Verificați dacă a fost inclus jurnalul senzorului de lumină.
 3. Verificați dacă au fost detectate țintele de calibrare.
-4. Asigurați-vă că a fost detectat modelul corect de cameră.
+4. Asigurați-vă că a fost detectat modelul corect al camerei.
 5. Verificați momentul și condițiile de captare a imaginii țintă.
 
 ***
@@ -152,22 +146,23 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 **Flux de lucru recomandat:**
 
-1. **Importați imaginile de reflectanță calibrate** în software-ul de fotogrammetrie:
+1.**Importați imaginile de reflectanță calibrate** în software-ul de fotogrammetrie:
    * Pix4Dmapper
    * Agisoft Metashape
    * DroneDeploy
    * WebODM
 2. **Păstrați metadatele EXIF**: asigurați-vă că datele GPS sunt păstrate pentru geotagging
 3. **Fluxuri de lucru calibrate**: utilizați imagini de reflectanță pentru acuratețe științifică
-4. **Procesați mozaicurile indexate**: creați ortomosaicuri NDVI din imagini indexate individuale
+4. **Procesați mozaicuri indexate**: Creați ortomosaicuri NDVI din imagini index individuale
 5. **Exportați GeoTIFF georeferențiat**: pentru utilizare în aplicații GIS
 
 ### Pentru analiza GIS
 
 **Flux de lucru recomandat:**
 
-1. **Încărcați în QGIS, ArcGIS sau similar**
-2. **Utilizați imagini de reflexie TIFF** pe 16 biți pentru analiza multibandă
+1.**Încărcați în QGIS, ArcGIS sau similar**
+
+2.**Utilizați imagini de reflexie TIFF** pe 16 biți pentru analiza multibandă
 3. **Utilizați imagini index** (NDVI, NDRE) ca straturi de vegetație gata de utilizare
 4. **Calculator raster**: Combinați benzi pentru analize personalizate
 5. **Export**: creați hărți de clasificare, detectați modificările, creați hărți ale stării vegetației
@@ -176,32 +171,22 @@ Pentru a păstra o evidență a procesării sau pentru a o trimite la asistența
 
 **Flux de lucru recomandat:**
 
-1. **Utilizați imagini index cu culori LUT** pentru rapoarte vizuale
+1.**Utilizați imagini index cu culori LUT** pentru rapoarte vizuale
 2. **Extrageți statistici**: media NDVI pe câmp/parcelă
 3. **Seriile temporale**: comparați indicii între mai multe sesiuni
-4. **Generați rapoarte**: includeți hărți, statistici și vizualizări
-
-***
+4. **Generați rapoarte**: includeți hărți, statistici și vizualizări***
 
 ## Arhivare și backup
 
 ### Strategia de backup recomandată
 
-**Ce trebuie să salvați:**
-
-* ✅ **Imagini RAW/JPG originale** - Arhivați pe unitate separată/cloud
+**Ce trebuie să salvați:*** ✅ **Imagini RAW/JPG originale** - Arhivați pe unitate separată/cloud
 * ✅ **Rezultate procesate** - Păstrați imaginile calibrate și indicii
 * ✅ **Fișierul proiectului** - Conține toate setările pentru reprocesare, dacă este necesar
 * ✅ **Jurnal de depanare** - Documentează detaliile procesării
-* ✅ **Imagini țintă de calibrare** - Pentru verificare și reprocesare
-
-**Recomandări de stocare:**
-
-* **Backup imediat**: Unitate hard disk externă
+* ✅ **Imagini țintă de calibrare** - Pentru verificare și reprocesare**Recomandări de stocare:*** **Backup imediat**: Unitate hard disk externă
 * **Arhivare pe termen lung**: Stocare în cloud (Google Drive, Dropbox etc.)
-* **Date critice**: Păstrați 2-3 copii în locații diferite
-
-***
+* **Date critice**: Păstrați 2-3 copii în locații diferite***
 
 ## Următoarele procesări
 
@@ -212,16 +197,15 @@ Dacă procesați seturi de date similare în viitor:
 1. **Salvați șablonul proiectului** (dacă nu ați făcut-o deja)
 2. **Creați un proiect nou** utilizând șablonul salvat
 3. **Importați imagini noi**
-4. **Procesați** cu setări identice pentru consecvență
 
-### Procesare în lot a mai multor sesiuni
+4.**Procesați**cu setări identice pentru consecvență
 
-Pentru mai multe sesiuni/seturi de date:
+### Procesarea în lot a mai multor sesiuni
 
-**Opțiunea 1: GUI - Proiecte multiple**
+Pentru mai multe sesiuni/seturi de date:**Opțiunea 1: GUI - Proiecte multiple**
 
 * Creați un proiect separat pentru fiecare sesiune
-* Utilizați setări de șablon consecvente
+* Utilizați setări consistente ale șablonului
 * Procesați câte unul pe rând
 
 **Opțiunea 2: Chloros CLI (numai Chloros+)**
@@ -233,7 +217,7 @@ Pentru mai multe sesiuni/seturi de date:
 **Opțiunea 3: Python SDK (numai Chloros+)**
 
 * Control programatic
-* Integrare cu conducte de analiză
+* Integrare cu conductele de analiză
 * Consultați [Documentația API](../api-python-sdk.md)
 
 ***
@@ -265,9 +249,7 @@ Dacă întâmpinați probleme:
 * 📧 **E-mail**: info@mapir.camera (includeți jurnalul de depanare)
 * 🌐 **Asistență**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Întrebări frecvente**: [Întrebări frecvente](../faq.md)
-* 📖 **Documentație**: [Manual Chloros](../)
-
-***
+* 📖 **Documentație**: [Manual Chloros](../)***
 
 ## Rezumat: flux de lucru complet
 
@@ -276,12 +258,10 @@ Ați finalizat acum fluxul de lucru complet de procesare Chloros:
 1. ✅ **Proiect creat** - Consultați [Proiecte](../projects.md)
 2. ✅ **Fișiere adăugate** - Consultați [Adăugarea fișierelor](adding-files-to-a-project.md)
 3. ✅ **Setări ajustate** - Consultați [Ajustarea setărilor proiectului](adjusting-project-settings.md)
-4. ✅ **Ținte marcate** - Vezi [Alegerea imaginilor țintă](choosing-target-images.md)
-5. ✅ **Procesare începută** - Vezi [Începerea procesării](starting-the-processing.md)
-6. ✅ **Progres monitorizat** - Consultați [Monitorizarea procesării](monitoring-the-processing.md)
-7. ✅ **Rezultate revizuite** - Această pagină
-
-**Imaginile multispectrale calibrate și corectate din punct de vedere al reflectanței sunt gata pentru analiză!**
+4. ✅ **Ținte marcate** - Consultați [Alegerea imaginilor țintă](choosing-target-images.md)
+5. ✅ **Prelucrare începută** - Vezi [Începerea prelucrării](starting-the-processing.md)
+6. ✅ **Progres monitorizat** - Vezi [Monitorizarea prelucrării](monitoring-the-processing.md)
+7. ✅ **Rezultate revizuite** - Această pagină**Imaginile multispectrale calibrate și corectate din punct de vedere al reflectanței sunt gata pentru analiză!**
 
 ***
 
@@ -290,8 +270,8 @@ Ați finalizat acum fluxul de lucru complet de procesare Chloros:
 ### Funcții avansate
 
 * [**Vizualizator de imagini**](../image-viewer-gui/opening-an-image-full-screen.md) - Vizualizare și analiză interactivă
-* [**Index/LUT Sandbox**](../image-viewer-gui/index-lut-sandbox.md) - Testare index personalizat
-* [**Formule index multispectrale**](../project-settings/multispectral-index-formulas.md) - Referință completă index
+* [**Index/LUT Sandbox**](../image-viewer-gui/index-lut-sandbox.md) - Testare index personalizată
+* [**Formule index multispectrale**](../project-settings/multispectral-index-formulas.md) - Referință index completă
 
 ### Automatizare și integrare
 
