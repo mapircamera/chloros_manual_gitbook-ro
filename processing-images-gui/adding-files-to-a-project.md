@@ -1,6 +1,6 @@
 # Adăugarea fișierelor la un proiect
 
-După ce ați creat sau deschis un proiect în Chloros, următorul pas este să adăugați imaginile multispectrale pentru a începe procesarea. Fila File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> vă permite să importați cu ușurință imagini și să vă gestionați setul de date.
+După ce ați creat sau deschis un proiect în Chloros, următorul pas este să adăugați imaginile multispectrale pentru a începe procesarea. Fila File Browser<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> facilitează importul imaginilor și gestionarea setului de date.
 
 ## Accesarea browserului de fișiere
 
@@ -8,7 +8,7 @@ După ce ați creat sau deschis un proiect în Chloros, următorul pas este să 
 2. Faceți clic pe pictograma **Browser de fișiere** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> din bara laterală din stânga
 3. Panoul File Browser va afișa lista de fișiere a proiectului dvs.
 
-{% hint style=&quot;info&quot; %}
+{% hint style="info" %}
 **Tipuri de fișiere acceptate**: Chloros acceptă fișiere imagine RAW+JPG și JPG de la camerele MAPIR Survey3W și Survey3N. Se recomandă numai RAW+JPG.
 {% endhint %}
 
@@ -22,7 +22,7 @@ Există două modalități principale de a adăuga imagini la proiectul dvs.:
 
 Utilizați această opțiune pentru a importa fișiere imagine individuale sau o selecție mică de fișiere.
 
-1. Faceți clic pe butonul **„Adăugați fișiere”** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> din partea de sus a panoului File Browser (Browser fișiere)
+1. Faceți clic pe butonul **„Adăugare fișiere”** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> din partea de sus a panoului File Browser (Browser fișiere)
 2. Navigați la folderul care conține imaginile dvs.
 3. Selectați unul sau mai multe fișiere imagine (țineți apăsat **Ctrl** pentru a selecta mai multe fișiere)
 4. Faceți clic pe **„Open”** (Deschidere) pentru a importa fișierele selectate
@@ -33,11 +33,13 @@ Utilizați această opțiune pentru a importa toate imaginile dintr-un folder si
 
 1. Faceți clic pe butonul **„Adăugați folder”** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> din partea de sus a panoului File Browser (Browser fișiere)
 2. Navigați la și selectați folderul care conține imaginile sesiunii de captură
-3. Faceți clic pe **„Select Folder” (Selectați folderul)** pentru a importa toate imaginile acceptate din acel folder***
+3. Faceți clic pe **„Select Folder”** (Selectați folder) pentru a importa toate imaginile acceptate din acel folder
+
+***
 
 ## Înțelegerea tabelului File Browser (Browser fișiere)
 
-Odată ce imaginile sunt importate, acestea apar într-un tabel cu următoarele coloane:
+Odată importate, imaginile apar într-un tabel cu următoarele coloane:
 
 ### File Name (Nume fișier)
 
@@ -52,7 +54,7 @@ Odată ce imaginile sunt importate, acestea apar într-un tabel cu următoarele 
 
 ### Modelul aparatului foto
 
-* Configurația aparatului foto și a filtrului detectată automat
+* Configurația camerei și a filtrului detectată automat
 * Exemple: Survey3W\_RGN, Survey3N\_OCN, Survey3W\_RGB
 * Utilizat pentru aplicarea profilurilor de procesare corecte
 
@@ -61,6 +63,12 @@ Odată ce imaginile sunt importate, acestea apar într-un tabel cu următoarele 
 * Bifați această casetă pentru imaginile care conțin ținte de calibrare
 * Accelerează considerabil detectarea țintelor în timpul procesării
 * Consultați [Alegerea imaginilor țintă](choosing-target-images.md) pentru detalii
+
+### Vizualizarea metadatelor imaginii
+
+Dacă faceți clic pe butonul de comutare din colțul din dreapta sus deasupra tabelului, metadatele imaginii selectate sunt afișate în zona grilei de imagini.
+
+<figure><img src="../.gitbook/assets/chloros_grid_meta.gif" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -74,17 +82,19 @@ Pentru a elimina imaginile nedorite din proiectul dvs.:
 2. Faceți clic pe butonul **„Remove Selected” (Eliminare selectate)** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> .
 3. Confirmați eliminarea (fișierele nu sunt șterse de pe disc, ci doar eliminate din proiect).
 
-### Sortare și filtrare
+### Sortarea și filtrarea
 
 * **Sortare după coloană**: faceți clic pe orice antet de coloană pentru a sorta imaginile.
-* **Sortare după data și ora**: utilă pentru organizarea secvențelor de captură cronologice.
-* **Filtru model cameră**: grupați imaginile după tipul de cameră dacă utilizați mai multe camere***
+* **Sortare după data și ora capturii**: utilă pentru organizarea secvențelor de captură în ordine cronologică.
+* **Filtru după modelul camerei**: grupați imaginile după tipul camerei dacă utilizați mai multe camere.
+
+***
 
 ## Previzualizare imagine
 
 ### Vizualizarea imaginii complete
 
-Faceți clic pe orice miniatură a imaginii din File Browser pentru a o afișa în zona principală de previzualizare:
+Faceți clic pe orice miniatură a imaginii din browserul de fișiere pentru a o afișa în zona principală de previzualizare:
 
 1. Imaginea apare în panoul central de previzualizare
 2. Utilizați comenzile de zoom pentru a inspecta detaliile imaginii
@@ -92,10 +102,12 @@ Faceți clic pe orice miniatură a imaginii din File Browser pentru a o afișa �
 
 ### Navigare rapidă
 
-* **Imaginea anterioară**: faceți clic pe săgeata stânga sau apăsați tasta ←
+* **Imaginea anterioară**: Faceți clic pe săgeata stânga sau apăsați tasta ←
 * **Imaginea următoare**: faceți clic pe săgeata dreapta sau apăsați tasta →
 * **Mărire/micșorare**: utilizați rotița mouse-ului sau butoanele de zoom
-* **Panoramare**: faceți clic și trageți pe imagine când este mărită***
+* **Panoramare**: faceți clic și trageți pe imagine când este mărită
+
+***
 
 ## Gestionarea fișierelor duplicate
 
@@ -105,8 +117,8 @@ Chloros detectează și ignoră automat fișierele duplicate:
 * Previne procesarea accidentală dublă
 * Se afișează un mesaj de avertizare când sunt detectate duplicate
 
-{% hint style=&quot;warning&quot; %}
-**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de importare. Chloros se bazează pe numele fișierelor originale și metadatele pentru o procesare corectă.
+{% hint style="warning" %}
+**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de importare. Chloros se bazează pe numele fișierelor originale și metadatele pentru procesarea corectă.
 {% endhint %}
 
 ***
@@ -120,7 +132,9 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 3. Browserul de fișiere afișează modelul camerei în coloana Model cameră
 4. Procesarea aplică setările corecte pentru fiecare tip de cameră
 
-**Exemplu de scenariu**: Survey3W RGN + Survey3N OCN configurare cu două camere***
+**Exemplu de scenariu**: Survey3W RGN + Survey3N OCN configurare cu două camere
+
+***
 
 ## Cele mai bune practici
 
@@ -134,14 +148,14 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 
 * Păstrați numele originale ale fișierelor camerei foto (IMG\_0001.RAW etc.)
 * Nu redenumiți fișierele înainte de import
-* Numele originale conțin metadate importante
+* Numele originale conțin metadate importante.
 
 ### Imagini țintă de calibrare
 
-* Includeți întotdeauna 1-2 imagini țintă de calibrare per sesiune
-* Capturați țintele înainte și după sesiunea de captură
-* Plasați țintele în aceleași condiții de iluminare ca și zona de captură
-* Marcați imaginile țintă folosind caseta de selectare Țintă pentru a accelera procesarea
+* Includeți întotdeauna 1-2 imagini țintă de calibrare per sesiune.
+* Capturați țintele înainte și după sesiunea de captură.
+* Plasați țintele în aceleași condiții de iluminare ca și zona de captură.
+* Marcați imaginile țintă folosind caseta de selectare Țintă pentru a accelera procesarea.
 
 ***
 
@@ -174,14 +188,16 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 * Ceasul camerei nu este setat corect
 * Datele EXIF au fost șterse de un software extern
 
-**Soluție**: Verificați dacă setările de timp ale camerei erau corecte în timpul capturii***
+**Soluție**: Verificați dacă setările de timp ale camerei erau corecte în timpul capturii
+
+***
 
 ## Pași următori
 
-După ce fișierele sunt importate:
+După importarea fișierelor:
 
 1. **Verificați lista de fișiere** - Asigurați-vă că toate imaginile au fost încărcate corect
-2. **Verificați modelele de cameră** - Verificați detectarea corectă a camerei
+2. **Verificați modelele aparatului foto** - Verificați detectarea corectă a aparatului foto
 3. **Marcați imaginile țintă** - Consultați [Alegerea imaginilor țintă](choosing-target-images.md)
 4. **Reglați setările** - Configurați opțiunile de procesare în [Setări proiect](adjusting-project-settings.md)
 5. **Porniți procesarea** - Consultați [Pornirea procesării](starting-the-processing.md)

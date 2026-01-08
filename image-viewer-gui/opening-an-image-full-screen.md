@@ -2,13 +2,13 @@
 
 Chloros Image Viewer oferă o interfață dedicată pe ecran complet pentru vizualizarea, analizarea și manipularea imaginilor multispectrale. Fie că vizualizați imagini originale sau rezultate procesate, Image Viewer oferă instrumente puternice pentru inspecție și analiză.
 
-## Accesarea Image Viewer
+## Accesarea vizualizatorului de imagini
 
 ### Din browserul de fișiere
 
-Cea mai comună modalitate de a deschide o imagine în Image Viewer:
+Cea mai comună modalitate de a deschide o imagine în vizualizatorul de imagini:
 
-1. Asigurați-vă că vă aflați în fila **File Browser** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
+1. Asigurați-vă că vă aflați în fila **Browser de fișiere** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
 2. Faceți clic pe orice **miniatură de imagine** din grila de imagini
 3. Imaginea se deschide în **zona principală de previzualizare** (centrul ecranului)
 4. Imaginea este acum încărcată și gata pentru vizualizare pe ecran complet
@@ -64,26 +64,20 @@ Reglați mărirea pentru a inspecta detaliile imaginii:
 * Apăsați tasta **−** (Minus)
 * Derulați rotița mouse-ului **în jos**
 
-**Potrivire ecran:**
-
-* Faceți clic pe butonul **↔** (Potrivire)
-* Apăsați tasta **0** (Zero)
-* Faceți dublu clic pe imagine
-
 #### Panoramare la mărire
 
 Când măriți peste dimensiunea ecranului:
 
 1. Deplasați cursorul mouse-ului peste imagine
 2. Faceți clic și **țineți apăsat butonul stâng al mouse-ului**
-3. **Trageți** pentru a muta imaginea
+3. **Trageți** pentru a deplasa imaginea
 4. Eliberați pentru a opri panoramarea
 
 **Alternativă**: Utilizați tastele săgeată pentru a panorama în pași mici
 
 ***
 
-## Verificarea valorii pixelilor
+## Inspectarea valorii pixelilor
 
 ### Vizualizarea valorilor pixelilor la cursor
 
@@ -92,36 +86,38 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 **Locația afișării valorii:**
 
 * **Număr flotant și linie roșie în legenda gradientului LUT din indexul din partea dreaptă**
-* **Când măriți imaginea, valoarea flotantă apare lângă cursor și pixelul evidențiat**
-* Afișează valorile pixelilor **aflați sub cursor sau evidențiați**
-* Se actualizează pe măsură ce mutați mouse-ul
+* **Când măriți și mai mult, valoarea flotantă lângă cursor și pixelul evidențiat**
+* Afișează valorile pentru pixelul **de sub cursor sau evidențiat**
+* Se actualizează pe măsură ce mișcați mouse-ul
 
 ***
 
 ## Tipuri de imagini pe care le puteți vizualiza
 
-### Imagini originale (pre-procesare)
+### JPG
 
-**Imagini RAW + JPG de la cameră:**
+**Imagini JPG de la cameră:**
 
-* Afișează datele RAW așa cum sunt previzualizate
+* Afișează datele JPG așa cum au fost previzualizate
 * Afișează valorile originale, necorectate
 * Util pentru verificarea calității imaginii înainte de procesare
 
-### Imagini calibrate de reflectanță
+### RAW (Original)
+
+### RAW (Reflectanță)
 
 **După procesare:**
 
 * Vigneta corectată
-* Reflectanță calibrată
-* Multi-bandă TIFF (Red, Green, NIR, etc.)
+* Reflectanța calibrată
+* Multi-bandă TIFF (Red, Green, NIR etc.)
 * Date științifice gata pentru analiză
 
-### Imagini index
+### RAW (Index)
 
 **NDVI, NDRE, GNDVI, etc. (fișiere \_NDVI.tif):**
 
-* Imagini monocromatice în tonuri de gri
+* Imagini monocromatice cu o singură bandă
 * Valorile pixelilor reprezintă rezultatele calculului indicelui
 * Intervalul este de obicei între -1 și +1 pentru indicii normalizați
 * Se pot aplica LUT-uri de culoare pentru vizualizare
@@ -133,7 +129,7 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 Aplicați indici multispectrali și tabele de căutare a culorilor:
 
 1. Localizați **Index/LUT Sandbox** în **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> bara laterală
-2. Selectați indicele de vegetație (NDVI, NDRE etc.)
+2. Selectați indicele de vegetație (NDVI, NDRE, etc.)
 3. Selectați formula multispectrală sau creați-vă propria formulă personalizată (numai Chloros+)
 4. Aplicați gradientul LUT de culoare pentru vizualizare
 5. Reglați intervalele de valori și pragurile
@@ -155,28 +151,16 @@ Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru instrucțiuni detal
 
 * **+** sau **=**: Mărire
 * **−**: Micșorare
-* **0** (Zero): Potrivire la ecran
 * **Roata mouse-ului**: Mărire/micșorare
-
-### Comenzi de vizualizare
-
-* **P**: Comutare mod procentaj pixeli
-* **L**: Comutare panou straturi
-* **Esc**: Închidere ecran complet sau revenire la browserul de fișiere
-
-### Altele
-
-* **Ctrl+S**: Salvare imagine curentă
-* **F**: Mod ecran complet (dacă este disponibil)
 
 ***
 
-### Verificarea calculelor indicelui
+### Verificarea calculelor indexului
 
 Verificați dacă indicii au fost calculați corect:
 
-1. Deschideți NDVI sau altă imagine a indicelui
-2. Verificați zonele de vegetație:
+1. Deschideți NDVI sau altă imagine index
+2. Verificați zonele cu vegetație:
    * **NDVI**: Ar trebui să afișeze 0,4-0,9 pentru plantele sănătoase
    * **NDRE**: Valori mai mari pentru creștere viguroasă
    * **GNDVI**: Similar cu NDVI, dar sensibil la clorofilă
@@ -198,7 +182,7 @@ Verificați dacă indicii au fost calculați corect:
 
 **Soluții:**
 
-1. Încercați să deschideți imaginea într-un vizualizator extern pentru a verifica integritatea fișierului
+1. Încercați să deschideți în vizualizatorul extern pentru a verifica integritatea fișierului
 2. Verificați dacă formatul fișierului corespunde tipului așteptat
 3. Închideți alte aplicații pentru a elibera memorie
 4. Încercați o imagine mai mică/diferită
@@ -214,7 +198,7 @@ Verificați dacă indicii au fost calculați corect:
 **Soluții:**
 
 1. Verificați valorile pixelilor - dacă toate sunt foarte mici sau foarte mari, reglați intervalul de afișare
-2. Încercați să deschideți în QGIS sau similar, cu reglare automată a intervalului
+2. Încercați să deschideți în QGIS sau similar, cu reglarea automată a intervalului
 3. Verificați jurnalul de depanare din procesare pentru erori
 
 ### Valorile pixelilor par greșite

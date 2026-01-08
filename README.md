@@ -3,9 +3,7 @@ metaLinks: {}
 ---
 # Noțiuni introductive
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
-
-Chloros este o aplicație software de la [MAPIR](https://www.mapir.camera) pentru procesarea imaginilor și a altor date de la senzori.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chloros este o aplicație software de la [MAPIR](https://www.mapir.camera) pentru procesarea imaginilor și a altor date de la senzori.
 
 ***
 
@@ -36,12 +34,20 @@ Deși Chloros poate fi utilizat gratuit pentru majoritatea sarcinilor, este posi
 * **Procesare multi-threaded**: accelerați considerabil procesarea imaginilor pentru proiecte mai mari, prin procesarea simultană a imaginilor prin intermediul pipeline-ului.
 * **Accelerare GPU (CUDA)**: profitați de opțiunile actuale de memorie GPU mai mari pentru a accelera și mai mult pipeline-ul de procesare a imaginilor. Pentru rezultate optime, recomandăm 4 GB sau mai mult VRAM.
 * **Chloros+** [**CLI**](CLI.md) **Acces**: rulați Chloros+ din linia de comandă pentru a automatiza și integra în propriul software.
-* **Chloros+** [**API**](api-python-sdk.md) **Acces:** rulați Chloros+ din Python pentru control programatic, permițând integrarea perfectă cu fluxurile de cercetare, fluxurile de lucru de analiză a datelor și aplicațiile personalizate.
+* **Chloros+** [**API**](api-python-sdk.md) **Acces:** rulați Chloros+ din Python pentru control programatic, permițând integrarea perfectă cu procesele dvs. de cercetare, fluxurile de lucru de analiză a datelor și aplicațiile personalizate.
 * **Utilizare pe mai multe dispozitive**: fiecare licență Chloros+ permite înregistrarea a 2+ dispozitive. Utilizați contul dvs. MAPIR Cloud pentru a gestiona dispozitivele înregistrate. Adăugați suport pentru mai multe dispozitive prin actualizarea licenței dvs. Chloros+.
 * **Formule personalizate pentru indici multispectrali:** introduceți indici multispectrali personalizați în calculatoarele raster Chloros, atât pentru procesare, cât și pentru vizualizarea imaginilor.
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary" data-icon="envira">Chloros+ Prețuri și înregistrare</a></p>
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/chloros_grid_mode.gif" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/chloros_grid_meta.gif" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>
