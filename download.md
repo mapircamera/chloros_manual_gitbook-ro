@@ -10,18 +10,18 @@ Descărcați cea mai recentă versiune a Chloros pentru a începe procesarea ima
 
 ### Cerințe de sistem
 
-| Cerință          | Minim                         | Recomandat                     |
-| -------------------- | ------------------------------- | ------------------------------- |
-| **Sistem de operare** | Windows 10 (64 biți)             | Windows 11 (64 biți)             |
-| **Procesor**        | Intel Core i5 sau echivalent     | Intel Core i7 sau superior         |
-| **Memorie (RAM)**     | 8 GB                             | 16 GB sau mai mult                    |
-| **Placă grafică**    | Compatibilă cu DirectX 11           | GPU NVIDIA cu 4 GB+ VRAM       |
-| **Stocare**          | 6 GB spațiu liber                  | SSD cu 10 GB+ spațiu liber       |
-| **Afișaj**          | 1920x1080                       | 2560x1440 sau mai mare             |
-| **Internet**         | Necesar pentru activarea licenței | Necesar pentru activarea licenței |
+| Cerință          | Minim                                              | Recomandat                                          |
+| -------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| **Sistem de operare** | Windows 10 (64 biți)                                  | Windows 11 (64 biți)                                  |
+| **Procesor**        | Intel Core i5 sau echivalent                          | Intel Core i7 sau superior                              |
+| **Memorie (RAM)**     | 8 GB                                                  | 16 GB sau mai mult                                         |
+| **Placă grafică**    | Compatibilă cu DirectX 11                                | GPU NVIDIA cu 4 GB+ VRAM                            |
+| **Spațiu de stocare**          | 6 GB spațiu liber                                       | SSD cu 10 GB+ spațiu liber                            |
+| **Afișaj**          | 1920x1080                                            | 2560x1440 sau mai mare                                  |
+| **Internet**         | Necesar pentru activarea licenței \[opțional] Chloros+ | Necesar pentru activarea licenței \[opțional] Chloros+ |
 
-{% hint style=&quot;info&quot; %}
-**Accelerare GPU**: Utilizatorii Chloros+ cu GPU-uri NVIDIA (4 GB+ VRAM) pot utiliza accelerarea CUDA pentru o procesare semnificativ mai rapidă. Utilizatorii Chloros+ beneficiază, de asemenea, de procesare multi-threaded pentru viteză maximă.
+{% hint style="info" %}
+**Accelerare GPU**: Utilizatorii Chloros+ cu GPU-uri NVIDIA pot utiliza accelerarea CUDA pentru o procesare semnificativ mai rapidă. Utilizatorii Chloros+ beneficiază, de asemenea, de procesare multi-threaded pentru viteză maximă.
 {% endhint %}
 
 ***
@@ -32,11 +32,11 @@ Descărcați cea mai recentă versiune a Chloros pentru a începe procesarea ima
 
 ### Ultima versiune stabilă
 
-**Chloros Instalator pentru Windows*** **Versiune**: 1.0.4
-* **Data lansării**: 5 ianuarie 2026
-* **Dimensiune fișier (descărcare)**: 1,8 GB
+**Chloros Instalator pentru Windows*** **Versiune**: 1.0.5
+* **Data lansării**: 10 februarie 2026
+* **Dimensiune fișier (descărcare)**: 1,6 GB
 * **Dimensiune fișier (instalat)**: 5,7 GB
-* **Tip fișier**: .exe (Instalator Windows)
+* **Tip fișier**: .exe (program de instalare Windows)
 
 #### **Pași de instalare:**
 
@@ -44,10 +44,10 @@ Descărcați cea mai recentă versiune a Chloros pentru a începe procesarea ima
 2. Faceți dublu clic pe programul de instalare pentru a începe instalarea
 3. Urmați instrucțiunile asistentului de instalare
 4. Alegeți directorul de instalare (implicit: `C:\Program Files\[USER]\Chloros\`)
-5. Finalizați instalarea și lansați Chloros, Chloros (Browser) sau Chloros CLI
+5. Finalizați instalarea și lansați Chloros sau Chloros CLI
 6. Conectați-vă cu contul dvs. [MAPIR Cloud Chloros+](https://cloud.mapir.camera/pricing) (sau continuați cu versiunea gratuită)
 
-{% hint style=&quot;success&quot; %}
+{% hint style="success" %}
 Programul de instalare adaugă automat `chloros-cli` la PATH-ul sistemului dvs. pentru accesul la linia de comandă.
 {% endhint %}
 
@@ -57,7 +57,7 @@ Programul de instalare adaugă automat `chloros-cli` la PATH-ul sistemului dvs. 
 
 ### Python SDK
 
-Pentru dezvoltatori și fluxuri de lucru automatizate, instalați Chloros Python SDK:
+Pentru dezvoltatori și fluxuri de lucru de automatizare, instalați Chloros Python SDK:
 
 ```bash
 pip install chloros-sdk
@@ -69,21 +69,21 @@ pip install chloros-sdk
 
 Instalarea Chloros include:
 
-* ✅ **Chloros** - Interfață grafică completă
-* ✅ **Chloros (Browser)** - Interfață web pentru sisteme cu specificații inferioare
-* ✅ **Chloros CLI** - Interfață cu linie de comandă (necesită licență Chloros+)
+* ✅ **Chloros** - Interfață grafică completă (GUI)
+* ✅ **Chloros CLI** - Interfață linie de comandă (necesită licență Chloros+)
 * ✅ **Chloros SDK** - Python API (necesită licență Chloros+)
 * ✅ **Profiluri cameră** - Șabloane cameră MAPIR preconfigurate***
 
-## Treceți la Chloros+
+## Actualizați la Chloros+
 
 Deblocați funcții avansate cu un abonament Chloros+:
 
-* 🚀 **Procesare multi-thread** - Procesați imagini în paralel
-* ⚡ **Accelerare GPU (CUDA)** - Profitați de puterea GPU NVIDIA
-* 💻 **Acces CLI** - Automatizați cu instrumente de linie de comandă
+* 🚀 **Procesare multi-thread** - Procesează imagini în paralel
+* ⚡ **Accelerare GPU (CUDA)** - Profită de puterea GPU NVIDIA
+* 💻 **CLI Access** - Automatizează cu instrumente de linie de comandă
 * 🐍 **Python SDK** - Acces programatic API
 * 📱 **Dispozitive multiple** - Utilizați pe 2-10+ dispozitive (în funcție de plan)
+* **🐻 Metodă avansată de debayer cu recunoaștere a texturii** - un debayer de înaltă calitate cu recunoaștere a marginilor, combinat cu un model de denoising AI/ML care elimină aproape tot zgomotul de debayering. 
 * 🧮 **Formule personalizate** - Creați indici multispectrali personalizați
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Vizualizați planurile și prețurile Chloros+</a></p>***
@@ -100,11 +100,10 @@ Deblocați funcții avansate cu un abonament Chloros+:
 
 **Aplicația nu pornește:**
 
-* Încercați versiunea Chloros (browser)
 * Verificați dacă Windows 10/11 (64 biți) este instalat
 * Actualizați driverele grafice
 * Verificați Windows Event Viewer pentru detalii despre eroare
-* Contactați serviciul de asistență cu jurnalele de erori
+* Contactați asistența tehnică cu jurnalele de erori
 
 **Probleme cu activarea licenței:**
 
@@ -118,7 +117,7 @@ Deblocați funcții avansate cu un abonament Chloros+:
 Aveți nevoie de ajutor cu instalarea sau configurarea?
 
 * 📧 **E-mail**: info@mapir.camera
-* 🌐 **Website**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 🌐 **Site web**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Documentație**: [Noțiuni introductive](./)
 * ❓ **Întrebări frecvente**: [Întrebări frecvente](faq.md)***
 
@@ -126,10 +125,21 @@ Aveți nevoie de ajutor cu instalarea sau configurarea?
 
 <details>
 
+<summary>Versiunea 1.0.5</summary>
+
+#### **Data lansării**: 10 februarie 2026**Funcții noi*** **Metoda Debayer cu recunoaștere a texturii \[Chloros+ Numai] -** Texture Aware utilizează un debayer de înaltă calitate cu recunoaștere a marginilor, combinat cu un model AI/ML de eliminare a zgomotului, care elimină aproape tot zgomotul debayering.
+* **Suport pentru ținte de calibrare T4P*** **Procesare GPU Chloros+ mai rapidă, gestionare mai bună a memoriei**
+
+**Remedierea erorilor*** Interfață complet nouă (GUI), ar trebui să funcționeze acum pe toate computerele Windows.
+
+</details>
+
+<details>
+
 <summary>Versiunea 1.0.4</summary>
 
-#### **Data lansării**: 5 ianuarie 2026**Funcții noi*** **Comutator imagine/metadate**: s-a adăugat un comutator în browserul de fișiere pentru a vizualiza metadatele imaginii selectate într-un tabel în loc de grila de imagini
-* **Cursor de zoom pentru grila de imagini**: nou cursorul UI pentru ajustarea dimensiunii miniaturilor (acceptă și CTRL + rotița mouse-ului)
+#### **Data lansării**: 5 ianuarie 2026**Funcții noi*** **Comutare imagine/metadate**: s-a adăugat comutarea în browserul de fișiere pentru a vizualiza metadatele imaginii selectate într-un tabel în loc de grila de imagini
+* **Cursor de zoom pentru grila de imagini**: nou cursor UI pentru ajustarea dimensiunii miniaturilor (suportă și CTRL + rotița mouse-ului)
 * **Butoane de exportare a grilei de imagini**: butoane în rândul de sus pentru a comuta miniaturile de la JPG la exporturi procesate (ținte, reflectanță, index, LUT)
 * **Fila Hartă**: nouă hartă 2D interactivă care afișează marcajele de localizare GPS ale imaginilor
   * Suportă Google Maps și ESRI map tiles (selectează automat cel mai bun serviciu de map tiles în funcție de disponibilitatea nivelului de zoom)
@@ -153,7 +163,7 @@ Aveți nevoie de ajutor cu instalarea sau configurarea?
 
 </details>***
 
-## Acord de licență**Software proprietar** - Copyright (c) 2025 MAPIR Inc.
+## Acord de licență**Software proprietar** - Copyright (c) 2026 MAPIR Inc.
 
 Utilizarea, distribuirea sau modificarea neautorizată este interzisă.
 

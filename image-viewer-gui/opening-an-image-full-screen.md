@@ -32,9 +32,7 @@ Cea mai mare parte a ecranului afișează imaginea:
 * **Rezoluție completă**: imagini afișate la rezoluția nativă
 * **Zoomabil**: utilizați comenzile sau rotița mouse-ului pentru a mări
 * **Panoramabil**: faceți clic și trageți pentru a vă deplasa atunci când măriți
-* **Raportul de aspect menținut**: imaginile se scalează proporțional
-
-***
+* **Raportul de aspect menținut**: imaginile se scalează proporțional***
 
 ## Opțiuni de vizualizare
 
@@ -44,23 +42,18 @@ Cea mai mare parte a ecranului afișează imaginea:
 
 Navigați prin setul de imagini utilizând comenzi rapide de la tastatură sau butoane:
 
-* **Imaginea următoare**: faceți clic pe butonul → sau apăsați tasta **→** (săgeată dreapta)
-* **Imaginea anterioară**: faceți clic pe butonul ← sau apăsați tasta **←** (săgeată stânga)
+* **Imaginea următoare**: faceți clic pe butonul → sau apăsați tasta**→** (săgeată dreapta)
+* **Imaginea anterioară**: faceți clic pe butonul ← sau apăsați tasta**←** (săgeată stânga)
 * **Salt la o imagine specifică**: reveniți la browserul de fișiere și faceți clic pe miniatura dorită
 
 #### Comenzi de zoom
 
 Reglați mărirea pentru a inspecta detaliile imaginii:
 
-**Mărire:**
+**Mărire:*** Faceți clic pe butonul **+** (Plus)
+* Apăsați tasta **+**sau**=*** Derulați rotița mouse-ului **în sus**
 
-* Faceți clic pe butonul **+** (Plus)
-* Apăsați tasta **+** sau **=**
-* Derulați rotița mouse-ului **în sus**
-
-**Micșorare:**
-
-* Faceți clic pe butonul **−** (Minus)
+**Micșorare:*** Faceți clic pe butonul **−** (Minus)
 * Apăsați tasta **−** (Minus)
 * Derulați rotița mouse-ului **în jos**
 
@@ -70,25 +63,17 @@ Când măriți peste dimensiunea ecranului:
 
 1. Deplasați cursorul mouse-ului peste imagine
 2. Faceți clic și **țineți apăsat butonul stâng al mouse-ului**
-3. **Trageți** pentru a deplasa imaginea
+
+3.**Trageți** pentru a deplasa imaginea
 4. Eliberați pentru a opri panoramarea
 
-**Alternativă**: Utilizați tastele săgeată pentru a panorama în pași mici
-
-***
+**Alternativă**: Utilizați tastele săgeată pentru a panorama în pași mici***
 
 ## Inspectarea valorii pixelilor
 
 ### Vizualizarea valorilor pixelilor la cursor
 
-Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sunt afișate în timp real:
-
-**Locația afișării valorii:**
-
-* **Număr flotant și linie roșie în legenda gradientului LUT din indexul din partea dreaptă**
-* **Când măriți și mai mult, valoarea flotantă lângă cursor și pixelul evidențiat**
-* Afișează valorile pentru pixelul **de sub cursor sau evidențiat**
-* Se actualizează pe măsură ce mișcați mouse-ul
+Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sunt afișate în timp real:**Locația afișării valorilor:*** **Număr flotant și linie roșie în legenda gradientului LUT din partea dreaptă a indexului*** **Când măriți și mai mult, valoarea flotantă lângă cursor și pixelul evidențiat*** Afișează valorile pentru pixelul **de sub cursor sau evidențiat*** Se actualizează pe măsură ce mișcați mouse-ul
 
 ***
 
@@ -98,7 +83,7 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 
 **Imagini JPG de la cameră:**
 
-* Afișează datele JPG așa cum au fost previzualizate
+* Afișează datele JPG așa cum sunt previzualizate
 * Afișează valorile originale, necorectate
 * Util pentru verificarea calității imaginii înainte de procesare
 
@@ -109,8 +94,8 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 **După procesare:**
 
 * Vigneta corectată
-* Reflectanța calibrată
-* Multi-bandă TIFF (Red, Green, NIR etc.)
+* Reflectanță calibrată
+* Multi-bandă TIFF (Red, Green, NIR, etc.)
 * Date științifice gata pentru analiză
 
 ### RAW (Index)
@@ -128,8 +113,8 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 
 Aplicați indici multispectrali și tabele de căutare a culorilor:
 
-1. Localizați **Index/LUT Sandbox** în **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> bara laterală
-2. Selectați indicele de vegetație (NDVI, NDRE, etc.)
+1. Localizați **Index/LUT Sandbox**în**Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> bara laterală
+2. Selectați indicele de vegetație (NDVI, NDRE etc.)
 3. Selectați formula multispectrală sau creați-vă propria formulă personalizată (numai Chloros+)
 4. Aplicați gradientul LUT de culoare pentru vizualizare
 5. Reglați intervalele de valori și pragurile
@@ -149,15 +134,13 @@ Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru instrucțiuni detal
 
 ### Zoom
 
-* **+** sau **=**: Mărire
+* **+**sau**=**: Mărire
 * **−**: Micșorare
-* **Roata mouse-ului**: Mărire/micșorare
-
-***
+* **Roata mouse-ului**: Mărire/micșorare***
 
 ### Verificarea calculelor indexului
 
-Verificați dacă indicii au fost calculați corect:
+Verificați dacă indexurile au fost calculate corect:
 
 1. Deschideți NDVI sau altă imagine index
 2. Verificați zonele cu vegetație:
@@ -166,9 +149,7 @@ Verificați dacă indicii au fost calculați corect:
    * **GNDVI**: Similar cu NDVI, dar sensibil la clorofilă
 3. Verificați zonele fără vegetație:
    * **Sol**: Aproape 0 sau ușor negativ
-   * **Apă**: Valori negative (-0,5 până la 0)
-
-***
+   * **Apă**: Valori negative (-0,5 până la 0)***
 
 ## Depanarea problemelor de vizualizare
 

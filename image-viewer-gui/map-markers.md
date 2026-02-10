@@ -19,7 +19,7 @@ Fila Hartă afișează imaginile pe o hartă 2D interactivă, pe baza coordonate
 
 ## Reglarea imaginilor din fila Hartă
 
-Fila **Hartă** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> are aceleași funcții de adăugare  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  și butoanele de eliminare  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  fișiere ca și fila [**Browser fișiere**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . De asemenea, afișează aceeași listă de fișiere de proiect, dar cu anteturi de coloane diferite:
+Fila **Hartă**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> are aceleași funcții de adăugare  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  și butoanele de eliminare  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  fișiere ca și fila [**Browser fișiere**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . De asemenea, afișează aceeași listă de fișiere de proiect, dar cu anteturi de coloane diferite:
 
 ### Nume fișier
 
@@ -50,12 +50,12 @@ Fiecare imagine cu date GPS este reprezentată de un marcaj pe hartă:
 
 ### Afișare marcaj
 
-* Marcajele indică coordonatele GPS exacte ale locului în care a fost capturată fiecare imagine
+* Marcajele indică coordonatele GPS exacte în care a fost capturată fiecare imagine
 * Marcajele grupate pot fi grupate împreună atunci când se micșorează imaginea
 * Măriți imaginea pentru a vedea locațiile individuale ale imaginilor
 
 {% hint style="success" %}
-SUPER-ZOOM: Când atingeți nivelul maxim de zoom al furnizorului de plăci de hartă, placa este mărită la zoom suplimentar, permițându-vă să vedeți marcajele care sunt apropiate între ele.
+SUPER-ZOOM: Când atingeți nivelul maxim de zoom de la furnizorul de plăci de hartă, placa este apoi mărită la zoom suplimentar, permițându-vă să vedeți marcajele care sunt apropiate între ele.
 {% endhint %}
 
 ### Previzualizare la trecerea cu mouse-ul
@@ -90,7 +90,7 @@ Fila Hartă acceptă doi furnizori de plăci pentru imaginile de fundal ale hăr
 
 Puteți alege tipul stratului de hartă (de la stânga la dreapta):
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Teren
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Teren
 
 Afișează profiluri de altitudine și plăci de hartă cu detalii (drumuri etc.)
 
@@ -117,9 +117,7 @@ Afișează plăci de hartă satelit cu detalii adăugate (drumuri etc.)
 
 ### Comenzi de panoramare
 
-* **Panoramare**: faceți clic și trageți pentru a vă deplasa pe hartă
-
-***
+* **Panoramare**: faceți clic și trageți pentru a vă deplasa pe hartă***
 
 ## Cazuri de utilizare
 
@@ -138,7 +136,7 @@ Afișează plăci de hartă satelit cu detalii adăugate (drumuri etc.)
 ### Controlul calității
 
 * Identificați rapid imaginile capturate în locații neașteptate
-* Verificați precizia GPS în întregul set de date
+* Verificați acuratețea GPS-ului în întregul set de date
 * Comparați locațiile imaginilor cu notele de teren
 
 ***
@@ -160,6 +158,6 @@ Afișează plăci de hartă satelit cu detalii adăugate (drumuri etc.)
 **Cauze posibile:**
 
 * GPS-ul camerei a avut o fixare slabă a satelitului
-* Deriva GPS în timpul captării
+* Deriva GPS în timpul capturii
 
-**Soluție**: Aceasta este de obicei o problemă legată de timpul de captare; luați în considerare utilizarea GPS-ului PPK/RTK pentru aplicații de precizie
+**Soluție**: Aceasta este de obicei o problemă legată de timpul de captură; luați în considerare utilizarea GPS-ului PPK/RTK pentru aplicații de precizie

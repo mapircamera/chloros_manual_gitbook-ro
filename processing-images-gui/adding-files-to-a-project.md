@@ -33,15 +33,13 @@ Utilizați această opțiune pentru a importa toate imaginile dintr-un folder si
 
 1. Faceți clic pe butonul **„Adăugați folder”** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> din partea de sus a panoului File Browser (Browser fișiere)
 2. Navigați la și selectați folderul care conține imaginile sesiunii de captură
-3. Faceți clic pe **„Select Folder”** (Selectați folder) pentru a importa toate imaginile acceptate din acel folder
-
-***
+3. Faceți clic pe **„Selectați folderul”** pentru a importa toate imaginile acceptate din acel folder***
 
 ## Înțelegerea tabelului File Browser (Browser fișiere)
 
-Odată importate, imaginile apar într-un tabel cu următoarele coloane:
+Odată ce imaginile sunt importate, acestea apar într-un tabel cu următoarele coloane:
 
-### File Name (Nume fișier)
+### Nume fișier
 
 * Numele original al fișierului din aparatul foto
 * Păstrează convenția de denumire a aparatului foto (de exemplu, IMG\_0001.RAW)
@@ -85,16 +83,14 @@ Pentru a elimina imaginile nedorite din proiectul dvs.:
 ### Sortarea și filtrarea
 
 * **Sortare după coloană**: faceți clic pe orice antet de coloană pentru a sorta imaginile.
-* **Sortare după data și ora capturii**: utilă pentru organizarea secvențelor de captură în ordine cronologică.
-* **Filtru după modelul camerei**: grupați imaginile după tipul camerei dacă utilizați mai multe camere.
-
-***
+* **Sortare după data și ora**: utilă pentru organizarea secvențelor de captură cronologice.
+* **Filtru model cameră**: grupați imaginile după tipul de cameră dacă utilizați mai multe camere.***
 
 ## Previzualizare imagine
 
 ### Vizualizarea imaginii complete
 
-Faceți clic pe orice miniatură a imaginii din browserul de fișiere pentru a o afișa în zona principală de previzualizare:
+Faceți clic pe orice miniatură a imaginii din File Browser pentru a o afișa în zona principală de previzualizare:
 
 1. Imaginea apare în panoul central de previzualizare
 2. Utilizați comenzile de zoom pentru a inspecta detaliile imaginii
@@ -105,20 +101,18 @@ Faceți clic pe orice miniatură a imaginii din browserul de fișiere pentru a o
 * **Imaginea anterioară**: Faceți clic pe săgeata stânga sau apăsați tasta ←
 * **Imaginea următoare**: faceți clic pe săgeata dreapta sau apăsați tasta →
 * **Mărire/micșorare**: utilizați rotița mouse-ului sau butoanele de zoom
-* **Panoramare**: faceți clic și trageți pe imagine când este mărită
-
-***
+* **Panoramare**: faceți clic și trageți pe imagine când este mărită***
 
 ## Gestionarea fișierelor duplicate
 
 Chloros detectează și ignoră automat fișierele duplicate:
 
 * Fișierele cu nume identice sunt omise
-* Previne procesarea accidentală dublă
+* Previne procesarea dublă accidentală
 * Se afișează un mesaj de avertizare când sunt detectate duplicate
 
 {% hint style="warning" %}
-**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de importare. Chloros se bazează pe numele fișierelor originale și metadatele pentru procesarea corectă.
+**Important**: Nu redenumiți și nu modificați fișierele imagine originale înainte de importare. Chloros se bazează pe numele fișierelor originale și metadatele pentru o procesare corectă.
 {% endhint %}
 
 ***
@@ -132,9 +126,7 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 3. Browserul de fișiere afișează modelul camerei în coloana Model cameră
 4. Procesarea aplică setările corecte pentru fiecare tip de cameră
 
-**Exemplu de scenariu**: Survey3W RGN + Survey3N OCN configurare cu două camere
-
-***
+**Exemplu de scenariu**: Survey3W RGN + Survey3N OCN configurare cu două camere***
 
 ## Cele mai bune practici
 
@@ -169,7 +161,7 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 * Imaginile provin de la camere care nu sunt MAPIR (consultați [Camere acceptate](../supported-cameras.md))
 * Fișier corupt sau transfer incomplet de pe cardul SD
 
-**Soluție**: Verificați compatibilitatea formatului fișierului și a modelului camerei foto.
+**Soluție**: Verificați compatibilitatea formatului fișierului și a modelului camerei foto
 
 ### Modelul camerei foto nu este detectat
 
@@ -179,7 +171,7 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 * Imagini editate în software extern
 * Transfer de fișiere incomplet
 
-**Soluție**: Reimportați fișierele originale, nemodificate, de pe camera foto/cardul SD.
+**Soluție**: Reimportați fișierele originale, nemodificate, de pe camera foto/cardul SD
 
 ### Lipsa marcajelor temporale
 
@@ -188,9 +180,7 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 * Ceasul camerei nu este setat corect
 * Datele EXIF au fost șterse de un software extern
 
-**Soluție**: Verificați dacă setările de timp ale camerei erau corecte în timpul capturii
-
-***
+**Soluție**: Verificați dacă setările de timp ale camerei erau corecte în timpul capturii***
 
 ## Pași următori
 
