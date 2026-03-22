@@ -1,12 +1,12 @@
 # Limbi acceptate
 
-Chloros oferă suport complet pentru interfață în **38 de limbi din întreaga lume**, făcându-l accesibil utilizatorilor de pe tot globul. Puteți schimba limba instantaneu în toate interfețele: Desktop, Browser, CLI și Python SDK.
+Chloros oferă suport complet pentru interfață în **38 de limbi din întreaga lume**, fiind astfel accesibil utilizatorilor de pe tot globul. Puteți schimba limba instantaneu în toate interfețele: Desktop, Browser, CLI și Python SDK.
 
 Chloros acceptă următoarele limbi:
 
-| # | Limbă | Denumire nativă | Cod CLI |
+| # | Limba | Denumire nativă | Cod CLI |
 |---|----------|-------------|----------|
-| 1 | 🇺🇸 Engleză | Engleză | `en` |
+| 1 | 🇺🇸 Engleză | English | `en` |
 | 2 | 🇪🇸 Spaniolă | Español | `es` |
 | 3 | 🇵🇹 Portugheză | Português | `pt` |
 | 4 | 🇫🇷 Franceză | Français | `fr` |
@@ -36,23 +36,23 @@ Chloros acceptă următoarele limbi:
 | 28 | 🇺🇦 Ucraineană | Українська | `uk` |
 | 29 | 🇧🇷 Portugheză braziliană | Português Brasileiro | `pt-BR` |
 | 30 | 🇭🇰 Cantoneză | 粵語 | `zh-HK` |
-| 31 | 🇲🇾 Malay | Bahasa Melayu | `ms` |
-| 32 | 🇸🇰 Slovak | Slovenčina | `sk` |
+| 31 | 🇲🇾 Malayeză | Bahasa Melayu | `ms` |
+| 32 | 🇸🇰 Slovacă | Slovenčina | `sk` |
 | 33 | 🇧🇬 Bulgară | Български | `bg` |
 | 34 | 🇭🇷 Croată | Hrvatski | `hr` |
 | 35 | 🇱🇹 Lituaniană | Lietuvių | `lt` |
 | 36 | 🇱🇻 Letonă | Latviešu | `lv` |
-| 37 | 🇪🇪 Estoniană | Eesti | `et` |
+| 37 | 🇪🇪 Estonă | Eesti | `et` |
 | 38 | 🇸🇮 Slovenă | Slovenščina | `sl` |
 
 ## Cum se schimbă limba
 
 ### În Chloros Desktop/Browser
 
-1. Deschideți setările aplicației.
-2. Navigați la meniul de selectare a limbii.
-3. Alegeți limba preferată din listă.
-4. Interfața se va actualiza instantaneu.
+1. Deschideți setările aplicației
+2. Accesați meniul de selectare a limbii
+3. Alegeți limba preferată din listă
+4. Interfața se va actualiza instantaneu
 
 ### În Chloros CLI
 
@@ -83,11 +83,11 @@ Setați parametrul de limbă la inițializarea SDK pentru a primi mesaje și ie�
 
 ## Acoperire
 
-Toate cele 38 de limbi sunt acceptate integral în:
+Toate cele 38 de limbi sunt complet acceptate în:
 
-* **Chloros Desktop** - Traducere completă a interfeței grafice
+* **Chloros Desktop** - Traducere completă a GUI
 * **Chloros Browser** - Interfață web în toate limbile
-* **Chloros CLI** - Interfață linie de comandă și mesaje de ieșire
+* **Chloros CLI** - Interfață de linie de comandă și mesaje de ieșire
 * **Chloros Python SDK** - Mesaje și documentație API
 
 Suportul lingvistic asigură că utilizatorii din întreaga lume pot lucra eficient în limba lor maternă, fără bariere.

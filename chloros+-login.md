@@ -1,14 +1,14 @@
-# Chloros+ Autentificare
+# Autentificare Chloros+
 
-## Chloros și Chloros (Browser) Autentificare
+## Autentificare Chloros și Chloros (browser)
 
-Meniul lateral <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> din bara laterală vă permite să vă conectați la contul dvs. Chloros+ și să deblocați funcții suplimentare.
+Meniul <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> din bara laterală vă permite să vă conectați la contul dvs. Chloros+ și să deblocați funcții suplimentare.
 
 După conectare, vor fi afișate detaliile contului dvs.:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" data-size="line"><figcaption></figcaption></figure>## CLI Autentificare
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## Autentificare CLI
 
-Autentificați-vă cu datele de autentificare Chloros+ pentru a activa procesarea CLI.
+Autentificați-vă cu datele de autentificare Chloros+ pentru a activa procesarea CLI. Pe Linux (fără GUI), aceasta este singura modalitate de a vă activa licența.
 
 **Sintaxă:**
 
@@ -16,8 +16,8 @@ Autentificați-vă cu datele de autentificare Chloros+ pentru a activa procesare
 chloros-cli login <email> <password>
 ```
 
-{% hint style=&quot;info&quot; %}
-**Utilizatori SDK**: Python SDK oferă, de asemenea, o metodă programatică `logout()` pentru ștergerea datelor de autentificare stocate în memoria cache. Pentru detalii, consultați [documentația Python SDK](api-python-sdk.md#logout).
+{% hint style="info" %}
+**Utilizatori SDK**: Python SDK oferă, de asemenea, o metodă programatică `logout()` pentru a șterge datele de autentificare stocate în cache. Consultați [documentația Python SDK](api-python-sdk.md#logout) pentru detalii.
 {% endhint %}
 
 **Exemplu:**
@@ -26,18 +26,27 @@ chloros-cli login <email> <password>
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style=&quot;warning&quot; %}
+{% hint style="warning" %}
 **Caractere speciale**: Utilizați ghilimele simple în jurul parolelor care conțin caractere precum `$`, `!` sau spații.
 {% endhint %}
 
-**Ieșire:**
+**Rezultat:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Expirarea planului
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Stocarea datelor de autentificare
 
-Expirarea planului în GUI arată când licența dvs. va deveni invalidă. Pentru abonamentele lunare recurente, expirarea are loc la sfârșitul lunii. Pentru abonamentele anuale, expirarea are loc la un an după începerea abonamentului. Verificarea licenței necesită o conexiune lunară la internet, cu o perioadă de grație de 30 de zile.
+Datele de autentificare stocate în cache sunt păstrate într-o locație specifică platformei:
 
-### Limită de dispozitive
+| Platformă | Calea către cache-ul datelor de autentificare |
+| --- | --- |
+| **Windows** | `%APPDATA%\Chloros\cache\` |
+| **Linux** | `~/.cache/chloros/` |
 
-Fiecare plan Chloros+ oferă un număr diferit de dispozitive înregistrate. Fiecare dispozitiv pe care vă conectați cu un cont Chloros+ va fi luat în calcul la numărul de dispozitive înregistrate. Puteți redenumi și elimina un dispozitiv din pagina contului dvs. MAPIR Cloud.
+### Expirarea planului
 
-<table><thead><tr><th width="168.5999755859375" align="right">Planul Chloros</th><th align="center">COPPER</th><th align="center">BRONZ</th><th align="center">SILVER</th><th align="center">AUR</th></tr></thead><tbody><tr><td align="right">Dispozitive acceptate</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
+Expirarea planului afișată în interfața grafică indică momentul în care licența dvs. va deveni invalidă. Pentru abonamentele lunare recurente, expirarea are loc la sfârșitul lunii. Pentru abonamentele anuale, expirarea are loc la un an de la începerea abonamentului. Verificarea licenței necesită o conexiune lunară la internet, cu o perioadă de grație de 30 de zile.
+
+### Limita de dispozitive
+
+Fiecare plan Chloros+ oferă un număr diferit de dispozitive înregistrate. Fiecare dispozitiv pe care vă conectați cu un cont Chloros+ va fi luat în calcul la numărul de dispozitive înregistrate. Puteți redenumi și elimina un dispozitiv de pe pagina contului dvs. MAPIR Cloud.
+
+<table><thead><tr><th width="168.5999755859375" align="right">Planul Chloros+</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">AUR</th></tr></thead><tbody><tr><td align="right">Dispozitive acceptate</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>

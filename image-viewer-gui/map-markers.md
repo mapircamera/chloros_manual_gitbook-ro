@@ -1,30 +1,30 @@
 # Marcaje pe hartă
 
-Fila Hartă afișează imaginile pe o hartă 2D interactivă, pe baza coordonatelor GPS ale acestora. Aceasta oferă o imagine de ansamblu geografică a sesiunii de captură și vă ajută să vizualizați acoperirea spațială. De asemenea, este utilă atunci când importați pentru prima dată imaginile, pentru a elimina rapid imaginile pe care nu trebuie să le procesați.
+Fila „Hartă” afișează imaginile pe o hartă 2D interactivă, pe baza coordonatelor GPS ale acestora. Aceasta oferă o imagine de ansamblu geografică a sesiunii de captură și vă ajută să vizualizați acoperirea spațială. De asemenea, este utilă la importarea inițială a imaginilor pentru a elimina rapid imaginile pe care nu trebuie să le procesați.
 
 <figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
 ## Accesarea filei Hartă
 
-1. Deschideți sau creați un proiect în Chloros.
-2. Importați imagini care conțin metadate GPS.
+1. Deschideți sau creați un proiect în Chloros
+2. Importați imagini care conțin metadate GPS
 3. Faceți clic pe fila **Hartă** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> din bara laterală din stânga
 4. Harta va afișa marcaje la locația GPS a fiecărei imagini
 
 {% hint style="info" %}
-**GPS necesar**: Numai imaginile cu coordonate GPS încorporate în metadatele EXIF vor apărea pe hartă. Asigurați-vă că aparatul foto are GPS-ul activat în timpul capturii.
+**GPS necesar**: Pe hartă vor apărea doar imaginile cu coordonate GPS încorporate în metadatele EXIF. Asigurați-vă că aparatul foto are GPS-ul activat în timpul capturării.
 {% endhint %}
 
 ***
 
 ## Reglarea imaginilor din fila Hartă
 
-Fila **Hartă**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> are aceleași funcții de adăugare  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  și butoanele de eliminare  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  fișiere ca și fila [**Browser fișiere**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . De asemenea, afișează aceeași listă de fișiere de proiect, dar cu anteturi de coloane diferite:
+Fila **Hartă**<img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> are aceeași funcție de adăugare  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  și de eliminare  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  ca și fila [**File Browser**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> . De asemenea, afișează aceeași listă de fișiere de proiect, dar cu anteturi de coloane diferite:
 
 ### Nume fișier
 
-* Numele fișierului original din aparatul foto
-* Păstrează convenția de denumire a aparatului foto (de exemplu, IMG\_0001.RAW)
+* Numele original al fișierului din aparatul foto
+* Păstrează convenția de denumire a aparatului foto (de ex., IMG\_0001.RAW)
 
 ### Latitudine
 
@@ -39,37 +39,37 @@ Fila **Hartă**<img src="../.gitbook/assets/image (3).png" alt="" data-size="lin
 * Altitudinea imaginii
 
 {% hint style="info" %}
-Dacă faceți clic pe anteturile coloanelor tabelului, datele din rânduri sunt sortate
+Dacă faceți clic pe anteturile coloanelor din tabel, datele din rânduri vor fi sortate
 {% endhint %}
 
 ***
 
-## Marcaje imagine
+## Marcaje de imagine
 
 Fiecare imagine cu date GPS este reprezentată de un marcaj pe hartă:
 
-### Afișare marcaj
+### Afișarea marcajelor
 
 * Marcajele indică coordonatele GPS exacte în care a fost capturată fiecare imagine
 * Marcajele grupate pot fi grupate împreună atunci când se micșorează imaginea
 * Măriți imaginea pentru a vedea locațiile individuale ale imaginilor
 
 {% hint style="success" %}
-SUPER-ZOOM: Când atingeți nivelul maxim de zoom de la furnizorul de plăci de hartă, placa este apoi mărită la zoom suplimentar, permițându-vă să vedeți marcajele care sunt apropiate între ele.
+SUPER-ZOOM: Când atingeți nivelul maxim de zoom de la furnizorul de plăci de hartă, placa este apoi mărită la zoom suplimentar, permițându-vă să vedeți marcajele care sunt apropiate unele de altele.
 {% endhint %}
 
-### Previzualizare la trecerea cu mouse-ul
+### Previzualizare la trecerea mouse-ului
 
-* **Treceți mouse-ul** peste orice marcaj pentru a vedea o previzualizare miniaturală a imaginii respective
+* **Treceți mouse-ul** peste orice marcaj pentru a vedea o previzualizare miniatură a acelei imagini
 * Acest lucru permite identificarea vizuală rapidă fără a părăsi vizualizarea hărții
-* Util pentru localizarea imaginilor specifice într-o sesiune de captură mare
+* Util pentru localizarea imaginilor specifice într-o sesiune de captură de mari dimensiuni
 
 ***
 
-## Furnizori de plăci de hartă
+## Furnizori de secțiuni de hartă
 
 {% hint style="success" %}
-**Selecție automată**: Chloros alege automat serviciul de plăci care oferă cel mai bun nivel de zoom pentru locația curentă a hărții. Puteți comuta manual între furnizori, dacă doriți.
+**Selecție automată**: Chloros alege automat serviciul de plăci care oferă cel mai bun nivel de zoom pentru locația dvs. curentă pe hartă. Puteți comuta manual între furnizori, dacă doriți.
 {% endhint %}
 
 Fila Hartă acceptă doi furnizori de plăci pentru imaginile de fundal ale hărții:
@@ -77,7 +77,7 @@ Fila Hartă acceptă doi furnizori de plăci pentru imaginile de fundal ale hăr
 ### Google Maps
 
 * Imagini standard din satelit și hărți de la Google
-* Cel mai bun pentru acoperire generală la nivel mondial
+* Cele mai potrivite pentru acoperire globală generală
 
 ### ESRI
 
@@ -100,11 +100,11 @@ Afișează plăci de hartă standard (lățime de bandă mai mică) cu detalii (
 
 ### Satelit
 
-Afișează plăci de hartă satelit detaliate (lățime de bandă mai mare)
+Afișează plăci de hartă satelitare detaliate (lățime de bandă mai mare)
 
 ### Hibrid
 
-Afișează plăci de hartă satelit cu detalii adăugate (drumuri etc.)
+Afișează plăci de hartă satelitare cu detalii adăugate (drumuri etc.)
 
 ***
 
@@ -112,32 +112,32 @@ Afișează plăci de hartă satelit cu detalii adăugate (drumuri etc.)
 
 ### Comenzi de zoom
 
-* **Mărire/micșorare**: utilizați rotița mouse-ului sau butoanele de zoom
-* **Ecran complet**: afișează harta pe ecran complet
+* **Mărire/micșorare**: Utilizați rotița mouse-ului sau butoanele de zoom
+* **Ecran complet**: Afișați harta pe ecran complet
 
 ### Comenzi de panoramare
 
-* **Panoramare**: faceți clic și trageți pentru a vă deplasa pe hartă***
+* **Panoramare**: Faceți clic și trageți pentru a vă deplasa pe hartă***
 
 ## Cazuri de utilizare
 
-### Vizualizarea traiectoriei de zbor
+### Vizualizarea traseului de zbor
 
-* Vizualizați zona de acoperire a sesiunilor de captare cu drona
+* Vizualizați zona de acoperire a sesiunilor de captură cu drona
 * Identificați lacunele în acoperirea imaginii
-* Verificați execuția traiectoriei de zbor
+* Verificați executarea traseului de zbor
 
 ### Revizuirea studiului la sol
 
-* Vedeți distribuția spațială a capturilor la sol
+* Vedeți distribuția spațială a capturilor de la sol
 * Localizați imaginile țintă de calibrare în raport cu zona de studiu
-* Planificați locații suplimentare de captare
+* Planificați locații suplimentare de captură
 
 ### Controlul calității
 
 * Identificați rapid imaginile capturate în locații neașteptate
-* Verificați acuratețea GPS-ului în întregul set de date
-* Comparați locațiile imaginilor cu notele de teren
+* Verificați precizia GPS-ului în întregul set de date
+* Corelați locațiile imaginilor cu notele de teren
 
 ***
 
@@ -148,16 +148,16 @@ Afișează plăci de hartă satelit cu detalii adăugate (drumuri etc.)
 **Cauze posibile:**
 
 * Imaginile nu conțin metadate GPS
-* GPS-ul a fost dezactivat pe cameră în timpul capturii
+* GPS-ul a fost dezactivat pe cameră în timpul captării
 * Datele EXIF au fost eliminate de un software extern
 
-**Soluție**: Verificați dacă GPS-ul este activat pe camera dvs. și reimportați fișierele originale
+**Soluție**: Verificați dacă GPS-ul este activat pe aparatul foto și reimportați fișierele originale
 
-### Marcaje în locații greșite
+### Marcaje în locație greșită
 
 **Cauze posibile:**
 
-* GPS-ul camerei a avut o fixare slabă a satelitului
-* Deriva GPS în timpul capturii
+* GPS-ul aparatului foto a avut o fixare slabă a sateliților
+* Deviație GPS în timpul captării
 
-**Soluție**: Aceasta este de obicei o problemă legată de timpul de captură; luați în considerare utilizarea GPS-ului PPK/RTK pentru aplicații de precizie
+**Soluție**: Aceasta este de obicei o problemă legată de momentul captării; luați în considerare utilizarea GPS-ului PPK/RTK pentru aplicații de precizie

@@ -1,6 +1,6 @@
 # Deschiderea unei imagini pe ecran complet
 
-Chloros Image Viewer oferă o interfață dedicată pe ecran complet pentru vizualizarea, analizarea și manipularea imaginilor multispectrale. Fie că vizualizați imagini originale sau rezultate procesate, Image Viewer oferă instrumente puternice pentru inspecție și analiză.
+Vizualizatorul de imagini Chloros oferă o interfață dedicată pe ecran complet pentru vizualizarea, analizarea și manipularea imaginilor multispectrale. Indiferent dacă vizualizați imagini originale sau rezultate procesate, vizualizatorul de imagini oferă instrumente puternice pentru inspecție și analiză.
 
 ## Accesarea vizualizatorului de imagini
 
@@ -9,7 +9,7 @@ Chloros Image Viewer oferă o interfață dedicată pe ecran complet pentru vizu
 Cea mai comună modalitate de a deschide o imagine în vizualizatorul de imagini:
 
 1. Asigurați-vă că vă aflați în fila **Browser de fișiere** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line">
-2. Faceți clic pe orice **miniatură de imagine** din grila de imagini
+2. Faceți clic pe orice **miniatură a imaginii** din grila de imagini
 3. Imaginea se deschide în **zona principală de previzualizare** (centrul ecranului)
 4. Imaginea este acum încărcată și gata pentru vizualizare pe ecran complet
 
@@ -27,12 +27,12 @@ Odată ce o imagine este încărcată în zona de previzualizare:
 
 ### Zona principală de afișare
 
-Cea mai mare parte a ecranului afișează imaginea:
+Cea mai mare porțiune a ecranului afișează imaginea dvs.:
 
-* **Rezoluție completă**: imagini afișate la rezoluția nativă
-* **Zoomabil**: utilizați comenzile sau rotița mouse-ului pentru a mări
-* **Panoramabil**: faceți clic și trageți pentru a vă deplasa atunci când măriți
-* **Raportul de aspect menținut**: imaginile se scalează proporțional***
+* **Rezoluție completă**: Imaginile sunt afișate la rezoluția nativă
+* **Zoomabil**: Utilizați comenzile sau rotița mouse-ului pentru a mări
+* **Panoramabil**: Faceți clic și trageți pentru a vă deplasa atunci când este mărită
+* **Raport de aspect menținut**: Imaginile se scalează proporțional***
 
 ## Opțiuni de vizualizare
 
@@ -42,38 +42,38 @@ Cea mai mare parte a ecranului afișează imaginea:
 
 Navigați prin setul de imagini utilizând comenzi rapide de la tastatură sau butoane:
 
-* **Imaginea următoare**: faceți clic pe butonul → sau apăsați tasta**→** (săgeată dreapta)
-* **Imaginea anterioară**: faceți clic pe butonul ← sau apăsați tasta**←** (săgeată stânga)
-* **Salt la o imagine specifică**: reveniți la browserul de fișiere și faceți clic pe miniatura dorită
+* **Imaginea următoare**: Faceți clic pe butonul → sau apăsați tasta**→** (Săgeată dreapta)
+* **Imaginea anterioară**: Faceți clic pe butonul ← sau apăsați tasta**←** (Săgeată stânga)
+* **Săriți la o imagine specifică**: Reveniți la File Browser și faceți clic pe miniatura dorită
 
 #### Comenzi de zoom
 
 Reglați mărirea pentru a inspecta detaliile imaginii:
 
 **Mărire:*** Faceți clic pe butonul **+** (Plus)
-* Apăsați tasta **+**sau**=*** Derulați rotița mouse-ului **în sus**
+* Apăsați tasta **+**sau**=*** Rotiți rotița mouse-ului **în sus**
 
 **Micșorare:*** Faceți clic pe butonul **−** (Minus)
 * Apăsați tasta **−** (Minus)
-* Derulați rotița mouse-ului **în jos**
+* Rotiți rotița mouse-ului **în jos**
 
-#### Panoramare la mărire
+#### Panoramare la zoom
 
-Când măriți peste dimensiunea ecranului:
+Când măriți imaginea peste dimensiunea ecranului:
 
-1. Deplasați cursorul mouse-ului peste imagine
+1. Mutați cursorul mouse-ului peste imagine
 2. Faceți clic și **țineți apăsat butonul stâng al mouse-ului**
 
 3.**Trageți** pentru a deplasa imaginea
 4. Eliberați pentru a opri panoramarea
 
-**Alternativă**: Utilizați tastele săgeată pentru a panorama în pași mici***
+**Alternativă**: Folosiți tastele săgeată pentru a panorama în pași mici***
 
-## Inspectarea valorii pixelilor
+## Inspectarea valorilor pixelilor
 
 ### Vizualizarea valorilor pixelilor la cursor
 
-Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sunt afișate în timp real:**Locația afișării valorilor:*** **Număr flotant și linie roșie în legenda gradientului LUT din partea dreaptă a indexului*** **Când măriți și mai mult, valoarea flotantă lângă cursor și pixelul evidențiat*** Afișează valorile pentru pixelul **de sub cursor sau evidențiat*** Se actualizează pe măsură ce mișcați mouse-ul
+Pe măsură ce deplasați cursorul mouse-ului peste imagine, valorile pixelilor se afișează în timp real:**Locația afișării valorilor:*** **Număr flotant și linie roșie în legenda gradientului LUT din partea dreaptă*** **Când se mărește și mai mult, valoare flotantă lângă cursor și pixelul evidențiat*** Afișează valorile pentru pixelul **de sub cursor sau evidențiat*** Se actualizează pe măsură ce mișcați mouse-ul
 
 ***
 
@@ -102,19 +102,19 @@ Pe măsură ce mutați cursorul mouse-ului peste imagine, valorile pixelilor sun
 
 **NDVI, NDRE, GNDVI, etc. (fișiere \_NDVI.tif):**
 
-* Imagini monocromatice cu o singură bandă
-* Valorile pixelilor reprezintă rezultatele calculului indicelui
-* Intervalul este de obicei între -1 și +1 pentru indicii normalizați
-* Se pot aplica LUT-uri de culoare pentru vizualizare
+* Imagini monocrome cu o singură bandă
+* Valorile pixelilor reprezintă rezultatele calculului indicilor
+* Intervalul este de obicei de la -1 la +1 pentru indicii normalizați
+* Se pot aplica tabele de conversie (LUT) de culori pentru vizualizare
 
 ***
 
-## Aplicarea indicelui și a LUT-ului
+## Aplicarea indicilor și a tabelelor de conversie (LUT)
 
-Aplicați indici multispectrali și tabele de căutare a culorilor:
+Aplicați indici multispectrali și tabele de conversie (LUT) de culori:
 
 1. Localizați **Index/LUT Sandbox**în**Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> bara laterală
-2. Selectați indicele de vegetație (NDVI, NDRE etc.)
+2. Selectați indicele de vegetație (NDVI, NDRE, etc.)
 3. Selectați formula multispectrală sau creați-vă propria formulă personalizată (numai Chloros+)
 4. Aplicați gradientul LUT de culoare pentru vizualizare
 5. Reglați intervalele de valori și pragurile
@@ -138,20 +138,20 @@ Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru instrucțiuni detal
 * **−**: Micșorare
 * **Roata mouse-ului**: Mărire/micșorare***
 
-### Verificarea calculelor indexului
+### Verificarea calculelor indicilor
 
-Verificați dacă indexurile au fost calculate corect:
+Verificați dacă indicii au fost calculați corect:
 
-1. Deschideți NDVI sau altă imagine index
-2. Verificați zonele cu vegetație:
-   * **NDVI**: Ar trebui să afișeze 0,4-0,9 pentru plantele sănătoase
+1. Deschideți NDVI sau o altă imagine de indice
+2. Verificați zonele de vegetație:
+   * **NDVI**: Ar trebui să indice 0,4-0,9 pentru plantele sănătoase
    * **NDRE**: Valori mai mari pentru creștere viguroasă
    * **GNDVI**: Similar cu NDVI, dar sensibil la clorofilă
 3. Verificați zonele fără vegetație:
-   * **Sol**: Aproape 0 sau ușor negativ
+   * **Sol**: Aproape de 0 sau ușor negativ
    * **Apă**: Valori negative (-0,5 până la 0)***
 
-## Depanarea problemelor de vizualizare
+## Rezolvarea problemelor de vizualizare
 
 ### Imaginea nu se deschide
 
@@ -159,27 +159,27 @@ Verificați dacă indexurile au fost calculate corect:
 
 * Fișier corupt în timpul procesării
 * Format de fișier neacceptat
-* Memorie insuficientă pentru imagini mari
+* Memorie insuficientă pentru o imagine mare
 
 **Soluții:**
 
-1. Încercați să deschideți în vizualizatorul extern pentru a verifica integritatea fișierului
+1. Încercați să deschideți imaginea într-un vizualizator extern pentru a verifica integritatea fișierului
 2. Verificați dacă formatul fișierului corespunde tipului așteptat
 3. Închideți alte aplicații pentru a elibera memorie
 4. Încercați o imagine mai mică/diferită
 
-### Afișare imagine alb-negru
+### Afișarea imaginii în alb sau negru
 
 **Cauze posibile:**
 
-* Intervalul de valori depășește capacitatea de afișare
-* Imagine flotantă pe 32 de biți cu valori neobișnuite
+* Intervalul valorilor depășește capacitatea de afișare
+* Imagine de tip float pe 32 de biți cu valori neobișnuite
 * Eroare de calcul al indexului
 
 **Soluții:**
 
 1. Verificați valorile pixelilor - dacă toate sunt foarte mici sau foarte mari, reglați intervalul de afișare
-2. Încercați să deschideți în QGIS sau similar, cu reglarea automată a intervalului
+2. Încercați să deschideți fișierul în QGIS sau într-un program similar cu reglare automată a intervalului
 3. Verificați jurnalul de depanare din procesare pentru erori
 
 ### Valorile pixelilor par greșite
@@ -203,9 +203,9 @@ Verificați dacă indexurile au fost calculate corect:
 
 Acum că puteți vizualiza imaginile pe ecran complet:
 
-* [**Straturi de imagini**](image-layers.md) - Aflați mai multe despre vizualizarea multibandă
+* [**Straturi de imagine**](image-layers.md) - Aflați mai multe despre vizualizarea multibandă
 * [**Index/LUT Sandbox**](index-lut-sandbox.md) - Aplicați indici personalizați și mapare de culori
-* [**Formule index multispectrale**](../project-settings/multispectral-index-formulas.md) - Înțelegeți indicii disponibili
+* [**Formule de indici multispectrali**](../project-settings/multispectral-index-formulas.md) - Înțelegeți indicii disponibili
 
 Pentru fluxul de lucru de procesare, consultați:
 

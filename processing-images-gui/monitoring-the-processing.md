@@ -1,23 +1,21 @@
 # Monitorizarea procesării
 
-Odată ce procesarea a început, Chloros oferă mai multe modalități de a monitoriza progresul, de a verifica eventualele probleme și de a înțelege ce se întâmplă cu setul dvs. de date. Această pagină explică cum să urmăriți procesarea și să interpretați informațiile furnizate de Chloros.
+Odată ce procesarea a început, Chloros oferă mai multe modalități de a monitoriza progresul, de a verifica dacă există probleme și de a înțelege ce se întâmplă cu setul dvs. de date. Această pagină explică cum să urmăriți procesarea și să interpretați informațiile furnizate de Chloros.
 
 ## Prezentare generală a barei de progres
 
-Bara de progres din antetul superior afișează starea procesării în timp real și procentajul de finalizare.
+Bara de progres din antetul superior afișează starea procesării în timp real și procentul de finalizare.
 
 ### Bara de progres în modul gratuit
 
 Pentru utilizatorii fără licență Chloros+:
 
-**Afișare progres în 2 etape:**
+**Afișare a progresului în 2 etape:**
 
-1. **Detectare țintă** - Găsirea țintelor de calibrare în imagini
-2. **Procesare** - Aplicarea corecțiilor și exportarea
+1.**Detectarea țintelor** - Găsirea țintelor de calibrare în imagini
+2. **Procesare** - Aplicarea corecțiilor și exportarea**Bara de progres afișează:**
 
-**Bara de progres afișează:**
-
-* Procentul total de finalizare (0-100%)
+* Procentul general de finalizare (0-100%)
 * Numele etapei curente
 * Vizualizare simplă sub formă de bară orizontală
 
@@ -27,14 +25,10 @@ Pentru utilizatorii cu licență Chloros+:
 
 **Afișare progres în 4 etape:**
 
-1. **Detectare** - Găsirea țintelor de calibrare
-2. **Analizare** - Examinarea imaginilor și pregătirea fluxului de lucru
+1.**Detectare** - Identificarea țintelor de calibrare
+2. **Analiză** - Examinarea imaginilor și pregătirea fluxului de lucru
 3. **Calibrare** - Aplicarea corecțiilor de vignetă și reflectanță
-4. **Exportare** - Salvarea fișierelor procesate
-
-**Funcții interactive:**
-
-* **Treceți cu mouse-ul peste** bara de progres pentru a vedea panoul extins în 4 etape
+4. **Export** - Salvarea fișierelor procesate**Funcții interactive:*** **Treceți cu mouse-ul peste** bara de progres pentru a vedea panoul extins cu 4 etape
 * **Faceți clic** pe bara de progres pentru a îngheța/fixa panoul extins
 * **Faceți clic din nou** pentru a dezgheța și a ascunde automat la îndepărtarea mouse-ului
 * Fiecare etapă afișează progresul individual (0-100%)
@@ -43,14 +37,18 @@ Pentru utilizatorii cu licență Chloros+:
 
 ## Înțelegerea fiecărei etape de procesare
 
-### Etapa 1: Detectare (detectarea țintelor)
+{% hint style="info" %}
+**Arhitectura pipeline**: Aceste 4 etape ale interfeței grafice corespund [pipeline-ului de procesare cu 4 thread-uri](../processing-architecture/processing-pipeline.md). Pe sistemele cu accelerare GPU, Thread 3 (Calibrare) beneficiază de [Adaptare dinamică a calculului](../processing-architecture/dynamic-compute-adaptation.md), care optimizează procesarea pentru hardware-ul dvs. specific.
+{% endhint %}
+
+### Etapa 1: Detectare (Detectarea țintelor)
 
 **Ce se întâmplă:**
 
 * Chloros scanează imaginile marcate cu caseta de selectare Țintă
-* Algoritmii de vizualizare computerizată identifică cele 4 panouri de calibrare
-* Valorile de reflexie extrase din fiecare panou
-* Marcajele temporale ale țintelor înregistrate pentru programarea corectă a calibrării
+* Algoritmii de viziune computerizată identifică cele 4 panouri de calibrare
+* Valorile de reflectanță sunt extrase din fiecare panou
+* Se înregistrează marcajele temporale ale țintelor pentru programarea corectă a calibrării
 
 **Durată:**
 
@@ -60,61 +58,51 @@ Pentru utilizatorii cu licență Chloros+:
 **Indicator de progres:**
 
 * Detectare: 0% → 100%
-* Număr de imagini scanate
-* Număr de ținte găsite
+* Numărul de imagini scanate
+* Numărul de ținte găsite
 
 **Ce trebuie urmărit:**
 
 * Ar trebui să se finalizeze rapid dacă țintele sunt marcate corespunzător
 * Dacă durează prea mult, este posibil ca țintele să nu fie marcate
-* Verificați jurnalul de depanare pentru mesajele „Țintă găsită”
+* Verificați jurnalul de depanare pentru mesaje de tip „Țintă găsită”
 
-### Etapa 2: Analizare
+### Etapa 2: Analizarea
 
 **Ce se întâmplă:**
 
-* Citirea metadatelor EXIF ale imaginii (marcaje temporale, setări de expunere)
-* Determinarea strategiei de calibrare pe baza marcajelor temporale ale țintelor
+* Citirea metadatelor EXIF ale imaginii (timestamp-uri, setări de expunere)
+* Determinarea strategiei de calibrare pe baza timestamp-urilor țintelor
 * Organizarea cozii de procesare a imaginilor
-* Pregătirea lucrătorilor de procesare paralelă (numai Chloros+)
+* Pregătirea procesorilor de procesare paralelă (numai Chloros+)
 
-**Durată:** 5-30 secunde
+**Durată:** 5-30 secunde**Indicator de progres:**
 
-**Indicator de progres:**
-
-* Analiză: 0% → 100%
-* Etapă rapidă, de obicei finalizată rapid
+* Analizare: 0% → 100%
+* Etapă rapidă, se finalizează de obicei repede
 
 **Ce trebuie urmărit:**
 
-* Progresul ar trebui să fie constant, fără pauze
-* Avertismentele privind metadatele lipsă vor apărea în jurnalul de depanare
+* Ar trebui să avanseze constant, fără pauze
+* Avertismentele privind metadatele lipsă vor apărea în Jurnalul de depanare
 
 ### Etapa 3: Calibrare
 
-**Ce se întâmplă:**
+**Ce se întâmplă:*** **Debayering**: Conversia modelului RAW Bayer în 3 canale
+* **Corecția vignetării**: Eliminarea întunecării marginilor lentilelor
+* **Calibrarea reflectanței**: Normalizarea cu valorile țintă
+* **Calculul indicilor**: Calcularea indicilor multispectrali
+* Procesarea fiecărei imagini prin întregul flux de lucru
 
-* **Debayering**: Conversia modelului RAW Bayer în 3 canale
-* **Corectarea vignetării**: eliminarea întunecării marginilor obiectivului
-* **Calibrarea reflectanței**: normalizarea cu valori țintă
-* **Calcularea indicelui**: calcularea indicilor multispectrali
-* Procesarea fiecărei imagini prin intermediul întregului proces
-
-**Durată:** majoritatea timpului total de procesare (60-80%)
-
-**Indicator de progres:**
+**Durată:** Majoritatea timpului total de procesare (60-80%)**Indicator de progres:**
 
 * Calibrare: 0% → 100%
 * Imaginea curentă în curs de procesare
 * Imagini finalizate / Total imagini
 
-**Comportament de procesare:**
-
-* **Mod liber**: Procesează o singură imagine la un moment dat, în mod secvențial
+**Comportament de procesare:*** **Mod liber**: Procesează o imagine pe rând, secvențial
 * **Mod Chloros+**: Procesează până la 16 imagini simultan
-* **Accelerare GPU**: Accelerează semnificativ această etapă
-
-**Ce trebuie urmărit:**
+* **Accelerare GPU**: Accelerează semnificativ această etapă**Ce trebuie urmărit:**
 
 * Progres constant prin numărul de imagini
 * Verificați jurnalul de depanare pentru mesaje de finalizare per imagine
@@ -125,17 +113,15 @@ Pentru utilizatorii cu licență Chloros+:
 **Ce se întâmplă:**
 
 * Scrierea imaginilor calibrate pe disc în formatul selectat
-* Exportarea imaginilor cu indice multispectral cu culori LUT
-* Crearea subfolderelor pentru modelul camerei
-* Păstrarea numelor originale ale fișierelor cu sufixele corespunzătoare
+* Exportarea imaginilor index multispectrale cu culori LUT
+* Crearea subfolderelor pentru modelele de camere
+* Păstrarea numelor de fișiere originale cu sufixele corespunzătoare
 
-**Durată:** 10-20% din timpul total de procesare
-
-**Indicator de progres:**
+**Durată:** 10-20% din timpul total de procesare**Indicator de progres:**
 
 * Exportare: 0% → 100%
 * Fișiere în curs de scriere
-* Format de export și destinație
+* Formatul de export și destinația
 
 **Ce trebuie urmărit:**
 
@@ -152,8 +138,8 @@ Jurnalul de depanare oferă informații detaliate despre progresul procesării �
 ### Accesarea jurnalului de depanare
 
 1. Faceți clic pe pictograma **Jurnal de depanare** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> din bara laterală din stânga
-2. Se deschide panoul jurnalului, afișând mesaje de procesare în timp real
-3. Derulează automat pentru a afișa cele mai recente mesaje
+2. Se deschide panoul de jurnal, afișând mesaje de procesare în timp real
+3. Se derulează automat pentru a afișa cele mai recente mesaje
 
 ### Înțelegerea mesajelor din jurnal
 
@@ -179,7 +165,7 @@ Probleme necritice care nu opresc procesarea:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Acțiune:** Examinați avertismentele după procesare, dar nu întrerupeți procesul.
+**Acțiune:** Verificați avertismentele după procesare, dar nu întrerupeți
 
 #### Mesaje de eroare (Red)
 
@@ -191,27 +177,27 @@ Probleme critice care pot cauza eșecul procesării:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Acțiune:** Opriți procesarea, remediați eroarea, reporniți.
+**Acțiune:** Opriți procesarea, remediați eroarea, reporniți
 
 ### Mesaje comune din jurnal
 
-| Mesaj                          | Semnificație                                | Acțiune necesară                                         |
+| Mesaj                          | Înțeles                                | Acțiune necesară                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| „Țintă detectată în \[numele fișierului]” | Ținta de calibrare a fost găsită cu succes  | Niciuna - normal                                         |
+| „Țintă detectată în \[numele fișierului]” | Ținta de calibrare găsită cu succes  | Niciuna - normal                                         |
 | „Se procesează imaginea X din Y”        | Actualizare progres curent                | Niciuna - normal                                         |
 | „Nu s-au găsit ținte”               | Nu s-au detectat ținte de calibrare        | Marcați imaginile țintă sau dezactivați calibrarea reflectanței |
 | „Spațiu insuficient pe disc”        | Spațiu de stocare insuficient pentru ieșire          | Eliberați spațiu pe disc                                    |
-| „Săriți peste fișierul corupt”        | Fișierul imagine este deteriorat                  | Recopiați fișierul de pe cardul SD                             |
+| „Se omite fișierul corupt”        | Fișierul imagine este deteriorat                  | Copiați din nou fișierul de pe cardul SD                             |
 | „Date PPK aplicate”               | Corecții GPS din fișierul .daq aplicate | Niciuna - normal                                         |
 
-### Copierea datelor jurnalului
+### Copierea datelor din jurnal
 
-Pentru a copia jurnalul în scopul depanării sau asistenței:
+Pentru a copia jurnalul în scopul depanării sau al asistenței tehnice:
 
-1. Deschideți panoul Jurnal de depanare.
-2. Faceți clic pe butonul **„Copiere jurnal”** (sau faceți clic dreapta → Selectați tot).
-3. Lipiți în fișierul text sau e-mail.
-4. Trimiteți la asistența MAPIR, dacă este necesar.
+1. Deschideți panoul Jurnal de depanare
+2. Faceți clic pe butonul **„Copiere jurnal”** (sau faceți clic dreapta → Selectați tot)
+3. Lipiți într-un fișier text sau într-un e-mail
+4. Trimiteți către asistența tehnică MAPIR, dacă este necesar
 
 ***
 
@@ -219,10 +205,10 @@ Pentru a copia jurnalul în scopul depanării sau asistenței:
 
 ### Utilizarea procesorului
 
-**Mod liber:**
+**Modul gratuit:**
 
 * 1 nucleu de procesor la ~100%
-* Alte nuclee inactive sau disponibile
+* Celelalte nuclee sunt inactive sau disponibile
 * Sistemul rămâne receptiv
 
 **Chloros+ Mod paralel:**
@@ -241,22 +227,22 @@ Pentru a copia jurnalul în scopul depanării sau asistenței:
 
 **Utilizare tipică:**
 
-* Proiecte mici (&lt; 100 imagini): 2-4 GB
-* Proiecte medii (100-500 imagini): 4-8 GB
-* Proiecte mari (peste 500 imagini): 8-16 GB
-* Chloros+ modul paralel utilizează mai multă memorie RAM
+* Proiecte mici (&lt; 100 de imagini): 2-4 GB
+* Proiecte medii (100-500 de imagini): 4-8 GB
+* Proiecte mari (peste 500 de imagini): 8-16 GB
+* Modul paralel Chloros+ utilizează mai multă memorie RAM
 
 **Dacă memoria este insuficientă:**
 
 * Procesați loturi mai mici
 * Închideți alte aplicații
-* Actualizați memoria RAM dacă procesați în mod regulat seturi de date mari
+* Extindeți memoria RAM dacă procesați regulat seturi de date mari
 
 ### Utilizarea GPU (Chloros+ cu CUDA)
 
 Când accelerarea GPU este activată:
 
-* GPU NVIDIA prezintă o utilizare ridicată (60-90%)
+* GPU-ul NVIDIA prezintă o utilizare ridicată (60-90%)
 * Utilizarea VRAM crește (necesită 4 GB+ VRAM)
 * Etapa de calibrare este semnificativ mai rapidă
 
@@ -268,11 +254,11 @@ Când accelerarea GPU este activată:
 
 ### I/O disc
 
-**Ce să vă așteptați:**
+**La ce să vă așteptați:**
 
-* Citire discul mare în timpul etapei de analiză
-* Scriere discul mare în timpul etapei de exportare
-* SSD semnificativ mai rapid decât HDD
+* Citire intensă a discului în timpul etapei de analiză
+* Scriere intensă pe disc în timpul etapei de export
+* SSD-ul este semnificativ mai rapid decât HDD-ul
 
 **Sfat de performanță:**
 
@@ -300,7 +286,7 @@ Când accelerarea GPU este activată:
 
 **Sistemul nu mai răspunde:**
 
-* Chloros+ modul paralel utilizează prea multe resurse
+* Modul paralel Chloros+ utilizează prea multe resurse
 * Luați în considerare reducerea sarcinilor simultane sau actualizarea hardware-ului
 * Modul liber consumă mai puține resurse
 
@@ -308,15 +294,15 @@ Când accelerarea GPU este activată:
 
 Opriți procesarea dacă observați:
 
-* ❌ Erori „Disk full” (Disc plin) sau „Cannot write file” (Nu se poate scrie fișierul)
+* ❌ Erori de tip „Disk full” (Disc plin) sau „Cannot write file” (Nu se poate scrie fișierul)
 * ❌ Erori repetate de corupere a fișierelor imagine
 * ❌ Sistem complet blocat (nu răspunde)
-* ❌ S-a constatat că au fost configurate setări greșite
-* ❌ Au fost importate imagini greșite
+* ❌ V-ați dat seama că au fost configurate setări greșite
+* ❌ Imagini importate greșit
 
-**Cum se oprește:**
+**Cum să opriți:**
 
-1. Faceți clic pe **butonul Stop/Anulare** (înlocuiește butonul Start)
+1. Faceți clic pe**butonul Oprire/Anulare** (înlocuiește butonul Start)
 2. Procesarea se oprește, progresul se pierde
 3. Remediați problemele și reporniți de la început
 
@@ -328,19 +314,19 @@ Opriți procesarea dacă observați:
 
 **Cauze posibile:**
 
-* Imagini țintă nemarcate (scanarea tuturor imaginilor)
+* Imagini țintă nemarcate (se scanează toate imaginile)
 * Stocare pe HDD în loc de SSD
 * Resurse de sistem insuficiente
 * Multe indexuri configurate
-* Acces la unitatea de rețea
+* Acces la unitate de rețea
 
 **Soluții:**
 
-1. Dacă abia ați început și sunteți în etapa de detectare: Anulați, marcați țintele, reporniți
-2. Pentru viitor: Utilizați SSD, reduceți indicii, actualizați hardware-ul
-3. Luați în considerare CLI pentru procesarea în lot a seturilor de date mari
+1. Dacă tocmai ați început și vă aflați în etapa de detectare: Anulați, marcați țintele, reporniți
+2. Pentru viitor: Utilizați SSD, reduceți indexurile, actualizați hardware-ul
+3. Luați în considerare CLI pentru procesarea în lot a seturilor mari de date
 
-### Avertismente „Spațiu pe disc”
+### Avertismente privind „Spațiul pe disc”
 
 **Soluții:**
 
@@ -349,27 +335,27 @@ Opriți procesarea dacă observați:
 3. Reduceți numărul de indici de exportat
 4. Utilizați formatul JPG în loc de TIFF (fișiere mai mici)
 
-### Mesaje frecvente „Fișier corupt”
+### Mesaje frecvente de „Fișier corupt”
 
 **Soluții:**
 
-1. Recopiați imaginile de pe cardul SD pentru a asigura integritatea
+1. Copiați din nou imaginile de pe cardul SD pentru a asigura integritatea
 2. Testați cardul SD pentru erori
 3. Eliminați fișierele corupte din proiect
 4. Continuați procesarea imaginilor rămase
 
-### Supraîncălzirea/limitarea sistemului
+### Supraîncălzirea sistemului / Limitarea performanței
 
 **Soluții:**
 
-1. Asigurați-vă că ventilația este adecvată
+1. Asigurați-vă că există o ventilație adecvată
 2. Curățați praful din orificiile de ventilație ale computerului
 3. Reduceți sarcina de procesare (utilizați modul Free în loc de Chloros+)
-4. Procesați în perioadele mai răcoroase ale zilei
+4. Efectuați procesarea în perioadele mai răcoroase ale zilei
 
 ***
 
-## Notificare de finalizare a procesării
+## Notificare privind finalizarea procesării
 
 Când procesarea se termină:
 
@@ -382,11 +368,11 @@ Când procesarea se termină:
 
 ## Pași următori
 
-Odată ce procesarea este finalizată:
+Odată ce procesarea se finalizează:
 
 1. **Verificați rezultatele** - Consultați [Finalizarea procesării](finishing-the-processing.md)
 2. **Verificați folderul de ieșire** - Verificați dacă toate fișierele au fost exportate corect
 3. **Verificați jurnalul de depanare** - Verificați dacă există avertismente sau erori
-4. **Previzualizați imaginile procesate** - Utilizați Image Viewer sau un software extern
+4. **Previzualizați imaginile procesate** - Utilizați vizualizatorul de imagini sau un software extern
 
 Pentru informații despre verificarea și utilizarea rezultatelor procesate, consultați [Finalizarea procesării](finishing-the-processing.md).
