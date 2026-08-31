@@ -1,1205 +1,344 @@
 # CLI : Linia de comandă
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI** oferă acces puternic prin linia de comandă la motorul de procesare a imaginilor Chloros, permițând automatizarea, scriptarea și funcționarea fără interfață grafică pentru fluxurile dvs. de lucru de imagistică.
+> **Referință completă:**[Referința CLI](reference/cli-reference.md) documentează**fiecare opțiune a fiecărei subcomenzi** și este optimizată pentru asistenții AI — lipiți adresa URL în asistentul dvs. și solicitați o comandă funcțională: `https://mapir.gitbook.io/chloros/reference/cli-reference`
+>
+> **Sfat pentru instrumentele AI:** orice pagină din acest manual este disponibilă în format Markdown brut prin adăugarea lui `.md` la URL-ul acesteia (de ex. `https://mapir.gitbook.io/chloros/reference/cli-reference.md`), iar `https://mapir.gitbook.io/chloros/llms.txt` indexează întregul manual pentru utilizarea de către LLM.
 
-### Caracteristici cheie
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>
+<!-- SCREENSHOT-UPDATE: banner shows CLI 1.1.0; reshoot the CLI welcome/banner output on the 1.2.0 build so the version line reads "Chloros CLI 1.2.0" -->
 
-* 🚀 **Automatizare** - Procesare scriptată în lot a mai multor seturi de date
-* 🔗 **Integrare** - Încorporare în fluxurile de lucru și pipeline-urile existente
-* 💻 **Funcționare fără interfață grafică** - Rulare fără GUI
-* 🌍 **Multilingv** - Suport pentru 38 de limbi
-* ⚡ **Procesare paralelă** - [Adaptarea dinamică a calculului](processing-architecture/dynamic-compute-adaptation.md) se optimizează automat pentru hardware-ul dvs.
 
-### Cerințe
+## Ce esteCLI
 
-| Cerință          | Detalii                                                             |
-| -------------------- | ------------------------------------------------------------------- |
-| **Sistem de operare** | Windows 10/11 (64-bit), Linux x86_64 (amd64), Linux arm64 (NVIDIA Jetson JetPack 6) |
-| **Licență**          | Chloros+ ([este necesar un plan plătit](https://cloud.mapir.camera/pricing)) |
-| **Memorie**           | Minim 8 GB RAM (se recomandă 16 GB)                                  |
-| **Internet**         | Necesar pentru activarea licenței                                     |
-| **Spațiu pe disc**       | Variază în funcție de dimensiunea proiectului                                              |
 
-{% hint style="warning" %}
-**Cerințe de licență**: CLI necesită un abonament Chloros+ plătit. Planurile standard (gratuite) nu au acces la CLI. Accesați [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing) pentru a face upgrade.
-{% endhint %}
+`chloros-cli` este interfața de linie de comandă pentru același motor de procesare pe care îl utilizează aplicația desktopChloros
+. Este un client „HTTP
+” ușor, care utilizează backend-ulChloros
+(un server local pe `127.0.0.1:5000`) — majoritatea comenzilor pornesc automat backend-ul, astfel încât un singur apel către `chloros-cli process …` este tot ce are nevoie un script.
 
-## Ghid de pornire rapidă
-
-### Instalare
-
-#### Windows
-
-CLI este inclus automat în programul de instalare Chloros:
-
-1. Descărcați și rulați **Chloros Installer.exe**
-
-2. Finalizați expertul de instalare
-3. CLI instalat în: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
-
-{% hint style="success" %}
-Programul de instalare adaugă automat `chloros-cli` la PATH-ul sistemului. Reporniți terminalul după instalare.
-{% endhint %}
-
-#### Linux
-
-Instalați pachetul `.deb` pentru arhitectura dvs.:
+Funcționează pe **Windows
+10/11 (x64)**și**Linux
+(x86_64 și NVIDIA Jetson arm64 pe JetPack 6)**, în orice terminal, fără a fi necesară o interfață grafică. Verificați instalarea cu:
 
 ```bash
-# Linux amd64
+chloros-cli --version    # prints "Chloros CLI 1.2.0"
+```
+
+Prezentare generală a familiilor de comenzi:
+
+* **Procesare și cont** — `process`, `login`, `logout`, `status`, `export-status`, `language` (38 de limbi — consultați [Limbi acceptate](supported-languages.md)), `set-project-folder` / `get-project-folder` / `reset-project-folder`, `selftest`, `update` (numai pentruLinux
+/Jetson)
+* **Hardware activ** — `lattice` (control cameră LATTICE, peste 45 de subcomenzi), `daq pool-*` (senzori de lumină DAQ), `time-sync` (PTP)
+* **Automatizare** — `project` (executare fără interfață grafică a unui proiect salvat înChloros
+, inclusiv rețete de captură YAML)
+
+Opțiuni globale utile: `--port N` (port backend, implicit `5000`), `-v/--verbose`, `--restart` (repornire forțată a backend-ului), `--backend-exe PATH`. Consultați [ReferințaCLI
+](reference/cli-reference.md) pentru lista completă.
+
+***
+
+## Instalare
+
+CLI
+**este inclus în programul de instalareChloros** pe toate platformele — nu există o descărcare separatăCLI
+. Descărcați programul de instalare de pe pagina [Descărcare](download.md).
+
+###Windows
+
+
+Programul de instalare plaseazăCLI
+în:
+
+```
+
+C:\Program Files\Chloros\cli\chloros-cli.exe
+```
+
+și adaugă acel folder la sistemul dumneavoastră `PATH` — **deschideți un terminal nou**după instalare, astfel încât `PATH` actualizat să fie recunoscut. Programul de instalare plasează, de asemenea, scripturi de lansare (`Chloros_CLI.bat` / `Chloros_CLI.ps1`) în directorul rădăcină al instalării, precum și o**scurtăturăChloros
+CLI
+** comandă rapidă în meniul Start, fiecare dintre acestea deschizând un terminal cu `chloros-cli` gata de utilizare.
+
+###Linux
+
+
+Instalați `.deb` pentru arhitectura dvs.:
+
+```bash
+# Linux x86_64
 sudo dpkg -i chloros-amd64.deb
 
-# Linux arm64 (NVIDIA Jetson, JetPack 6)
+# NVIDIA Jetson (arm64, JetPack 6)
 sudo dpkg -i chloros-arm64-jp6.deb
 ```
 
-Pentru configurarea detaliată a Linux, consultați [Instalarea Linux](linux/linux-installation.md).
+Aceasta instalează `chloros-cli` până la `/usr/bin/chloros-cli` (deja la versiunea `PATH`) și backend-ul la versiunea `/usr/lib/chloros/chloros-backend`, împreună cu runtime-ul ArenaSDK
+necesar pentru camerele LATTICE. Consultați [InstalareaLinux
+](linux/linux-installation.md) pentru detalii.
 
-### Configurarea inițială
+### Verificare
 
-Înainte de a utiliza CLI, activați licența Chloros+:
+```bash
+chloros-cli --version    # "Chloros CLI 1.2.0"
+chloros-cli selftest     # 7-step diagnostic: backend, API, GPU/CUDA, denoiser models
+chloros-cli status       # license tier + logged-in user
+```
 
-**Windows:**
+***
 
-```powershell
-# Login with your Chloros+ account
-chloros-cli login user@example.com 'your_password'
+## Autentificare și licențiere
 
-# Check license status
+CLI
+(șiPython
+SDK
+) accesul necesită un **plan plătitChloros
++**— orice nivel plătit îl include; nivelul gratuit nu îl include. Limita minimă este aplicată**pe partea de server** de către backend, nu de către binarulCLI
+: un apel fără autentificare este respins cu codul `401 AUTH_REQUIRED`, iar o solicitare efectuată cu contul conectat în planul gratuit cu codul `403 PLAN_UPGRADE_REQUIRED`, indiferent dacă provine de la `chloros-cli`, de laSDK
+sau de la un clientHTTP
+creat manual. Efectuați actualizarea la [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing).
+
+Conectați-vă **o singură dată pe fiecare mașină**:
+
+```bash
+chloros-cli login user@example.com 'YourPassword'
 chloros-cli status
-
-# Process your first project
-chloros-cli process "C:\Images\Dataset001"
 ```
 
-**Linux:**
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+<!-- SCREENSHOT-UPDATE: login success output predates 1.2.0; reshoot `chloros-cli login` followed by `chloros-cli status` on the 1.2.0 build showing the license tier line -->
 
-```bash
-# Login with your Chloros+ account
-chloros-cli login user@example.com 'your_password'
-
-# Check license status
-chloros-cli status
-
-# Process your first project
-chloros-cli process ~/images/dataset001
-```
-
-### Utilizare de bază
-
-Procesați un folder cu setările implicite:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Images\Dataset001"
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/images/dataset001
-```
-
-***
-
-## Referință comenzi
-
-### Sintaxă generală
-
-```
-chloros-cli [global-options] <command> [command-options]
-```
-
-***
-
-## Comenzi
-
-### `process` - Procesare imagini
-
-Procesarea imaginilor dintr-un folder cu calibrare.
-
-**Sintaxă:**
-
-```bash
-chloros-cli process <input-folder> [options]
-```
-
-**Exemple:**
-
-```bash
-# Windows
-chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
-
-# Linux
-chloros-cli process ~/datasets/survey_001 --vignette --reflectance
-```
-
-#### Opțiuni ale comenzii de procesare
-
-| Opțiune                | Tip    | Implicit        | Descriere                                                                            |
-| --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
-| `<input-folder>`      | Cale    | _Obligatoriu_     | Dosar care conține imagini multispectrale RAW/JPG                                         |
-| `-o, --output`        | Cale    | La fel ca intrarea  | Dosar de ieșire pentru imaginile procesate                                                     |
-| `-n, --project-name`  | Șir  | Generat automat | Nume personalizat al proiectului                                                                    |
-| `--vignette`          | Indicator    | Activat        | Activează corectarea vignetării                                                             |
-| `--no-vignette`       | Indicator    | -              | Dezactivează corectarea vignetării                                                            |
-| `--reflectance`       | Indicator    | Activat        | Activează calibrarea reflectanței                                                         |
-| `--no-reflectance`    | Indicator    | -              | Dezactivează calibrarea reflectanței                                                        |
-| `--ppk`               | Indicator    | Dezactivat       | Aplică corecții PPK din datele senzorului de lumină .daq                                      |
-| `--format`            | Opțiune  | TIFF (16 biți)  | Format de ieșire: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
-| `--min-target-size`   | Număr întreg | Auto           | Dimensiunea minimă a țintei în pixeli pentru detectarea panoului de calibrare                          |
-| `--target-clustering` | Număr întreg | Auto           | Pragul de grupare a țintelor (0-100)                                                    |
-| `--debayer`           | Opțiune  | `standard`     | Metoda de debayer: `standard` sau `texture-aware` (numai Chloros+)                          |
-| `--target`, `--targets` | Indicator  | Dezactivat       | Căutați ținte de calibrare numai într-un subfolder „target” sau „targets” (accelerează procesarea) |
-| `--indices`           | Listă    | Niciuna           | Indici de vegetație de calculat (de ex., `--indices NDVI NDRE GNDVI`)                    |
-| `--exposure-pin-1`    | Șir  | Niciuna           | Blochează expunerea pentru modelul de cameră (Pin 1)                                                 |
-| `--exposure-pin-2`    | Șir  | Niciunul           | Blocare expunere pentru modelul camerei (Pin 2)                                                 |
-| `--recal-interval`    | Număr întreg | Auto           | Interval de recalibrare în secunde                                                      |
-| `--timezone-offset`   | Număr întreg | 0              | Decalaj de fus orar în ore                                                               |
-
-***
-
-### `login` - Autentificare cont
-
-Conectați-vă cu datele de autentificare Chloros+ pentru a activa procesarea CLI.
-
-**Sintaxă:**
-
-```bash
-chloros-cli login <email> <password>
-```
-
-**Exemplu:**
-
-```bash
-chloros-cli login user@example.com 'MyP@ssw0rd123'
-```
 
 {% hint style="warning" %}
-**Caractere speciale**: Folosiți ghilimele simple în jurul parolelor care conțin caractere precum `$`, `!` sau spații.
+**Parole cu caractere speciale**(`$`, `!`, spaces): wrap the password in**single quotes**, as shown above. In PowerShell double quotes, `$$` este distorsionată de shell (CLI
+-ul detectează acest lucru la un 401 și reîncearcă automat, dar ghilimelele simple evită complet problema).
 {% endhint %}
 
-**Rezultat:**<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
+Sesiunea este stocată în cache la `~/.chloros/user_session.json` și continuă să funcționeze offline pe durata perioadei de grație a abonamentului (30 de zile pentru abonamentele lunare, până la expirare pentru cele anuale). `chloros-cli status` funcționează chiar și fără un plan plătit, astfel încât motivul refuzului este întotdeauna vizibil.
 
-### `logout` - Ștergeți datele de autentificare
+{% hint style="danger" %}
+**Programați sarcini fără interfață grafică? Autentificați-vă mai întâi.**O comandă de lansare a backend-ului (`process`, `status`, `export-status`, …) executată**fără sesiune stocată în cache**nu eșuează rapid — trece într-un prompt interactiv `Email:` / `Password:` pe stdin. Prin urmare, o sarcină cron nesupravegheată sau un pas CI va**rămâne blocat în așteptarea unei intrări**. Rulați `chloros-cli login EMAIL 'PASSWORD'` o dată pe mașină înainte de a programa orice.
+{% endhint %}
 
-Ștergeți datele de autentificare stocate și deconectați-vă de la contul dvs.
+***
 
-**Sintaxă:**
+## Prima dvs. execuție de procesare
+
+Direcționați `process` către un folder cu capturi — acesta detectează automatSurvey3
+(`.raw` + `.jpg`), LATTICE (`.tif`/`.tiff`), `.dng` sau o combinație a acestora:
 
 ```bash
-chloros-cli logout
+chloros-cli process "C:\Images\flight_001"          # Windows
+chloros-cli process ~/images/flight_001              # Linux
 ```
 
-**Exemplu:**
+Progresul este afișat în timp real pentru fiecare fir al pipeline-ului (Detectare, Analiză, Procesare, Export), iar o execuție reușită se încheie cu raportarea numărului de produse imagistice generate (`Image products written: N`).
 
-```bash
-chloros-cli logout
+
+
+<!-- SCREENSHOT-NEEDED: terminal capture of a `chloros-cli process` run on a LATTICE captures folder completing successfully — per-thread progress lines visible and the final "Image products written: N" summary line -->
+### Unde sunt stocate rezultatele
+
+`process` scrie într-un **dosar de proiect**, nu în dosarul dvs. de intrare:
+
+* Fără `-o`: proiectul este creat în folderul dvs. de proiect implicit (partajat cu interfața grafică; gestionați-l cu `get-project-folder` / `set-project-folder`, opțiune de rezervă `~/Chloros Projects`), denumit după `-n/--project-name` sau o marcă temporală (`YYYYMMDD_HHMMSS`) atunci când este omis.
+* Cu `-o PATH`: acel folder **este** folderul proiectului. Dacă acesta conține deja un `project.json`, se creează un fișier înrudit cu sufixul `_1`/`_2`… în loc să se suprascrie.
+
+În cadrul proiectului, produsele sunt grupate **după cameră, apoi după formatul fișierului**:
+
+```
+<project>/
+├── project.json
+├── calibration_data.json
+└── LATT-M3M-L41-F550/                  # one folder per camera model+lens+filter
+    ├── tiff16/
+    │   ├── Reflectance_Calibrated_Images/
+    │   ├── Debayered_Images/
+    │   ├── Preview_Images/
+    │   └── NDVI_Index_Images/           # one folder per requested index
+    └── tiff32/
+        └── Radiance_Images/             # float32 radiance always lands here
 ```
 
-**Rezultat:**
-
-```
-✓ Logout successful
-ℹ Credentials cleared from cache
-```
+Folderul camerei este `LATT-<sensor>-<lens>-F<filter>` pentru LATTICE (care corespunde cu EXIF-ul capturii `Model`) și `<model>_<filter>` (de exemplu, `Survey3N_RGN`) pentruSurvey3
+. Dosarul de format urmează după `--format`: `tiff16`, `tiff8`, `png8`, `jpg8` sau `tiff32` pentru `TIFF (32-bit, Percent)`.
 
 {% hint style="info" %}
-**Utilizatori SDK**: Python SDK oferă, de asemenea, o metodă programatică `logout()` pentru ștergerea datelor de autentificare în cadrul scripturilor Python. Consultați [documentația Python SDK](api-python-sdk.md#logout) pentru detalii.
+**Fiecare produs exportat păstrează numele fișierului SURSĂ.**Un export Radiance al fișierului `capture_..._raw.tif` se numește în continuare `capture_..._raw.tif` — doar că se află în `tiff32/Radiance_Images/`.**Folderul identifică produsul, nu numele fișierului**, așa că folosiți un filtru glob pentru director, nu pentru sufixul `*radiance*`.
 {% endhint %}
 
-***
+### Opțiunile pe care le veți folosi efectiv
 
-### `status` - Verificarea stării licenței
+| Opțiune | Implicit | Ce face |
+| --- | --- | --- |
+| `-o, --output PATH` | folderul implicit al proiectului | Locația folderului proiectului (vezi mai sus). |
+| `-n, --project-name NAME` | marcaj temporal | Numele proiectului. |
+| `--format FMT` | `TIFF (16-bit)` | Una dintre următoarele: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`. |
+| `--indices NAME [NAME ...]` | niciunul | Indici de vegetație de exportat (a se vedea [Indici de vegetație](#vegetation-indices)). |
+| `--debayer {standard,texture-aware}` | `standard` | `texture-aware` = debayer neuronal, mai lent, calitate maximă (Chloros
++, GPU NVIDIA). |
+| `--vignette / --no-vignette` | activat | Corecția efectului de vignetă. |
+| `--reflectance / --no-reflectance` | activat | Calibrarea reflectanței; pentru LATTICE, aceasta este și comutatorul pentru produsul de reflectanță. |
+| `--input-level {auto,raw,debayered,processed}` | `auto` | Forțează punctul de intrare în pipeline pentru fișierele TIFF LATTICE. |
 
-Afișează starea actuală a licenței și a autentificării.
-
-**Sintaxă:**
-
-```bash
-chloros-cli status
-```
-
-**Exemplu:**
-
-```bash
-chloros-cli status
-```
-
-**Rezultat:**
-
-```
-╔══════════════════════════════════════╗
-║     LICENSE & ACCOUNT INFORMATION    ║
-╚══════════════════════════════════════╝
-
-📧 Email: user@example.com
-📋 Plan: Chloros+ Professional
-🔓 API/CLI Access: Enabled
-✓ Status: Active
-```
+Pentru toate celelalte opțiuni — reglarea detectării țintelor, PPK, pini de expunere, indicatori de aliniere a matricei — consultați [secțiunea `process` din ReferințaCLI
+](reference/cli-reference.md).
 
 ***
 
-### `export-status` - Verificare progres export
+## Alegerea elementelor de exportat (produse LATTICE)
 
-Monitorizează progresul exportului Thread 4 în timpul sau după procesare.
+Procesarea LATTICE se ramifică către **fiecare produs aplicabil într-o singură trecere**. Cele patru comutatoare specifice fiecărui produs sunt toate**activate implicit**; utilizați formularul `--no-` pentru a dezactiva unul dintre ele:
 
-**Sintaxă:**
+| Comutator | Produs |
+| --- | --- |
+| `--debayered` | Demosaic liniar → `Debayered_Images/` |
+| `--preview` | Previzualizare afișaj (balans de alb + gamma; extindere în culori false pentru imagini multispectrale) → `Preview_Images/` |
+| `--radiance` | radianță float32, W/m²/sr/nm → `Radiance_Images/` (întotdeauna `tiff32/`) |
+| `--reflectance` | uint16 reflectanță, compatibilă cu Pix4D → `Reflectance_Calibrated_Images/` |
 
-```bash
-chloros-cli export-status
-```
-
-**Exemplu:**
-
-```bash
-chloros-cli export-status
-```
-
-**Caz de utilizare:** Apelați această comandă în timp ce procesarea este în curs de desfășurare pentru a verifica progresul exportului.***
-
-### `language` - Gestionați limba interfeței
-
-Vizualizați sau modificați limba interfeței CLI.
-
-**Sintaxă:**
+RGB
+Camerele master emit întotdeauna doar date debayered + previzualizare — radianța/reflectanța pe bandă nu are relevanță pentru un senzor de bandă largă, astfel încât aceste comutatoare nu au niciun efect pentru acestea.Survey3
+`.raw` ignoră comutatoarele și urmează calea standard de reflectanță/țintă.
 
 ```bash
-# Show current language
-chloros-cli language
-
-# List all available languages
-chloros-cli language --list
-
-# Set a specific language
-chloros-cli language <language-code>
+# Radiance only — no DAQ downwelling needed
+chloros-cli process ~/captures/lattice_flight --no-debayered --no-preview --no-reflectance
 ```
 
-**Exemple:**
-
-```bash
-# View current language
-chloros-cli language
-
-# List all 38 supported languages
-chloros-cli language --list
-
-# Change to Spanish
-chloros-cli language es
-
-# Change to Japanese
-chloros-cli language ja
-```
-
-#### Limbi acceptate (38 în total)
-
-| Cod    | Limbă              | Nume nativ      |
-| ------- | --------------------- | ---------------- |
-| `en`    | Engleză               | English          |
-| `es`    | Spaniolă               | Español          |
-| `pt`    | Portugheză            | Português        |
-| `fr`    | Franceză                | Français         |
-| `de`    | Germană                | Deutsch          |
-| `it`    | Italiană               | Italiano         |
-| `ja`    | Japoneză              | 日本語              |
-| `ko`    | Coreeană                | 한국어              |
-| `zh`    | Chineză (simplificată)  | 简体中文             |
-| `zh-TW` | Chineză (tradițională) | 繁體中文             |
-| `ru`    | Rusă               | Русский          |
-| `nl`    | Olandeză                | Nederlands       |
-| `ar`    | Arabă                | العربية          |
-| `pl`    | Poloneză                | Polski           |
-| `tr`    | Turcă               | Türkçe           |
-| `hi`    | Hindi                 | हिंदी            |
-| `id`    | Indoneziană            | Bahasa Indonesia |
-| `vi`    | Vietnameză            | Tiếng Việt       |
-| `th`    | Thailandeză                  | ไทย              |
-| `sv`    | Suedeză               | Svenska          |
-| `da`    | Daneză                | Dansk            |
-| `no`    | Norvegiană             | Norsk            |
-| `fi`    | Finlandeză               | Suomi            |
-| `el`    | Greacă                 | Ελληνικά         |
-| `cs`    | Cehă                 | Čeština          |
-| `hu`    | Maghiară             | Magyar           |
-| `ro`    | Română              | Română           |
-| `uk`    | Ucraineană             | Українська       |
-| `pt-BR` | Portugheză braziliană  | Português Brasileiro |
-| `zh-HK` | Cantoneză             | 粵語             |
-| `ms`    | Malay                 | Bahasa Melayu    |
-| `sk`    | Slovacă                | Slovenčina       |
-| `bg`    | Bulgară             | Български        |
-| `hr`    | Croată              | Hrvatski         |
-| `lt`    | Lituaniană            | Lietuvių         |
-| `lv`    | Letonă               | Latviešu         |
-| `et`    | Estonă              | Eesti            |
-| `sl`    | Slovenă             | Slovenščina      |
-
-{% hint style="success" %}
-**Persistență automată**: Preferința dvs. de limbă este salvată în `~/.chloros/cli_language.json` și se păstrează pe durata tuturor sesiunilor.
-{% endhint %}
-
-***
-
-### `set-project-folder` - Setare folder proiect implicit
-
-Modificați locația folderului de proiect implicit (partajat cu GUI în Windows).
-
-**Sintaxă:**
-
-```bash
-chloros-cli set-project-folder <folder-path>
-```
-
-**Exemple:**
-
-```bash
-# Windows
-chloros-cli set-project-folder "C:\Projects\2025"
-
-# Linux
-chloros-cli set-project-folder ~/projects/2025
-```
-
-***
-
-### `get-project-folder` - Afișează folderul proiectului
-
-Afișează locația curentă a folderului implicit al proiectului.
-
-**Sintaxă:**
-
-```bash
-chloros-cli get-project-folder
-```
-
-**Exemplu:**
-
-```bash
-chloros-cli get-project-folder
-```
-
-**Rezultat:**
-
-```
-
-# Windows
-ℹ Current project folder: C:\Projects\2025
-
-# Linux
-ℹ Current project folder: /home/user/.local/share/chloros/projects
-```
-
-***
-
-### `reset-project-folder` - Resetare la valorile implicite
-
-Resetează folderul proiectului la locația implicită.
-
-**Sintaxă:**
-
-```bash
-chloros-cli reset-project-folder
-```
-
-***
-
-### `selftest` - Executare diagnosticare sistem
-
-Execută 7 verificări de diagnosticare pentru a verifica configurația sistemului.
-
-**Sintaxă:**
-
-```bash
-chloros-cli selftest
-```
-
-**Diagnostice efectuate:**
-
-1. Verificare versiune
-2. Disponibilitate port (5000)
-3. Pornire backend
-4. Test de conectivitate API
-5. Informații sistem și detectare GPU
-6. Verificare modele de denoizare
-7. Verificare disponibilitate CUDA
+**`--reflectance-source {auto,target,daq}`** (implicit `auto`) alege referința de reflectanță: `auto` creează o [țintă de calibrare](calibration-targets.md) în cadru care trece de controlul calității ca referință absolută și revine la raportul de divizare a luminii descendente a senzorului DAQ (ρ = π·L/E) atunci când nu este prezentă nicio țintă; `target` este strict (fără substituție DAQ); `daq` are prioritate asupra DAQ. Scanările țintelor măsurate pe unitate pot fi furnizate cu `--target-reflectance-dir`.
 
 {% hint style="info" %}
-**Util pentru depanare**: Rulați `selftest` după instalare pentru a verifica dacă sistemul dvs. este configurat corect, în special pe Linux/Jetson, unde configurarea GPU și CUDA poate necesita verificare.
+**Citirea pixelilor de reflectanță:**valoarea DN care înseamnă ρ = 1,0 este**pe sursă** — Fișierele LATTICE încorporează `Chloros:PixelScale=32768` în XMP; fișiereleSurvey3
+utilizează 65535 (și nu conțin etichete `Chloros:*`). Citiți eticheta și împărțiți la valoarea acesteia, în loc să presupuneți o constantă. Detaliile și singurul caz marginal deliberat fără scalare se găsesc în [CLI
+Referință](reference/cli-reference.md).
+{% endhint %}
+
+**Procesarea începe întotdeauna de la `raw`.** Produsele derivate (exporturi debayered/radianță/reflectanță) nu sunt niciodată reintroduse în fluxul de procesare — reimportarea și procesarea lor ar duce la aplicarea dublă a calculelor de calibrare, așa căChloros
+le omite și menționează acest lucru. `--input-level` este o soluție de rezervă intenționată pentru cazurile în care este cu adevărat necesar să forțați un punct de intrare.
+
+***
+
+## Când o execuție eșuează
+
+Începând cu versiunea 1.2.0, `process` eșuează în mod evident, în loc să „reușească” fără a afișa nimic:
+
+* O execuție care **a solicitat produse, dar nu a scris niciunul**— doar `project.json` și `calibration_data.json` — afișează `Processing finished but wrote no image products.` și**se închide cu un cod de ieșire diferit de zero**, astfel încât scripturile să o poată detecta. Cauzele obișnuite: folderul de intrare nu a fost recunoscut ca o captură (verificați structura și `--input-level`) sau fiecare produs solicitat era inaplicabil pentru acele camere (de exemplu, solicitarea de radianță/reflectanță de la camere care înregistrează doarRGB
+).
+* O **execuție deliberată numai cu metadate** (toate produsele dezactivate, fără `--indices`) este totuși un succes — o ieșire de imagine goală este rezultatul corect în acest caz.
+* Rulați din nou cu `--verbose` și verificați jurnalul backend-ului pentru liniile `[LATTICE-EXPORT]` / `[EXPORT-CHECK]`, care explică omisiunile specifice fiecărei camere.
+
+Coduri de ieșire: `0` succes · `1` eșec generic · `2` eroare de argument · `130` întrerupt de Ctrl+C.
+
+***
+
+## Indici de vegetație
+
+Rulați `--indices` cu unul sau mai multe nume de presetări; fiecare indice este plasat în propriul său folder `<INDEX>_Index_Images/`:
+
+```bash
+chloros-cli process ~/images/flight_001 --indices NDVI NDRE GNDVI
+```
+
+Cele 22 de nume prestabilite acceptate de `process --indices`:
+
+`NDVI` `GNDVI` `NDRE` `OSAVI` `SAVI` `MSAVI2` `EVI` `MSR` `TDVI` `LAI` `GCI` `GRVI` `GSAVI` `GOSAVI` `NLI` `MNLI` `RDVI` `WDRVI` `CVI` `ENDVI` `GLI` `VARI`
+
+{% hint style="warning" %}
+**Există trei liste de index — nu le confundați.**Meniul derulant „Setări proiect” din interfața grafică conține 27 de formule (adaugă `FCI1`, `FCI2`, `GARI`, `GEMI`, `LCI` — aceste cinci sunt disponibile numai în interfața grafică și**nu** sunt valabile pentru `--indices`). Comanda live/offline `lattice index --preset` utilizează propria listă separată cu 22 de presetări. Formulele și calculele matematice ale benzilor sunt documentate în [Formule pentru indici multispectrali](project-settings/multispectral-index-formulas.md).
 {% endhint %}
 
 ***
 
-### `update` - Verificare actualizări (numai pentru Linux)
+## Senzori de lumină DAQ: o scurtă prezentare
 
-Verificați și instalați actualizările CLI pe sistemele Linux.
-
-**Sintaxă:**
+Familia `daq pool-*` controlează senzorii spectrali DAQ dMAPIR
+(DAQ-U prin USB, DAQ-M prin BLE, DAQ-E prin Ethernet) prin intermediul pool-ului persistent al backend-ului — GUI-ul,CLI
+șiSDK
+împărtășesc toate un singur handle live. **`pool-*` este calea DAQ acceptată în fișierul „CLI
+” livrat**; alte subcomenzi `daq` la care s-ar putea face referire sunt o interfațăMAPIR
+-internă, destinată exclusiv sursei- și se închid cu o eroare explicită care vă îndrumă către `pool-*`.
 
 ```bash
-# Check for updates without installing
-chloros-cli update --check
+# 1. Open a pooled session (pick the line matching your sensor)
+chloros-cli daq pool-connect                              # smart-detect
+chloros-cli daq pool-connect --port COM3                  # DAQ-U on a specific COM port
+chloros-cli daq pool-connect --mac AA:BB:CC:DD:EE:FF      # DAQ-M by BLE MAC
+chloros-cli daq pool-connect --eth-host daq-e-xxx.local   # DAQ-E by hostname (reliable)
 
-# Check for and install updates
-chloros-cli update
+# 2. List pooled sensors and their ids
+#    (DAQ-U ids look like 'CB-7C-A8-2E-5F'; DAQ-E ids like 'daq-e-def330')
+chloros-cli daq pool-list
+
+# 3. Read the latest calibrated spectrum (W/m²/nm)
+chloros-cli daq pool-latest --sensor-id CB-7C-A8-2E-5F
+
+# 4. Record a calibrated .daq file for 60 s
+chloros-cli daq pool-record --sensor-id CB-7C-A8-2E-5F --duration 60 \
+  -o ~/Documents/spectra --device-name "field-A"
+
+# 5. Release
+chloros-cli daq pool-disconnect --sensor-id CB-7C-A8-2E-5F
 ```
 
-| Opțiune    | Descriere                        |
-| --------- | ---------------------------------- |
-| `--check` | Verifică doar actualizările, nu le instalează |
+`pool-record` fără `--duration` rulează până la `pool-record --stop`; directorul de ieșire implicit este `~/Documents/DAQ Live View/` **pe mașina backend-ului**. Profilul de corecție a capacului este ales la momentul conectării (`--cap-id`, implicit pentru backend `sunshine_cosine`) și poate fi schimbat în timp real cu `pool-set-cap` — profilurile de plafonare și intervalul calibrat al senzorului sunt descrise în capitolele dedicate DAQ din acest manual.
 
-{% hint style="info" %}
-Această comandă este disponibilă numai pe Linux. Pe Windows, actualizările sunt livrate prin intermediul programului de instalare.
+{% hint style="warning" %}
+**DAQ-E pe o gazdă cu mai multe plăci de rețea (NIC):** prima detectare automată a profilului `pool-connect --eth` după pornire poate eșua chiar și cu un senzor funcțional. `--eth-host <ip-or-hostname>` este varianta fiabilă — folosiți-o ori de câte ori detectarea nu dă rezultate.
 {% endhint %}
 
 ***
 
-## Opțiuni globale
+## Camere LATTICE, PTP și automatizarea proiectelor
 
-Aceste opțiuni se aplică tuturor comenzilor:
-
-| Opțiune            | Tip    | Implicit       | Descriere                                      |
-| ----------------- | ------- | ------------- | ------------------------------------------------ |
-| `--backend-exe`   | Cale    | Detectat automat | Calea către executabilul backend                       |
-| `--port`          | Număr întreg | 5000          | Numărul portului backend API                          |
-| `--restart`       | Indicator    | -             | Forțează repornirea backend-ului (închide procesele existente) |
-| `--version`       | Indicator    | -             | Afișează informații despre versiune și iese                |
-| `--help`          | Indicator    | -             | Afișează informații de ajutor și iese                   |
-
-{% hint style="info" %}
-**Detectarea automată a backend-ului**: Calea `--backend-exe` este detectată automat pentru fiecare platformă:
-* **Windows**: `C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe`
-* **Linux (.deb)**: `/usr/lib/chloros/chloros-backend`
-* **Linux (manual)**: `/opt/mapir/chloros/backend/chloros-backend`
-{% endhint %}
-
-**Exemplu cu opțiuni globale:**
-
-**Windows:**
-
-```powershell
-chloros-cli --port 5001 process "C:\Datasets\Survey_001"
-```
-
-**Linux:**
+Familia `lattice` (peste 45 de subcomenzi) acoperă funcționarea camerelor LATTICE de la un capăt la altul: detectare, capturi individuale, matrice sincronizate persistente cu fluxul de conectare „smart-prep” al GUI-ului, previzualizare live în browser, aliniere, calcule de indexare și diagnosticare a plăcilor de rețea ale gazdei. Un exemplu:
 
 ```bash
-chloros-cli --port 5001 process ~/datasets/survey_001
+chloros-cli lattice info                                          # discover cameras
+chloros-cli lattice capture -o output/                            # one frame, all export types
+chloros-cli lattice array-connect --serials SN1,SN2,SN3,SN4       # persistent synced array
+chloros-cli lattice array-capture --processing reflectance -o out/
 ```
+
+În paralel: `chloros-cli time-sync` raportează despre grandmaster-ul PTP pe care îl rulează gazdaChloros
+(camerele LATTICE și senzorii DAQ-E funcționează ca slave pentru acesta, pentru marcaje temporale între dispozitive), iar `chloros-cli project` deschide un proiectChloros
+salvat și controlează camerele, matricele și senzorii acestuia fără interfață grafică — inclusiv rețete de captură YAML scriptate.
+
+Aceste trei familii (`lattice`, `project`, `daq pool-*`) sunt, de asemenea, singurele care acceptă `CHLOROS_BACKEND_URL` pentru controlul unui backend **la distanță**; comenzile de bază vizează întotdeauna mașina locală.
+
+Ghiduri complete sunt disponibile în capitolele dedicate LATTICE din acest manual; fiecare opțiune se regăsește în [CLI
+Referință](reference/cli-reference.md).
 
 ***
 
-## Ghid de setări de procesare
-
-### Procesare paralelă și adaptare dinamică a calculului
-
-Chloros 1.1.0 include [Adaptarea dinamică a calculului](processing-architecture/dynamic-compute-adaptation.md) — motorul de procesare **detectează automat hardware-ul** și selectează strategia optimă:
-
-| Platformă | Strategie | Lucrători | Pipeline | Note |
-| --- | --- | --- | --- | --- |
-| **Jetson Nano 8 GB** | `GPU_SINGLE` | 1 | `tiled_gpu` | Eficient din punct de vedere al memoriei, serializat |
-| **Jetson Orin NX 16 GB** | `GPU_PARALLEL` | 3 | `fused_gpu` | Procesare GPU simultană |
-| **Desktop cu GPU de 8 GB** | `GPU_SINGLE` | 3 | `tiled_gpu` | Performanță bună pentru desktop |
-| **Desktop cu GPU de 12 GB+** | `GPU_PARALLEL` | 3-4 | `fused_gpu` | Performanță optimă a desktopului |
-| **Sistem doar cu CPU** | `CPU_PARALLEL` | nuclee - 1 | `cpu_fallback` | Nu este necesar GPU |
-
-{% hint style="success" %}
-**Nu este necesară configurarea manuală!** Chloros detectează automat CPU-ul, GPU-ul, memoria RAM și (pe Jetson) senzorii termici, apoi configurează automat fluxul de procesare optim.
-{% endhint %}
-
-### Metode de debayer
-
-| Metodă | CLI Indicator | Calitate | Viteză | Licență |
-| --- | --- | --- | --- | --- |
-| **Standard (Rapid, Calitate medie)** | `--debayer standard` | Bună | Rapid | Gratuit / Chloros+ |
-| **Sensibil la textură (lent, calitate maximă)** | `--debayer texture-aware` | Maximă | Lent | Numai Chloros+ |
-
-Metoda implicită de debayer este **Standard**. Metoda**Sensibilă la textură** utilizează un model de denoizare AI/ML pentru o ieșire de cea mai înaltă calitate, dar necesită o licență Chloros+ și un GPU NVIDIA.
-
-```bash
-# Use Texture Aware debayer (Chloros+ only)
-chloros-cli process ~/datasets/field_a --debayer texture-aware
-```
-
-### Corecția vignetării
-
-**Ce face:** Corectează scăderea intensității luminoase la marginile imaginii (colțurile mai întunecate, frecvente în imaginile capturate de cameră).
-
-* **Activată implicit** - Majoritatea utilizatorilor ar trebui să păstreze această opțiune activată
-* Utilizați `--no-vignette` pentru a o dezactiva
-
-{% hint style="success" %}
-**Recomandare**: Activați întotdeauna corectarea vignetării pentru a asigura o luminozitate uniformă pe întregul cadru.
-{% endhint %}
-
-### Calibrarea reflectanței
-
-Convertește valorile brute ale senzorului în procente de reflectanță standardizate folosind panouri de calibrare.
-
-* **Activată implicit** - Esențială pentru analiza vegetației
-* Necesită panouri țintă de calibrare în imagini
-* Utilizați `--no-reflectance` pentru a dezactiva
-
-{% hint style="info" %}
-**Cerințe**: Asigurați-vă că panourile de calibrare sunt expuse corespunzător și vizibile în imaginile dvs. pentru o conversie precisă a reflectanței.
-{% endhint %}
-
-### Corecții PPK
-
-**Ce face:** Aplică corecții cinematice post-procesate utilizând datele de jurnal DAQ-A-SD pentru o precizie GPS îmbunătățită.
-
-* **Dezactivat implicit**
-* Utilizați `--ppk` pentru a activa
-* Necesită fișiere .daq în folderul proiectului de la senzorul de lumină DAQ-A-SD MAPIR.
-
-### Formate de ieșire
-
-<table><thead><tr><th width="197">Format</th><th width="130.20001220703125">Adâncime de biți</th><th width="116.5999755859375">Dimensiune fișier</th><th>Ideal pentru</th></tr></thead><tbody><tr><td><strong>TIFF (16 biți)</strong> ⭐</td><td>Număr întreg pe 16 biți</td><td>Mare</td><td>Analiză GIS, fotogrammetrie (recomandat)</td></tr><tr><td><strong>TIFF (32 de biți, procent)</strong></td><td>Număr real pe 32 de biți</td><td>Foarte mare</td><td>Analiză științifică, cercetare</td></tr><tr><td><strong>PNG (8 biți)</strong></td><td>Număr întreg pe 8 biți</td><td>Mediu</td><td>Inspecție vizuală, partajare web</td></tr><tr><td><strong>JPG (8 biți)</strong></td><td>Număr întreg pe 8 biți</td><td>Mic</td><td>Previzualizare rapidă, ieșire comprimată</td></tr></tbody></table>***
-
-## Automatizare și scripturi
-
-### Procesare în lot PowerShell (Windows)
-
-Procesați automat mai multe foldere cu seturi de date pe Windows:
-
-```powershell
-# process_all_datasets.ps1
-
-$datasets = Get-ChildItem "C:\Datasets\2025" -Directory
-
-foreach ($dataset in $datasets) {
-    Write-Host "Processing $($dataset.Name)..." -ForegroundColor Cyan
-    
-    chloros-cli process $dataset.FullName `
-        --vignette `
-        --reflectance
-    
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "✓ $($dataset.Name) complete" -ForegroundColor Green
-    } else {
-        Write-Host "✗ $($dataset.Name) failed" -ForegroundColor Red
-    }
-}
-
-Write-Host "All datasets processed!" -ForegroundColor Green
-```
-
-### Script de lot Windows (Windows)
-
-Buclă simplă pentru procesarea în lot pe Windows:
-
-```batch
-@echo off
-echo Starting batch processing...
-
-for /d %%i in (C:\Datasets\2025\*) do (
-    echo.
-    echo ========================================
-    echo Processing: %%i
-    echo ========================================
-    chloros-cli process "%%i"
-    
-    if %ERRORLEVEL% EQU 0 (
-        echo SUCCESS: %%i processed
-    ) else (
-        echo ERROR: %%i failed
-    )
-)
-
-echo.
-echo All datasets processed!
-pause
-```
-
-### Procesare batch Bash (Linux)
-
-Procesarea mai multor foldere cu seturi de date pe Linux:
-
-```bash
-#!/bin/bash
-# process_all_datasets.sh
-
-for dataset in ~/datasets/2026/*/; do
-    name=$(basename "$dataset")
-    echo "Processing $name..."
-
-    chloros-cli process "$dataset" \
-        --vignette \
-        --reflectance
-
-    if [ $? -eq 0 ]; then
-        echo "✓ $name complete"
-    else
-        echo "✗ $name failed"
-    fi
-done
-
-echo "All datasets processed!"
-```
-
-### Script de automatizare Python (multiplatformă)
-
-Automatizare avansată cu gestionarea erorilor (funcționează pe Windows și Linux):
-
-```python
-import subprocess
-import os
-import sys
-from pathlib import Path
-from datetime import datetime
-
-def process_dataset(input_folder):
-    """Process a folder using Chloros CLI"""
-    cmd = ['chloros-cli', 'process', str(input_folder)]
-    
-    # Execute command
-    result = subprocess.run(
-        cmd, 
-        capture_output=True, 
-        text=True,
-        encoding='utf-8'
-    )
-    
-    return result.returncode == 0, result.stdout, result.stderr
-
-def main():
-    """Process all datasets in a directory"""
-    # Adjust path for your platform
-    # Windows: Path('C:/Datasets/2025')
-    # Linux:   Path.home() / 'datasets' / '2025'
-    datasets_dir = Path('C:/Datasets/2025')
-    log_file = Path('processing_log.txt')
-    
-    successful = []
-    failed = []
-    
-    # Start processing
-    print(f"Starting batch processing: {datetime.now()}")
-    print(f"Scanning: {datasets_dir}")
-    print("=" * 60)
-    
-    for dataset_folder in sorted(datasets_dir.iterdir()):
-        if not dataset_folder.is_dir():
-            continue
-        
-        print(f"\nProcessing: {dataset_folder.name}")
-        
-        success, stdout, stderr = process_dataset(dataset_folder)
-        
-        if success:
-            print(f"✓ {dataset_folder.name} - SUCCESS")
-            successful.append(dataset_folder.name)
-        else:
-            print(f"✗ {dataset_folder.name} - FAILED")
-            failed.append(dataset_folder.name)
-            
-            # Log error details
-            with open(log_file, 'a', encoding='utf-8') as f:
-                f.write(f"\n=== {dataset_folder.name} - {datetime.now()} ===\n")
-                f.write(f"STDOUT:\n{stdout}\n")
-                f.write(f"STDERR:\n{stderr}\n")
-    
-    # Print summary
-    print("\n" + "=" * 60)
-    print(f"SUMMARY - Completed: {datetime.now()}")
-    print(f"  Successful: {len(successful)}")
-    print(f"  Failed: {len(failed)}")
-    
-    if failed:
-        print(f"\nFailed folders:")
-        for folder in failed:
-            print(f"  - {folder}")
-        print(f"\nCheck {log_file} for error details")
-        sys.exit(1)
-    else:
-        print("\nAll datasets processed successfully!")
-        sys.exit(0)
-
-if __name__ == '__main__':
-    main()
-```
-
-***
-
-## Fluxul de lucru al procesării
-
-### Flux de lucru standard
-
-1. **Intrare**: Dosar care conține perechi de imagini RAW/JPG
-2. **Descoperire**: CLI scanează automat fișierele imagine acceptate
-3. **Prelucrare**: Modul paralel se adaptează la nucleele procesorului (Chloros+)
-4. **Ieșire**: Creează subfoldere pentru fiecare model de cameră cu imaginile procesate
-
-### Exemplu de structură de ieșire
-
-```
-
-MyProject/
-├── project.json                             # Project metadata
-├── 2025_0203_193056_008.JPG                # Original JPG
-├── 2025_0203_193055_007.RAW                # Original RAW
-└── Survey3N_RGN/                           # Processed outputs ✓
-    ├── 2025_0203_193056_008_Reflectance.tif   # Calibrated reflectance
-    ├── 2025_0203_193056_008_Target.tif        # Target detection
-    └── ...
-```
-
-### Estimări privind timpul de procesare
-
-Timpuri tipice de procesare pentru 100 de imagini (12 MP fiecare):
-
-| Platformă | Mod | Timp estimat | Note |
-| --- | --- | --- | --- |
-| **Desktop 12 GB+ GPU** | `GPU_PARALLEL` | 5-10 min | Cea mai rapidă opțiune |
-| **Desktop 8 GB GPU** | `GPU_SINGLE` | 10-15 min | Performanță bună |
-| **Jetson Orin NX 16 GB** | `GPU_PARALLEL` | 15-25 min | Calcul la margine |
-| **Jetson Nano 8 GB** | `GPU_SINGLE` | 30-60 min | Memorie limitată |
-| **Numai CPU** | `CPU_PARALLEL` | 20-40 min | Nu este necesar GPU |
-
-{% hint style="info" %}
-**Sfat privind performanța**: Timpul de procesare variază în funcție de numărul de imagini, rezoluție, metoda de debayer și hardware. Metoda de debayer Texture Aware durează semnificativ mai mult decât cea Standard. Consultați [Adaptarea dinamică a calculului](processing-architecture/dynamic-compute-adaptation.md) pentru detalii.
-{% endhint %}
-
-***
-
-## Depanare
-
-### CLI Nu a fost găsit
-
-**Eroare Windows:**
-
-```
-'chloros-cli' is not recognized as an internal or external command
-```
-
-**Windows Soluții:**
-
-1. Verificați locația de instalare:
-
-```powershell
-dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
-```
-
-2. Utilizați calea completă dacă nu se află în PATH:
-
-```powershell
-"C:\Program Files\Chloros\resources\cli\chloros-cli.exe" process "C:\Datasets\Field_A"
-```
-
-3. Adăugați manual la PATH:
-   * Deschideți Proprietăți sistem → Variabile de mediu
-   * Editați variabila PATH
-   * Adăugați: `C:\Program Files\Chloros\resources\cli`
-   * Reporniți terminalul
-
-**Eroare Linux:**
-
-```
-chloros-cli: command not found
-```
-
-**Linux Soluții:**
-
-1. Verificați instalarea:
-
-```bash
-which chloros-cli
-dpkg -L chloros-amd64  # or chloros-arm64-jp6
-```
-
-2. Reîncărcați shell-ul:
-
-```bash
-source ~/.bashrc
-```
-
-3. Verificați permisiunile:
-
-```bash
-sudo chmod +x /usr/bin/chloros-cli
-```
-
-***
-
-### Backend-ul nu a putut fi pornit**Eroare:**
-
-```
-
-Backend failed to start within 30 seconds
-```
-
-**Soluții:**
-
-1. Verificați dacă backend-ul rulează deja (închideți-l mai întâi)
-2. Verificați dacă firewall-ul nu blochează (Windows) sau verificați disponibilitatea portului (Linux: `lsof -i :5000`)
-3. Încercați un alt port:
-
-```bash
-# Windows
-chloros-cli --port 5001 process "C:\Datasets\Field_A"
-
-# Linux
-chloros-cli --port 5001 process ~/datasets/field_a
-```
-
-4. Forțați repornirea backend-ului:
-
-```bash
-# Windows
-chloros-cli --restart process "C:\Datasets\Field_A"
-
-# Linux
-chloros-cli --restart process ~/datasets/field_a
-```
-
-5. Pe Linux, verificați dacă executabilul backend-ului există:
-
-```bash
-ls -la /usr/lib/chloros/chloros-backend
-```
-
-***
-
-### Probleme legate de licență / autentificare**Eroare:**
-
-```
-
-Chloros+ license required for CLI access
-```
-
-**Soluții:**
-
-1. Verificați dacă aveți un abonament Chloros+ activ
-2. Autentificați-vă cu datele de autentificare:
-
-```bash
-chloros-cli login user@example.com 'password'
-```
-
-3. Verificați starea licenței:
-
-```bash
-chloros-cli status
-```
-
-4. Contactați serviciul de asistență: info@mapir.camera
-
-***
-
-### Nu s-au găsit imagini**Eroare:**
-
-```
-
-No images found in the specified folder
-```
-
-**Soluții:**
-
-1. Verificați dacă folderul conține formate acceptate (.RAW, .TIF, .JPG)
-2. Verificați dacă calea către folder este corectă (utilizați ghilimele pentru căile care conțin spații)
-3. Asigurați-vă că aveți permisiuni de citire pentru folder
-4. Verificați dacă extensiile fișierelor sunt corecte
-
-***
-
-### Procesarea se blochează sau se oprește**Soluții:**
-
-1. Verificați spațiul disponibil pe disc (asigurați-vă că este suficient pentru ieșire)
-2. Închideți alte aplicații pentru a elibera memorie
-3. Reduceți numărul de imagini (procesați în loturi)
-
-***
-
-### Portul este deja utilizat**Eroare:**
-
-```
-
-Port 5000 is already in use
-```
-
-**Soluții:**
-
-**Windows:**
-
-```powershell
-chloros-cli --port 5001 process "C:\Datasets\Field_A"
-```
-
-**Linux:**
-
-```bash
-# Find what's using port 5000
-lsof -i :5000
-
-# Use a different port
-chloros-cli --port 5001 process ~/datasets/field_a
-```
-
-***
-
-## Întrebări frecvente
-
-### Î: Am nevoie de o licență pentru CLI?
-
-**R:**Da! CLI necesită o**licență Chloros+** plătită.
-
-* ❌ Plan standard (gratuit): CLI dezactivat
-* ✅ Planuri Chloros+ (cu plată): CLI complet activat
-
-Abonați-vă la: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-***
-
-### Î: Pot folosi CLI pe un server fără GUI?**R:** Da! CLI rulează complet fără interfață grafică. Acesta este principalul caz de utilizare pe Linux.**Server Windows:**
-* Server Windows 2016 sau o versiune ulterioară
-* Visual C++ Redistributable instalat
-
-**Server Linux:**
-* Ubuntu 20.04+ / Debian 11+ (amd64) sau JetPack 6 (arm64)
-* Instalare prin pachetul `.deb`
-
-**Ambele platforme:**
-* Minim 8 GB RAM (se recomandă 16 GB)
-* Activare licență unică: `chloros-cli login user@example.com 'password'`
-
-***
-
-### Î: Unde sunt salvate imaginile procesate?**R:**În mod implicit, imaginile procesate sunt salvate în**același folder ca și cele de intrare**, în subfoldere denumite după modelul camerei (de ex., `Survey3N_RGN/`).
-
-Utilizați opțiunea `-o` pentru a specifica un alt folder de ieșire:
-
-```bash
-# Windows
-chloros-cli process "C:\Input" -o "D:\Output"
-
-# Linux
-chloros-cli process ~/input -o ~/output
-```
-
-***
-
-### Î: Pot procesa mai multe foldere simultan?**R:** Nu direct într-o singură comandă, dar puteți utiliza scripturi pentru a procesa folderele secvențial. Consultați secțiunea [Automatizare și scripturi](CLI.md#automation--scripting).***
-
-### Î: Cum pot salva ieșirea CLI într-un fișier jurnal?**PowerShell:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A" | Tee-Object -FilePath "processing.log"
-```
-
-**Batch:**
-
-```batch
-chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
-```
-
-**Linux Bash:**
-
-```bash
-chloros-cli process ~/datasets/field_a 2>&1 | tee processing.log
-```
-
-***
-
-### Î: Ce se întâmplă dacă apăs Ctrl+C în timpul procesării?**R:** CLI va:
-
-1. Opri procesarea în mod corespunzător
-2. Opri backend-ul
-3. Ieși cu codul 130
-
-Imaginile procesate parțial pot rămâne în folderul de ieșire.
-
-***
-
-### Î: Pot automatiza procesarea CLI?**R:** Desigur! CLI este conceput pentru automatizare. Consultați [Automatizare și scripturi](CLI.md#automation--scripting) pentru PowerShell (Windows), Batch (Windows), Bash (Linux) și Python (multiplatformă).***
-
-### Î: Cum verific versiunea CLI?**R:**
-
-```bash
-chloros-cli --version
-```
-
-**Rezultat:**
-
-```
-
-Chloros CLI 1.1.0
-```
+## Depanare: Top 5
+
+| Simptom | Soluție |
+| --- | --- |
+| `Login required` sau o sarcină programată se blochează la promptul `Email:` | Rulați o dată `chloros-cli login EMAIL 'PASSWORD'` pe această mașină — comenzile fără o sesiune stocată în cache vor interacționa în mod interactiv, în loc să eșueze rapid. |
+| `backend unreachable` | Porniți aplicația desktop „Chloros
+” sau rulați direct fișierul executabil backend (`chloros-backend`). Dacă direcționați `lattice`/`project`/`daq pool-*` către un backend la distanță, verificați `CHLOROS_BACKEND_URL`. |
+| Conectarea la matrice blocată: `FRAMES WILL DROP` / `Reduce ROI to enable` | Inelul de recepție al plăcii de rețea (NIC) a gazdei a fost resetat la valorile implicite — cauza nr. 1 pentru care un sistem care funcționa anterior refuză să se conecteze, de obicei după o actualizare a driverului plăcii de rețea. Rulați `chloros-cli lattice network --fix` dintr-un terminal **cu privilegii ridicate** (sau setați `ReceiveBufferLen=256`, `PendingReceives=64`); consultați secțiunea *Configurarea și reglarea plăcii de rețea a gazdei* din documentația de referință. |
+| Subcomanda `daq` se închide cu mesajul: „necesită pachetul DAQ complet…” | Situație așteptată la versiunile livrate — pachetulCLI
+compilat include doar familia de comenzi `daq pool-*`, care acoperă conectarea, transmisia, înregistrarea și selectarea cap-urilor. Utilizați `pool-*` (sau `chloros_sdk.connect_daq_sensor()` de laPython
+). |
+| Jetson afișează un avertisment privind memoria swap înainte de folderele mari | Adăugați memoria swap bazată pe fișiere —CLI
+afișează exact comenzile `fallocate`/`swapon` care trebuie rulate. |
 
 ***
 
 ## Obținerea de ajutor
 
-### Ajutor pentru linia de comandă
-
-Vizualizați informațiile de ajutor direct în CLI:
-
 ```bash
-# General help
-chloros-cli --help
-
-# Command-specific help
-chloros-cli process --help
-chloros-cli login --help
-chloros-cli language --help
+chloros-cli --help              # top-level help
+chloros-cli process --help      # per-command help
+chloros-cli lattice --help
+chloros-cli daq --help          # lists the pool-* subcommands
 ```
 
-### Canale de asistență
-
-* **E-mail**: info@mapir.camera
-* **Site web**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **Prețuri**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)***
-
-## Exemple complete
-
-### Exemplul 1: Procesare de bază
-
-Procesare cu setările implicite (vignette, reflectanță):
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A_2025_01_15"
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/datasets/field_a_2025_01_15
-```
-
-***
-
-### Exemplul 2: Rezultate științifice de înaltă calitate
-
-32-bit float TIFF:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A" ^
-  --format "TIFF (32-bit, Percent)" ^
-  --vignette ^
-  --reflectance
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/datasets/field_a \
-  --format "TIFF (32-bit, Percent)" \
-  --vignette \
-  --reflectance
-```
-
-***
-
-### Exemplul 3: Procesare rapidă a previzualizării
-
-8 biți PNG fără calibrare pentru revizuire rapidă:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A" ^
-  --format "PNG (8-bit)" ^
-  --no-vignette ^
-  --no-reflectance
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/datasets/field_a \
-  --format "PNG (8-bit)" \
-  --no-vignette \
-  --no-reflectance
-```
-
-***
-
-### Exemplul 4: Procesare cu corecție PPK
-
-Aplicați corecții PPK cu reflectanță:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Datasets\Field_A" ^
-  --ppk ^
-  --reflectance
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/datasets/field_a \
-  --ppk \
-  --reflectance
-```
-
-***
-
-### Exemplul 5: Locație de ieșire personalizată
-
-Procesați într-o locație diferită cu un format specific:
-
-**Windows:**
-
-```powershell
-chloros-cli process "C:\Input\Raw_Images" ^
-  -o "D:\Output\Processed" ^
-  --format "TIFF (16-bit)"
-```
-
-**Linux:**
-
-```bash
-chloros-cli process ~/input/raw_images \
-  -o ~/output/processed \
-  --format "TIFF (16-bit)"
-```
-
-***
-
-### Exemplul 6: Fluxul de autentificare
-
-Flux complet de autentificare (identic pe toate platformele):
-
-```bash
-# Step 1: Login
-chloros-cli login user@example.com 'MyP@ssw0rd'
-
-# Step 2: Verify status
-chloros-cli status
-
-# Step 3: Process images
-# Windows: chloros-cli process "C:\Datasets\Field_A"
-# Linux:   chloros-cli process ~/datasets/field_a
-chloros-cli process ~/datasets/field_a
-
-# Step 4: Logout (optional, when switching accounts)
-chloros-cli logout
-```
-
-***
-
-### Exemplul 7: Utilizarea mai multor limbi
-
-Schimbarea limbii interfeței (identică pe toate platformele):
-
-```bash
-# List available languages
-chloros-cli language --list
-
-# Change to Spanish
-chloros-cli language es
-
-# Process with Spanish interface
-# Windows: chloros-cli process "C:\Vuelos\Campo_A"
-# Linux:   chloros-cli process ~/vuelos/campo_a
-chloros-cli process ~/vuelos/campo_a
-
-# Change back to English
-chloros-cli language en
-```
+* **Fiecare opțiune, fiecare subcomandă:** [CLI
+Referință](reference/cli-reference.md)
+* **EchivalentPython
+:** [Python
+SDK
+](api-python-sdk.md) și [SDK
+Referință](reference/sdk-reference.md)
+* **Asistență:** info@mapir.camera · [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)

@@ -1,10 +1,10 @@
 # Limbi acceptate
 
-Chloros oferă suport complet pentru interfață în **38 de limbi din întreaga lume**, fiind astfel accesibil utilizatorilor de pe tot globul. Puteți schimba limba instantaneu în toate interfețele: Desktop, Browser, CLI și Python SDK.
+Chloros oferă suport complet pentru interfață în **38 de limbi din întreaga lume**, făcându-l accesibil utilizatorilor de pe tot globul. Puteți schimba limba instantaneu atât în interfața grafică pentru desktop, cât și în CLI.
 
 Chloros acceptă următoarele limbi:
 
-| # | Limba | Denumire nativă | Cod CLI |
+| # | Limbă | Denumire nativă | Cod CLI |
 |---|----------|-------------|----------|
 | 1 | 🇺🇸 Engleză | English | `en` |
 | 2 | 🇪🇸 Spaniolă | Español | `es` |
@@ -47,7 +47,7 @@ Chloros acceptă următoarele limbi:
 
 ## Cum se schimbă limba
 
-### În Chloros Desktop/Browser
+### În Chloros Desktop
 
 1. Deschideți setările aplicației
 2. Accesați meniul de selectare a limbii
@@ -56,7 +56,7 @@ Chloros acceptă următoarele limbi:
 
 ### În Chloros CLI
 
-Utilizați comanda `language` pentru a vizualiza sau modifica limba interfeței CLI:
+Utilizați comanda `language` pentru a vizualiza sau a schimba limba interfeței CLI:
 
 ```bash
 # View current language
@@ -77,17 +77,13 @@ chloros-cli language --list
 
 Pentru mai multe detalii, consultați [documentația CLI](CLI.md).
 
-### În Chloros Python SDK
-
-Setați parametrul de limbă la inițializarea SDK pentru a primi mesaje și ieșiri în limba preferată.
-
 ## Acoperire
 
-Toate cele 38 de limbi sunt complet acceptate în:
+Toate cele 38 de limbi sunt pe deplin suportate în:
 
-* **Chloros Desktop** - Traducere completă a GUI
-* **Chloros Browser** - Interfață web în toate limbile
-* **Chloros CLI** - Interfață de linie de comandă și mesaje de ieșire
-* **Chloros Python SDK** - Mesaje și documentație API
+* **Chloros Desktop** – Traducere completă a interfeței grafice
+* **Chloros CLI** – Interfața liniei de comandă și mesajele de ieșire
 
-Suportul lingvistic asigură că utilizatorii din întreaga lume pot lucra eficient în limba lor maternă, fără bariere.
+Python SDK API și [documentația de referință](reference/sdk-reference.md) aferentă sunt furnizate în limba engleză.
+
+Suportul lingvistic asigură faptul că utilizatorii din întreaga lume pot lucra eficient în limba lor maternă, fără bariere.

@@ -1,333 +1,200 @@
 # Straturi de imagine
 
-Meniul derulant „Straturi de imagine” din vizualizatorul de imagini Chloros vă permite să comutați rapid între diferite versiuni ale aceleiași imagini – de la capturile originale la rezultatele de reflectanță procesate și imaginile cu indice calculat.
+**Meniul derulant pentru straturi** din colțul din dreapta sus al vizualizatorului de imagini permite comutarea între toate versiunile imaginii pe care o vizualizați — de la captura sursă, trecând prin fiecare produs procesat, până la imaginile index calculate — fără a părăsi vizualizatorul.
 
 ## Ce sunt straturile de imagine?
 
-În Chloros, **straturile** se referă la diferitele rezultate ale imaginii disponibile pentru o singură imagine sursă. Când procesați imagini, Chloros creează mai multe versiuni:
+Un „strat” în Chloros este un **fișier de produs**înregistrat corespunzător unei imagini sursă. Importul vă oferă fișierele sursă; procesarea adaugă un strat pentru fiecare produs generat de execuție. Fișierele exportate păstrează numele fișierului sursă —**folderul** este cel care identifică produsul, iar numele stratului este eticheta atribuită de Chloros acelui folder.
 
-* **Imagini originale** (fișiere JPG și RAW de pe camera dvs.)
-* Rezultate **calibrate în funcție de reflectanță** (dacă a fost activată calibrarea reflectanței)
-* **Imagini țintă** (dacă imaginea conține ținte de calibrare)
-* **Imagini index** (NDVI, NDRE, GNDVI etc., dacă au fost configurați indici)**Meniul derulant Selector de straturi** din partea dreaptă sus a Vizualizatorului de imagini vă permite să comutați instantaneu între aceste versiuni fără a părăsi vizualizatorul.***
+<!-- SCREENSHOT-NEEDED: Image Viewer full screen with the layer dropdown open on a processed LATTICE multispectral image, showing the full list: TIFF base, RAW (Original), RAW (Debayered), RAW (Preview), RAW (Radiance), RAW (Reflectance), and one RAW (NDVI Index) entry. -->
 
-## Tipuri de straturi disponibile
+***
 
-### JPG
+## Lista straturilor
 
-* Imaginea de previzualizare JPG originală de la aparatul foto
-* Disponibilă întotdeauna pentru toate imaginile
-* Neprelucrată, așa cum a fost capturată de aparatul foto
-* Se încarcă și se afișează cel mai rapid
+### Întotdeauna prezente
 
-**Când să vizualizați:**
+| Strat | Ce reprezintă |
+| --- | --- |
+| **JPG**(sau**PNG**/**TIFF**) | Fișierul de bază care a fost inclus odată cu captură. Survey3 importă un `.JPG` lângă fiecare `.RAW`; Capturile LATTICE aduc o previzualizare de afișare PNG sau TIFF. Etichetată pentru ceea ce a fost importat efectiv |
+| **RAW (Original)** | Cadrul brut sursă, debayerat pentru afișare, fără corecții aplicate. Disponibilă din momentul importului — nu necesită procesare |
 
-* Previzualizare rapidă a capturii originale
-* Verificarea compoziției și a încadrării imaginii
-* Verificarea calității capturii înainte de procesare
+O captură LATTICE al cărei fișier de bază **este** cadrul său brut nu are o intrare de bază separată: `RAW (Original)` o acoperă deja.
 
-### RAW (Original)
+### Produse de procesare Survey3
 
-* Datele originale RAW ale senzorului de la camera dvs.
-* Debayered fără aplicarea vreunei post-procesări
-* Adâncime de biți mai mare decât JPG (de obicei date ale senzorului de 12 biți sau 14 biți)
-
-**Când să vizualizați:**
-
-* Inspectarea calității datelor originale ale senzorului
-* Verificarea problemelor senzorului sau a artefactelor
-* Compararea rezultatelor înainte și după procesare
-
-### RAW (Țintă)
-
-* Apare doar pentru imaginile identificate ca conținând ținte de calibrare
-* Afișează imaginea RAW originală cu ținta detectată
-* Utilizat pentru a verifica dacă detectarea țintei a avut succes
-
-**Când să vizualizați:**
-
-* Confirmarea faptului că țintele de calibrare au fost detectate corect
-* Verificarea calității imaginii țintei
-* Depanarea problemelor de calibrare
+| Strat | Scris în | Există când |
+| --- | --- | --- |
+| **RAW (Țintă)** | — | Cadrul a fost identificat ca conținând o țintă de calibrare |
+| **RAW (Reflectanță)** | `Reflectance_Calibrated_Images/` | Calibrarea reflectanței s-a efectuat cu succes pe acest cadru |
+| **Corectare vignetă**| `Vignette_Corrected_Images/` | Cadrul nu a putut fi calibrat în ceea ce privește reflectanța**și** *corectarea vignetei* era activată |
+| **Răspunsul senzorului**| `Sensor_Response_Images/` | Cadrul nu a putut fi calibrat în ceea ce privește reflectanța**și** *corecția de vignetare* era dezactivată |
+| **Echilibru de alb** | `White_Balanced_Images/` | A fost generat un produs cu echilibru de alb |
 
 {% hint style="info" %}
-**Strat țintă**: Acest strat apare doar în meniul derulant pentru imaginile care conțin ținte de calibrare. Imaginile capturate obișnuite nu vor avea această opțiune.
+**Corecția vignetării și răspunsul senzorului sunt alternative, nu pot fi activate amândouă.** Există exact un singur produs de rezervă necalibrat pe fiecare rulare, pentru fiecare model de cameră, iar comutatorul *Corecție vignetă* alege care anume. Vezi [Setări proiect](../project-settings/project-settings.md).
 {% endhint %}
 
-### RAW (Reflectanță)
+### Niveluri LATTICE
 
-* Imaginea de ieșire cu reflectanță calibrată
-* Vigneta corectată (dacă este activată în procesare)
-* Reflectanță calibrată folosind datele țintelor (dacă este activată)
-* Multi-bandă TIFF cu toate canalele camerei
-* Valorile pixelilor reprezintă procentul de reflectanță (atunci când se utilizează modul procentual)
-* Gata de manipulare cu [Index/LUT Sandbox](index-lut-sandbox.md)
+LATTICE capturează fan-out-ul în aceste niveluri într-o singură etapă de procesare. Care dintre ele există depinde de opțiunile de export per produs din Setările proiectului și de ceea ce se aplică camerei respective.
 
-**Când să vizualizați:**
+| Strat | Se scrie în | Se aplică la |
+| --- | --- | --- |
+| **RAW (Debayered)** | `Debayered_Images/` | RGB și multispectral |
+| **RAW (Previzualizare)** | `Preview_Images/` | Multispectral (extindere culori false) |
+| **Echilibru de alb** | `Preview_Images/` | Camerele principale RGB — previzualizarea RGB este înregistrată sub acest nume, astfel încât să se alinieze cu stratul Survey3 cu același nume |
+| **RAW (radianță)** | `Radiance_Images/` | Numai multispectral |
+| **RAW (Reflectanță)** | `Reflectance_Calibrated_Images/` | Numai multispectral și numai atunci când o înregistrare corespunzătoare de tip „downwelling” `.daq` sau o țintă din cadru care a trecut testul de control al calității acoperă cadrul |
 
-* Inspectarea rezultatelor calibrate
-* Verificarea calității calibrării
-* Verificarea valorilor pixelilor pentru acuratețe științifică
-* Compararea cu originalul pentru a vedea efectele calibrării
+Camerele principale RGB nu dispun de radiometrie pe benzi, astfel încât radianța și reflectanța sunt omise pentru acestea ca fiind **inaplicabile** — jurnalul indică acest lucru, în loc să genereze o eroare silențioasă.
 
-{% hint style="success" %}
-**Recomandat**: Utilizați stratul RAW (Reflectanță) atunci când verificați valorile pixelilor pentru măsurători și analize științifice.
-{% endhint %}
+### Straturi de index, LUT și sandbox
 
-### RAW (NDVI Index)... și similare
+| Tip de strat | Exemplu | De unde provine |
+| --- | --- | --- |
+| **RAW (`<INDEX>` Index)** | `RAW (NDVI Index)` | Câte unul pentru fiecare index configurat în Setările proiectului, calculat în timpul procesării |
+| **`<INDEX>` LUT** | `NDVI LUT` | Versiunea cu mapare de culori a unui index |
+| **Sandbox (`<Name>` `<Index\|LUT>` `<NNN>`)** | `Sandbox (NDVI LUT 003)` | Câte unul pentru fiecare execuție de export [Index/LUT Sandbox](index-lut-sandbox.md) |
 
-* Imagine a indicelui de vegetație calculat (NDVI în acest exemplu)
-* Numele indicelui se modifică în funcție de indicele configurat în timpul procesării
-* Exemple: RAW (NDVI Index), RAW (NDRE Index), RAW (GNDVI Index) etc.
-* Imagine monocromă cu o singură bandă care prezintă rezultatele calculului indicelui
-* Apare un strat pentru fiecare indice configurat în Setările proiectului
-
-**Nume posibile ale indicilor:**
-
-* RAW (NDVI Index)
-* RAW (NDRE Index)
-* RAW (GNDVI Index)
-* RAW (OSAVI Index)
-* RAW (EVI Index)
-* RAW (SAVI Index)
-* Și multe altele... (vezi [Formule de indici multispectrali](../project-settings/multispectral-index-formulas.md))
-
-**Când să vizualizați:**
-
-* Examinarea rezultatelor calculului indicelui
-* Verificarea intervalelor valorilor indicelui
-* Identificarea zonelor de interes
-* Verificarea imaginilor cu indici înainte de utilizarea lor în GIS sau analiză
+Dacă același nume de index este configurat de mai multe ori cu setări diferite, al doilea și următoarele primesc un număr în nume (`RAW (NDVI2 Index)`), astfel încât straturile să rămână ușor de distins.
 
 ***
 
 ## Utilizarea selectorului de straturi
 
-### Deschiderea meniului derulant
+1. Deschideți o imagine pe ecran complet făcând clic pe o miniatură din grilă
+2. Faceți clic pe **meniul derulant al straturilor** din colțul din dreapta sus al vizualizatorului
+3. Alegeți un strat — imaginea se actualizează imediat
 
-1. Deschideți o imagine în modul ecran complet (faceți clic pe orice miniatură din Vizualizatorul de imagini)
-2. Localizați **meniul derulant al straturilor** în colțul din dreapta sus al vizualizatorului
-3. Meniul derulant afișează stratul selectat în prezent (de exemplu, „JPG”)
-4. Faceți clic pe meniul derulant pentru a vedea toate straturile disponibile
+Meniul derulant afișează mai întâi **JPG, RAW (Original), RAW (Target), RAW (Reflectance)**, în această ordine, iar restul sunt listate după acestea, în ordinea în care au fost înregistrate produsele.
 
-### Comutarea între straturi
+### Preferința stratului la navigare
 
-1. Faceți clic pe meniul derulant al straturilor pentru a deschide lista
-2. Sunt afișate toate straturile disponibile pentru imaginea curentă
-3. Faceți clic pe numele oricărui strat pentru a comuta la acea versiune
-4. Imaginea se actualizează imediat pentru a afișa stratul selectat
+Apăsarea tastelor **←**/**→** trece la imaginea următoare și încearcă să vă mențină pe același strat:
 
-**Comutare rapidă:**
+1. **Potrivire exactă mai întâi** — dacă imaginea următoare are un strat cu același nume, acesta este afișat. Aceasta este opțiunea care vă menține pe stratul `RAW (NDVI Index)` pe măsură ce parcurgeți un set întreg
+2. **Apoi, potrivire după tip** — un strat index caută orice strat index, un LUT orice LUT, un strat de reflectanță orice strat de reflectanță, un strat țintă orice strat țintă, un strat original orice strat original, un strat de bază orice strat de bază
+3. **Apoi, numai pentru straturile de export** — numele este păstrat chiar dacă lista de straturi nu s-a sincronizat încă, deoarece fișierul există deja pe disc. Acesta este motivul pentru care puteți revizui produsele în timp ce procesul de generare încă le scrie
+4. **În caz contrar** — primul strat disponibil, care este de obicei imaginea de bază
 
-* Meniul derulant reține ultima dvs. selecție
-* Când navigați la imaginea următoare, Chloros încearcă să afișeze același tip de strat
-* Dacă acel strat nu există pe imaginea următoare, se revine implicit la JPG
+Fișierele sidecar `.daq` și `.csv` din proiect sunt omise la navigarea cu tastele săgeată, astfel încât parcurgerea imaginilor nu ajunge niciodată la o înregistrare a senzorului de lumină.
 
-### Disponibilitatea straturilor
-
-Nu toate straturile sunt disponibile pentru fiecare imagine:
-
-**Întotdeauna disponibile:*** ✅ JPG (fiecare imagine are o previzualizare JPG)
-
-**Disponibile condiționat:**
-
-* ⚠️ RAW (Original) - Numai dacă imaginea a fost capturată în modul RAW sau RAW+JPG
-* ⚠️ RAW (Țintă) - Numai dacă imaginea conține ținte de calibrare detectate
-* ⚠️ RAW (Reflectanță) - Numai după procesare cu calibrarea reflectanței activată
-* ⚠️ RAW (\[Index] Index) - Numai după procesare cu indicii configurați
-
-***
-
-## Persistența straturilor
-
-### Navigarea între imagini
-
-Când navigați la o altă imagine (folosind tastele săgeată sau făcând clic pe miniaturi):**Preferința stratului este păstrată:**
-
-* Dacă vizualizați „RAW (Reflectanță)”, imaginea următoare afișează „RAW (Reflectanță)” (dacă este disponibilă)
-* Dacă vizualizați „RAW (NDVI Index)”, imaginea următoare afișează „RAW (NDVI Index)” (dacă este disponibil)
-* Dacă același strat nu există, se utilizează implicit JPG
-
-**Exemplu de flux de lucru:**
-
-1. Deschideți Imaginea 1, comutați la RAW (NDVI Index)
-2. Apăsați → pentru a vizualiza Imaginea 2
-3. Imaginea 2 afișează automat stratul RAW (NDVI Index)
-4. Continuați navigarea - toate imaginile afișează stratul NDVI
-5. Foarte eficient pentru revizuirea rezultatelor indexului pe mai multe imagini
-
-***
-
-## Fluxuri de lucru comune
-
-### Flux de lucru 1: Comparație înainte/după
-
-**Obiectiv**: Compararea imaginii originale cu cea calibrată
-
-1. Deschideți imaginea procesată în Image Viewer
-2. Selectați **RAW (Original)** din meniul derulant
-3. Observați vignetarea și valorile necalibrate
-4. Treceți la **RAW (Reflectance)** din meniul derulant
-5. Comparați - vignetarea a fost eliminată, valorile au fost calibrate
-
-### Flux de lucru 2: Revizuirea indexului
-
-**Obiectiv**: Revizuirea rapidă a rezultatelor NDVI în cadrul setului de date
-
-1. Deschideți prima imagine procesată
-2. Selectați **RAW (NDVI Index)** din meniul derulant
-3. Utilizați tasta săgeată → pentru a naviga la imaginea următoare
-4. Stratul NDVI persistă automat
-5. Continuați prin toate imaginile, verificând modelele NDVI
-6. Comutați la **RAW (NDRE Index)** pentru a compara
-
-### Flux de lucru 3: Verificarea țintelor
-
-**Obiectiv**: Verificați dacă toate imaginile țintă au fost detectate corect
-
-1. Navigați la o imagine țintă
-2. Selectați **RAW (Țintă)** din meniul derulant
-3. Verificați dacă țintele de calibrare sunt clar vizibile și detectate
-4. Navigați la următoarea imagine țintă
-5. Repetați verificarea pentru toate țintele
-
-### Flux de lucru 4: Inspecția valorilor pixelilor
-
-**Obiectiv**: Verificați valorile de reflectanță pentru acuratețe științifică
-
-1. Deschideți imaginea procesată
-2. Selectați stratul **RAW (Reflectanță)**
-
-3. Activați modul**Procentaj pixeli** (butonul din bara de instrumente din dreapta sus)
-4. Mutați cursorul peste zonele de vegetație
-5. Verificați dacă valorile pixelilor se încadrează în intervalele așteptate (30-70% pentru NIR, 5-15% pentru Red)
-6. Verificați zonele de sol și apă pentru a vă asigura că valorile sunt corespunzătoare
+Funcțiile de zoom și panoramare se aplică și între imagini, ceea ce facilitează compararea „înainte/după” a aceleiași poziții din câmp.
 
 ***
 
 ## Înțelegerea valorilor pixelilor pe straturi
 
-Diferitele straturi prezintă intervale diferite de valori ale pixelilor:
+[Panoul „Valori cursor”](opening-an-image-full-screen.md#cursor-values) afișează valoarea reală pe canal sub cursor, în unitatea în care este stocat stratul respectiv. Coloanele sale se modifică în funcție de strat:
 
-### Stratul JPG
+| Strat | Unitate afișată | Note |
+| --- | --- | --- |
+| Base (JPG / PNG / Previzualizare TIFF) | DN, 0–255 | Valori de afișare, corectate gamma pe RGB. Numai pentru inspecție vizuală |
+| RAW (Original) | DN | Valori digitale brute ale senzorului. Axa histogramei indică adâncimea: 255 (8 biți), 4095 (12 biți) sau 65535 (16 biți) |
+| RAW (Debayered) | DN | Liniar, fără extindere a afișajului |
+| RAW (Previzualizare) / Balans de alb | DN | Produs de afișare — extins sau cu corecție gamma. Nu este destinat măsurării |
+| RAW (Radianță) | **W/m²/sr/nm** | Radianță fizică Float32. Fără coloană DN |
+| RAW (Reflectanță) | DN **și %** | Procentul calculat pe baza scalei proprii a fișierului — vezi mai jos |
+| Exporturi index / LUT / sandbox | Valoarea indexului sau componentele RGB | Un fișier index monocanal raportează valoarea indexului; un fișier LUT cu mapare de culori raportează componentele Red/Green/Blue |
 
-* **Interval**: 0-255 (8 biți)
-* **Semnificație**: Valori de afișare, corectate gamma
-* **Utilizare**: Numai inspecție vizuală, nu pentru măsurători științifice
+### Reflectanță: scara este specifică fiecărui fișier
 
-### RAW (Original)
+{% hint style="warning" %}
+**„Împărțirea la 65.535” este corectă doar pentru Survey3.** Reflectanța LATTICE este stocată la o scară diferită, iar amestecarea celor doi divizori este cea mai comună modalitate de a obține valori ale reflectanței care sunt exact jumătate din ceea ce ar trebui să fie.
+{% endhint %}
 
-* **Interval**: 0-65535 (16 biți)
-* **Semnificație**: Valori digitale brute ale senzorului
-* **Utilizare**: Verificarea performanței senzorului, necalibrate
+| Sursă | DN care corespunde reflectanței 1,0 | Identificat prin |
+| --- | --- | --- |
+| **LATTICE**(M3C / M3M) |**32768** | Eticheta XMP `Chloros:PixelScale=32768` inclusă în fiecare export de reflectanță LATTICE. Marja de 2× înseamnă că ρ peste 1,0 poate fi reprezentat, în loc să fie decupat |
+| **Survey3**|**65535** | Fără eticheta de scală XMP Chloros — calibrarea Survey3 scrie ρ × dtype-max și decupează la 1,0 |
 
-### RAW (Reflectanță)
+Pentru GIS și scripturi: citiți `Chloros:PixelScale` din fișier și împărțiți la această valoare. Dacă eticheta lipsește, fișierul este la scara Survey3 (65535). Vizualizatorul, mediul de testare index/LUT și exportul indexului rezolvă toți scara în același mod, astfel încât numărul pe care îl vedeți la cursor este numărul folosit în calculele indexului.
 
-* **Interval**: 0-65.535 (16 biți TIFF) sau 0,0-1,0 (32 biți procent)
-* **Semnificație**: procent de reflectanță calibrat
-* **Utilizare**: măsurători și analize științifice**Pentru TIFF pe 16 biți:**Împărțiți la 65.535 pentru a obține procentul de reflectanță**Pentru procent pe 32 de biți:** Valorile reprezintă direct procentul (0,5 = 50% reflectanță)
+Stocare specifică formatului pe lângă această scală:
 
-### RAW (Imagini index)
+* **TIFF (32 de biți, procent)** stochează DN / 65535 ca număr cu virgulă mobilă
+* **PNG (8 biți)**și**JPG (8 biți)** stochează DN × 255 / 65535
+* O **exportare TIFF pe 8 biți a unei capturi cu sursă pe 8 biți** este limitată la intervalul 0–255 în loc să fie redimensionată și, în mod deliberat, nu conține nicio etichetă de scală. Panoul afișează doar DN pentru aceste fișiere, fără coloana de procente
 
-* **Interval**: Variază în funcție de index (de obicei de la -1,0 la +1,0 pentru indicii normalizați)
-* **Semnificație**: Rezultatul calculului indexului
-* **Exemple**:
-  * NDVI: de la -1 la +1 (vegetație de obicei între 0,4 și 0,9)
-  * NDRE: de la -1 la +1 (detectarea stresului)
-  * EVI: de la 0 la 1 (vegetație îmbunătățită)
+### Intervale de valori ale indicelui
+
+| Familie de indici | Interval tipic | Citire |
+| --- | --- | --- |
+| Diferența normalizată (NDVI, GNDVI, NDRE, ENDVI…) | −1 până la +1 | Vegetația sănătoasă are de obicei valori între 0,4 și 0,9; solul gol este aproape de 0; apa are valori negative |
+| Ajustat la sol (SAVI, OSAVI, MSAVI2…) | aproximativ de la −1 la +1,5 | Valoare similară cu NDVI, cu fondul solului suprimat |
+| Raport (GRVI, GCI, MSR, CIRE…) | nelimitat în sus | Rapoartele cresc fără limită pe măsură ce banda numitorului tinde spre zero |
+| EVI / LAI | de la 0 la ~1, de la 0 la ~3,5 | Norii și alți pixeli saturați îi împing pe amândoi în afara intervalului — mascați-i mai întâi |
+
+Consultați [Formulele indicilor multispectrali](../project-settings/multispectral-index-formulas.md) pentru formula exactă din spatele fiecărei presetări.
 
 ***
 
-## Sfaturi și bune practici
+## Fluxuri de lucru obișnuite
 
-### Comutarea eficientă între straturi
+### Comparație înainte/după
 
-* **Cunoașterea comenzilor rapide de la tastatură**: Deși nu există comenzi rapide de la tastatură pentru straturi, săgețile de navigare (←/→) funcționează pentru toate straturile
-* **Fluxuri de lucru consecvente**: Alegeți un strat (de ex., NDVI) și examinați întregul set de date înainte de a comuta la altul
-* **Comparații rapide**: Comutați între Original și Reflectanță pentru a verifica calitatea procesării
+1. Selectați **RAW (Original)** și observați vignetarea și valorile necalibrate
+2. Treceți la **RAW (Reflectanță)**
 
-### Considerații privind performanța
+3. Comparați — vignetarea a fost eliminată, valorile au fost calibrate. Zoomul și panoramarea rămân fixe, astfel încât priviți aceeași zonă de la sol
 
-* **JPG se încarcă cel mai rapid**: Utilizați-l pentru navigarea rapidă prin multe imagini
-* **Straturile RAW se încarcă mai lent**: Rezoluție și adâncime de biți mai mari
-* **Straturi index**: Viteză similară cu straturile de reflectanță
-* **Prima încărcare este cea mai lentă**: Vizualizările ulterioare ale aceluiași strat sunt stocate în cache și sunt mai rapide
+### Verificați un indice pe întregul set
 
-### Verificarea calității
+1. Deschideți prima imagine procesată și selectați stratul de indice
+2. Apăsați **→** în mod repetat — stratul de indice vă urmează de la o imagine la alta
+3. Observați histograma din bara laterală pe măsură ce parcurgeți imaginile: un cadru a cărui distribuție prezintă salturi merită o analiză mai atentă
 
-* **Verificați întotdeauna RAW (Original)**: Verificați calitatea datelor sursă înainte de a avea încredere în rezultatele procesate
-* **Comparați straturile**: Utilizați comutarea între straturi pentru a valida dacă procesarea a funcționat corect
-* **Verificați intervalele indexului**: Utilizați modul Procentaj pixeli cu straturile index pentru a verifica dacă valorile sunt rezonabile***
+### Verificați țintele de calibrare
+
+1. Selectați **RAW (Țintă)** pe un cadru țintă
+2. Confirmați că ținta este clar vizibilă și detectată
+3. Treceți la următorul cadru țintă — stratul țintă vă urmează
+
+### Verificați acuratețea valorilor de reflectanță
+
+1. Selectați **RAW (Reflectanță)**
+
+2. Citiți coloana**%** din panoul „Valori cursor” — aceasta este deja scalată corect pentru fișierul respectiv
+3. Verificați corectitudinea valorilor în raport cu materialele cunoscute din cadru: vegetația sănătoasă are valori ridicate în NIR și valori scăzute în roșu; o țintă de calibrare ar trebui să prezinte valori apropiate de reflectanța publicată
+
+***
 
 ## Depanare
 
-### Strat indisponibil
+### Un strat pe care îl așteptam nu se află în meniul derulant
 
-**Problemă**: Stratul așteptat nu apare în meniul derulant**Cauze posibile:**
+**Cauze posibile**
 
-* Imaginea nu a fost procesată (sunt disponibile doar formatele JPG și RAW (Original))
-* Calibrarea reflectanței a fost dezactivată în timpul procesării
-* Un indice specific nu a fost configurat în Setările proiectului
-* Imaginea este o imagine doar pentru ținte (nu se generează indici pentru ținte)
+* Imaginea nu a fost procesată niciodată — există doar stratul de bază și `RAW (Original)`
+* Opțiunea de export a produsului nu este bifată în Setările proiectului
+* Produsul nu se aplică acelei camere (radianță și reflectanță pe o cameră master RGB; orice indice pe o cameră monocromă M3M cu o singură bandă)
+* Calibrarea reflectanței nu a avut date pe care să se bazeze — nu există acoperire descendentă `.daq` și nici țintă în cadru care să fi trecut de controlul de calitate — astfel încât cadrul a revenit la „Vignette Corrected” (Corectare vignetă) sau „Sensor Response” (Răspunsul senzorului)
 
-**Soluții:**
+**Ce trebuie făcut**
 
-1. Verificați dacă imaginea a fost procesată (verificați folderul de ieșire pentru fișierele procesate)
-2. Verificați Setările proiectului pentru a confirma că indicii au fost configurați
-3. Reprocesați cu indicii dorite activate
+1. Verificați jurnalul execuției: Chloros indică momentul în care un produs de export solicitat a fost imposibil de obținut și motivul
+2. Verificați opțiunile de export pentru fiecare produs în [Setări proiect](../project-settings/project-settings.md)
+3. Confirmați că folderul produsului există în arborele de ieșire al proiectului
+4. Reprocesați cu produsul activat
 
-### Se afișează un strat greșit
+### Lista straturilor pare învechită
 
-**Problemă**: Imaginea se deschide într-un strat neașteptat**Cauză**: Preferința de strat din imaginea anterioară a fost preluată, dar acel strat nu există în imaginea curentă**Soluție**: Chloros revine automat la JPG când stratul preferat nu este disponibil – acesta este un comportament normal
+Chloros rescanifică folderele de produse ale proiectului în timp ce o execuție este în curs și corectează înregistrările de straturi lipsă pe baza conținutului real de pe disc; astfel, un strat a cărui export s-a finalizat în mod normal apare de la sine în cadrul unui sondaj. Trecerea la o altă imagine și revenirea la aceasta forțează o nouă rezolvare.
 
-### Nu se pot vedea țintele de calibrare
+### Valorile de reflexie par a fi jumătate din ceea ce ar trebui să fie
 
-**Problemă**: Stratul RAW (Țintă) nu afișează detectarea țintelor**Cauze posibile:**
+Este aproape sigur că împărțiți un fișier LATTICE la 65535. Utilizați `Chloros:PixelScale` (32768) sau citiți coloana **%**, care a aplicat deja această valoare.
 
-* Țintele nu au fost detectate în timpul procesării
-* Imaginea nu conține de fapt ținte
-* Setările de detectare a țintelor sunt prea stricte
+### Stratul index există, dar imaginea este goală
 
-**Soluții:**
-
-1. Verificați jurnalul de depanare pentru mesaje de tip „Țintă găsită”
-2. Verificați dacă imaginea conține efectiv ținte de calibrare vizibile
-3. Reglați setările de detectare a țintelor în Setările proiectului
-4. Consultați [Alegerea imaginilor țintă](../processing-images-gui/choosing-target-images.md)
-
-***
-
-## Funcții conexe
-
-### Instrumente pentru vizualizarea imaginilor
-
-Când vizualizați orice strat, puteți utiliza:
-
-* **Comenzi de zoom**: Măriți pentru a inspecta detaliile
-* **Panoramare**: Faceți clic și trageți pentru a vă deplasa în imaginea mărită
-* **Inspecția valorii pixelilor**: Vedeți valorile la locația cursorului
-* **Săgețile de navigare**: Deplasați-vă între imagini păstrând stratul
-* **Modul Procentaj pixeli**: Comutați între afișarea DN și procentaj
-
-Consultați [Deschiderea unei imagini pe ecran complet](opening-an-image-full-screen.md) pentru documentația completă a Vizualizatorului de imagini.
-
-### Index/LUT Sandbox
-
-Pentru testarea și vizualizarea interactivă a indexului:
-
-* **Calculul indexului în timp real**: Testați diferite formule de index
-* **Maparea culorilor LUT**: Aplicați gradientele de culoare la indexurile în tonuri de gri
-* **Exportați vizualizările**: Salvați imaginile indexate colorate
-
-Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru detalii.
+Indexul necesită benzi pe care stratul dumneavoastră nu le are — de exemplu, un index care citește un al treilea canal aplicat unui fișier cu unul sau două canale. Treceți la un strat multibandă (reflectanță sau debayered) sau alegeți un index care se potrivește cu filtrul camerei.
 
 ***
 
 ## Pași următori
 
-Acum că ați înțeles straturile de imagine:
-
-* [**Deschiderea unei imagini pe ecran complet**](opening-an-image-full-screen.md) - Ghid complet pentru Image Viewer
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Vizualizare interactivă a indexului
-* [**Formule de indici multispectrali**](../project-settings/multispectral-index-formulas.md) - Referință pentru indicii disponibili
-* [**Finalizarea procesării**](../processing-images-gui/finishing-the-processing.md) - Înțelegerea rezultatelor procesate
+* [**Deschiderea unei imagini pe ecran complet**](opening-an-image-full-screen.md) — afișarea cursorului, histograma și controlul GSD
+* [**Index/LUT Sandbox**](index-lut-sandbox.md) — vizualizare interactivă a indexului și export
+* [**Formule pentru indici multispectrali**](../project-settings/multispectral-index-formulas.md) — referința pentru indici
+* [**Finalizarea procesării**](../processing-images-gui/finishing-the-processing.md) — arborele folderelor de ieșire către care indică aceste straturi
