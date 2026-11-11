@@ -27,15 +27,9 @@ Da. Chloros 1.3.0 suportă modulele de cameră LATTICE M3C și M3M de la un cap�
 
 <summary>Pot să-mi calibrez imaginile pentru reflectanță fără o țintă de calibrare?</summary>
 
-**Survey3
+**Survey3:** Nu. Fără o imagine a țintei de calibrare capturată în același timp cu imaginile care nu sunt ale țintei, nu veți putea corela valorile pixelilor imaginii cu un procent cunoscut de reflectanță. Dacă, de asemenea, nu includeți înregistrarea de la un senzor de lumină MAPIR, spectrul luminii ambientale nu va fi măsurat, iar rezultatele privind reflectanța nu vor fi precise.
 
-:** Nu. Fără o imagine a țintei de calibrare capturată în același timp cu imaginile care nu sunt ale țintei, nu veți putea corela valorile pixelilor imaginii cu un procent cunoscut de reflectanță. Dacă, de asemenea, nu includeți înregistrarea de la un senzor de lumină MAPIR
-
-, spectrul luminii ambientale nu va fi măsurat, iar rezultatele privind reflectanța nu vor fi precise.
-
-**LATTICE:** Da. Reflectanța poate fi raportată la iradianța descendentă măsurată de un senzor de lumină DAQ în locul unui panou (ρ = π·L/E). Atunci când o țintă din cadru care a trecut de controlul calității *este* prezentă, aceasta devine referința absolută în mod implicit (`--reflectance-source auto`), cu excepția cazului în care trece cu un indicator, situație în care ținta și lanțurile DAQ concurează pe baza scorului măsurat. O singură excepție: „Reflectanța F988 este calibrată folosind un panou de reflectanță din cadru: banda se află în afara intervalului calibrat al senzorului de lumină DAQ, așa că Chloros
-
-ul aplică cea mai recentă captură a panoului și o menține între observările panoului.” Consultați [Ținte de calibrare](calibration-targets.md).
+**LATTICE:** Da. Reflectanța poate fi raportată la iradianța descendentă măsurată de un senzor de lumină DAQ în locul unui panou (ρ = π·L/E). Atunci când o țintă din cadru care a trecut de controlul calității *este* prezentă, aceasta devine referința absolută în mod implicit (`--reflectance-source auto`), cu excepția cazului în care trece cu un indicator, situație în care ținta și lanțurile DAQ concurează pe baza scorului măsurat. O singură excepție: „Reflectanța F988 este calibrată folosind un panou de reflectanță din cadru: banda se află în afara intervalului calibrat al senzorului de lumină DAQ, așa că Chloros ul aplică cea mai recentă captură a panoului și o menține între observările panoului.” Consultați [Ținte de calibrare](calibration-targets.md).
 
 </details>
 
@@ -43,9 +37,7 @@ ul aplică cea mai recentă captură a panoului și o menține între observări
 
 <summary>Am nevoie de un senzor de lumină DAQ?</summary>
 
-Nu pentru radianță: exporturile de radianță LATTICE provin din calibrarea radiometrică din fabrică a fiecărei camere și nu necesită nici un senzor DAQ, nici o țintă. Pentru **reflectanță**aveți nevoie de o referință pentru lumina ambientală — fie o măsurătoare a luminii descendente efectuată de un senzor de lumină DAQ, fie o țintă de calibrare în cadru. Un senzor DAQ vă permite să obțineți valori calibrate ale**reflectanței fără a plasa panouri în cadru**. Fișierele `.daq` înregistrate sunt corelate automat cu imaginile dvs. pe baza marcajului temporal. Consultați [Țintele de calibrare](calibration-targets.md) și [Referința CLI
-
-](reference/cli-reference.md).
+Nu pentru radianță: exporturile de radianță LATTICE provin din calibrarea radiometrică din fabrică a fiecărei camere și nu necesită nici un senzor DAQ, nici o țintă. Pentru **reflectanță**aveți nevoie de o referință pentru lumina ambientală — fie o măsurătoare a luminii descendente efectuată de un senzor de lumină DAQ, fie o țintă de calibrare în cadru. Un senzor DAQ vă permite să obțineți valori calibrate ale**reflectanței fără a plasa panouri în cadru**. Fișierele `.daq` înregistrate sunt corelate automat cu imaginile dvs. pe baza marcajului temporal. Consultați [Țintele de calibrare](calibration-targets.md) și [Referința CLI](reference/cli-reference.md).
 
 </details>
 
@@ -143,9 +135,7 @@ Nu. Sunt acceptate doar imaginile individuale ale camerelor MAPIR, nu imaginile 
 
 <summary>Dacă voi încărca imaginile mele în <a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud,</a> ar trebui să le procesez în Chloros înainte de încărcare?</summary>
 
-Dacă intenționați să încărcați imaginile pe platforma noastră de procesare online [MAPIR
-
-Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), nu editați imaginile înainte de încărcare. Cloud va efectua toate aceleași operații de procesare și multe altele.
+Dacă intenționați să încărcați imaginile pe platforma noastră de procesare online [MAPIR Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription), nu editați imaginile înainte de încărcare. Cloud va efectua toate aceleași operații de procesare și multe altele.
 
 </details>
 
@@ -185,9 +175,7 @@ Da! Chloros include [Adaptarea dinamică a calculului](processing-architecture/d
 
 <summary>Ce este pipeline-ul de procesare cu 4 fire?</summary>
 
-Chloros
-utilizează o arhitectură cu 4 fire de execuție în serie pentru utilizatorii Chloros
-+: Firul 1 (Detectare) încarcă imaginile și detectează țintele de calibrare, Firul 2 (Calibrare) calculează calibrarea reflectanței, Firul 3 (Prelucrare) efectuează debayeringul accelerat de GPU și calculul indicelui, iar Firul 4 (Export) scrie fișierele de ieșire. Mai multe imagini pot fi procesate simultan în fire diferite pentru un randament maxim. Consultați [Conducta de procesare](processing-architecture/processing-pipeline.md) pentru detalii.
+Chloros utilizează o arhitectură cu 4 fire de execuție în serie pentru utilizatorii Chloros+: Firul 1 (Detectare) încarcă imaginile și detectează țintele de calibrare, Firul 2 (Calibrare) calculează calibrarea reflectanței, Firul 3 (Prelucrare) efectuează debayeringul accelerat de GPU și calculul indicelui, iar Firul 4 (Export) scrie fișierele de ieșire. Mai multe imagini pot fi procesate simultan în fire diferite pentru un randament maxim. Consultați [Conducta de procesare](processing-architecture/processing-pipeline.md) pentru detalii.
 
 </details>
 

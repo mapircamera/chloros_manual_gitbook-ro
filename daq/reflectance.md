@@ -2,18 +2,16 @@
 
 Un senzor de lumină DAQ transformă imaginile radiometrice în valori de reflectanță. Există două fluxuri de lucru distincte:
 
-1. **Senzor unic** — un senzor DAQ măsoară iradianța descendentă în timp ce o cameră foto realizează captarea imaginii, iar Chloros
-împarte radianța înregistrată de cameră la această valoare de referință.
+1. **Senzor unic** — un senzor DAQ măsoară iradianța descendentă în timp ce o cameră foto realizează captarea imaginii, iar Chloros împarte radianța înregistrată de cameră la această valoare de referință.
 2. **Cu două senzori** — doi senzori DAQ, unul orientat spre cer și unul orientat spre un obiect, generează o curbă spectrală de reflectanță în timp real, fără a fi necesară utilizarea unei camere.
 
 ## Un singur senzor + cameră (referință descendentă)
 
-DAQ-ul funcționează ca senzor de lumină descendentă (DLS): camera măsoară radianța ascendentă **L**(W/m²/sr/nm), DAQ-ul măsoară iradianța descendentă**E** (W/m²/nm), iar Chloros
-calculează reflectanța pe bandă după formula:
+DAQ-ul funcționează ca senzor de lumină descendentă (DLS): camera măsoară radianța ascendentă **L**(W/m²/sr/nm), DAQ-ul măsoară iradianța descendentă**E** (W/m²/nm), iar Chloros calculează reflectanța pe bandă după formula:
 
 > ρ = π · L / E
 
-Valorile citite de DAQ sunt întotdeauna **sincronizate temporal cu expunerea** — de aceea DAQ-ul și camerele utilizează un ceas sincronizat prin PTP (vezi [Rețea și sincronizare temporală DAQ-E](ethernet-ptp.md)). Puneți capacul Sunshine cu cosin pentru lucrările în aer liber și declarați-l corect; declararea capacului scalează direct valoarea E (a se vedea [Cap Profiles &amp; Calibrated Range](caps-and-range.md)). Pentru lucrări cantitative, rețineți caracteristica instrumentului: iradianța cantitativă provine dintr-o medie a citirilor efectuate pe o perioadă de cel puțin 15 s.
+Valorile citite de DAQ sunt întotdeauna **sincronizate temporal cu expunerea** — de aceea DAQ-ul și camerele utilizează un ceas sincronizat prin PTP (vezi [Rețea și sincronizare temporală DAQ-E](ethernet-ptp.md)). Puneți capacul Sunshine cu cosin pentru lucrările în aer liber și declarați-l corect; declararea capacului scalează direct valoarea E (a se vedea [Cap Profiles & Calibrated Range](caps-and-range.md)). Pentru lucrări cantitative, rețineți caracteristica instrumentului: iradianța cantitativă provine dintr-o medie a citirilor efectuate pe o perioadă de cel puțin 15 s.
 
 ### Captură în timp real
 
@@ -24,14 +22,12 @@ Conectați DAQ-ul la o cameră în fila „Cameras”: panoul de setări al fiec
 
 Două comportamente demne de reținut:
 
-* **Fără DAQ asociat → reflectanța este respinsă, nu falsificată.** Chloros
-e respinge produsul de reflectanță și înregistrează motivul omiterii, în loc să returneze în tăcere un produs inferior.
+* **Fără DAQ asociat → reflectanța este respinsă, nu falsificată.** Chloros e respinge produsul de reflectanță și înregistrează motivul omiterii, în loc să returneze în tăcere un produs inferior.
 * **Valoarea măsurată utilizată este păstrată.** Pentru fiecare cadru de reflectanță, valoarea de citire DAQ aplicată efectiv este scrisă ca fișier `.daq` în folderul `daq/` al capturilor, astfel încât captura să poată fi reprocesată ulterior ([Înregistrarea și formatul .daq](recording.md)). Un fișier `.daq.cameras.json` situat lângă acesta identifică camerele pe care le descrie, iar reprocesarea îl asociază exclusiv cu imaginile acelor camere.
 
 ### Procesarea imaginilor înregistrate
 
-Pentru procesarea post-zbor, înregistrați un fișier `.daq` în timpul sesiunii și păstrați-l alături de imagini — fluxul de lucru rezolvă automat datele de înregistrare corelate cu fluxul descendent, preluând orice calibrare de fabrică lipsă din cloud-ul MAPIR
-la prima utilizare. Înregistrările GUI sunt adăugate automat la proiectul deschis atunci când se opresc.
+Pentru procesarea post-zbor, înregistrați un fișier `.daq` în timpul sesiunii și păstrați-l alături de imagini — fluxul de lucru rezolvă automat datele de înregistrare corelate cu fluxul descendent, preluând orice calibrare de fabrică lipsă din cloud-ul MAPIR la prima utilizare. Înregistrările GUI sunt adăugate automat la proiectul deschis atunci când se opresc.
 
 Referința de reflectanță poate fi selectată în momentul procesării — `--reflectance-source` pe `chloros-cli process` sau setarea sursei de reflectanță din Setările proiectului din interfața grafică:
 
@@ -41,21 +37,15 @@ Referința de reflectanță poate fi selectată în momentul procesării — `--
 | `daq` | DAQ cu autoritate |
 | `target` | Țintă strictă în cadru; fără substituire DAQ |
 
-Consultați [Țintele de calibrare](../calibration-targets.md) pentru fluxurile de lucru ale țintelor și [capitolul LATTICE](../lattice/README.md), precum și [Referința CLI
-](../reference/cli-reference.md) pentru fluxul complet de procesare. La citirea pixelilor de reflectanță exportați, utilizați scala marcată (LATTICE: 32768 = ρ 1,0, XMP `Chloros:PixelScale`; Survey3
-: 65535) — consultați [Formate de imagine de ieșire](../output-image-formats.md).
+Consultați [Țintele de calibrare](../calibration-targets.md) pentru fluxurile de lucru ale țintelor și [capitolul LATTICE](../lattice/README.md), precum și [Referința CLI](../reference/cli-reference.md) pentru fluxul complet de procesare. La citirea pixelilor de reflectanță exportați, utilizați scala marcată (LATTICE: 32768 = ρ 1,0, XMP `Chloros:PixelScale`; Survey3: 65535) — consultați [Formate de imagine de ieșire](../output-image-formats.md).
 
 ### Benzi în afara intervalului calibrat al DAQ-ului
 
-Intervalul calibrat radiometric al DAQ-ului este de ~374–974 nm. Chloros
-e respinge datele de reflectanță bazate pe DAQ pentru orice bandă a camerei cu mai puțin de jumătate din ponderea sa spectrală în interiorul acestui interval, raportând motivul de omitere `dls-uncalibrated-band-<nm>`. Dintre modelele disponibile în stoc, acest lucru afectează doar modelul F988: reflectanța camerei F988 este calibrată folosind un panou de reflectanță integrat în scenă; banda se află în afara intervalului calibrat al senzorului de lumină al DAQ-ului, astfel încât Chloros
-aplică cea mai recentă captură a panoului și o menține între observările panoului. Dacă o cameră F988 funcționează doar cu DAQ, Chloros
-refuză reflectanța bazată pe DAQ pentru banda respectivă, cu motivul de omitere `dls-uncalibrated-band-988` — fluxul de lucru cu panoul este calea acceptată.
+Intervalul calibrat radiometric al DAQ-ului este de ~374–974 nm. Chloros e respinge datele de reflectanță bazate pe DAQ pentru orice bandă a camerei cu mai puțin de jumătate din ponderea sa spectrală în interiorul acestui interval, raportând motivul de omitere `dls-uncalibrated-band-<nm>`. Dintre modelele disponibile în stoc, acest lucru afectează doar modelul F988: reflectanța camerei F988 este calibrată folosind un panou de reflectanță integrat în scenă; banda se află în afara intervalului calibrat al senzorului de lumină al DAQ-ului, astfel încât Chloros aplică cea mai recentă captură a panoului și o menține între observările panoului. Dacă o cameră F988 funcționează doar cu DAQ, Chloros refuză reflectanța bazată pe DAQ pentru banda respectivă, cu motivul de omitere `dls-uncalibrated-band-988` — fluxul de lucru cu panoul este calea acceptată.
 
 ## Senzor dublu (lumină ambientală + obiect)
 
-Două senzori DAQ — orice pereche, pe orice platformă de transport — oferă un spectru de reflectanță în timp real fără cameră: un senzor este orientat spre cer (**Sursă de lumină ambientală**), iar celălalt spre subiect (**Scaner de obiect**), iar Chloros
-calculează pentru fiecare lungime de undă:
+Două senzori DAQ — orice pereche, pe orice platformă de transport — oferă un spectru de reflectanță în timp real fără cameră: un senzor este orientat spre cer (**Sursă de lumină ambientală**), iar celălalt spre subiect (**Scaner de obiect**), iar Chloros calculează pentru fiecare lungime de undă:
 
 > R(λ) = obiect(λ) / ambiental(λ)
 
@@ -70,24 +60,11 @@ Cu ambii senzori conectați în fila Senzori de lumină, deschideți fereastra d
 <!-- SCREENSHOT-NEEDED: A live Apparent Reflectance chart from an Ambient+Object DAQ pair in list view, with the vegetation-index table visible below the chart (NDVI etc. showing live values). -->
 
 
-Sub graficul de reflectanță (vizualizare listă), un **tabel al indicilor de vegetație** în timp real calculează indicii pe baza curbei, utilizând centrele de bandă la 450 nm (albastru), 550 nm (verde), 670 nm (roșu) și 800 nm (NIR
-). Indicii bazați pe raporturi care anulează scara absolută (NDVI
-, GNDVI
-, ENDVI, WDRVI
-, GRVI
-, CVI
-, GCI
-, MSR) sunt afișați întotdeauna; indicii care necesită reflectanță absolută (EVI
-, SAVI
-, OSAVI
-, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI
-, NLI, MNLI, FCI, GEMI
-) apar numai atunci când ambii senzori sunt modele calibrate din punct de vedere al puterii.
+Sub graficul de reflectanță (vizualizare listă), un **tabel al indicilor de vegetație** în timp real calculează indicii pe baza curbei, utilizând centrele de bandă la 450 nm (albastru), 550 nm (verde), 670 nm (roșu) și 800 nm (NIR). Indicii bazați pe raporturi care anulează scara absolută (NDVI, GNDVI, ENDVI, WDRVI, GRVI, CVI, GCI, MSR) sunt afișați întotdeauna; indicii care necesită reflectanță absolută (EVI, SAVI, OSAVI, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI, NLI, MNLI, FCI, GEMI) apar numai atunci când ambii senzori sunt modele calibrate din punct de vedere al puterii.
 
 ### Aparentă vs. relativă — regula de etichetare
 
-Chloros
-etichetează rezultatul senzorilor duali în funcție de ceea ce perechea de senzori poate revendica efectiv:
+Chloros etichetează rezultatul senzorilor duali în funcție de ceea ce perechea de senzori poate revendica efectiv:
 
 | Pereche de senzori | Etichetă |
 | --- | --- |
@@ -99,8 +76,4 @@ Toate cele trei modele sunt radiometrice: odată ce pachetul de calibrare din fa
 ### Din Python
 
 
-Nu există o apelare dedicată pentru senzori duali în interfața SDK
-: deschideți două sesiuni cu `chloros_sdk.connect_daq_sensor()` și comparați manual spectrele acestora cu `latest()`, aplicând aceeași convenție de etichetare. (Există, de asemenea, un instrument de înregistrare cu două senzori în interfața internă directă cu hardware-ul a MAPIR
-, menționat în [Referința CLI
-](../reference/cli-reference.md) pentru exhaustivitate — acesta nu face parte din CLI
--ul livrat; fluxul de lucru GUI de mai sus este calea activă suportată.)
+Nu există o apelare dedicată pentru senzori duali în interfața SDK: deschideți două sesiuni cu `chloros_sdk.connect_daq_sensor()` și comparați manual spectrele acestora cu `latest()`, aplicând aceeași convenție de etichetare. (Există, de asemenea, un instrument de înregistrare cu două senzori în interfața internă directă cu hardware-ul a MAPIR, menționat în [Referința CLI](../reference/cli-reference.md) pentru exhaustivitate — acesta nu face parte din CLI-ul livrat; fluxul de lucru GUI de mai sus este calea activă suportată.)

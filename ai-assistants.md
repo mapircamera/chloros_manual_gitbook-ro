@@ -43,7 +43,7 @@ Instrumentele serverului acoperă funcționalitățile oferite de [Python SDK](a
 claude mcp add chloros -- chloros-mcp
 ```
 
-**Claude Desktop:**adăugați acest lucru în `claude_desktop_config.json` (se deschide din**Setări &gt; Dezvoltator &gt; Editare configurație**), apoi reporniți Claude Desktop.**Cursorul** preia aceeași intrare din `~/.cursor/mcp.json`.
+**Claude Desktop:**adăugați acest lucru în `claude_desktop_config.json` (se deschide din**Setări > Dezvoltator > Editare configurație**), apoi reporniți Claude Desktop.**Cursorul** preia aceeași intrare din `~/.cursor/mcp.json`.
 
 ```json
 {

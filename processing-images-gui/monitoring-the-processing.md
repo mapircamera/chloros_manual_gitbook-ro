@@ -1,10 +1,6 @@
 # Monitorizarea procesării
 
-Odată ce procesarea a început, Chloros
-
-oferă mai multe modalități de a monitoriza progresul, de a verifica dacă există probleme și de a înțelege ce se întâmplă cu setul tău de date. Această pagină explică cum să urmărești procesarea și cum să interpretezi informațiile furnizate de Chloros
-
-.
+Odată ce procesarea a început, Chloros oferă mai multe modalități de a monitoriza progresul, de a verifica dacă există probleme și de a înțelege ce se întâmplă cu setul tău de date. Această pagină explică cum să urmărești procesarea și cum să interpretezi informațiile furnizate de Chloros.
 
 ## Prezentare generală a barei de progres
 
@@ -12,9 +8,7 @@ Bara de progres din antetul de sus afișează starea procesării în timp real �
 
 ### Bara de progres în modul gratuit
 
-Pentru utilizatorii fără licențChloros
-
-+:
+Pentru utilizatorii fără licențChloros+:
 
 **Afișare a progresului în 2 etape:**
 
@@ -25,13 +19,9 @@ Pentru utilizatorii fără licențChloros
 * Denumirea etapei curente
 * Vizualizare simplă sub formă de bară orizontală
 
-### Bara de progres Chloros
+### Bara de progres Chloros+
 
-+
-
-Pentru utilizatorii cu licență Chloros
-
-+:
+Pentru utilizatorii cu licență Chloros+:
 
 **Afișare a progresului în 4 etape:**
 
@@ -44,9 +34,7 @@ Pentru utilizatorii cu licență Chloros
 * Fiecare etapă afișează progresul individual (0-100%)
 
 {% hint style="info" %}
-**Paritatea CLI**: în timpul unei rulări `chloros-cli process`, aceleași patru fire de execuție raportează „Detectare”, „Analizare”, „Prelucrare” și „Exportare”, iar `chloros-cli export-status` afișează în timp real progresul de export al firului 4 de pe un alt terminal. Consultați [Referința CLI
-
-](../reference/cli-reference.md).
+**Paritatea CLI**: în timpul unei rulări `chloros-cli process`, aceleași patru fire de execuție raportează „Detectare”, „Analizare”, „Prelucrare” și „Exportare”, iar `chloros-cli export-status` afișează în timp real progresul de export al firului 4 de pe un alt terminal. Consultați [Referința CLI](../reference/cli-reference.md).
 {% endhint %}
 
 ***
@@ -61,9 +49,7 @@ Pentru utilizatorii cu licență Chloros
 
 **Ce se întâmplă:**
 
-* Chloros
-
-scanează imaginile pe care le-ați bifat cu caseta de selectare „Țintă” (toate imaginile, numai dacă nu este bifată niciuna)
+* Chloros scanează imaginile pe care le-ați bifat cu caseta de selectare „Țintă” (toate imaginile, numai dacă nu este bifată niciuna)
 * Algoritmii de viziune computerizată identifică panourile de calibrare
 * Valorile de reflectanță sunt extrase din fiecare panou
 * Se înregistrează marcajele temporale ale țintelor pentru programarea corectă a calibrării
@@ -92,9 +78,7 @@ scanează imaginile pe care le-ați bifat cu caseta de selectare „Țintă” (
 * Citirea metadatelor EXIF ale imaginilor (marcaje temporale, setări de expunere)
 * Determinarea strategiei de calibrare pe baza marcajelor temporale ale țintelor și a datelor DAQ disponibile privind radiația descendentă
 * Organizarea cozii de procesare a imaginilor
-* Pregătirea proceselor de procesare paralelă (numai Chloros
-
-+)
+* Pregătirea proceselor de procesare paralelă (numai Chloros+)
 
 **Durată:** 5–30 de secunde**Indicator de progres:**
 
@@ -121,9 +105,7 @@ scanează imaginile pe care le-ați bifat cu caseta de selectare „Țintă” (
 * Imagini finalizate / Total imagini
 
 **Mod de funcționare:*** **Modul liber**: Procesează o singură imagine la un moment dat, secvențial
-* **Modul Chloros
-
-+**: Rulează un grup de procesori adaptabil la hardware — 1-4 procesori simultani pe sistemele cu GPU (în funcție de VRAM), un procesor pe fiecare nucleu fizic (minus unul) pe sistemele numai cu CPU. A se vedea [Adaptarea dinamică a calculului](../processing-architecture/dynamic-compute-adaptation.md)
+* **Modul Chloros+**: Rulează un grup de procesori adaptabil la hardware — 1-4 procesori simultani pe sistemele cu GPU (în funcție de VRAM), un procesor pe fiecare nucleu fizic (minus unul) pe sistemele numai cu CPU. A se vedea [Adaptarea dinamică a calculului](../processing-architecture/dynamic-compute-adaptation.md)
 * **Accelerare GPU**: Accelerează semnificativ această etapă**Ce trebuie urmărit:**
 
 * Progres constant în funcție de numărul de imagini
@@ -169,17 +151,13 @@ din bara laterală din stânga
 
 ### Înțelegerea mesajelor din jurnal Liniile din jurnalul
 
-Chloros
-
-sunt precedate de etichete între paranteze care denumesc subsistemul — de exemplu, `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Cel mai important lucru de reținut este **rezumatul execuției**, afișat la sfârșitul fiecărei execuții (inclusiv a celor oprite):
+Chloros sunt precedate de etichete între paranteze care denumesc subsistemul — de exemplu, `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Cel mai important lucru de reținut este **rezumatul execuției**, afișat la sfârșitul fiecărei execuții (inclusiv a celor oprite):
 
 ```
 [RUN-SUMMARY] 49 image(s) in 2 camera group(s); 4 target(s) detected; 45 image(s) calibrated; 180 file(s) written.
 ```
 
-Urmăresc linii suplimentare de indicii `[RUN-SUMMARY]` ori de câte ori este nevoie de o explicație — de exemplu, o execuție care nu a produs nimic, sau o cameră al cărei produs solicitat a fost omis ca fiind inaplicabil. Liniile `[EXPORT-CHECK]` explică omisiunile pentru fiecare cameră în parte (de exemplu, de ce o cameră RGB
-
-nu a obținut niciun produs de radianță).
+Urmăresc linii suplimentare de indicii `[RUN-SUMMARY]` ori de câte ori este nevoie de o explicație — de exemplu, o execuție care nu a produs nimic, sau o cameră al cărei produs solicitat a fost omis ca fiind inaplicabil. Liniile `[EXPORT-CHECK]` explică omisiunile pentru fiecare cameră în parte (de exemplu, de ce o cameră RGB nu a obținut niciun produs de radianță).
 
 Nivelurile generale de gravitate ale mesajelor (exemplele de mai jos sunt ilustrative, nu literale):
 
@@ -193,9 +171,7 @@ Probleme necritice care nu opresc procesarea — de exemplu, date GPS lipsă în
 
 **Acțiune:** Verificați avertismentele după procesare, dar nu întrerupeți procesarea
 
-#### Mesaje de eroare (color Red
-
-)
+#### Mesaje de eroare (color Red)
 
 Probleme critice care pot duce la eșuarea procesării — de exemplu, disc plin, un fișier imagine corupt sau lipsa țintelor detectate în timp ce s-a solicitat calibrarea reflectanței.
 
@@ -210,17 +186,11 @@ Probleme critice care pot duce la eșuarea procesării — de exemplu, disc plin
 | Nu s-au găsit ținte                      | Nu s-au detectat ținte de calibrare               | Marcați imaginile țintă sau dezactivați calibrarea prin reflectanță |
 | Spațiu insuficient pe disc               | Spațiu de stocare insuficient pentru ieșire                 | Eliberați spațiu pe disc                                    |
 | Se omite fișierul corupt               | Fișierul imagine este deteriorat                         | Copiați din nou fișierul de pe cardul SD                             |
-| `[IMPORT-LEVEL] Skipping ... no raw source` | O captură fără un cadru raw nu poate fi procesată | Recapturați cu raw, sau utilizați CLI
-
-`--input-level`  |
+| `[IMPORT-LEVEL] Skipping ... no raw source` | O captură fără un cadru raw nu poate fi procesată | Recapturați cu raw, sau utilizați CLI `--input-level`  |
 | `[RUN-SUMMARY] ... 0 file(s) written` | Rularea nu a generat produse imagistice — raportată ca eșec cu indicii | Citiți liniile cu indicii; verificați ce a fost omis și de ce |
-| `[PROCESS] refused: The project folder is too deep for this computer…` | Căile lungi din Windows
+| `[PROCESS] refused: The project folder is too deep for this computer…` | Căile lungi din Windows sunt dezactivate, iar folderul proiectului este prea adânc pentru limita de 260 de caractere a căii; nu s-a procesat nimic | Utilizați un folder de proiect mai scurt (mesajul indică cea mai lungă cale care se încadrează) sau activați căile lungi dWindows
 
-sunt dezactivate, iar folderul proiectului este prea adânc pentru limita de 260 de caractere a căii; nu s-a procesat nimic | Utilizați un folder de proiect mai scurt (mesajul indică cea mai lungă cale care se încadrează) sau activați căile lungi dWindows
-
-și reporniți Chloros
-
-— consultați [Pornirea procesării](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
+și reporniți Chloros — consultați [Pornirea procesării](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
 | `[unmix-clamp-mask] …` | Nu s-a putut scrie masca de fixare a unui produs LATTICE; produsul în sine este în regulă și afișează `Chloros:UnmixClampMask=unavailable` | Verificați spațiul pe disc și permisiunile folderului, apoi reluați procesarea dacă aveți nevoie de mască |
 
 ### Copierea datelor din jurnal
@@ -230,32 +200,18 @@ Pentru a copia jurnalul în scopul depanării sau al asistenței tehnice:
 1. Deschideți panoul „Jurnal de depanare”
 2. Faceți clic pe butonul **Copiere**(copiază jurnalul în clipboard) sau pe**Descărcare** pentru a-l salva ca fișier text
 3. Lipiți conținutul într-un fișier text sau într-un e-mail
-4. Trimiteți-l către asistența MAPIR
-
-, dacă este necesar
+4. Trimiteți-l către asistența MAPIR, dacă este necesar
 
 ### Raportarea unei erori din fila Jurnal
 
-Noutate în versiunea 1.3.0: pictograma de eroare (**Raportați o eroare**) din partea de sus a filei Jurnal de depanare trimite un raport direct către MAPIR
-
-.
+Noutate în versiunea 1.3.0: pictograma de eroare (**Raportați o eroare**) din partea de sus a filei Jurnal de depanare trimite un raport direct către MAPIR.
 
 1. Faceți clic pe pictograma de eroare din partea de sus a filei Jurnal de depanare
 2. Descrieți problema: ce făceați, ce vă așteptați să se întâmple și ce s-a întâmplat de fapt (obligatoriu)
 3. Opțional, bifați **Adăugați câteva imagini (până la 10)**și alegeți imagini din proiectul deschis sau utilizați**Răsfoire...** pentru orice alt fișier imagine
 4. Faceți clic pe **Trimiteți**
 
-Raportul include descrierea dvs., orice imagini atașați, jurnalele Chloros
-
-și detaliile sistemului (versiunea Chloros
-
-, sistemul de operare, GPU și setările proiectului). Trebuie să fiți autentificat în Chloros
-
-(fila „Utilizator”) pentru a trimite un raport. Puteți închide fereastra în timp ce se efectuează trimiterea; când se termină, în jurnal se înregistrează o referință de tipul `Bug report sent. Reference: BR-…` — menționați-o când contactați MAPIR
-
-. Dacă raportul nu poate fi încărcat (de exemplu, din cauza lipsei conexiunii la internet), Chloros
-
-îl salvează pe computerul dumneavoastră și afișează calea de acces, astfel încât să îl puteți trimite prin e-mail la support@mapir.camera.
+Raportul include descrierea dvs., orice imagini atașați, jurnalele Chloros și detaliile sistemului (versiunea Chloros, sistemul de operare, GPU și setările proiectului). Trebuie să fiți autentificat în Chloros (fila „Utilizator”) pentru a trimite un raport. Puteți închide fereastra în timp ce se efectuează trimiterea; când se termină, în jurnal se înregistrează o referință de tipul `Bug report sent. Reference: BR-…` — menționați-o când contactați MAPIR. Dacă raportul nu poate fi încărcat (de exemplu, din cauza lipsei conexiunii la internet), Chloros îl salvează pe computerul dumneavoastră și afișează calea de acces, astfel încât să îl puteți trimite prin e-mail la support@mapir.camera.
 
 ***
 
@@ -269,33 +225,25 @@ Raportul include descrierea dvs., orice imagini atașați, jurnalele Chloros
 * Celelalte nuclee sunt inactive sau disponibile
 * Sistemul rămâne receptiv
 
-**Modul paralel Chloros
-
-+:**
+**Modul paralel Chloros+:**
 
 * Mai multe nuclee cu grad ridicat de utilizare — numărul acestora depinde de strategia aleasă prin [Adaptarea dinamică a calculului](../processing-architecture/dynamic-compute-adaptation.md)
 * Sistemul poate părea mai puțin receptiv
 
 **Pentru monitorizare:**
 
-* Managerul de activități Windows
-
-(Ctrl+Shift+Esc)
+* Managerul de activități Windows (Ctrl+Shift+Esc)
 * Fila Performanță → secțiunea CPU
-* Căutați procesele „Chloros
-
-” sau „chloros-backend”
+* Căutați procesele „Chloros” sau „chloros-backend”
 
 ### Utilizarea memoriei (RAM)
 
 **Utilizare tipică:**
 
-* Proiecte mici (&lt; 100 de imagini): 2–4 GB
+* Proiecte mici (< 100 de imagini): 2–4 GB
 * Proiecte medii (100–500 de imagini): 4–8 GB
 * Proiecte mari (peste 500 de imagini): 8–16 GB
-* Modul paralel „Chloros
-
-+” utilizează mai multă memorie RAM
+* Modul paralel „Chloros+” utilizează mai multă memorie RAM
 
 **Dacă memoria este insuficientă:**
 
@@ -303,9 +251,7 @@ Raportul include descrierea dvs., orice imagini atașați, jurnalele Chloros
 * Închideți alte aplicații
 * Măriți memoria RAM dacă procesați regulat seturi mari de date
 
-### Utilizarea GPU-ului (Chloros
-
-+ cu CUDA)
+### Utilizarea GPU-ului (Chloros+ cu CUDA)
 
 Când accelerarea GPU este activată:
 
@@ -343,9 +289,7 @@ Când accelerarea GPU este activată:
 
 * Verificați jurnalul de depanare pentru erori
 * Verificați spațiul disponibil pe disc
-* Verificați Task Manager pentru a vă asigura că Chloros
-
-rulează
+* Verificați Task Manager pentru a vă asigura că Chloros rulează
 
 **Mesajele de eroare apar frecvent:**
 
@@ -355,9 +299,7 @@ rulează
 
 **Sistemul nu mai răspunde:**
 
-* Modul paralel al Chloros
-
-consumă prea multe resurse
+* Modul paralel al Chloros consumă prea multe resurse
 * Luați în considerare reducerea numărului de sarcini simultane sau modernizarea hardware-ului
 * Modul „Free” consumă mai puține resurse
 
@@ -396,9 +338,7 @@ Opriți procesarea dacă observați:
 
 1. Dacă procesul tocmai a început și se află în etapa de detectare: opriți-l, marcați țintele, reporniți-l
 2. Pentru viitor: utilizați un SSD, reduceți numărul de indici, modernizați hardware-ul
-3. Luați în considerare utilizarea interfeței CLI
-
-pentru procesarea în lot a seturilor mari de date
+3. Luați în considerare utilizarea interfeței CLI pentru procesarea în lot a seturilor mari de date
 
 ### Avertismente privind „spațiul pe disc”
 
@@ -408,9 +348,7 @@ pentru procesarea în lot a seturilor mari de date
 2. Mutați proiectul pe o unitate cu mai mult spațiu
 3. Reduceți numărul de indici de exportat
 4. Dezactivați produsele de export LATTICE de care nu aveți nevoie (Setări proiect → Prelucrare)
-5. Utilizați formatul JPG în locul celui TIFF
-
-(fișiere mai mici)
+5. Utilizați formatul JPG în locul celui TIFF (fișiere mai mici)
 
 ### Mesaje frecvente privind „fișiere corupte”
 
@@ -427,9 +365,7 @@ pentru procesarea în lot a seturilor mari de date
 
 1. Asigurați-vă că ventilația este adecvată
 2. Curățați praful din orificiile de ventilație ale computerului
-3. Reduceți încărcarea de procesare (utilizați modul „Free” în locul modului „Chloros
-
-+”)
+3. Reduceți încărcarea de procesare (utilizați modul „Free” în locul modului „Chloros+”)
 4. Efectuați procesarea în momentele mai răcoroase ale zilei
 
 ***

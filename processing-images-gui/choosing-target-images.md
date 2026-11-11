@@ -159,7 +159,7 @@ Dacă Chloros nu detectează corect țintele, reglați aceste setări în [Setă
 **Cauze posibile:**
 
 * Imaginile țintă nu sunt marcate în File Browser
-* Ținta este prea mică în cadru (&lt; 30% din imagine)
+* Ținta este prea mică în cadru (< 30% din imagine)
 * Iluminare deficitară (umbre, strălucire)
 * Setări de detectare a țintelor prea stricte
 

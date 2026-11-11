@@ -63,7 +63,7 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 2. **Prelucrare** – Aplicarea calibrării și exportarea imaginilor**Timp de procesare:**
 
 * Mult mai lent decât modul paralel dChloros+
-* Potrivit pentru seturi de date mici și medii (&lt; 200 de imagini)
+* Potrivit pentru seturi de date mici și medii (< 200 de imagini)
 
 ### Modul Chloros+ (procesare paralelă)
 
@@ -306,7 +306,7 @@ Consultați [Referința CLI](../reference/cli-reference.md#a-run-that-writes-no-
 **Soluții:**
 
 1. Păstrați proiectele într-un folder cu nume mai scurt — modificați**Directorul de lucru** în [Setări proiect](../project-settings/project-settings.md) și creați din nou proiectul, sau
-2. Activați căile lungi Windows și reporniți Chloros: rulați din nou programul de instalare Chloros cu opțiunea **Activați căile lungi Windows** bifată (este bifată implicit) sau utilizați Politica de grup: *Configurare computer &gt; Șabloane administrative &gt; Sistem &gt; Sistem de fișiere &gt; Activați căile lungi Win32*.
+2. Activați căile lungi Windows și reporniți Chloros: rulați din nou programul de instalare Chloros cu opțiunea **Activați căile lungi Windows** bifată (este bifată implicit) sau utilizați Politica de grup: *Configurare computer > Șabloane administrative > Sistem > Sistem de fișiere > Activați căile lungi Win32*.
 
 ### Avertismentul „Nu s-au detectat ținte”
 

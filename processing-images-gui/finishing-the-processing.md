@@ -1,7 +1,6 @@
 # Finalizarea procesării
 
-Odată ce Chloros
-finalizează procesarea, este momentul să analizați rezultatele, să verificați calitatea ieșirii și să pregătiți imaginile procesate pentru a le utiliza în fluxul dvs. de lucru. Această pagină vă ghidează prin pașii finali și acțiunile următoare.
+Odată ce Chloros finalizează procesarea, este momentul să analizați rezultatele, să verificați calitatea ieșirii și să pregătiți imaginile procesate pentru a le utiliza în fluxul dvs. de lucru. Această pagină vă ghidează prin pașii finali și acțiunile următoare.
 
 ## Indicatori ai finalizării procesării
 
@@ -13,10 +12,7 @@ Când procesarea se încheie cu succes, veți vedea mai mulți indicatori:
 * ✅ **Fișiere de ieșire**: Toate imaginile procesate sunt salvate în arborele de ieșire al proiectului (mai jos)
 
 {% hint style="warning" %}
-**O execuție care nu scrie nicio imagine este considerată eșuată.** Dacă ați solicitat produse imagistice și ciclul nu a scris niciuna, Chloros
-raportează acest lucru ca un eșec — `[RUN-SUMMARY]` sugerează în numele jurnalului cauza probabilă (nu s-a importat nimic, nu s-a detectat nicio țintă sau toate produsele solicitate au fost omise ca fiind inaplicabile). Echivalentul CLI
--ului se închide cu un cod de ieșire diferit de zero. O execuție deliberată numai cu metadate (toate produsele de export dezactivate, fără indici) este totuși considerată reușită. Consultați [Referința CLI
-](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
+**O execuție care nu scrie nicio imagine este considerată eșuată.** Dacă ați solicitat produse imagistice și ciclul nu a scris niciuna, Chloros raportează acest lucru ca un eșec — `[RUN-SUMMARY]` sugerează în numele jurnalului cauza probabilă (nu s-a importat nimic, nu s-a detectat nicio țintă sau toate produsele solicitate au fost omise ca fiind inaplicabile). Echivalentul CLI-ului se închide cu un cod de ieșire diferit de zero. O execuție deliberată numai cu metadate (toate produsele de export dezactivate, fără indici) este totuși considerată reușită. Consultați [Referința CLI](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
 {% endhint %}
 
 ***
@@ -48,10 +44,8 @@ Produsele sunt salvate **în folderul proiectului, grupate după cameră și apo
         └── Radiance_Images/             # float32 radiance always lands here
 ```
 
-* **Folderul camerei**: `LATT-<sensor>-<lens>-F<filter>` pentru LATTICE (care corespunde cu datele EXIF ale capturii `Model`), `<model>_<filter>` pentru Survey3
-(de exemplu, `Survey3N_RGN`). Două camere care împart același senzor și filtru, dar au obiective diferite, păstrează arbori separați — vignetarea, câmpul vizual și distorsiunea diferă.
-* **Format folder**: respectă setarea formatului de export — `tiff16`, `tiff8`, `png8`, `jpg8`, sau `tiff32` pentru TIFF
-(32 de biți, procent). Radianța este întotdeauna de tip float32 și se află întotdeauna sub `tiff32`.
+* **Folderul camerei**: `LATT-<sensor>-<lens>-F<filter>` pentru LATTICE (care corespunde cu datele EXIF ale capturii `Model`), `<model>_<filter>` pentru Survey3 (de exemplu, `Survey3N_RGN`). Două camere care împart același senzor și filtru, dar au obiective diferite, păstrează arbori separați — vignetarea, câmpul vizual și distorsiunea diferă.
+* **Format folder**: respectă setarea formatului de export — `tiff16`, `tiff8`, `png8`, `jpg8`, sau `tiff32` pentru TIFF (32 de biți, procent). Radianța este întotdeauna de tip float32 și se află întotdeauna sub `tiff32`.
 * **Dosare de produse**:
   * `Reflectance_Calibrated_Images/` — reflectanță calibrată
   * `Debayered_Images/` — debayering liniar (LATTICE): offsetul de întuneric eliminat și demosaic, fără câmp plat sau demixare, în orientarea nativă a senzorului
@@ -70,8 +64,7 @@ Produsele sunt salvate **în folderul proiectului, grupate după cameră și apo
 
 ### Câte fișiere ar trebui să existe?
 
-Nu numărați după o formulă — numărul de ieșiri depinde de produsele care au fost activate și de cele care se aplică fiecărei camere (de exemplu, camerele RGB
-nu primesc radianță/reflectanță). Numărul oficial se găsește în jurnal: ultima linie `[RUN-SUMMARY]` raportează exact câte fișiere au fost scrise, iar liniile de indicii explică tot ce a fost omis.
+Nu numărați după o formulă — numărul de ieșiri depinde de produsele care au fost activate și de cele care se aplică fiecărei camere (de exemplu, camerele RGB nu primesc radianță/reflectanță). Numărul oficial se găsește în jurnal: ultima linie `[RUN-SUMMARY]` raportează exact câte fișiere au fost scrise, iar liniile de indicii explică tot ce a fost omis.
 
 ***
 
@@ -79,32 +72,25 @@ nu primesc radianță/reflectanță). Numărul oficial se găsește în jurnal: 
 
 ### Previzualizare rapidă în File Explorer
 
-**Previzualizare integrată în Windows
-:**
+**Previzualizare integrată în Windows:**
 
 1. Navigați într-un dosar de produse (de exemplu, `tiff16/Reflectance_Calibrated_Images/`)
 2. Selectați un fișier imagine
-3. Previzualizarea apare în panoul de previzualizare al Windows
-Explorer
+3. Previzualizarea apare în panoul de previzualizare al Windows Explorer
 4. Folosiți tastele săgeată pentru a naviga printre imagini
 
 ### Previzualizare în vizualizatoare de imagini externe
 
 **Vizualizatoare recomandate:*** **QGIS** - Software GIS gratuit (cel mai potrivit pentru analiza multispectrală georeferențiată)
-* **IrfanView** – Vizualizator de imagini rapid și ușor (suportă formatul TIFF
-)
-* **Adobe Photoshop** – Editare profesională (suportă formatul TIFF
-)
+* **IrfanView** – Vizualizator de imagini rapid și ușor (suportă formatul TIFF)
+* **Adobe Photoshop** – Editare profesională (suportă formatul TIFF)
 * **GIMP** – Alternativă gratuită la Photoshop
-* **Windows
-Photos** – Vizualizare de bază (este posibil să nu suporte formatul TIFF
-pe 16 biți)
+* **Windows Photos** – Vizualizare de bază (este posibil să nu suporte formatul TIFF pe 16 biți)
 
 ### Previzualizare în vizualizatorul de imagini Chloros
 
 
-Utilizați vizualizatorul de imagini integrat în Chloros
-pentru vizualizare avansată:
+Utilizați vizualizatorul de imagini integrat în Chloros pentru vizualizare avansată:
 
 1. Faceți clic pe o miniatură a imaginii în browserul de fișiere
 2. Imaginea se deschide în zona principală de previzualizare
@@ -123,9 +109,7 @@ Reflectanța este stocată ca număr întreg DN, iar **valoarea DN care corespun
 | Sursă          | ρ = 1,0 este | Cum se determină                                        |
 | --------------- | ---------- | -------------------------------------------------- |
 | LATTICE (M3C/M3M) | **32768** (marjă de până la ρ 2,0) | Eticheta XMP `Chloros:PixelScale=32768` este înscrisă în fișier |
-| Survey3
-         | **65535** (tăiat la ρ 1,0)     | Nu există eticheta `Chloros:PixelScale` — această absență este semnalul (produsele Survey3
-conțin alte etichete de procesare de tip `Chloros:*`) |
+| Survey3          | **65535** (tăiat la ρ 1,0)     | Nu există eticheta `Chloros:PixelScale` — această absență este semnalul (produsele Survey3 conțin alte etichete de procesare de tip `Chloros:*`) |
 
 **Citiți eticheta `Chloros:PixelScale` și împărțiți la valoarea acesteia**, în loc să presupuneți o valoare generală de 65535 — împărțirea reflectanței LATTICE la 65535 reduce în mod silențios la jumătate fiecare valoare. Un fișier de reflectanță dinainte de versiunea 1.3.0, scris pe 8 biți, a fost decupat, nu redimensionat, și nu are etichetă de scalare: reexportați-l pe 16 biți sau 32 de biți în loc să-l împărțiți. Consultați [Formate de imagine de ieșire](../output-image-formats.md) pentru detalii complete.***
 
@@ -153,15 +137,11 @@ lora corupe rezultatul LATTICE), iar `ExifImageWidth` / `ExifImageHeight` sunt e
 deoarece descriu captura originală — un export redimensionat ar pretinde altfel
 dimensiuni cu care propria sa rasterizare intră în contradicție.
 
-Chloros
-scrie, de asemenea, propriile sale etichete XMP de tip `Chloros:*` care descriu ce s-a făcut cu fiecare produs
+Chloros scrie, de asemenea, propriile sale etichete XMP de tip `Chloros:*` care descriu ce s-a făcut cu fiecare produs
 (de exemplu, `Chloros:ProcessingLevel`, `Chloros:CalibrationApplied`,
-`Chloros:VignetteCorrected`). Începând cu versiunea 1.3.0, produsele Survey3
-le includ în fiecare mod de procesare
-, produsele de indexare descriu indexul în sine (`Chloros:ProcessingLevel=index`,
+`Chloros:VignetteCorrected`). Începând cu versiunea 1.3.0, produsele Survey3 le includ în fiecare mod de procesare, produsele de indexare descriu indexul în sine (`Chloros:ProcessingLevel=index`,
 formula și dacă a fost calculat pe baza reflectanței sau a radianței), în loc să repete
-etichetele fișierului sursă brut, iar produsele din dosare cu nume mai lungi de 260 de caractere își păstrează și ele metadatele
-. Consultați [Formate de imagine de ieșire](../output-image-formats.md#index-products).
+etichetele fișierului sursă brut, iar produsele din dosare cu nume mai lungi de 260 de caractere își păstrează și ele metadatele. Consultați [Formate de imagine de ieșire](../output-image-formats.md#index-products).
 
 ***
 
@@ -174,23 +154,19 @@ etichetele fișierului sursă brut, iar produsele din dosare cu nume mai lungi d
 2. Derulați mesajele
 3. Căutați avertismentele galbene sau erorile roșii
 4. Citiți liniile `[RUN-SUMMARY]` și eventualele sugestii
-5. Contactați asistența MAPIR
-pentru ajutor
+5. Contactați asistența MAPIR pentru ajutor
 
 ### Salvarea jurnalului
 
-Pentru a păstra o evidență a procesării sau pentru a-l trimite serviciului de asistență MAPIR
-:
+Pentru a păstra o evidență a procesării sau pentru a-l trimite serviciului de asistență MAPIR:
 
 1. Faceți clic pe butonul **„Copiere”**sau**„Descărcare”**
 
 2. Salvați ca fișier text în folderul proiectului
 3. Includeți-l în documentația proiectului
-4. Trimiteți-l serviciului de asistență MAPIR
-dacă întâmpinați probleme
+4. Trimiteți-l serviciului de asistență MAPIR dacă întâmpinați probleme
 
-Pentru a raporta o problemă direct către MAPIR
-, utilizați pictograma de eroare (**Raportați o eroare**) din partea de sus a filei Jurnal de depanare — consultați [Raportarea unei erori din fila Jurnal](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+Pentru a raporta o problemă direct către MAPIR, utilizați pictograma de eroare (**Raportați o eroare**) din partea de sus a filei Jurnal de depanare — consultați [Raportarea unei erori din fila Jurnal](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
 
 ## Probleme frecvente legate de ieșire și soluții
 
@@ -198,8 +174,7 @@ Pentru a raporta o problemă direct către MAPIR
 
 **Cauze posibile:**
 
-* Produsul nu se aplică acelei camere (de exemplu, radianță/reflectanță pentru camerele RGB
-— jurnalul indică acest lucru)
+* Produsul nu se aplică acelei camere (de exemplu, radianță/reflectanță pentru camerele RGB — jurnalul indică acest lucru)
 * Lipsa unei referințe necesare (de exemplu, reflectanță fără țintă și fără `.daq` downwelling)
 * Caseta de selectare pentru exportul produsului a fost dezactivată în Setările proiectului
 * S-a epuizat spațiul pe disc în timpul exportului
@@ -224,8 +199,7 @@ Pentru a raporta o problemă direct către MAPIR
 
 1. Verificați dacă corecția vignetării a fost activată în Setările proiectului
 2. Verificați dacă modelul camerei a fost detectat corect
-3. Contactați serviciul de asistență MAPIR
-dacă vignetarea persistă
+3. Contactați serviciul de asistență MAPIR dacă vignetarea persistă
 
 ### Problemă: Culori sau valori incorecte
 
@@ -243,11 +217,9 @@ dacă vignetarea persistă
 3. Verificați calitatea imaginilor țintă
 4. Reprocesați cu țintele corespunzătoare marcate
 
-### Problemă: Valorile NDVI
-par incorecte
+### Problemă: Valorile NDVI par incorecte
 
-**Intervale NDVI
-așteptate:*** **Apă, roci, sol**: de la -0,1 la 0,2
+**Intervale NDVI așteptate:*** **Apă, roci, sol**: de la -0,1 la 0,2
 * **Vegetație rară/nesănătoasă**: de la 0,2 la 0,4
 * **Vegetație moderată**: de la 0,4 la 0,6
 * **Vegetație sănătoasă și densă**: 0,6 – 0,9**Dacă valorile se află în afara acestor intervale:**
@@ -274,10 +246,8 @@ așteptate:*** **Apă, roci, sol**: de la -0,1 la 0,2
    * WebODM
 2. **Păstrați metadatele EXIF**: Asigurați-vă că datele GPS sunt păstrate pentru geotagare
 3. **Fluxuri de lucru calibrate**: Utilizați imagini de reflectanță pentru precizie științifică — reflectanța LATTICE conține etichetele de calibrare XMP citite de Pix4D
-4. **Procesați mozaicuri indexate**: Creați ortomozaicuri NDVI
-din imagini indexate individuale
-5. **Exportați fișiere GeoTIFF
-georeferențiate**: Pentru utilizare în aplicații GIS
+4. **Procesați mozaicuri indexate**: Creați ortomozaicuri NDVI din imagini indexate individuale
+5. **Exportați fișiere GeoTIFF georeferențiate**: Pentru utilizare în aplicații GIS
 
 ### Pentru analiza GIS
 
@@ -285,11 +255,8 @@ georeferențiate**: Pentru utilizare în aplicații GIS
 
 1.**Încărcați în QGIS, ArcGIS sau un program similar**
 
-2.**Utilizați imagini de reflectanță TIFF
-pe 16 biți** pentru analiza multibandă (împărțiți la valoarea `Chloros:PixelScale` a fișierului)
-3. **Utilizați imagini indexate** (NDVI
-, NDRE
-) ca straturi de vegetație gata de utilizare
+2.**Utilizați imagini de reflectanță TIFF pe 16 biți** pentru analiza multibandă (împărțiți la valoarea `Chloros:PixelScale` a fișierului)
+3. **Utilizați imagini indexate** (NDVI, NDRE) ca straturi de vegetație gata de utilizare
 4. **Calculator raster**: Combinați benzile pentru analize personalizate
 5. **Export**: Creați hărți de clasificare, detectați schimbările, creați hărți ale stării de sănătate a vegetației
 
@@ -298,8 +265,7 @@ pe 16 biți** pentru analiza multibandă (împărțiți la valoarea `Chloros:Pix
 **Flux de lucru recomandat:**
 
 1.**Utilizați imagini indexate cu culori LUT** pentru rapoarte vizuale
-2. **Extrageți statistici**: NDVI
-mediu pe câmp/parcelă
+2. **Extrageți statistici**: NDVI mediu pe câmp/parcelă
 3. **Seriile temporale**: Comparați indicii între mai multe sesiuni
 4. **Generați rapoarte**: Includeți hărți, statistici și vizualizări***
 
@@ -336,27 +302,17 @@ Pentru mai multe sesiuni/seturi de date:**Opțiunea 1: Interfața grafică (GUI)
 * Utilizați setări consistente ale șablonului
 * Procesați câte unul pe rând
 
-**Opțiunea 2: Chloros
-CLI
-(numai Chloros
-+)**
+**Opțiunea 2: Chloros CLI (numai Chloros+)**
 
 * Automatizați procesarea în lot
 * Procesați mai multe foldere cu ajutorul scripturilor
-* Consultați [Documentația CLI
-](../CLI.md) și [Referința CLI
-](../reference/cli-reference.md)
+* Consultați [Documentația CLI](../CLI.md) și [Referința CLI](../reference/cli-reference.md)
 
-**Opțiunea 3: Python
-SDK
-(numai pentru Chloros
-+)**
+**Opțiunea 3: Python SDK (numai pentru Chloros+)**
 
 * Control programatic
 * Integrare cu fluxurile de analiză
-* Consultați [Documentația API
-](../api-python-sdk.md) și [Referința SDK
-](../reference/sdk-reference.md)
+* Consultați [Documentația API](../api-python-sdk.md) și [Referința SDK](../reference/sdk-reference.md)
 
 ***
 
@@ -387,15 +343,13 @@ Dacă întâmpinați probleme:
 * 📧 **E-mail**: info@mapir.camera (includeți jurnalul de depanare)
 * 🌐 **Asistență**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Întrebări frecvente**: [Întrebări frecvente](../faq.md)
-* 📖 **Documentație**: [Manualul Chloros
-](../)
+* 📖 **Documentație**: [Manualul Chloros](../)
 
 ***
 
 ## Rezumat: Flux de lucru complet
 
-Ați finalizat acum întregul flux de lucru de procesare Chloros
-:
+Ați finalizat acum întregul flux de lucru de procesare Chloros:
 
 1. ✅ **Proiect creat** - Consultați [Proiecte](../projects.md)
 2. ✅ **Ați adăugat fișiere** – Consultați [Adăugarea fișierelor](adding-files-to-a-project.md)
@@ -418,11 +372,8 @@ Ați finalizat acum întregul flux de lucru de procesare Chloros
 ### Automatizare și integrare
 
 * [**Documentație CLI**](../CLI.md) - Prelucrare în lot prin linia de comandă
-* [**Python
-SDK
-**](../api-python-sdk.md) - Automatizare programată
-* [**Funcționalități Chloros
-+**](../#chloros) - Capacități avansate de procesare
+* [**Python SDK**](../api-python-sdk.md) - Automatizare programată
+* [**Funcționalități Chloros+**](../#chloros) - Capacități avansate de procesare
 
 ### Asistență și învățare
 

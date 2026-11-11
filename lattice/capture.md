@@ -26,28 +26,10 @@ Trei butoane de mod în partea de sus a panoului:
 | **Continuu**| Capturi consecutive până la îndeplinirea unei condiții de oprire. | Oprire după**Numărul de capturi** (implicit 1) *sau* **Durata capturii** (implicit 10 s; unități: secunde / minute / ore / zile). |
 | **Interval**(timelapse) | Serii de capturi la un interval prestabilit. |**Capturi / interval**(implicit 1) ·**La fiecare**N unități (implicit 5 s) ·**Timp de** N unități (implicit 1 m). |
 
-În modul Continuu sau Interval, butonul Capturează tot devine un buton **Oprire (N)** în timpul rulării, numărând capturile pe măsură ce acestea sunt înregistrate. O unitate plină oprește rularea (vezi [Fluxul „Capture All”](#the-capture-all-flow)).**Modul Continuu pe matrice rulează în backend (nou în 1.3.0).** Când toate camerele din listă aparțin unei matrice (camerele independente fiind ascunse sau excluse), modul „Continuous” nu mai trimite o cerere pentru fiecare captură: backend-ul Chloros
-
-rulează singur bucla de captură, scriind un grup sincronizat în timp ce îl selectează pe următorul, iar butonul interoghează numărul acestora. Cu camere independente în listă, Chloros
-
-capturează pas cu pas, ca și până acum.
+În modul Continuu sau Interval, butonul Capturează tot devine un buton **Oprire (N)** în timpul rulării, numărând capturile pe măsură ce acestea sunt înregistrate. O unitate plină oprește rularea (vezi [Fluxul „Capture All”](#the-capture-all-flow)).**Modul Continuu pe matrice rulează în backend (nou în 1.3.0).** Când toate camerele din listă aparțin unei matrice (camerele independente fiind ascunse sau excluse), modul „Continuous” nu mai trimite o cerere pentru fiecare captură: backend-ul Chloros rulează singur bucla de captură, scriind un grup sincronizat în timp ce îl selectează pe următorul, iar butonul interoghează numărul acestora. Cu camere independente în listă, Chloros capturează pas cu pas, ca și până acum.
 
 {% hint style="warning" %}
-**Captură rapidă pe Windows
-
-: mențineți backend-ul Chloros
-
-exclus din Microsoft Defender.** Scanarea în timp real a fiecărui fișier scris de o captură de mare viteză costă aproximativ 30 % din rata de captură în testele MAPIR
-
-(sute de fișiere pe secundă la o zonă de interes (ROI) mică). Programul de instalare pentru Windows
-
-oferă opțiunea **„Excludeți backend-ul Chloros
-
-din scanarea Microsoft Defender (captură mult mai rapidă cu camera; recomandat)”**, bifată implicit, iar la dezinstalare elimină această excludere. Dacă ați debifat această opțiune, rulați din nou programul de instalare cu opțiunea bifată sau adăugați o excludere a procesului Defender pentru `chloros-backend.exe` (în folderul `backend` din folderul de instalare Chloros
-
-). Atunci când Defender utilizează un nucleu de procesor sau mai multe în timpul capturii continue a unei matrice, backend-ul Chloros
-
-notează acest lucru o singură dată în jurnalul său, cu aceleași două soluții.
+**Captură rapidă pe Windows: mențineți backend-ul Chloros exclus din Microsoft Defender.** Scanarea în timp real a fiecărui fișier scris de o captură de mare viteză costă aproximativ 30 % din rata de captură în testele MAPIR (sute de fișiere pe secundă la o zonă de interes (ROI) mică). Programul de instalare pentru Windows oferă opțiunea **„Excludeți backend-ul Chloros din scanarea Microsoft Defender (captură mult mai rapidă cu camera; recomandat)”**, bifată implicit, iar la dezinstalare elimină această excludere. Dacă ați debifat această opțiune, rulați din nou programul de instalare cu opțiunea bifată sau adăugați o excludere a procesului Defender pentru `chloros-backend.exe` (în folderul `backend` din folderul de instalare Chloros). Atunci când Defender utilizează un nucleu de procesor sau mai multe în timpul capturii continue a unei matrice, backend-ul Chloros notează acest lucru o singură dată în jurnalul său, cu aceleași două soluții.
 {% endhint %}
 
 <!-- SCREENSHOT-NEEDED: the capture-mode area of Capture Settings with Interval selected — showing the "Captures / interval", "Every N (unit)" and "For N (unit)" rows with their defaults (1, 5 s, 1 m). -->
@@ -67,26 +49,16 @@ Textul de ajutor al panoului rezumă totul: alegeți ce camere și tipuri de exp
 
 Există șase tipuri de export: **Raw, Debayered, Radiance, Reflectance, Preview, Index**. Doar cele aplicabile apar în rândul fiecărei camere:
 
-| Tip de export | Conținut | RGB
-
-(FRGB) | Multispectral Bayer (FRGN/FOCN/FNGB) | Mono (M3M) |
+| Tip de export | Conținut | RGB (FRGB) | Multispectral Bayer (FRGN/FOCN/FNGB) | Mono (M3M) |
 | --- | --- | --- | --- | --- |
 | **Raw** | Mozaic Bayer (mono: o singură bandă) direct de la senzor | ✓ | ✓ | ✓ |
-| **Debayered** | Demosaic liniar: offsetul de întuneric (DSNU) din pachetul de calibrare este eliminat din fișierul raw, urmat de un demosaic sensibil la margini — fără corecție de liniaritate, câmp plat sau separare de culori. Salvate ca fișiere RGB
-
-TIFF
-
-cu 3 canale (mono: 1 canal în tonuri de gri) | ✓ | ✓ | ✓ |
-| **Previzualizare** | Lanț complet de afișare (balans de alb + gamma conform profilului camerei, plus setarea „Highlights” a camerei RGB
-
-; multispectral: extindere în culori false) | ✓ | ✓ | ✓ |
+| **Debayered** | Demosaic liniar: offsetul de întuneric (DSNU) din pachetul de calibrare este eliminat din fișierul raw, urmat de un demosaic sensibil la margini — fără corecție de liniaritate, câmp plat sau separare de culori. Salvate ca fișiere RGB TIFF cu 3 canale (mono: 1 canal în tonuri de gri) | ✓ | ✓ | ✓ |
+| **Previzualizare** | Lanț complet de afișare (balans de alb + gamma conform profilului camerei, plus setarea „Highlights” a camerei RGB; multispectral: extindere în culori false) | ✓ | ✓ | ✓ |
 | **Radianță** | float32 W/m²/sr/nm prin lanțul radiometric complet | — (nu este disponibil) | ✓ | ✓ |
 | **Reflectanță** | uint16 ρ (32768 = 1,0) | — (nu este disponibilă) | ✓ — afișată doar când camera are un senzor de lumină DAQ (propriu sau moștenit de la matricea sa) | la fel ca la multispectral |
 | **Indice** | Redare indice de vegetație (LUT) | — | ✓ — necesită o expresie de indice activată și ne goală pe cameră și nu este disponibilă pentru membrii matricei combinate (matricea deține un singur indice partajat) | — (un indice necesită ≥2 benzi; vezi [Camere mono și indici de vegetație](mono-indices.md)) |
 
-Radianța și reflectanța nu sunt niciodată disponibile pentru camerele RGB
-
-— radianța pe pixel Bayer nu are sens pentru un senzor fotometric de bandă largă.
+Radianța și reflectanța nu sunt niciodată disponibile pentru camerele RGB — radianța pe pixel Bayer nu are sens pentru un senzor fotometric de bandă largă.
 
 ### Captură rapidă
 
@@ -151,15 +123,11 @@ Capturile sunt salvate în cadrul proiectului deschis la `<project>/captures/`. 
 * **O asimetrie de reținut:** nivelul de afișare este stocat într-un folder numit `preview/`, în timp ce fișierele păstrează `_display` în nume — folderul și sufixul diferă doar pentru acel nivel.
 * Nivelurile necunoscute sunt stocate într-un dosar cu numele propriu; dacă nu se poate crea un subdosar, fișierul este scris în directorul rădăcină al capturilor, în loc să se piardă.
 * Fișierele TIFF ale capturilor sunt comprimate fără pierderi (DEFLATE) în mod implicit și conțin metadatele complete de calibrare și procesare **în interiorul fișierului XMP** — capturile sunt autodescriptive, fără fișiere auxiliare în afară de fișierul de citire `.daq` (și fișierul său `.daq.cameras.json`).
-* **Măști de limitare (nou în versiunea 1.3.0).**În cazul în care separarea spectrală 3×3 a trebuit să limiteze o bandă la 0 pe cel puțin un pixel, produsele de radianță, reflectanță și indice primesc o mască per pixel, `clamp_masks/<product folder>/<product name>_clampmask.tif` (bitul 0 = banda din canalul R al produsului, bitul 1 = G, bitul 2 = B); eticheta XMP a produsului, `Chloros:UnmixClampMask`, indică această mască. Măștile se află**lângă** folderele produselor, niciodată în interiorul acestora, astfel încât un folder de produs precum `reflectance/` poate fi transmis software-ului de fotogrammetrie așa cum este. Importul propriu al Chloros
-
-omite măștile.
+* **Măști de limitare (nou în versiunea 1.3.0).**În cazul în care separarea spectrală 3×3 a trebuit să limiteze o bandă la 0 pe cel puțin un pixel, produsele de radianță, reflectanță și indice primesc o mască per pixel, `clamp_masks/<product folder>/<product name>_clampmask.tif` (bitul 0 = banda din canalul R al produsului, bitul 1 = G, bitul 2 = B); eticheta XMP a produsului, `Chloros:UnmixClampMask`, indică această mască. Măștile se află**lângă** folderele produselor, niciodată în interiorul acestora, astfel încât un folder de produs precum `reflectance/` poate fi transmis software-ului de fotogrammetrie așa cum este. Importul propriu al Chloros omite măștile.
 * **Orientare (1.3.0).** Produsele „Preview”, „Radiance”, „Reflectance” și „Index” ale unei camere independente sunt rotite conform setării „Mirror/Rotation”; fișierele „Raw” și „Debayered” rămân așa cum au fost citite de senzor. Toate fișierele membre ale matricei rămân în formatul lor nativ. Fiecare fișier înregistrează setarea în fișierul XMP, astfel încât reprocesarea o aplică în același mod.
 * **Cărei camere îi aparține un fișier `.daq` (1.3.0).** Un `.daq` al unei capturi este asociat, în momentul procesării, numai cu imaginile provenite de la camerele menționate de `.daq.cameras.json`-ul său. Prin urmare, o cameră autonomă fără senzor de lumină propriu nu mai preia citirea unei alte camere — asociați-i un senzor sau înregistrați unul în fila Senzori de lumină. O înregistrare a senzorului de lumină (și orice `.daq` fără acel fișier, inclusiv capturile mai vechi) servește în continuare fiecare cameră.
 
-Aceasta este aceeași structură pe care fișierele `chloros-cli lattice capture` / `array-capture` o scriu în directorul lor `-o` — documentată în [Referința CLI
-
-§ Cum arată un folder de capturi](../reference/cli-reference.md#what-a-captures-folder-looks-like).
+Aceasta este aceeași structură pe care fișierele `chloros-cli lattice capture` / `array-capture` o scriu în directorul lor `-o` — documentată în [Referința CLI § Cum arată un folder de capturi](../reference/cli-reference.md#what-a-captures-folder-looks-like).
 
 <!-- SCREENSHOT-NEEDED: OS file explorer showing a real <project>/captures/ folder after a multi-level array capture — the raw/debayered/radiance/reflectance/preview subfolders, the daq/ and clamp_masks/ folders, and sync_<ts>_SN<serial>_<level>.tif filenames visible inside one subfolder. -->
 
@@ -179,11 +147,7 @@ chloros-cli process "C:/ChlorosProjects/MyField/captures"
 Denumirea directă a unui subfolder de nivel (de exemplu, `…/captures/raw/`) funcționează, de asemenea, dar lasă în urmă folderul `daq/` — copiați-l alături atunci cândderivați un produs radiometric din `raw/`; în caz contrar, potrivirea marcajului temporal nu va avea cu ce să se raporteze.
 
 {% hint style="warning" %}
-**Prelucrarea începe întotdeauna de la `raw`.** În cadrul fiecărei capturi, cadrul brut este sursa procesului de prelucrare; `debayered`, `radiance`, `reflectance`, iar `preview` apar ca moduri vizibile, dar nu sunt niciodată retrimise prin pipeline — reprocesarea unui produs derivat ar reaplica calculele de vignetare, culoare și radianță deja integrate în pixelii săi, așa că Chloros
-
-renunță la aceasta în loc să efectueze o procesare dublă. Renderizările `index/` și `composite/` nu sunt procesate deloc (sunt ieșiri, nu capturi). Un folder „captures” salvat **fără** importuri raw se afișează normal, dar `process` îl omite și indică acest lucru; `--input-level {raw,debayered,processed}` este o cale de ieșire deliberată care forțează un punct de intrare. Consultați [Referința CLI
-
-](../reference/cli-reference.md#what-a-captures-folder-looks-like) pentru mesajele exacte de omitere.
+**Prelucrarea începe întotdeauna de la `raw`.** În cadrul fiecărei capturi, cadrul brut este sursa procesului de prelucrare; `debayered`, `radiance`, `reflectance`, iar `preview` apar ca moduri vizibile, dar nu sunt niciodată retrimise prin pipeline — reprocesarea unui produs derivat ar reaplica calculele de vignetare, culoare și radianță deja integrate în pixelii săi, așa că Chloros renunță la aceasta în loc să efectueze o procesare dublă. Renderizările `index/` și `composite/` nu sunt procesate deloc (sunt ieșiri, nu capturi). Un folder „captures” salvat **fără** importuri raw se afișează normal, dar `process` îl omite și indică acest lucru; `--input-level {raw,debayered,processed}` este o cale de ieșire deliberată care forțează un punct de intrare. Consultați [Referința CLI](../reference/cli-reference.md#what-a-captures-folder-looks-like) pentru mesajele exacte de omitere.
 {% endhint %}
 
 Încă două comportamente care merită cunoscute atunci când scrieți scripturi de reprocesare:
@@ -197,9 +161,7 @@ renunță la aceasta în loc să efectueze o procesare dublă. Renderizările `i
 
 Tot ce se află pe această pagină poate fi controlat fără interfață grafică. Modurile de captură din GUI corespund direct cu `chloros-cli lattice array-capture`:
 
-| GUI | CLI
-
-|
+| GUI | CLI |
 | --- | --- |
 | Unică | `chloros-cli lattice array-capture` |
 | Continuă | `array-capture --continuous [--count N] [--duration S]` |
@@ -210,6 +172,4 @@ Tot ce se află pe această pagină poate fi controlat fără interfață grafic
 | Înregistrare video index | `chloros-cli lattice array-record` |
 | Înregistrare rafală brută / Creare video | `chloros-cli lattice array-burst` / `array-build-video` |
 
-Tabelele complete de indicatori, opțiunea de captură stabilizată cu AE inteligent (`--smart`) și modelul cu rată susținută sunt descrise în [Referința CLI
-
-§ Moduri de captură, înregistratoare și reprocesare offline](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess).
+Tabelele complete de indicatori, opțiunea de captură stabilizată cu AE inteligent (`--smart`) și modelul cu rată susținută sunt descrise în [Referința CLI § Moduri de captură, înregistratoare și reprocesare offline](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess).

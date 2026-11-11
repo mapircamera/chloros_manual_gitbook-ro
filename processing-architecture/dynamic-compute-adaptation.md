@@ -1,17 +1,14 @@
 # Adaptare dinamică a puterii de calcul
 
-Chloros
-1.3.0 utilizează detectarea hardware-ului și selectarea automată a strategiei de procesare. Motorul de procesare se adaptează la hardware-ul dvs. — de la un Jetson Orin Nano până la o stație de lucru cu mai multe GPU-uri — fără nicio configurare manuală.
+Chloros 1.3.0 utilizează detectarea hardware-ului și selectarea automată a strategiei de procesare. Motorul de procesare se adaptează la hardware-ul dvs. — de la un Jetson Orin Nano până la o stație de lucru cu mai multe GPU-uri — fără nicio configurare manuală.
 
 ***
 
 ## Cum funcționează
 
-La pornire, Chloros
-realizează un profil al sistemului dumneavoastră:
+La pornire, Chloros realizează un profil al sistemului dumneavoastră:
 
-1. **Detectează sistemul de operare** — Windows
-sau Linux
+1. **Detectează sistemul de operare** — Windows sau Linux
 2. **Identifică nucleele CPU și memoria RAM totală**
 
 3.**Detectează prezența GPU-ului** — compatibilitate NVIDIA CUDA, VRAM, model
@@ -24,19 +21,16 @@ Profilul detectat este stocat în cache pentru sesiunea curentă, atât în memo
 
 | Platformă | Profil stocat în cache |
 | --- | --- |
-| **Linux
-/ Jetson** | `~/.config/chloros/system_config.json` (acceptă `XDG_CONFIG_HOME`) |
+| **Linux / Jetson** | `~/.config/chloros/system_config.json` (acceptă `XDG_CONFIG_HOME`) |
 | **Windows** | `%LOCALAPPDATA%\Chloros\config\system_config.json` |
 
-Ștergeți acel fișier pentru a forța o nouă detectare — utilă după adăugarea unui GPU sau a mai multă memorie RAM. Chloros
-efectuează, de asemenea, o nouă detectare automată atunci când cache-ul a fost scris de o versiune mai veche incompatibilă.
+Ștergeți acel fișier pentru a forța o nouă detectare — utilă după adăugarea unui GPU sau a mai multă memorie RAM. Chloros efectuează, de asemenea, o nouă detectare automată atunci când cache-ul a fost scris de o versiune mai veche incompatibilă.
 
 ***
 
 ## Strategii de calcul
 
-Chloros
-selectează una dintre cele trei strategii de calcul în funcție de hardware-ul dvs.:
+Chloros selectează una dintre cele trei strategii de calcul în funcție de hardware-ul dvs.:
 
 | Strategie | Selectată când | Worker-i | Executor | Pipeline |
 | --- | --- | --- | --- | --- |
@@ -50,11 +44,7 @@ Exemple concrete ale formulei de calcul a numărului de procesori de lucru `GPU_
 **Strategiile GPU necesită un PyTorch care poate utiliza CUDA.** O mașină al cărei PyTorch nu dispune de un dispozitiv CUDA utilizabil primește `CPU_PARALLEL`, indiferent de GPU-ul său. Pachetul Jetson 1.3.0 utilizează versiunea PyTorch pentru CUDA din JetPack 6, astfel încât un Jetson se califică odată ce bibliotecile CUDA și cuDNN ale JetPack sunt instalate. Un Jetson cu mai puțin de 12 GB RAM procesează întotdeauna o singură imagine la un moment dat, în timpul procesării (înregistrat ca `GPU_SINGLE`).
 {% endhint %}
 
-Strategiile GPU rulează un grup de procese de lucru, fiecare fiind un proces separat al sistemului de operare cu propriul context CUDA, pe care Chloros
-îl inițiază prin relansarea propriului program backend instalat (nu prin `multiprocessing` din Python
-, a cărui pornire a proceselor de lucru nu funcționează în interiorul aplicației pachetizate). Strategia CPU utilizează un grup de fire de execuție (`ThreadPoolExecutor` din Python
-). Chloros
-nu utilizează niciun cadru distribuit de la terți (cum ar fi Ray).
+Strategiile GPU rulează un grup de procese de lucru, fiecare fiind un proces separat al sistemului de operare cu propriul context CUDA, pe care Chloros îl inițiază prin relansarea propriului program backend instalat (nu prin `multiprocessing` din Python, a cărui pornire a proceselor de lucru nu funcționează în interiorul aplicației pachetizate). Strategia CPU utilizează un grup de fire de execuție (`ThreadPoolExecutor` din Python). Chloros nu utilizează niciun cadru distribuit de la terți (cum ar fi Ray).
 
 ### Tipuri de pipeline
 
@@ -75,8 +65,7 @@ Setați variabila de mediu `CHLOROS_STRATEGY` pentru a forța o strategie specif
 CHLOROS_STRATEGY=CPU_PARALLEL chloros-cli process ~/datasets/flight001
 ```
 
-Variabila este recunoscută fără a ține cont de majuscule și minuscule; orice valoare care nu corespunde uneia dintre cele trei denumiri este ignorată, iar detectarea automată se desfășoară în mod normal. Chiar și în cazul unei suprascrieri, Chloros
-alege în continuare numărul de lucrători pentru dvs.:
+Variabila este recunoscută fără a ține cont de majuscule și minuscule; orice valoare care nu corespunde uneia dintre cele trei denumiri este ignorată, iar detectarea automată se desfășoară în mod normal. Chiar și în cazul unei suprascrieri, Chloros alege în continuare numărul de lucrători pentru dvs.:
 
 | Suprascriere | Numărul de lucrători utilizat |
 | --- | --- |
@@ -124,8 +113,7 @@ GPU-urile discrete rezervă doar 0,5 GB pentru sistem, deoarece nu partajează m
 
 ## Alocarea dinamică a memoriei GPU
 
-Chloros
-utilizează un [flux de procesare cu 4 fire](processing-pipeline.md):
+Chloros utilizează un [flux de procesare cu 4 fire](processing-pipeline.md):
 
 * **Firul 1** (Detectare) — Încărcarea imaginii, analizarea datelor EXIF, detectarea țintei
 * **Firul 2** (Calibrare) — Calculul calibrării reflectanței
@@ -152,26 +140,23 @@ Valoarea utilizată efectiv în timpul rulării este cea **mai mică** dintre al
 
 ## Procesare sensibilă la textură
 
-Debayerul Texture Aware (**numai Chloros
-+** — `--debayer texture-aware`) rulează un model de denoizare AI/ML care necesită aproximativ 1,75 GB de VRAM în FP16 per copie, astfel încât utilizează mult mai multă memorie GPU decât metoda standard:
+Debayerul Texture Aware (**numai Chloros+** — `--debayer texture-aware`) rulează un model de denoizare AI/ML care necesită aproximativ 1,75 GB de VRAM în FP16 per copie, astfel încât utilizează mult mai multă memorie GPU decât metoda standard:
 
 * Sistemele cu **mai puțin de 7 GB VRAM**procesează Texture Aware într-o**buclă sincronă, câte o imagine pe rând** — nu pot încăpea mai multe copii ale modelului, iar un grup de procesori ar genera doar conflicte
 * Sistemele cu **peste 7 GB VRAM** pot procesa Texture Aware simultan, deși cu un număr redus de worker-i în comparație cu metoda Standard
 * Pe **Jetson**, Texture Aware este întotdeauna alocat unui singur worker
 * În **lipsa unui GPU CUDA utilizabil**, execuția folosește debayer-ul Standard, iar backend-ul înregistrează o linie `[DEBAYER] … needs a CUDA GPU …` care explică motivul
-* Pe dispozitivele Jetson cu consum redus de energie (Nano, Orin Nano), CLI
--ul aplică o limită de frecvență a GPU-ului atunci când solicitați Texture Aware — consultați [Ghidul NVIDIA Jetson](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
+* Pe dispozitivele Jetson cu consum redus de energie (Nano, Orin Nano), CLI-ul aplică o limită de frecvență a GPU-ului atunci când solicitați Texture Aware — consultați [Ghidul NVIDIA Jetson](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
 
 ***
 
 ## Gestionarea termică (Jetson)
 
-Dispozitivele Jetson au constrângeri termice, în special în cazul implementărilor în spații închise sau la bordul aeronavelor. Chloros
-monitorizează senzorii de temperatură integrați ai dispozitivelor Jetson și scalează automat dimensiunile loturilor:
+Dispozitivele Jetson au constrângeri termice, în special în cazul implementărilor în spații închise sau la bordul aeronavelor. Chloros monitorizează senzorii de temperatură integrați ai dispozitivelor Jetson și scalează automat dimensiunile loturilor:
 
 | Temperatură | Răspuns |
 | --- | --- |
-| **&lt; 70 °C** | Funcționare normală — viteză maximă |
+| **< 70 °C** | Funcționare normală — viteză maximă |
 | **70 °C** (Avertisment) | Dimensiunea lotului se reduce progresiv (de la 100% la 50% între 70 °C și 80 °C) |
 | **80 °C** (Critic) | Limitarea agresivă a vitezei (50 % → 0 % între 80 °C și 90 °C) |
 | **90 °C** (Oprire) | Oprirea completă a procesării GPU |
@@ -182,11 +167,9 @@ Pe sistemele desktop cu răcire adecvată, limitarea termică este rar declanșa
 
 ## Gestionarea presiunii asupra memoriei
 
-Chloros
-monitorizează continuu memoria GPU în timpul procesării și reacționează la trei niveluri.
+Chloros monitorizează continuu memoria GPU în timpul procesării și reacționează la trei niveluri.
 
-**Dimensiunea lotului.** Un lot începe cu 8 imagini înmulțite cu multiplicatorul platformei din tabelele de mai sus. Chloros
-verifică apoi VRAM-ul liber, rezervă 20% din acesta pentru overhead-ul propriu al PyTorch și presupune aproximativ 100 MB de memorie GPU per imagine de 12 MP — lotul este cel mai mic dintre cele două valori: limita derivată din memorie sau valoarea de bază a platformei. Nu scade niciodată sub 1.
+**Dimensiunea lotului.** Un lot începe cu 8 imagini înmulțite cu multiplicatorul platformei din tabelele de mai sus. Chloros verifică apoi VRAM-ul liber, rezervă 20% din acesta pentru overhead-ul propriu al PyTorch și presupune aproximativ 100 MB de memorie GPU per imagine de 12 MP — lotul este cel mai mic dintre cele două valori: limita derivată din memorie sau valoarea de bază a platformei. Nu scade niciodată sub 1.
 
 **Reducere preventivă.**Peste**85% utilizare a VRAM-ului**, dimensiunile loturilor sunt reduse înainte ca ceva să eșueze.**Reducerea alocării pe fir de execuție.** Pe măsură ce utilizarea în timp real crește, bugetul de GPU al fiecărui fir de execuție este redus: ×0,75 peste 80% utilizare, ×0,5 peste 90%. Intervalele de monitorizare sunt 70% (conservator), 85% (limită normală de funcționare) și 95% (risc de OOM).**Retragere și recuperare în caz de OOM.** Dacă totuși are loc un eveniment de epuizare a memoriei:
 
@@ -194,8 +177,7 @@ verifică apoi VRAM-ul liber, rezervă 20% din acesta pentru overhead-ul propriu
 * alocările firelor active sunt reduse la 70% din valoarea lor curentă, iar alocatorul trece la strategia sa conservatoare, relaxându-se din nou după o serie de alocări reușite
 * sub presiune severă, pipeline-ul revine de la `fused_gpu` la `tiled_gpu` și, ca ultimă soluție, la `cpu_fallback`
 
-**Memoria RAM a gazdei (Jetson).** Înainte de procesare, CLI
--ul estimează memoria maximă a gazdei pe baza numărului de imagini și a modului de debayer și avertizează dacă memoria RAM plus spațiul de swap bazat pe fișiere este probabil insuficient, afișând comenzile exacte pentru a adăuga spațiu de swap — consultați [Ghidul NVIDIA Jetson](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
+**Memoria RAM a gazdei (Jetson).** Înainte de procesare, CLI-ul estimează memoria maximă a gazdei pe baza numărului de imagini și a modului de debayer și avertizează dacă memoria RAM plus spațiul de swap bazat pe fișiere este probabil insuficient, afișând comenzile exacte pentru a adăuga spațiu de swap — consultați [Ghidul NVIDIA Jetson](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
 
 ***
 
@@ -219,21 +201,17 @@ Verificarea 7 afișează `CUDA: <bool>, Denoiser: <bool>` — ambele trebuie să
 
 ### Jurnalele backend-ului
 
-Strategia și numărul de procesori sunt alese în backend la începutul fiecărei rulări — nu există un banner CLI
-care să le anunțe. Când ceva se comportă neașteptat (o cale GPU care revine la o soluție de rezervă, o eroare OOM, un denoiser care nu se încarcă), jurnalul backend pentru acea sesiune este locul unde apare:
+Strategia și numărul de procesori sunt alese în backend la începutul fiecărei rulări — nu există un banner CLI care să le anunțe. Când ceva se comportă neașteptat (o cale GPU care revine la o soluție de rezervă, o eroare OOM, un denoiser care nu se încarcă), jurnalul backend pentru acea sesiune este locul unde apare:
 
 | Platformă | Locația jurnalului |
 | --- | --- |
-| **Linux
-/ Jetson** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (un fișier per lansare) |
-| **Linux
-, backend pornit prin CLI** | de asemenea `~/.chloros/backend.log` |
+| **Linux / Jetson** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (un fișier per lansare) |
+| **Linux, backend pornit prin CLI** | de asemenea `~/.chloros/backend.log` |
 | **Windows** | `%LOCALAPPDATA%\Chloros\logs\` |
 
 ### Progres în timp real
 
-În timpul unei rulări, CLI
--ul afișează progresul în timp real pentru fiecare thread (Detectare, Analizare, Procesare, Exportare), transmis prin Server-Sent Events — o modalitate practică de a afla dacă Thread 3 reprezintă gâtul de sticlă. Consultați [Procesarea pipeline-ului](processing-pipeline.md).
+În timpul unei rulări, CLI-ul afișează progresul în timp real pentru fiecare thread (Detectare, Analizare, Procesare, Exportare), transmis prin Server-Sent Events — o modalitate practică de a afla dacă Thread 3 reprezintă gâtul de sticlă. Consultați [Procesarea pipeline-ului](processing-pipeline.md).
 
 ***
 
@@ -241,8 +219,6 @@ care să le anunțe. Când ceva se comportă neașteptat (o cale GPU care revine
 
 * [Conducta de procesare](processing-pipeline.md) — Înțelegerea arhitecturii conductei cu 4 fire
 * [Ghidul NVIDIA Jetson](../linux/nvidia-jetson-guide.md) — Implementare și optimizare specifice pentru Jetson
-* [CLI
-: Linia de comandă](../CLI.md) — Ghidul CLI
+* [CLI: Linia de comandă](../CLI.md) — Ghidul CLI
 
-* [Referință CLI
-](../reference/cli-reference.md) — Lista completă a comenzilor pentru versiunea 1.3.0
+* [Referință CLI](../reference/cli-reference.md) — Lista completă a comenzilor pentru versiunea 1.3.0

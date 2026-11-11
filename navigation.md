@@ -22,19 +22,7 @@ De la stânga la dreapta, antetul superior conține:
 * **Conectare la senzorul de lumină** — accesează [fila Senzori de lumină](daq/) pentru a conecta un senzor de lumină DAQ. Funcționează fără a avea un proiect deschis.
 
 {% hint style="info" %}
-**Numai pentru Windows**: Interfața grafică Chloros
-
-Desktop este disponibilă pe Windows
-
-. Utilizatorii de Linux
-
-ar trebui să consulte documentația privind [CLI
-
-](CLI.md) și [Python
-
-SDK
-
-](api-python-sdk.md) pentru procesarea fără interfață grafică.
+**Numai pentru Windows**: Interfața grafică Chloros Desktop este disponibilă pe Windows. Utilizatorii de Linux ar trebui să consulte documentația privind [CLI](CLI.md) și [Python SDK](api-python-sdk.md) pentru procesarea fără interfață grafică.
 {% endhint %}
 
 ### <img src=".gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
@@ -49,15 +37,9 @@ Bara de progres <img src=".gitbook/assets/image (5).png" alt="" data-size="line"
 
 
 
-În modul gratuit Chloros
+În modul gratuit Chloros, care procesează toate fișierele secvențial, bara de progres va afișa 2 etape: Detectarea țintei și Procesarea.
 
-, care procesează toate fișierele secvențial, bara de progres va afișa 2 etape: Detectarea țintei și Procesarea.
-
-În modul cu licență Chloros
-
-+, care procesează toate fișierele simultan, bara de progres afișează 4 etape: Detectare, Analiză, Calibrare, Export. Dacă treceți cursorul mouse-ului peste bara de progres Chloros
-
-+, se va afișa un panou extins cu cele 4 etape ale barei de progres, astfel încât să puteți urmări procesul. Dacă faceți clic pe bara de progres de sus, panoul derulant va fi blocat; dacă faceți clic din nou, acesta va fi deblocat.
+În modul cu licență Chloros+, care procesează toate fișierele simultan, bara de progres afișează 4 etape: Detectare, Analiză, Calibrare, Export. Dacă treceți cursorul mouse-ului peste bara de progres Chloros+, se va afișa un panou extins cu cele 4 etape ale barei de progres, astfel încât să puteți urmări procesul. Dacă faceți clic pe bara de progres de sus, panoul derulant va fi blocat; dacă faceți clic din nou, acesta va fi deblocat.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 

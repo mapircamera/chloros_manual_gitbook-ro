@@ -84,7 +84,7 @@ Fiecare imagine cu date GPS primește un marcaj la coordonatele sale.
 
 Alegeți tipul stratului de hartă folosind butoanele (de la stânga la dreapta):
 
-![](&lt;../.gitbook/assets/image (14).png&gt;)
+![](<../.gitbook/assets/image (14).png>)
 
 | Tip                 | Afișează                                                                |
 | -------------------- | -------------------------------------------------------------------- |

@@ -66,7 +66,7 @@
 * [Adaptarea dinamică a calculului](processing-architecture/dynamic-compute-adaptation.md)
 * [Fluxul de procesare](processing-architecture/processing-pipeline.md)
 
-## Referințe (CLI &amp; SDK)
+## Referințe (CLI & SDK)
 
 * [Referință Chloros CLI](reference/cli-reference.md)
 * [Referință Chloros Python SDK](reference/sdk-reference.md)

@@ -165,7 +165,7 @@ $$
 
 În interfața grafică (GUI) și în lista de presetări CLI/SDK, formula simbolului este `(z/y)*(x/y)`, unde x = Red, y = Green, z = NIR (benzile unei camere RGN); presetarea motorului de indici LATTICE este `nir * red / green**2`. Fiecare suprafață calculează același indice.
 
-_Referință: Vincini, M., E. Frazzi și P. D&#x27;Alessio. „Un indice de vegetație al clorofilei frunzelor în bandă largă la scara coronamentului.” Precision Agriculture 9 (2008): 303-319._
+_Referință: Vincini, M., E. Frazzi și P. D'Alessio. „Un indice de vegetație al clorofilei frunzelor în bandă largă la scara coronamentului.” Precision Agriculture 9 (2008): 303-319._
 
 ***
 
@@ -207,7 +207,7 @@ $$
 
 Zonele împădurite vor avea valori FCI1 mai mici datorită reflectanței mai scăzute a copacilor și prezenței umbrelor în interiorul coronamentului.
 
-_Referință: Becker, Sarah J., Craig S.T. Daughtry și Andrew L. Russ. „Indici robusti ai acoperirii forestiere pentru imagini multispectrale.” Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505-512._
+_Referință: Becker, Sarah J., Craig S.T. Daughtry și Andrew L. Russ. „Indici robusti ai acoperirii forestiere pentru imagini multispectrale.” Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505-512._
 
 ***
 
@@ -223,7 +223,7 @@ $$
 
 Zonele împădurite vor avea valori FCI2 mai mici datorită reflectanței mai scăzute a copacilor și prezenței umbrelor în interiorul coronamentului.
 
-_Referință: Becker, Sarah J., Craig S.T. Daughtry și Andrew L. Russ. „Indici robusti ai acoperirii forestiere pentru imagini multispectrale.” Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505-512._
+_Referință: Becker, Sarah J., Craig S.T. Daughtry și Andrew L. Russ. „Indici robusti ai acoperirii forestiere pentru imagini multispectrale.” Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505-512._
 
 ***
 
@@ -489,7 +489,7 @@ $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_Referință: Bannari, A., H. Asalhi și P. Teillet. „Indicele de vegetație prin diferență transformată (TDVI) pentru cartografierea acoperirii vegetale” În Actele Simpozionului de Geostiințe și Teledetecție, IGARSS &#x27;02, IEEE International, volumul 5 (2002)._
+_Referință: Bannari, A., H. Asalhi și P. Teillet. „Indicele de vegetație prin diferență transformată (TDVI) pentru cartografierea acoperirii vegetale” În Actele Simpozionului de Geostiințe și Teledetecție, IGARSS '02, IEEE International, volumul 5 (2002)._
 
 ***
 

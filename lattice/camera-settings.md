@@ -1,12 +1,8 @@
 # Setări cameră
 
-Fila **Camere** reprezintă panoul de control în timp real al Chloros
+Fila **Camere** reprezintă panoul de control în timp real al Chloros pentru camerele LATTICE: o zonă principală de afișare care prezintă fiecare cameră conectată sub forma unui panou live și o bară laterală care comută între trei pagini — **lista camerelor**, un**panou de setări**(setări per cameră, pentru grup de camere sau de captură — câte una pe rând) și**Calculatorul de index**. Această pagină documentează fiecare element de control din lista de camere, panoul de setări per cameră și panoul de setări pentru grupul de camere. Modurile de captură, selecția tipului de export și fluxul „Capture All” se găsesc pe pagina asociată [Setări și moduri de captură](capture.md).
 
-pentru camerele LATTICE: o zonă principală de afișare care prezintă fiecare cameră conectată sub forma unui panou live și o bară laterală care comută între trei pagini — **lista camerelor**, un**panou de setări**(setări per cameră, pentru grup de camere sau de captură — câte una pe rând) și**Calculatorul de index**. Această pagină documentează fiecare element de control din lista de camere, panoul de setări per cameră și panoul de setări pentru grupul de camere. Modurile de captură, selecția tipului de export și fluxul „Capture All” se găsesc pe pagina asociată [Setări și moduri de captură](capture.md).
-
-Fila „Camere” apare în bara laterală odată ce backend-ul Chloros
-
-este pregătit. Toate elementele de control de mai jos comunică cu backend-ul local prin `127.0.0.1:5000`; modificările se aplică imediat camerei live, cu excepția cazurilor în care se specifică altfel.
+Fila „Camere” apare în bara laterală odată ce backend-ul Chloros este pregătit. Toate elementele de control de mai jos comunică cu backend-ul local prin `127.0.0.1:5000`; modificările se aplică imediat camerei live, cu excepția cazurilor în care se specifică altfel.
 
 ## Tipuri de camere utilizate pe această pagină
 
@@ -14,38 +10,12 @@ Elementele de control se afișează sau se ascund în funcție de tipul de camer
 
 | Termen | Înțeles | Canale de filtrare |
 | --- | --- | --- |
-| **Cameră RGB** | LATTICE M3C cu filtru FRGB (modelul conține `-FRGB`) | Red
-
-/ Green
-
-/ Blue
-
-|
-| **Multispectrală Bayer** | LATTICE M3C cu FRGN, FOCN sau FNGB | FRGN: Red
-
-/ Green
-
-/ NIR
-
-· FOCN: Orange
-
-/ Cyan
-
-/ NIR
-
-· FNGB: NIR
-
-/ Green
-
-/ Blue
-
-|
+| **Cameră RGB** | LATTICE M3C cu filtru FRGB (modelul conține `-FRGB`) | Red / Green / Blue |
+| **Multispectrală Bayer** | LATTICE M3C cu FRGN, FOCN sau FNGB | FRGN: Red / Green / NIR · FOCN: Orange / Cyan / NIR · FNGB: NIR / Green / Blue |
 | **Mono (M3M)** | LATTICE M3M — un filtru de bandă îngustă, o bandă calibrată | Bandă unică |
 | ****Element al matricei** | O cameră conectată ca parte a unei matrice sincronizate (afișaj combinat sau separat) | Conform filtrului său |
 
-Camerele RGB
-
-beneficiază de procesare fotometrică (balans de alb, profiluri de culoare, gamma); camerele multispectrale și mono beneficiază de lanțul radiometric și omit controalele fotometrice. Elementele matricei transmit setările la nivel de flux (format pixel, rezoluție, binning, declanșare, frecvența cadrelor) către matrice — acele rânduri devin doar pentru citire în panoul specific fiecărei camere și se mută în panoul de setări al matricei.
+Camerele RGB beneficiază de procesare fotometrică (balans de alb, profiluri de culoare, gamma); camerele multispectrale și mono beneficiază de lanțul radiometric și omit controalele fotometrice. Elementele matricei transmit setările la nivel de flux (format pixel, rezoluție, binning, declanșare, frecvența cadrelor) către matrice — acele rânduri devin doar pentru citire în panoul specific fiecărei camere și se mută în panoul de setări al matricei.
 
 ## Zona principală de afișare a fluxului
 
@@ -53,9 +23,7 @@ beneficiază de procesare fotometrică (balans de alb, profiluri de culoare, gam
 
 
 
-Dacă nu sunt conectate camere, zona de afișare a fluxului prezintă un mesaj de bun venit **„Conectați o cameră pentru a începe”**cu două butoane:**Conectare cameră**(verde, deschide fereastra de dialog pentru conectarea unei singure camere) și**Conectare rețea** (albastru, deschide fereastra de dialog pentru conectarea rețelei). Ferestrele de dialog pentru conectare sunt documentate în [Conectarea camerelor](connecting.md); conceptele legate de rețea (sincronizare, niveluri, lățime de bandă) în [Matrice cu mai multe camere](arrays.md). Când deschideți un proiect salvat care conține camere, ecranul de întâmpinare afișează în schimb un indicator de încărcare cu mesajul „Se redeschid N camere salvate…”, în timp ce Chloros
-
-restabilește fluxurile din ultima sesiune.
+Dacă nu sunt conectate camere, zona de afișare a fluxului prezintă un mesaj de bun venit **„Conectați o cameră pentru a începe”**cu două butoane:**Conectare cameră**(verde, deschide fereastra de dialog pentru conectarea unei singure camere) și**Conectare rețea** (albastru, deschide fereastra de dialog pentru conectarea rețelei). Ferestrele de dialog pentru conectare sunt documentate în [Conectarea camerelor](connecting.md); conceptele legate de rețea (sincronizare, niveluri, lățime de bandă) în [Matrice cu mai multe camere](arrays.md). Când deschideți un proiect salvat care conține camere, ecranul de întâmpinare afișează în schimb un indicator de încărcare cu mesajul „Se redeschid N camere salvate…”, în timp ce Chloros restabilește fluxurile din ultima sesiune.
 
 <!-- SCREENSHOT-NEEDED: Cameras tab empty state — the "Connect a camera to get started" splash with the green Connect Camera and blue Connect Array buttons. -->
 
@@ -120,15 +88,11 @@ Se deschide cu **rotița** de pe un rând de camere. Panoul se glisează peste l
 
 ### Histogramă în timp real
 
-În partea de sus a panoului se află o histogramă de luminanță în timp real, calculată pe baza previzualizării JPEG
-
-la ~8 Hz. Media este ponderată după metoda Bayer — (R+2G+B)/4 — pentru a se potrivi cu propria măsurare AE a camerei.
+În partea de sus a panoului se află o histogramă de luminanță în timp real, calculată pe baza previzualizării JPEG la ~8 Hz. Media este ponderată după metoda Bayer — (R+2G+B)/4 — pentru a se potrivi cu propria măsurare AE a camerei.
 
 * **Linia punctată Orange**= ținta AE. **Trageți-o pe orizontală pentru a reorienta ținta** — la eliberare se trimite o comandă, iar glisarea comută modul țintei AE pe Manual.
 * **Linia continuă Green** = luminozitatea medie actuală (ceea ce oferă AE în prezent).
-* **Butonul RGB** (dreapta sus): comută între histogramele suprapuse pe benzi, colorate în funcție de filtrul camerei (de exemplu, pe FRGN: NIR
-
-gri, verde, roșu). La camerele mono (M3M), butonul afișează „MONO” și este dezactivat — modul mono afișează întotdeauna histograma de luminanță pe o singură bandă.
+* **Butonul RGB** (dreapta sus): comută între histogramele suprapuse pe benzi, colorate în funcție de filtrul camerei (de exemplu, pe FRGN: NIR gri, verde, roșu). La camerele mono (M3M), butonul afișează „MONO” și este dezactivat — modul mono afișează întotdeauna histograma de luminanță pe o singură bandă.
 * Etichetele axei X respectă adâncimea de biți a senzorului pentru formatul curent al pixelilor: 0..255, 0..1023, 0..4095 sau 0..65535.
 
 ### Rânduri
@@ -140,54 +104,22 @@ cu informații despre cameră
 | Rând | Comportament |
 | --- | --- |
 | **Model** | Doar citire (de ex. `LATT-M3C-L87-FRGN`). |
-| **Calibrare radiometrică**| Insignă**„Activă”** de culoare Green
-
-, cu o legendă care afișează nivelul de calibrare, hash-ul, data calibrării și lista de benzi, încărcate din pachetul de calibrare al camerei (a se vedea [Calibrarea radiometrică din fabrică](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)). **Ascuns pentru camerele RGB** — acestea dispun de o calibrare fotometrică a balansului de alb, nu de radianță pe bandă. |
-| **Raport de calibrare**| Butonul**Descărcare** — deschide în vizualizatorul sistemului de operare fișierul PDF al certificatului de calibrare NIST specific fiecărui număr de serie al camerei. Dacă certificatul nu este încă stocat în cache, Chloros
-
-afișează în schimb un mesaj de îndrumare. |
+| **Calibrare radiometrică**| Insignă**„Activă”** de culoare Green, cu o legendă care afișează nivelul de calibrare, hash-ul, data calibrării și lista de benzi, încărcate din pachetul de calibrare al camerei (a se vedea [Calibrarea radiometrică din fabrică](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)). **Ascuns pentru camerele RGB** — acestea dispun de o calibrare fotometrică a balansului de alb, nu de radianță pe bandă. |
+| **Raport de calibrare**| Butonul**Descărcare** — deschide în vizualizatorul sistemului de operare fișierul PDF al certificatului de calibrare NIST specific fiecărui număr de serie al camerei. Dacă certificatul nu este încă stocat în cache, Chloros afișează în schimb un mesaj de îndrumare. |
 | **Număr de serie** | Doar pentru citire. |
 | **Firmware**| Afișează versiunea curentă, apoi identifică versiunea disponibilă pentru acest model (memorată în cache pentru fiecare model — un grup de N camere verifică serverul o singură dată). Stări: „Verificare…” → butonul**„Actualizare la X”**→ „Actualizare în curs…” → „Actualizat de la A la B” / „Eșec: …” / „Omitut: …” / verde**„La zi”**. Informația de ajutor a butonului de actualizare: „Resetare la setările din fabrică + flash + reprogramare UserSet1. ~2–3 minute; nu deconectați.” |
 | **IP** | Doar pentru citire. |
 | **Temperatură** | Doar pentru citire, actualizată la fiecare 3 s. Devine portocaliu la ≥65 °C și roșu cu un ⚠ la ≥75 °C. |
-| **Țintă de calibrare** casetă de selectare | Activează detectarea țintei de reflectanță ArUco cu un tabel de validare NDVI
-
-pentru fiecare panou sub fluxul live (vizualizare listă) — vezi [Tabelul țintei de calibrare](#the-calibration-target-table). Disponibilă doar pe durata sesiunii — se deschide întotdeauna dezactivată. |
+| **Țintă de calibrare** casetă de selectare | Activează detectarea țintei de reflectanță ArUco cu un tabel de validare NDVI pentru fiecare panou sub fluxul live (vizualizare listă) — vezi [Tabelul țintei de calibrare](#the-calibration-target-table). Disponibilă doar pe durata sesiunii — se deschide întotdeauna dezactivată. |
 | Meniul derulant **Senzor de lumină** | Asociază un senzor de lumină DAQ (DAQ-E/M/U, din lista din fila Senzori de lumină) la această cameră pentru corecția iluminării cu lumină descendentă (DLS) și expunere automată predictivă. „„Niciunul” anulează asocierea. Dacă nu sunt conectați senzori, meniul derulant afișează „(nu sunt senzori conectați — deschideți fila DAQ)”. Asocierea este salvată odată cu proiectul. |
 
 #### Tabelul țintelor de calibrare
 
 Tabelul este **doar pentru afișarea datelor de validare** („doar validare — nu modifică calibrarea”). Antetul său indică numărul de serie al camerei, filtrul, numărul țintei și dimensiunea markerului în pixeli, iar fiecare panou are un rând:
 
-* **Panou**, urmat de o coloană pentru fiecare bandă cu valoarea panoului — o cameră Bayer afișează cele trei benzi ale sale după nume și lungime de undă (de ex. FRGN: Red
-
-660 nm / Green
-
-550 nm / NIR
-
-850 nm); o **cameră mono (M3M) afișează o singură bandă** (de exemplu, `F750`) și nu are coloane NDVI
-
-.
+* **Panou**, urmat de o coloană pentru fiecare bandă cu valoarea panoului — o cameră Bayer afișează cele trei benzi ale sale după nume și lungime de undă (de ex. FRGN: Red 660 nm / Green 550 nm / NIR 850 nm); o **cameră mono (M3M) afișează o singură bandă** (de exemplu, `F750`) și nu are coloane NDVI.
 * **Sat** — procentul de pixeli ai panoului care sunt saturați (chihlimbar de la 1 %, roșu de la 5 %).
-* **NDVI
-
-Meas**,**NDVI
-
-Theo** (NDVI
-
-de referință al panoului bazat pe reflectanță) și **Δ**— numai pentru camerele multispectrale Bayer. Un mic simbol după „NDVI
-
-Meas” indică sursa din care a fost calculat NDVI
-
--ul măsurat:**ρ**(reflectanță — este disponibilă o citire a senzorului de lumină),**L**(radianță — nu există citire a senzorului de lumină) sau**DN**(valori brute ale camerei). Doar un**NDVI
-
-**bazat pe**ρ** este comparabil cu NDVI
-
-Theo: pentru L și DN, coloana Δ este estompată, iar o notă precizează acest lucru („Nu există citire a senzorului de lumină: NDVI
-
--ul provine din radianță, deci Δ nu reprezintă o verificare a calibrării” / „NDVI
-
--ul provine din valorile brute ale camerei, deci Δ nu reprezintă o verificare a calibrării”). În cazul valorii ρ, Δ este verde sub 0,02, galben sub 0,05 și roșu în celelalte cazuri.
+* **NDVI Meas**,**NDVI Theo** (NDVI de referință al panoului bazat pe reflectanță) și **Δ**— numai pentru camerele multispectrale Bayer. Un mic simbol după „NDVI Meas” indică sursa din care a fost calculat NDVI-ul măsurat:**ρ**(reflectanță — este disponibilă o citire a senzorului de lumină),**L**(radianță — nu există citire a senzorului de lumină) sau**DN**(valori brute ale camerei). Doar un**NDVI**bazat pe**ρ** este comparabil cu NDVI Theo: pentru L și DN, coloana Δ este estompată, iar o notă precizează acest lucru („Nu există citire a senzorului de lumină: NDVI-ul provine din radianță, deci Δ nu reprezintă o verificare a calibrării” / „NDVI-ul provine din valorile brute ale camerei, deci Δ nu reprezintă o verificare a calibrării”). În cazul valorii ρ, Δ este verde sub 0,02, galben sub 0,05 și roșu în celelalte cazuri.
 
 <!-- SCREENSHOT-NEEDED: a 1.3.0 Calibration Target table under a live feed in list view — a Bayer camera's table showing the band columns, Sat, and "NDVI Meas ρ" / NDVI Theo / Δ; ideally next to a mono camera's single-band table with no NDVI columns. -->
 
@@ -195,7 +127,7 @@ Theo: pentru L și DN, coloana Δ este estompată, iar o notă precizează acest
 
 <!-- SCREENSHOT-NEEDED: per-camera Exposure & Gain section — Exposure (us) and Gain (dB) rows with Auto/Manual toggles, AE Target Brightness, AE Smoothing slider, AE Region of Interest row with the Aim button, and (on an array camera) AE Tune Speed and Highlight Protection rows. -->
 
-Toate valorile numerice introduse aici utilizează rotițe de reglare cu accelerare la menținere: atingere = ±1, menținere &gt;1,5 s = ±10, menținere &gt;3 s = ±100. Valoarea este trimisă către cameră atunci când eliberați butonul.
+Toate valorile numerice introduse aici utilizează rotițe de reglare cu accelerare la menținere: atingere = ±1, menținere >1,5 s = ±10, menținere >3 s = ±100. Valoarea este trimisă către cameră atunci când eliberați butonul.
 
 | Control | Interval / opțiuni | Implicit | Se aplică la | Ce face |
 | --- | --- | --- | --- | --- |
@@ -208,21 +140,11 @@ Toate valorile numerice introduse aici utilizează rotițe de reglare cu acceler
 | ****Protecția zonelor luminoase** | Strictă (1 %) / Normală (5 %) / Relaxată (15 %) | Strictă | Camere care expun această setare | Cât din cadru se poate decupa în alb înainte ca AE să întunece imaginea. |
 
 {% hint style="info" %}
-**Cerințe de lumină pentru camerele multispectrale Bayer (RGN
-
-/ OCN
-
-/ NGB
-
-):** scena trebuie să aibă suficientă lumină în toate cele trei canale, altfel calibrarea nu funcționează corect — o singură expunere a senzorului acoperă toate cele trei spectre. Utilizați un senzor de lumină DAQ pentru a măsura lumina sau treceți în modul complet mono (M3M), astfel încât fiecare bandă să aibă propria expunere. Dacă o captură încalcă această cerință, Chloros
-
-o detectează și vă avertizează (notificarea „unmix-clamp”). În timp real, o casetă de separare a canalelor afișează **„Date de bandă cu încredere scăzută · N%”** atunci când funcția „unmix” a limitat acea bandă la 25 % sau mai mult din pixelii săi.
+**Cerințe de lumină pentru camerele multispectrale Bayer (RGN / OCN / NGB):** scena trebuie să aibă suficientă lumină în toate cele trei canale, altfel calibrarea nu funcționează corect — o singură expunere a senzorului acoperă toate cele trei spectre. Utilizați un senzor de lumină DAQ pentru a măsura lumina sau treceți în modul complet mono (M3M), astfel încât fiecare bandă să aibă propria expunere. Dacă o captură încalcă această cerință, Chloros o detectează și vă avertizează (notificarea „unmix-clamp”). În timp real, o casetă de separare a canalelor afișează **„Date de bandă cu încredere scăzută · N%”** atunci când funcția „unmix” a limitat acea bandă la 25 % sau mai mult din pixelii săi.
 {% endhint %}
 
 {% hint style="info" %}
-**Modul în care expunerea automată gestionează expunerea și amplificarea (1.3.0).** Cu câștigul setat pe „Auto”, Chloros
-
-menține câștigul la 0 dB până când expunerea atinge cea mai mare valoare permisă (limita superioară a AE, perioada de declanșare a unei matrice sau plafonul de expunere DAQ); abia atunci crește câștigul. Într-o matrice, rata de declanșare are prioritate: expunerea automată umple perioada stabilită de această rată, apoi crește amplificarea, astfel încât o scenă care se întunecă nu mai reduce rata de declanșare a modului „Auto” (în versiunea 1.2.0 se întâmpla acest lucru). O expunere **manuală**pe un element al matricei, cu o durată mai mare decât perioada de declanșare, încetinește rata de declanșare a matricei pentru a se adapta la aceasta; rata automată revine odată ce fiecare element care a încetinit-o revine la expunerea automată. Cu**Expunerea**și**Luminozitatea țintă AE** setate ambele pe „Auto” și cu un senzor de lumină DAQ care furnizează o citire, expunerea fiecărei camere este menținută odată ce expunerea automată s-a stabilizat, atâta timp cât lumina măsurată rămâne în limitele de aproximativ ±25 %; o schimbare de lumină mai mare și susținută, o repornire a setărilor (de exemplu, o modificare a zonei de interes) sau propria dvs. modificare a expunerii o reactivează.
+**Modul în care expunerea automată gestionează expunerea și amplificarea (1.3.0).** Cu câștigul setat pe „Auto”, Chloros menține câștigul la 0 dB până când expunerea atinge cea mai mare valoare permisă (limita superioară a AE, perioada de declanșare a unei matrice sau plafonul de expunere DAQ); abia atunci crește câștigul. Într-o matrice, rata de declanșare are prioritate: expunerea automată umple perioada stabilită de această rată, apoi crește amplificarea, astfel încât o scenă care se întunecă nu mai reduce rata de declanșare a modului „Auto” (în versiunea 1.2.0 se întâmpla acest lucru). O expunere **manuală**pe un element al matricei, cu o durată mai mare decât perioada de declanșare, încetinește rata de declanșare a matricei pentru a se adapta la aceasta; rata automată revine odată ce fiecare element care a încetinit-o revine la expunerea automată. Cu**Expunerea**și**Luminozitatea țintă AE** setate ambele pe „Auto” și cu un senzor de lumină DAQ care furnizează o citire, expunerea fiecărei camere este menținută odată ce expunerea automată s-a stabilizat, atâta timp cât lumina măsurată rămâne în limitele de aproximativ ±25 %; o schimbare de lumină mai mare și susținută, o repornire a setărilor (de exemplu, o modificare a zonei de interes) sau propria dvs. modificare a expunerii o reactivează.
 {% endhint %}
 
 {% hint style="info" %}
@@ -263,34 +185,18 @@ Tot ce se află în această secțiune se referă **doar la afișare**— modifi
 | --- | --- | --- | --- | --- |
 | **Rezoluție de redare** | 360p (cea mai rapidă) / 480p / 720p / 1080p / Rezoluția nativă a senzorului (cea mai lentă) | 720p | Toate | Înălțimea la care backend-ul rulează lanțul de previzualizare radiometrică. O valoare mai mică asigură o rată de cadre mai mare fără a modifica câmpul vizual. |
 | **Index**| Casetă de selectare „Activați” + rotiță | Dezactivat | Numai multispectral Bayer,**nu** pentru membrii cu matrice combinată | Previzualizare live a indicelui de vegetație. Roata dințată deschide fereastra partajată [Calculator index](#index-calculator-pane), preîncărcată cu benzile naturale ale filtrului camerei (de ex. `Red_660_RGN`, `Green_550_RGN`, `NIR_850_RGN`). Expresia personalizată plus LUT (pornit/oprit, nivel implicit 7 stopuri, minim implicit 0,2, maxim implicit 1) este calculată pentru fiecare cadru de previzualizare. Membrii matricei combinate ascund acest rând — matricea deține un singur indice partajat. |
-| **Balanța de alb** | Oprit / O singură dată / Continuu + un buton de recaptare | Continuu | Numai RGB
-
-| Balans de alb în timp real. Butonul de reîmprospătare recapturează balansul de alb din spectrul DLS curent (dezactivat când modul este Oprit). |
-| **Gamma** | Activat / Oprit | Activat | Numai RGB
-
-| Afișează gamma (γ = 2,2 LUT) în previzualizarea live. Capturile salvate rămân liniare. |
+| **Balanța de alb** | Oprit / O singură dată / Continuu + un buton de recaptare | Continuu | Numai RGB | Balans de alb în timp real. Butonul de reîmprospătare recapturează balansul de alb din spectrul DLS curent (dezactivat când modul este Oprit). |
+| **Gamma** | Activat / Oprit | Activat | Numai RGB | Afișează gamma (γ = 2,2 LUT) în previzualizarea live. Capturile salvate rămân liniare. |
 | **Reducere zgomot** | Casetă de selectare + intensitate 0–100 | Dezactivat / 50 | Toate (per cameră, chiar și în cadrul matricilor) | Filtru bilateral în previzualizarea în timp real. Valoare mai mare = detalii mai fine, dar mai estompate. |
 | **Claritate** | Casetă de selectare + intensitate 0–100 | Dezactivat / 30 | Toate | Mască de neclaritate în previzualizarea în timp real, aplicată ultima. Poate amplifica zgomotul. Doar în previzualizare. |
 | **Vigneta**| Casetă de selectare + intensitate 0–100 | Dezactivat / 0 | Toate | Eliminare manuală a vignetei reziduale (luminează colțurile), suprapusă peste estimarea Smart Vignette a matricei.**Radiometric — afectează vizualizarea în timp real ȘI exporturile**, spre deosebire de Denoise/Sharpness. |
-| **Profil de culoare** | Raw / Liniar / Natural / Îmbunătățit / Temperatură personalizată | Natural | Numai RGB
-
-| Vezi mai jos. |
-| **Temperatura culorii** | 2000–10000 K, pas de 100 | 5500 K | Numai RGB
-
-, profil de temperatură personalizat | Fixează balansul de alb la o temperatură de culoare corelată fixă (intrarea DLS este ignorată). Ultima valoare Kelvin selectată este reținută la schimbarea profilurilor. |
-| **Zonele luminoase** | de la −100 la 0, cu pas de 1 | 0 (dezactivat) | Numai RGB
-
-| Noutate în versiunea 1.3.0. Întunecă zonele cele mai luminoase și mai albe ale imaginii (0 = neschimbat, −100 = intensitate maximă). Se aplică previzualizării în timp real **și capturilor la nivel de afișaj (Previzualizare)**, care înregistrează setarea (`Chloros:DisplayHighlights`); exporturile de radianță și reflectanță nu sunt niciodată afectate. Nu poate recupera datele senzorului care au fost decupate — reduceți expunerea pentru asta. Suprapunerea zebră urmează imaginea întunecată. Dezactivată cu profilul de culoare Raw („Nu se aplică cu profilul de culoare Raw.”). |
-| **Saturație** | 0–200 (100 = neutru) | 100 | Numai RGB
-
-| Saturația HSV în previzualizarea live. |
-| **Contrast** | 0–200 (100 = neutru) | 100 | Numai RGB
-
-| Contrast liniar în jurul tonului de gri mediu în previzualizarea live. |
+| **Profil de culoare** | Raw / Liniar / Natural / Îmbunătățit / Temperatură personalizată | Natural | Numai RGB | Vezi mai jos. |
+| **Temperatura culorii** | 2000–10000 K, pas de 100 | 5500 K | Numai RGB, profil de temperatură personalizat | Fixează balansul de alb la o temperatură de culoare corelată fixă (intrarea DLS este ignorată). Ultima valoare Kelvin selectată este reținută la schimbarea profilurilor. |
+| **Zonele luminoase** | de la −100 la 0, cu pas de 1 | 0 (dezactivat) | Numai RGB | Noutate în versiunea 1.3.0. Întunecă zonele cele mai luminoase și mai albe ale imaginii (0 = neschimbat, −100 = intensitate maximă). Se aplică previzualizării în timp real **și capturilor la nivel de afișaj (Previzualizare)**, care înregistrează setarea (`Chloros:DisplayHighlights`); exporturile de radianță și reflectanță nu sunt niciodată afectate. Nu poate recupera datele senzorului care au fost decupate — reduceți expunerea pentru asta. Suprapunerea zebră urmează imaginea întunecată. Dezactivată cu profilul de culoare Raw („Nu se aplică cu profilul de culoare Raw.”). |
+| **Saturație** | 0–200 (100 = neutru) | 100 | Numai RGB | Saturația HSV în previzualizarea live. |
+| **Contrast** | 0–200 (100 = neutru) | 100 | Numai RGB | Contrast liniar în jurul tonului de gri mediu în previzualizarea live. |
 | **Oglindire orizontală / Oglindire verticală** | Casete de selectare | Dezactivat | Toate | Răsuci previzualizarea pe orizontală / pe verticală. |
-| **Rotație**| 0° / 90° / 180° / 270° | 0° | Toate | Rotește previzualizarea. Orientarea se aplică la sfârșitul lanțului de previzualizare din backend.**Capturi salvate (1.3.0):**produsele de tip Previzualizare, Radianță, Reflectanță și Indice ale unei camere independente sunt rotite prin Oglinzire/Rotație, în timp ce**fișierele Raw și Debayered rămân în orientarea nativă a camerei**; fiecare fișier de captură înregistrează setarea în XMP-ul său, astfel încât procesarea ulterioară a unui fișier raw o aplică în același mod.**Fișierele membre ale matricei rămân native** (setarea este înregistrată, nu aplicată), iar vizualizările compozite ale matricei o ignoră. |**Semantica profilurilor de culoare** (camere RGB
-
-):
+| **Rotație**| 0° / 90° / 180° / 270° | 0° | Toate | Rotește previzualizarea. Orientarea se aplică la sfârșitul lanțului de previzualizare din backend.**Capturi salvate (1.3.0):**produsele de tip Previzualizare, Radianță, Reflectanță și Indice ale unei camere independente sunt rotite prin Oglinzire/Rotație, în timp ce**fișierele Raw și Debayered rămân în orientarea nativă a camerei**; fiecare fișier de captură înregistrează setarea în XMP-ul său, astfel încât procesarea ulterioară a unui fișier raw o aplică în același mod.**Fișierele membre ale matricei rămân native** (setarea este înregistrată, nu aplicată), iar vizualizările compozite ale matricei o ignoră. |**Semantica profilurilor de culoare** (camere RGB):
 
 * **Raw** — ocolește complet lanțul de procesare.
 * **Liniar** — semnal întunecat + câmp plat + balans de alb; fără matrice de culoare, fără gamma.
@@ -315,20 +221,12 @@ Acestea sunt disponibile doar în interfața de utilizator — sunt suprapuse pe
 | **Grilă** | Dezactivat / 3 × 3 / 9 × 9 | Dezactivat | Grilă de compoziție. |
 | **Histogramă** | Casetă de selectare + lățime 0,10–0,90 din cadru | Dezactivat / 0,25 | O bandă de histogramă afișată pe flux. |
 | **Focus Peak** | Casetă de selectare + prag 20–200 + mostră de culoare | Dezactivat / 80 / `#ff5722` | Evidențierea marginilor Sobel pentru focalizare. |
-| **Împărțiri pe canale** | „Afișează împărțiri (Red
-
-/ Green
-
-/ NIR
-
-)” / butonul „Ascunde divizările” | Ascuns | Adaugă trei casete independente în tonuri de gri pentru fiecare canal, alături de imaginea compusă (eticheta butonului respectă canalele de filtru ale camerei). Fiecare casetă divizată poate fi trasă și are aceeași culoare ca marginea camerei. Nu este disponibil pe camerele monocrome. Se salvează odată cu proiectul. |
+| **Împărțiri pe canale** | „Afișează împărțiri (Red / Green / NIR)” / butonul „Ascunde divizările” | Ascuns | Adaugă trei casete independente în tonuri de gri pentru fiecare canal, alături de imaginea compusă (eticheta butonului respectă canalele de filtru ale camerei). Fiecare casetă divizată poate fi trasă și are aceeași culoare ca marginea camerei. Nu este disponibil pe camerele monocrome. Se salvează odată cu proiectul. |
 
 ### Spot Meter
 
 * Caseta de selectare **Click to Sample**: faceți clic pe fluxul live pentru a preleva o probă dintr-un singur pixel (acesta este marcat cu un reticul în formă de cruce) sau faceți clic și trageți pentru a selecta o regiune din care se calculează media pixelilor. Butonul**Clear**șterge proba și reticulul. Se exclude reciproc cu modul**Aim** al AE-ROI.
-* **Meniul derulant**Afișare**:**Raw (adâncime de biți)**— valori digitale native la adâncimea de biți a senzorului (de ex. 12 biți → 0..4095) — sau**Afișare (8 biți)** (implicit). Când un indice în timp real este activ, opțiunea „Afișare” arată în schimb valoarea indicelui calculat (de ex. NDVI
-
-).
+* **Meniul derulant**Afișare**:**Raw (adâncime de biți)**— valori digitale native la adâncimea de biți a senzorului (de ex. 12 biți → 0..4095) — sau**Afișare (8 biți)** (implicit). Când un indice în timp real este activ, opțiunea „Afișare” arată în schimb valoarea indicelui calculat (de ex. NDVI).
 * Panoul de afișare prezintă coordonatele pixelilor, dimensiunea cadrului, formatul pixelilor, adâncimea de biți și un tabel de canale (Chan / Valoare / %) cu etichetele benzilor și lungimile de undă; perechile de verde Bayer sunt mediate; eșantioanele din regiune afișează „N px avg”.
 
 Starea expometrului punctual este valabilă doar pentru sesiunea curentă.
@@ -350,18 +248,10 @@ Această secțiune apare numai atunci când **este conectat cel puțin un senzor
 | **Reflectanța scenei**| Butonul**Recalibrare ρ** | — | Reestimează factorul de reflectanță al scenei utilizat de solver. |
 
 {% hint style="info" %}
-**Conectarea matricei dezactivează AE predictivă în mod implicit** — pentru matrice, AE inteligentă de la Chloros
-
-împreună cu expunerea automată a camerei gestionează expunerea (cu protecție împotriva saturației), iar estimarea reflectanței pentru o singură scenănu este sigură în scenele mixte. Puteți să o reactivați pentru fiecare cameră în parte aici, dacă doriți în mod specific o expunere radiometrică bazată pe DLS.
+**Conectarea matricei dezactivează AE predictivă în mod implicit** — pentru matrice, AE inteligentă de la Chloros împreună cu expunerea automată a camerei gestionează expunerea (cu protecție împotriva saturației), iar estimarea reflectanței pentru o singură scenănu este sigură în scenele mixte. Puteți să o reactivați pentru fiecare cameră în parte aici, dacă doriți în mod specific o expunere radiometrică bazată pe DLS.
 {% endhint %}
 
-**Plafonul de expunere bazat pe DAQ și AE fixat pe incidență.** Indiferent de caseta de selectare de mai sus, atunci când un senzor de lumină DAQ este alocat unei camere RGB
-
-, Chloros
-
-calculează — pe baza iradianței absolute descendente măsurate — expunerea maximă × amplificarea la care o suprafață cu reflectanță de 100 % rămâne sub pragul de clipping și o aplică ca **plafon**pentru expunerea automată. Începând cu versiunea 1.3.0, plafonul se aplică numai atât timp cât o țintă de calibrare se află în câmpul vizual al camerei respective (văzută în cadrul acesteia în ultimele 10 secunde); în absența unei ținte în câmpul vizual, se activează în schimb expunerea automată obișnuită a camerei, cu propria protecție împotriva supraexpunerii, astfel încât restul scenei să nu fie menținut mai întunecat decât este necesar. În timp ce limita maximă este activă, camera funcționează**în modul fixat pe lumină incidentă**: funcționează în buclă deschisă la expunerea măsurată în funcție de lumina incidentă, cu amplificarea la 0 dB — expunerea urmează lumina măsurată, nu conținutul scenei. Deoarece limita maximă poate doar să scurteze expunerea, ea nu poate provoca singură decuparea. Începând cu versiunea 1.3.0, pragul maxim este calculat pe baza constantei de expunere proprii a camerei, preluată din pachetul său de calibrare (o valoare medie la nivel de flotă doar atunci când pachetul nu conține una). Pragul maxim se dezactivează automat — iar expunerea automată normală a scenei se reia — ori de câte ori nu se află nicio țintă de calibrare în cadru, citirea DAQ lipsește, este expirată (&gt;30 s), sau este întunecată, sau dacă ≥15 % din cadru se decupează la expunerea fixată (ceea ce înseamnă că senzorul și camera detectează iluminări diferite). Nu există un comutator în interfața grafică; acesta este comportamentul standard ori de câte ori o cameră RGB
-
-are o legătură DAQ.
+**Plafonul de expunere bazat pe DAQ și AE fixat pe incidență.** Indiferent de caseta de selectare de mai sus, atunci când un senzor de lumină DAQ este alocat unei camere RGB, Chloros calculează — pe baza iradianței absolute descendente măsurate — expunerea maximă × amplificarea la care o suprafață cu reflectanță de 100 % rămâne sub pragul de clipping și o aplică ca **plafon**pentru expunerea automată. Începând cu versiunea 1.3.0, plafonul se aplică numai atât timp cât o țintă de calibrare se află în câmpul vizual al camerei respective (văzută în cadrul acesteia în ultimele 10 secunde); în absența unei ținte în câmpul vizual, se activează în schimb expunerea automată obișnuită a camerei, cu propria protecție împotriva supraexpunerii, astfel încât restul scenei să nu fie menținut mai întunecat decât este necesar. În timp ce limita maximă este activă, camera funcționează**în modul fixat pe lumină incidentă**: funcționează în buclă deschisă la expunerea măsurată în funcție de lumina incidentă, cu amplificarea la 0 dB — expunerea urmează lumina măsurată, nu conținutul scenei. Deoarece limita maximă poate doar să scurteze expunerea, ea nu poate provoca singură decuparea. Începând cu versiunea 1.3.0, pragul maxim este calculat pe baza constantei de expunere proprii a camerei, preluată din pachetul său de calibrare (o valoare medie la nivel de flotă doar atunci când pachetul nu conține una). Pragul maxim se dezactivează automat — iar expunerea automată normală a scenei se reia — ori de câte ori nu se află nicio țintă de calibrare în cadru, citirea DAQ lipsește, este expirată (>30 s), sau este întunecată, sau dacă ≥15 % din cadru se decupează la expunerea fixată (ceea ce înseamnă că senzorul și camera detectează iluminări diferite). Nu există un comutator în interfața grafică; acesta este comportamentul standard ori de câte ori o cameră RGB are o legătură DAQ.
 
 ### Achiziție și declanșare
 
@@ -411,11 +301,7 @@ Afișat atât pentru matrice combinate, cât și pentru cele separate:
 
 Propriul său grup, imediat după Senzorul de lumină ambientală, atât pentru matricele combinate, cât și pentru cele separate:
 
-* Caseta de selectare **Activare** — „Detectează ținta MAPIR
-
-ArUco și validează LUT-ul NDVI
-
-față de reflectanța panoului”; generează suprapunerea țintei și tabelele de validare ale plăcii combinate. Pe o matrice **separată**, activează [tabelul țintei de calibrare] propriu fiecărui element(#the-calibration-target-table) (câte una pentru fiecare rând de camere în vizualizarea listă).
+* Caseta de selectare **Activare** — „Detectează ținta MAPIR ArUco și validează LUT-ul NDVI față de reflectanța panoului”; generează suprapunerea țintei și tabelele de validare ale plăcii combinate. Pe o matrice **separată**, activează [tabelul țintei de calibrare] propriu fiecărui element(#the-calibration-target-table) (câte una pentru fiecare rând de camere în vizualizarea listă).
 
 ### Captură — setări uniforme ale senzorilor
 

@@ -2,9 +2,7 @@
 
 Bara laterală „Setări proiect” <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line">
 
-din Chloros
-
-vă permite să configurați toate aspectele legate de procesarea imaginilor, detectarea țintelor de calibrare, calcularea indicilor multispectrali și opțiunile de export pentru proiectul dumneavoastră. Aceste setări sunt salvate odată cu proiectul și pot fi salvate ca șabloane pentru a fi reutilizate în mai multe proiecte.
+din Chloros vă permite să configurați toate aspectele legate de procesarea imaginilor, detectarea țintelor de calibrare, calcularea indicilor multispectrali și opțiunile de export pentru proiectul dumneavoastră. Aceste setări sunt salvate odată cu proiectul și pot fi salvate ca șabloane pentru a fi reutilizate în mai multe proiecte.
 
 ## Accesarea setărilor proiectului
 
@@ -40,9 +38,7 @@ din bara laterală din stânga
 
 ## Detectarea țintelor
 
-Aceste setări controlează modul în care Chloros
-
-detectează și procesează țintele de calibrare din imaginile dvs. Ambele sunt active numai atunci când este activată opțiunea **Calibrare prin reflectanță / balans de alb** (în caz contrar, acestea sunt estompate, deoarece detectarea țintelor este omisă în totalitate).
+Aceste setări controlează modul în care Chloros detectează și procesează țintele de calibrare din imaginile dvs. Ambele sunt active numai atunci când este activată opțiunea **Calibrare prin reflectanță / balans de alb** (în caz contrar, acestea sunt estompate, deoarece detectarea țintelor este omisă în totalitate).
 
 ### Suprafața minimă a eșantionului de calibrare (px)
 
@@ -68,9 +64,7 @@ detectează și procesează țintele de calibrare din imaginile dvs. Ambele sunt
 
 ## Procesare
 
-Aceste setări controlează modul în care Chloros
-
-procesează și calibrează imaginile dvs.
+Aceste setări controlează modul în care Chloros procesează și calibrează imaginile dvs.
 
 ### Corecția vignetării
 
@@ -84,9 +78,7 @@ procesează și calibrează imaginile dvs.
 * **Tip**: Casetă de selectare
 * **Implicit**: Activat (bifat)
 * **Descriere**: Activează calibrarea reflectanței — pe baza țintelor de calibrare detectate în cadru și/sau a datelor de lumină descendentă de la senzorul de lumină DAQ, în funcție de cameră și de ceea ce este disponibil. Aceasta normalizează valorile de reflectanță în întregul set de date și asigură măsurători consistente, indiferent de condițiile de iluminare.
-* **Când este dezactivată**: Detectarea țintelor este omisă în totalitate, iar**niciun produs de reflectanță nu poate fi generat de nicio cameră** — fie că este vorba de Survey3
-
-bazat pe ținte, fie de LATTICE bazat pe DAQ. Setările dependente (*Export reflectanță*, *Interval minim de recalibrare* și pragurile de detectare a țintelor) sunt dezactivate (afisate în gri).
+* **Când este dezactivată**: Detectarea țintelor este omisă în totalitate, iar**niciun produs de reflectanță nu poate fi generat de nicio cameră** — fie că este vorba de Survey3 bazat pe ținte, fie de LATTICE bazat pe DAQ. Setările dependente (*Export reflectanță*, *Interval minim de recalibrare* și pragurile de detectare a țintelor) sunt dezactivate (afisate în gri).
 
 ### Produse de rezervă necalibrate: Exportare răspuns senzor / Exportare corectată pentru vignetare
 
@@ -103,45 +95,25 @@ Pentru proiectele care conțin capturi LATTICE, fiecare cadru LATTICE importat s
 
 | Setare | Folder de ieșire | Ce se exportă |
 | --- | --- | --- |
-| **Export debayered** | `Debayered_Images/` | Imaginea debayered liniară: cu offsetul de întuneric al pachetului de calibrare eliminat, urmată de o demosaicare sensibilă la margini, fără corecție de liniaritate, câmp plat sau separare — același fișier pe care o captură îl salvează la nivelul său debayerat. Păstrată în orientarea nativă a senzorului (înregistrată în XMP). Se aplică camerelor RGB
-
-și multispectrale. |
-| **Export previzualizare** | `Preview_Images/` | Previzualizarea afișată. RGB
-
-= balans de alb (iluminant DAQ, dacă este disponibil; altfel, „gray-world”) + gamma; multispectral = extindere în culori false. |
-| ****Radianță de export** | `Radiance_Images/` | Radianță spectrală Float32 în W/m²/sr/nm. Numai pentru multispectrale (M3C/M3M) — nu se aplică masterelor RGB
-
-. Se salvează întotdeauna ca fișier TIFF
-
-pe 32 de biți, indiferent de setarea *Format imagine calibrată*. |
+| **Export debayered** | `Debayered_Images/` | Imaginea debayered liniară: cu offsetul de întuneric al pachetului de calibrare eliminat, urmată de o demosaicare sensibilă la margini, fără corecție de liniaritate, câmp plat sau separare — același fișier pe care o captură îl salvează la nivelul său debayerat. Păstrată în orientarea nativă a senzorului (înregistrată în XMP). Se aplică camerelor RGB și multispectrale. |
+| **Export previzualizare** | `Preview_Images/` | Previzualizarea afișată. RGB = balans de alb (iluminant DAQ, dacă este disponibil; altfel, „gray-world”) + gamma; multispectral = extindere în culori false. |
+| ****Radianță de export** | `Radiance_Images/` | Radianță spectrală Float32 în W/m²/sr/nm. Numai pentru multispectrale (M3C/M3M) — nu se aplică masterelor RGB. Se salvează întotdeauna ca fișier TIFF pe 32 de biți, indiferent de setarea *Format imagine calibrată*. |
 | **Export reflectanță**| `Reflectance_Calibrated_Images/` | Reflectanță Uint16, scalată astfel încât**32768 = reflectanță 1,0** (marcat ca XMP `Chloros:PixelScale`). Numai pentru imagini multispectrale, înregistrat atunci când o înregistrare corespunzătoare de tip `.daq` cu radiație descendentă (sau o țintă în cadru care a trecut testul de control al calității) acoperă cadrul. |
 
-* Camerele principale RGB
-
-emit date debayered + previzualizare; radianța/reflectanța sunt omise pentru acestea, deoarece nu sunt aplicabile.
+* Camerele principale RGB emit date debayered + previzualizare; radianța/reflectanța sunt omise pentru acestea, deoarece nu sunt aplicabile.
 * Adâncimea de biți a datelor debayered/previzualizare respectă setarea *Format imagine calibrat*; radianța este întotdeauna float32.
-* Procesarea Survey3
-
-nu este afectată de aceste patru comutatoare.
+* Procesarea Survey3 nu este afectată de aceste patru comutatoare.
 * Produsele de radianță și reflectanță ale camerelor multispectrale M3C pot scrie, de asemenea, o ****** într-un dosar `clamp_masks/` situat lângă dosarele produselor, înregistrând locurile în care demixarea benzii a redus o valoare negativă la zero. A se vedea [Formate de imagine de ieșire](../output-image-formats.md#clamp-masks).
 
-Aceleași patru comutatoare există și în varianta fără interfață grafică, sub denumirea `chloros-cli process --debayered / --preview / --radiance / --reflectance`. Acestea au înlocuit vechiul indicator CLI
-
-, `--radiometric-output`, care nu mai există.
+Aceleași patru comutatoare există și în varianta fără interfață grafică, sub denumirea `chloros-cli process --debayered / --preview / --radiance / --reflectance`. Acestea au înlocuit vechiul indicator CLI, `--radiometric-output`, care nu mai există.
 
 {% hint style="warning" %}
-**Dezactivarea tuturor produselor aplicabile duce la eșuarea procesării.** Începând cu versiunea 1.2.0, o procesare pentru care s-au solicitat produse, dar care nu a generat niciun produs de imagine, raportează o eroare, iar CLI
-
--ul se închide cu un cod de ieșire diferit de zero, în loc să raporteze un succes tacit. Jurnalul menționează produsul care nu a putut fi generat și motivul. O procesare deliberată care generează doar metadate (fără solicitări) este totuși considerată reușită.
+**Dezactivarea tuturor produselor aplicabile duce la eșuarea procesării.** Începând cu versiunea 1.2.0, o procesare pentru care s-au solicitat produse, dar care nu a generat niciun produs de imagine, raportează o eroare, iar CLI-ul se închide cu un cod de ieșire diferit de zero, în loc să raporteze un succes tacit. Jurnalul menționează produsul care nu a putut fi generat și motivul. O procesare deliberată care generează doar metadate (fără solicitări) este totuși considerată reușită.
 {% endhint %}
 
-### Sursa de reflectanță (setare de proiect, configurată prin CLI
+### Sursa de reflectanță (setare de proiect, configurată prin CLI)
 
-)
-
-Proiectul stochează, de asemenea, **referința de reflectanță** utilizată de produsul de reflectanță LATTICE. Nu există un control dedicat în panoul de setări; valoarea este stocată în configurația proiectului ca `Processing → "Target reflectance source"` și este setată cu `chloros-cli process --reflectance-source {auto,target,daq}` (`configure()` din SDK
-
-nu are un cuvânt-cheie pentru aceasta):
+Proiectul stochează, de asemenea, **referința de reflectanță** utilizată de produsul de reflectanță LATTICE. Nu există un control dedicat în panoul de setări; valoarea este stocată în configurația proiectului ca `Processing → "Target reflectance source"` și este setată cu `chloros-cli process --reflectance-source {auto,target,daq}` (`configure()` din SDK nu are un cuvânt-cheie pentru aceasta):
 
 * **`auto`** (implicit): o țintă de calibrare în cadru care trece de controlul de calitate (QA) devine referința absolută, revenindu-se la divizorul de radiație descendentă al DAQ (ρ = πL/E) atunci când nu este prezentă nicio țintă sau când controlul de calitate eșuează. O țintă care trece de controlul calității cu un indicator de eroare (un panou căzut sau o bandă defectă) nu este preferată automat: lanțurile țintă, țintă+DAQ și numai DAQ sunt încercate în ordinea scorului lor măsurat pe panourile de rezervă.
 * **`target`**: reflectanță strict determinată de țintă — fără substituire DAQ.
@@ -156,30 +128,18 @@ Scanările țintelor **măsurate** pe unitate sunt căutate după numărul de se
 * **Tip**: Selecție din meniu derulant
 * **Opțiuni**:
   * Standard (rapid, calitate medie)
-  * Texture Aware (lent, calitate maximă) \[Chloros
-
-+]
+  * Texture Aware (lent, calitate maximă) \[Chloros+]
 * **Implicit**: Standard (rapid, calitate medie)
-* **Descriere**: Selectează algoritmul de demosaic utilizat pentru a converti datele brute ale senzorului cu model Bayer în imagini color. Metoda „Standard (rapidă, calitate medie)” oferă un echilibru optim între viteza de procesare și calitatea imaginii. Metoda „Sensibilă la textură (lentă, calitate maximă)” \[Chloros
-
-+] utilizează un algoritm de demosaic de înaltă calitate, sensibil la contururi, combinat cu un model de reducere a zgomotului bazat pe AI/ML, care elimină aproape tot zgomotul generat de demosaic. Modelul „Sensibil la textură” necesită memorie GPU (VRAM) pentru a rula. Vă recomandăm să îl utilizați atunci când aveți la dispoziție &gt;4 GB VRAM, pentru o procesare mai rapidă.
-* **Atunci când rândul este un meniu derulant**: meniul derulant cu două opțiuni apare numai atunci când**ambele** condiții sunt îndeplinite — sunteți conectat cu un abonament Chloros
-
-+ eligibil, **și** proiectul nu conține capturi LATTICE. În caz contrar, rândul se afișează ca text simplu cu textul `Standard (Fast, Medium Quality)`, fără nicio opțiune de selectat.
-* **Notă privind LATTICE**: Nu există un model Texture Aware antrenat pentru LATTICE, iar fluxul de lucru impune demosaicarea standard pentru cadrele LATTICE, indiferent de valoarea stocată. Dacă adăugați un folder LATTICE într-un proiect în care era deja selectată opțiunea Texture Aware, Chloros
-
-rescrie setarea la Standard, în loc să păstreze o valoare învechită în `project.json`.
+* **Descriere**: Selectează algoritmul de demosaic utilizat pentru a converti datele brute ale senzorului cu model Bayer în imagini color. Metoda „Standard (rapidă, calitate medie)” oferă un echilibru optim între viteza de procesare și calitatea imaginii. Metoda „Sensibilă la textură (lentă, calitate maximă)” \[Chloros+] utilizează un algoritm de demosaic de înaltă calitate, sensibil la contururi, combinat cu un model de reducere a zgomotului bazat pe AI/ML, care elimină aproape tot zgomotul generat de demosaic. Modelul „Sensibil la textură” necesită memorie GPU (VRAM) pentru a rula. Vă recomandăm să îl utilizați atunci când aveți la dispoziție >4 GB VRAM, pentru o procesare mai rapidă.
+* **Atunci când rândul este un meniu derulant**: meniul derulant cu două opțiuni apare numai atunci când**ambele** condiții sunt îndeplinite — sunteți conectat cu un abonament Chloros+ eligibil, **și** proiectul nu conține capturi LATTICE. În caz contrar, rândul se afișează ca text simplu cu textul `Standard (Fast, Medium Quality)`, fără nicio opțiune de selectat.
+* **Notă privind LATTICE**: Nu există un model Texture Aware antrenat pentru LATTICE, iar fluxul de lucru impune demosaicarea standard pentru cadrele LATTICE, indiferent de valoarea stocată. Dacă adăugați un folder LATTICE într-un proiect în care era deja selectată opțiunea Texture Aware, Chloros rescrie setarea la Standard, în loc să păstreze o valoare învechită în `project.json`.
 
 ### Interval minim de recalibrare
 
 * **Tip**: Număr
 * **Interval**: de la 0 la 3.600 de secunde
 * **Implicit**: 0 secunde
-* **Descriere**: Stabilește intervalul minim de timp (în secunde) între utilizarea țintelor de calibrare. Când este setat la 0, Chloros
-
-va utiliza fiecare țintă de calibrare detectată. Când este setat la o valoare mai mare, Chloros
-
-va utiliza doar țintele de calibrare care sunt separate de cel puțin acest număr de secunde, reducând timpul de procesare pentru seturile de date cu capturi frecvente ale țintelor de calibrare.
+* **Descriere**: Stabilește intervalul minim de timp (în secunde) între utilizarea țintelor de calibrare. Când este setat la 0, Chloros va utiliza fiecare țintă de calibrare detectată. Când este setat la o valoare mai mare, Chloros va utiliza doar țintele de calibrare care sunt separate de cel puțin acest număr de secunde, reducând timpul de procesare pentru seturile de date cu capturi frecvente ale țintelor de calibrare.
 * **Când se ajustează**:
   * Setați la 0 pentru o precizie maximă a calibrării atunci când condițiile de iluminare variază
   * Măriți valoarea (de exemplu, la 60–300 de secunde) pentru o procesare mai rapidă atunci când iluminarea este constantă și aveți imagini frecvente ale țintelor de calibrare
@@ -195,11 +155,7 @@ va utiliza doar țintele de calibrare care sunt separate de cel puțin acest num
 
 * **Tip**: Casetă de selectare
 * **Implicit**: Dezactivat (debifat)
-* **Descriere**: Activează utilizarea corecțiilor cinematice post-procesate (PPK) de la înregistratoarele DAQ MAPIR
-
-care conțin un GPS (GNSS). Când este activată, Chloros
-
-va utiliza orice fișiere jurnal .daq care conțin date privind pinul de expunere din directorul proiectului dvs. și va aplica corecții precise de geolocalizare imaginilor dvs.
+* **Descriere**: Activează utilizarea corecțiilor cinematice post-procesate (PPK) de la înregistratoarele DAQ MAPIR care conțin un GPS (GNSS). Când este activată, Chloros va utiliza orice fișiere jurnal .daq care conțin date privind pinul de expunere din directorul proiectului dvs. și va aplica corecții precise de geolocalizare imaginilor dvs.
 * **Cerință**: În directorul proiectului trebuie să existe un fișier jurnal .daq cu intrări privind pinul de expunere
 * **Când să activați**: Se recomandă activarea întotdeauna a corecției PPK dacă aveți intrări de feedback privind expunerea în fișierul jurnal .daq.
 
@@ -248,9 +204,7 @@ Fiecare rând afișează fișierul, modelul senzorului și corecția capacului d
 * **Opțiuni**: `Auto` plus profilurile de corecție a capacului valabile pentru tipurile de senzori prezenți în proiect
 * **Implicit**: Auto
 * **Salvat ca**: `Processing → "DAQ cap id"` (implicit `auto`)
-* **Descriere**: `Auto` utilizează capacul înregistrat pentru fiecare fișier (se presupune capacul Sunshine dacă nu s-a înregistrat nimic, dar DAQ-U, DAQ-M și DAQ-E sunt livrate fără capac, iar Chloros
-
-nu poate vedea ce este montat, așa că procesarea afișează un avertisment privind un capac presupus: alegeți capacul care a fost montat). Alegerea unui capac specific are prioritate asupra **tuturor** fișierelor de înregistrare a radiației descendente din proiect, cu excepția celor de la un DAQ-E-S, al cărui difuzor face parte din calibrarea sa; un proiect care conține doar DAQ-E-S nu afișează nicio listă derulantă: înregistrările brute sunt corectate cu acesta, iar înregistrările care au deja un capac sunt re-referențiate (corecția înregistrată este anulată și se aplică cea selectată).
+* **Descriere**: `Auto` utilizează capacul înregistrat pentru fiecare fișier (se presupune capacul Sunshine dacă nu s-a înregistrat nimic, dar DAQ-U, DAQ-M și DAQ-E sunt livrate fără capac, iar Chloros nu poate vedea ce este montat, așa că procesarea afișează un avertisment privind un capac presupus: alegeți capacul care a fost montat). Alegerea unui capac specific are prioritate asupra **tuturor** fișierelor de înregistrare a radiației descendente din proiect, cu excepția celor de la un DAQ-E-S, al cărui difuzor face parte din calibrarea sa; un proiect care conține doar DAQ-E-S nu afișează nicio listă derulantă: înregistrările brute sunt corectate cu acesta, iar înregistrările care au deja un capac sunt re-referențiate (corecția înregistrată este anulată și se aplică cea selectată).
 * **Important**: Capacitatea selectată trebuie să corespundă cu cea montată fizic în timpul înregistrării. Nici senzorul, nici software-ul nu pot detecta capacul fizic — un ID de capac nepotrivit corectează greșit spectrele.
 
 Există în mod deliberat **un singur** control la nivel de proiect, în loc de meniuri derulante pentru fiecare fișier: setarea se aplică tuturor surselor descendente din proiect.***
@@ -294,54 +248,26 @@ Aceste setări vă permit să configurați indici multispectrali pentru analiză
 ### Adăugare indice
 
 * **Tip**: Panou special de configurare a indicilor
-* **Descriere**: Deschide un panou interactiv în care puteți selecta și configura indici multispectrali de vegetație (NDVI
-
-, NDRE
-
-, EVI
-
-etc.) care să fie calculați în timpul procesării imaginii. Puteți adăuga mai mulți indici, fiecare cu propriile setări de vizualizare.
-* **Indici disponibili**: Meniul derulant al interfeței grafice include**27** de formule de indici multispectrali predefinite (consultați [Formule de indici multispectrali](multispectral-index-formulas.md) pentru lista completă, inclusiv denumirile acceptate de opțiunea CLI
-
-/SDK
-
-`--indices`).
+* **Descriere**: Deschide un panou interactiv în care puteți selecta și configura indici multispectrali de vegetație (NDVI, NDRE, EVI etc.) care să fie calculați în timpul procesării imaginii. Puteți adăuga mai mulți indici, fiecare cu propriile setări de vizualizare.
+* **Indici disponibili**: Meniul derulant al interfeței grafice include**27** de formule de indici multispectrali predefinite (consultați [Formule de indici multispectrali](multispectral-index-formulas.md) pentru lista completă, inclusiv denumirile acceptate de opțiunea CLI/SDK `--indices`).
 * **Funcționalități**:
   * Selectați dintre formulele de indici predefinite
   * Trageți canalele de filtru ale camerei dvs. în sloturile de bandă ale formulei
   * Configurați gradientele de culoare pentru vizualizare (LUT - tabele de consultare)
   * Setați valorile pragului și modurile de decupare
   * Creați formule de indice personalizate
-* **Notă**: Indicii nu sunt calculați pentru camerele mono LATTICE M3M cu o singură bandă — indicii multibandă sunt nedefiniti pe o singură bandă. Modelele Survey3
-
-și LATTICE M3C nu sunt afectate.
+* **Notă**: Indicii nu sunt calculați pentru camerele mono LATTICE M3M cu o singură bandă — indicii multibandă sunt nedefiniti pe o singură bandă. Modelele Survey3 și LATTICE M3C nu sunt afectate.
 
 <!-- SCREENSHOT-NEEDED: Project Settings > Index section with one index added and expanded: the filter dropdown, the formula dropdown open showing preset names, the coloured channel circles above the rendered formula, and the "+ Add LUT" button below it. -->
 
 
 
-Fiecare indice pe care îl adăugați își afișează formula sub formă de expresie matematică, cu un cerc colorat pentru fiecare slot de bandă: roșu = Red
+Fiecare indice pe care îl adăugați își afișează formula sub formă de expresie matematică, cu un cerc colorat pentru fiecare slot de bandă: roșu = Red, verde = Green, albastru = Blue, portocaliu = Orange, cyan = Cyan, violet = NIR, magenta = RE. Trageți un cerc din rândul de deasupra formulei pe un slot pentru a-l asocia; faceți dublu clic pe un slot asociat pentru a-l șterge. Indicele se calculează doar o singură dată, atâta timp cât fiecare slot utilizat de formulă are un canal.
 
-, verde = Green
-
-, albastru = Blue
-
-, portocaliu = Orange
-
-, cyan = Cyan
-
-, violet = NIR
-
-, magenta = RE. Trageți un cerc din rândul de deasupra formulei pe un slot pentru a-l asocia; faceți dublu clic pe un slot asociat pentru a-l șterge. Indicele se calculează doar o singură dată, atâta timp cât fiecare slot utilizat de formulă are un canal.
-
-### Formule personalizate (Funcționalitate Chloros
-
-+)
+### Formule personalizate (Funcționalitate Chloros+)
 
 * **Tip**: Matrice de definiții de formule personalizate
-* **Disponibilitate**: Necesită autentificarea cu un abonament Chloros
-
-+ eligibil.
+* **Disponibilitate**: Necesită autentificarea cu un abonament Chloros+ eligibil.
 * **Descriere**: Vă permite să creați și să salvați formule personalizate de indici multispectrali folosind operații matematice între benzi. Formulele personalizate sunt salvate împreună cu setările proiectului dvs. și pot fi utilizate la fel ca indicii integrați.
 * **Cum se creează**:
   1. În panoul de configurare a indexului, deschideți calculatorul de formule personalizate
@@ -351,20 +277,8 @@ Fiecare indice pe care îl adăugați își afișează formula sub formă de exp
   * Sloturi de bandă: `x`, `y`, `z`, `a`, `b`, `c` — șase poziții pe care le asociați canalelor reale prin glisare
   * Operatori: `+`, `-`, `*`, `/`, `^` și `()` pentru grupare
   * Funcții: `sqrt()`, `log()`, `ln()`, `abs()`, `sign()`, `log1p()`, `log2()`
-* **De ce simboluri, nu nume de formații**: o formulă scrisă sub forma `(y-x)/(y+x)` funcționează pe orice cameră, deoarece maparea prin glisare și plasare decide dacă `y` reprezintă NIR
-
--ul de 850 nm al unui filtru RGN
-
-sau NIR
-
--ul de 808 nm al unui filtru OCN
-
-. presetările încorporate sunt stocate în același mod — consultați [Formule de indici multispectrali](multispectral-index-formulas.md) pentru forma exactă a simbolurilor tuturor celor 27.
-* **Unde funcționează**: formulele personalizate sunt salvate împreună cu setările proiectului și pot fi utilizate atât în [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md), cât și în procesare. Acestea**nu** sunt acceptate de lista de nume CLI
-
-/SDK
-
-`--indices`, care extinde doar cele 22 de nume de presetări încorporate.
+* **De ce simboluri, nu nume de formații**: o formulă scrisă sub forma `(y-x)/(y+x)` funcționează pe orice cameră, deoarece maparea prin glisare și plasare decide dacă `y` reprezintă NIR-ul de 850 nm al unui filtru RGN sau NIR-ul de 808 nm al unui filtru OCN. presetările încorporate sunt stocate în același mod — consultați [Formule de indici multispectrali](multispectral-index-formulas.md) pentru forma exactă a simbolurilor tuturor celor 27.
+* **Unde funcționează**: formulele personalizate sunt salvate împreună cu setările proiectului și pot fi utilizate atât în [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md), cât și în procesare. Acestea**nu** sunt acceptate de lista de nume CLI/SDK `--indices`, care extinde doar cele 22 de nume de presetări încorporate.
 
 ***
 
@@ -376,49 +290,19 @@ Aceste setări controlează formatul și calitatea imaginilor procesate exportat
 
 * **Tip**: Meniu derulant
 * **Opțiuni**:
-  * **TIFF
-
-(16 biți)** - Format TIFF
-
-necomprimat de 16 biți
-  * **TIFF
-
-(8 biți)** - Format TIFF
-
-necomprimat de 8 biți
-  * **TIFF
-
-(32 de biți, procent)** - TIFF
-
-de 32 de biți cu virgulă mobilă, cu valori de reflectanță exprimate în procente
-  * **PNG
-
-(8 biți)** - Format PNG
-
-comprimat de 8 biți
-  * **JPG (8 biți)** – Format JPEG
-
-comprimat de 8 biți
-* **Implicit**: TIFF
-
-(16 biți); un proiect realizat integral pe 8 biți afișează TIFF
-
-(8 biți) și oferă doar formatele de 8 biți
+  * **TIFF (16 biți)** - Format TIFF necomprimat de 16 biți
+  * **TIFF (8 biți)** - Format TIFF necomprimat de 8 biți
+  * **TIFF (32 de biți, procent)** - TIFF de 32 de biți cu virgulă mobilă, cu valori de reflectanță exprimate în procente
+  * **PNG (8 biți)** - Format PNG comprimat de 8 biți
+  * **JPG (8 biți)** – Format JPEG comprimat de 8 biți
+* **Implicit**: TIFF (16 biți); un proiect realizat integral pe 8 biți afișează TIFF (8 biți) și oferă doar formatele de 8 biți
 * **Descriere**: Selectează formatul de fișier pentru salvarea imaginilor procesate și calibrate. Fișierele exportate sunt plasate într-un subfolder specific fiecărui format, în interiorul folderului fiecărei camere (`tiff16`, `tiff32`, `png8`, `jpg8`), cu câte un dosar `<Product>_Images/` pentru fiecare produs. Fișierele exportate păstrează numele fișierului sursă — produsul este identificat de dosar, nu de sufixul numelui fișierului.
 * **Recomandări privind formatul**:
-  * **TIFF
-
-(16 biți)**: Recomandat pentru analize științifice și fluxuri de lucru profesionale. Păstrează calitatea maximă a datelor, fără artefacte de compresie. Ideal pentru analiza multispectrală și prelucrarea ulterioară în software-ul GIS.
-  * **TIFF
-
-(32 de biți, procent)**: Ideal pentru fluxurile de lucru care necesită valori de reflectanță exprimate în procente (0-100%). Oferă precizie maximă pentru măsurătorile radiometrice.
-  * **PNG
-
-(8 biți)**: Potrivit pentru vizualizare pe web și vizualizare generală. Dimensiuni mai mici ale fișierelor cu compresie fără pierderi, dar cu o gamă dinamică redusă.
+  * **TIFF (16 biți)**: Recomandat pentru analize științifice și fluxuri de lucru profesionale. Păstrează calitatea maximă a datelor, fără artefacte de compresie. Ideal pentru analiza multispectrală și prelucrarea ulterioară în software-ul GIS.
+  * **TIFF (32 de biți, procent)**: Ideal pentru fluxurile de lucru care necesită valori de reflectanță exprimate în procente (0-100%). Oferă precizie maximă pentru măsurătorile radiometrice.
+  * **PNG (8 biți)**: Potrivit pentru vizualizare pe web și vizualizare generală. Dimensiuni mai mici ale fișierelor cu compresie fără pierderi, dar cu o gamă dinamică redusă.
   * **JPG (8 biți)**: Dimensiuni de fișier minime, ideal doar pentru previzualizări și afișare pe web. Utilizează compresie cu pierderi, care nu este potrivită pentru analize științifice.
-* **Notă**: Radianța LATTICE este întotdeauna exportată ca fișier TIFF
-
-cu 32 de biți în format float, indiferent de această setare.
+* **Notă**: Radianța LATTICE este întotdeauna exportată ca fișier TIFF cu 32 de biți în format float, indiferent de această setare.
 
 ***
 
@@ -429,22 +313,12 @@ Această funcție vă permite să salvați setările curente ale proiectului ca 
 * **Tip**: Câmp de introducere text + buton „Salvare”
 * **Descriere**: Introduceți un nume descriptiv pentru șablonul de setări și faceți clic pe pictograma de salvare. Șablonul va stoca toate setările curente ale proiectului (detectarea țintelor, opțiunile de procesare, indicii, și formatul de export) pentru a le putea reutiliza cu ușurință în proiectele viitoare. Șabloanele sunt stocate în folderul `Project Templates/` din folderul de salvare al proiectului și pot fi, de asemenea, selectate sau exportate din meniul principal (*Selectare șablon* / *Salvare șablon* / *Exportare șablon*).
 * **Cazuri de utilizare**:
-  * Creați șabloane pentru diferite sisteme de camere (RGB
-
-, multispectral, NIR
-
-)
+  * Creați șabloane pentru diferite sisteme de camere (RGB, multispectral, NIR)
   * Salvați configurații standard pentru anumite tipuri de culturi sau fluxuri de lucru de analiză
   * Partajați setări uniforme în cadrul echipei
 * **Mod de utilizare**:
   1. Configurați toate setările dorite pentru proiect
-  2. Introduceți un nume pentru șablon (de exemplu, „RedEdge
-
-Survey3
-
-NDVI
-
-Standard”)
+  2. Introduceți un nume pentru șablon (de exemplu, „RedEdge Survey3 NDVI Standard”)
   3. Faceți clic pe pictograma de salvare
   4. Șablonul poate fi acum încărcat la crearea de proiecte noi
 
@@ -455,42 +329,22 @@ Standard”)
 Această setare specifică locația în care sunt salvate în mod implicit proiectele noi.
 
 * **Tip**: Afișare cale director + buton „Editare”
-* **Implicit (sistem Windows
-
-)**: `Documents\MAPIR\Chloros Projects` în folderul „Documente” — de obicei `C:\Users\[Username]\Documents\MAPIR\Chloros Projects`, sau oriunde a fost mutat folderul „Documente” de către OneDrive sau un profil de roaming
-* **Implicit (Linux
-
-)**: `~/Documents/MAPIR/Chloros Projects`
-* **Descriere**: Afișează directorul implicit curent în care sunt create noile proiecte Chloros
-
-. Faceți clic pe pictograma de editare pentru a selecta un alt director. Modificarea este stocată ca o singură linie de text în `~/.chloros/working_directory.txt` — pe Windows
-
-, acesta este `C:\Users\<Username>\.chloros\working_directory.txt`. Dacă acel fișier lipsește sau indică o cale care nu mai există, Chloros
-
-revine la setarea implicită de mai sus. Interfața CLI
-
-citește și scrie același fișier, astfel încât `chloros-cli` și interfața grafică (GUI) sunt întotdeauna de acord cu privire la locația proiectelor.
+* **Implicit (sistem Windows)**: `Documents\MAPIR\Chloros Projects` în folderul „Documente” — de obicei `C:\Users\[Username]\Documents\MAPIR\Chloros Projects`, sau oriunde a fost mutat folderul „Documente” de către OneDrive sau un profil de roaming
+* **Implicit (Linux)**: `~/Documents/MAPIR/Chloros Projects`
+* **Descriere**: Afișează directorul implicit curent în care sunt create noile proiecte Chloros. Faceți clic pe pictograma de editare pentru a selecta un alt director. Modificarea este stocată ca o singură linie de text în `~/.chloros/working_directory.txt` — pe Windows, acesta este `C:\Users\<Username>\.chloros\working_directory.txt`. Dacă acel fișier lipsește sau indică o cale care nu mai există, Chloros revine la setarea implicită de mai sus. Interfața CLI citește și scrie același fișier, astfel încât `chloros-cli` și interfața grafică (GUI) sunt întotdeauna de acord cu privire la locația proiectelor.
 * **Șabloanele de proiect** se află într-un subfolder `Project Templates/` al acestui director.
 * **Când să modificați**:
   * Setați o unitate de rețea pentru colaborarea în echipă
   * Schimbați pe o unitate cu mai mult spațiu de stocare pentru seturi de date mari
   * Organizați proiectele pe ani, clienți sau tipuri de proiecte în dosare diferite
 * **Notă**: Modificarea acestei setări afectează doar proiectele NOI. Proiectele existente rămân în locațiile lor inițiale.
-* **Lungimea căii de acces Windows**: cu excepția cazului în care sunt activate căile lungi Windows
-
-(opțiunea **Activați căile lungi Windows** din programul de instalare), un folder de proiect cu o lungime mai mare de aproximativ 130 de caractere este respins înainte de procesare, deoarece produsele sale ar depăși limita de 260 de caractere a căilor de acces Windows
-
-. Consultați [Pornirea procesării](../processing-images-gui/starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer).
+* **Lungimea căii de acces Windows**: cu excepția cazului în care sunt activate căile lungi Windows (opțiunea **Activați căile lungi Windows** din programul de instalare), un folder de proiect cu o lungime mai mare de aproximativ 130 de caractere este respins înainte de procesare, deoarece produsele sale ar depăși limita de 260 de caractere a căilor de acces Windows. Consultați [Pornirea procesării](../processing-images-gui/starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer).
 
 ***
 
 ## Persistența setărilor
 
-Un proiect Chloros
-
-este un **dosar**. Toate setările proiectului sunt salvate în `project.json` din interiorul acestuia; dispozitivele conectate sunt memorate împreună cu acesta în `cameras.json` și `sensors.json`, astfel încât redeschiderea unui proiect reconectează și camerele și senzorii de lumină ai acestuia. Când redeschideți un proiect, toate setările sunt restaurate exact așa cum le-ați lăsat. Proiectele salvate pot fi, de asemenea, controlate fără interfață grafică folosind fișierul `chloros-cli project` sau fișierul `open_project` din SDK
-
-.
+Un proiect Chloros este un **dosar**. Toate setările proiectului sunt salvate în `project.json` din interiorul acestuia; dispozitivele conectate sunt memorate împreună cu acesta în `cameras.json` și `sensors.json`, astfel încât redeschiderea unui proiect reconectează și camerele și senzorii de lumină ai acestuia. Când redeschideți un proiect, toate setările sunt restaurate exact așa cum le-ați lăsat. Proiectele salvate pot fi, de asemenea, controlate fără interfață grafică folosind fișierul `chloros-cli project` sau fișierul `open_project` din SDK.
 
 ### Ierarhia setărilor
 
@@ -514,11 +368,7 @@ Setările de procesare sunt citite la începerea unei sesiuni de procesare. Modi
 
 ## Referință chei de configurare
 
-Pentru automatizare (CLI
-
--ul `--config`, SDK
-
--ul `configure` sau citirea directă a `project.json`), acestea sunt cheile exacte din `Project Settings`:
+Pentru automatizare (CLI-ul `--config`, SDK-ul `configure` sau citirea directă a `project.json`), acestea sunt cheile exacte din `Project Settings`:
 
 | Calea cheii | Tip | Implicit |
 | --- | --- | --- |
@@ -553,23 +403,11 @@ Acestea se află în același arbore `Project Settings` și sunt citite de proce
 
 | Calea cheii | Tip | Implicit | Setat de |
 | --- | --- | --- | --- |
-| `Processing → LATTICE input level` | `"auto" \| "raw" \| "debayered" \| "processed"` | `"auto"` | `chloros-cli process --input-level`, SDK
-
-`input_level=`. Suprascrie modul în care sunt interpretate fișierele TIFF
-
-de intrare LATTICE; `auto` deduce din eticheta XMP a fiecărui fișier `Chloros:ProcessingLevel`, precum și din numărul de canale. Este ignorat pentru capturile `.raw` din Survey3
-
-. Nu este în mod deliberat o setare din interfața grafică — opțiunea „auto” este corectă în toate cazurile normale. |
-| `Processing → Target reflectance dir` | șir de caractere pentru cale | `""` | `chloros-cli process --target-reflectance-dir`, sau API
-
--ul țintă al proiectului |
+| `Processing → LATTICE input level` | `"auto" \| "raw" \| "debayered" \| "processed"` | `"auto"` | `chloros-cli process --input-level`, SDK `input_level=`. Suprascrie modul în care sunt interpretate fișierele TIFF de intrare LATTICE; `auto` deduce din eticheta XMP a fiecărui fișier `Chloros:ProcessingLevel`, precum și din numărul de canale. Este ignorat pentru capturile `.raw` din Survey3. Nu este în mod deliberat o setare din interfața grafică — opțiunea „auto” este corectă în toate cazurile normale. |
+| `Processing → Target reflectance dir` | șir de caractere pentru cale | `""` | `chloros-cli process --target-reflectance-dir`, sau API-ul țintă al proiectului |
 | `Processing → Target reflectance config` | dicționar cu cheie serialul camerei | `{}` | Înregistrarea unei ținte în cadru (modul `fixed_block` / `fixed_strip` / `aruco`) |
-| `Processing → DAQ-U log path` | șir de caractere pentru cale | `""` | SDK
-
-`process_folder(daq_log_path=…)`. Indică o înregistrare `.daq` sau un folder care le conține |
-| `Target Detection → Minimum calibration target squares` | număr | `4` | Implicit vechi; fără control și fără indicator CLI
-
-|
+| `Processing → DAQ-U log path` | șir de caractere pentru cale | `""` | SDK `process_folder(daq_log_path=…)`. Indică o înregistrare `.daq` sau un folder care le conține |
+| `Target Detection → Minimum calibration target squares` | număr | `4` | Implicit vechi; fără control și fără indicator CLI |
 | `UI → Grid thumbnail size` | număr | `160` | Glisorul de zoom al miniaturilor din grila de imagini |
 
 Două preferințe ale vizualizatorului sunt stocate **la nivelul superior în `project.json`**, în afara `Project Settings`, deoarece reprezintă starea de afișare și nu setări de procesare:
@@ -582,26 +420,16 @@ Două preferințe ale vizualizatorului sunt stocate **la nivelul superior în `p
 
 ## Cele mai bune practici
 
-1. **Începeți cu setările implicite**: Setările implicite funcționează bine pentru majoritatea sistemelor de camere MAPIR
-
-și pentru fluxurile de lucru tipice.
+1. **Începeți cu setările implicite**: Setările implicite funcționează bine pentru majoritatea sistemelor de camere MAPIR și pentru fluxurile de lucru tipice.
 2. **Creați șabloane**: Odată ce ați optimizat setările pentru un flux de lucru sau o cameră specifică, salvați-le ca șablon pentru a asigura consecvența între proiecte.
 3. **Testați înainte de procesarea completă**: Când experimentați cu setări noi, testați-le pe un subset mic de imagini înainte de a procesa întregul set de date.
-4. **Documentați-vă setările**: Folosiți nume descriptive pentru șabloane, care să indice sistemul de camere, tipul de procesare și scopul utilizării (de exemplu, „Survey3
-
-\_RGB\_NDVI\_Agriculture”).
+4. **Documentați-vă setările**: Folosiți nume descriptive pentru șabloane, care să indice sistemul de camere, tipul de procesare și scopul utilizării (de exemplu, „Survey3\_RGB\_NDVI\_Agriculture”).
 5. **Selectarea formatului de export**: Alegeți formatul de export în funcție de utilizarea finală:
    * Analiză științifică → TIFF (16 biți sau 32 de biți)
-   * Prelucrare GIS → TIFF
-
-(16 biți)
-   * Vizualizare rapidă → PNG
-
-(8 biți)
+   * Prelucrare GIS → TIFF (16 biți)
+   * Vizualizare rapidă → PNG (8 biți)
    * Partajare web → JPG (8 biți)
 
 ***
 
-Pentru mai multe informații despre indicii multispectrali în Chloros
-
-, consultați pagina [Formule pentru indici multispectrali](multispectral-index-formulas.md).
+Pentru mai multe informații despre indicii multispectrali în Chloros, consultați pagina [Formule pentru indici multispectrali](multispectral-index-formulas.md).

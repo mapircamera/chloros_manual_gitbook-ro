@@ -16,49 +16,21 @@ După conectare, vor fi afișate detaliile contului dumneavoastră:
 | Abonament | `plan_id` | Tip |
 | --- | --- | --- |
 | Iron | `0` | Gratuit |
-| Copper | `1` | Cu plată (Chloros
-
-+) |
-| Bronze | `2` | Cu plată (Chloros
-
-+) |
-| Silver | `3` | Cu plată (Chloros
-
-+) |
-| Aur | `4` | Cu plată (Chloros
-
-+) |
+| Copper | `1` | Cu plată (Chloros+) |
+| Bronze | `2` | Cu plată (Chloros+) |
+| Silver | `3` | Cu plată (Chloros+) |
+| Aur | `4` | Cu plată (Chloros+) |
 
 Consultați [planurile și prețurile](https://cloud.mapir.camera/pricing) pentru a afla ce include fiecare nivel cu plată.
 
-### Accesul la CLI
+### Accesul la CLI/SDK necesită un nivel cu plată
 
-/SDK
+Accesul la CLI și la Python SDK necesită **orice nivel plătit Chloros+ (Copper sau superior)**. Această cerință este aplicată**la nivel de server** — fiecare solicitare CLI/SDK trebuie să includă atât o sesiune activă, cât și un plan plătit:
 
-necesită un nivel cu plată
-
-Accesul la CLI
-
-și la Python
-
-SDK
-
-necesită **orice nivel plătit Chloros
-
-+ (Copper sau superior)**. Această cerință este aplicată**la nivel de server** — fiecare solicitare CLI
-
-/SDK
-
-trebuie să includă atât o sesiune activă, cât și un plan plătit:
-
-| Stare HTTP
-
-| `error_code` | Semnificație | Remediere |
+| Stare HTTP | `error_code` | Semnificație | Remediere |
 | --- | --- | --- | --- |
 | `401` | `AUTH_REQUIRED` | Nu sunteți autentificat pe acest computer | `chloros-cli login <email> <password>` |
-| `403` | `PLAN_UPGRADE_REQUIRED` | Sunteți conectat, dar nivelul planului este prea scăzut (nivelul gratuit Iron) | Treceți la orice plan plătit Chloros
-
-+ |
+| `403` | `PLAN_UPGRADE_REQUIRED` | Sunteți conectat, dar nivelul planului este prea scăzut (nivelul gratuit Iron) | Treceți la orice plan plătit Chloros+ |
 
 `chloros-cli status` rămâne accesibil în cadrul planului gratuit, astfel încât puteți vedea oricând planul dvs. actual și motivul pentru care accesul este refuzat.
 
@@ -77,13 +49,7 @@ Fiecare plan limitează numărul de camere LATTICE și de senzori de lumină DAQ
 
 
 
-Autentificați-vă cu datele de autentificare Chloros
-
-+ pentru a activa procesarea CLI
-
-. Pe Linux
-
-(fără GUI), aceasta este singura modalitate de a vă activa licența.
+Autentificați-vă cu datele de autentificare Chloros+ pentru a activa procesarea CLI. Pe Linux (fără GUI), aceasta este singura modalitate de a vă activa licența.
 
 **Sintaxă:**
 
@@ -92,13 +58,7 @@ chloros-cli login <email> <password>
 ```
 
 {% hint style="info" %}
-**Utilizatori SDK**: Python
-
-SDK
-
-oferă, de asemenea, o metodă programatică `logout()` pentru a șterge datele de autentificare stocate în cache. Consultați [Referința SDK
-
-](reference/sdk-reference.md) pentru detalii.
+**Utilizatori SDK**: Python SDK oferă, de asemenea, o metodă programatică `logout()` pentru a șterge datele de autentificare stocate în cache. Consultați [Referința SDK](reference/sdk-reference.md) pentru detalii.
 {% endhint %}
 
 **Exemplu:**
@@ -125,23 +85,13 @@ Datele de autentificare și configurația stocate în cache sunt păstrate în f
 | **Windows** | `%USERPROFILE%\.chloros\` |
 | **Linux** | `~/.chloros/` |
 
-Instalarea unei versiuni mai noi peste una existentă păstrează datele dvs. de autentificare, atât pe Windows
-
-(programul de instalare), cât și pe Linux
-
-(`.deb`, inclusiv `chloros-cli update`). Dezinstalarea Chloros
-
-— sau eliminarea pachetului Linux
-
-— șterge datele de autentificare stocate în cache, astfel încât va trebui să vă autentificați din nou după o instalare nouă.
+Instalarea unei versiuni mai noi peste una existentă păstrează datele dvs. de autentificare, atât pe Windows (programul de instalare), cât și pe Linux (`.deb`, inclusiv `chloros-cli update`). Dezinstalarea Chloros — sau eliminarea pachetului Linux — șterge datele de autentificare stocate în cache, astfel încât va trebui să vă autentificați din nou după o instalare nouă.
 
 ### Expirarea abonamentului și perioada de grație offline
 
 Data de expirare a abonamentului afișată în interfața grafică indică momentul în care licența dvs. va deveni invalidă. Pentru abonamentele lunare recurente, expirarea are loc la sfârșitul lunii; pentru abonamentele anuale, aceasta are loc la un an de la începerea abonamentului.
 
-Chloros
-
-vă validează licența online, dar funcționarea offline este acceptată în cadrul unei perioade de grație:
+Chloros vă validează licența online, dar funcționarea offline este acceptată în cadrul unei perioade de grație:
 
 * Validările reușite pe server sunt stocate în cache timp de **5 minute**, astfel încât utilizarea normală generează foarte puține solicitări de licență.
 * O memorie cache a licenței semnate și asociate unui anumit dispozitiv acoperă perioade offline mai lungi: **30 de zile pentru planurile lunare**și**până la data de expirare a abonamentului (cel mult 365 de zile) pentru planurile anuale**.
@@ -149,13 +99,7 @@ vă validează licența online, dar funcționarea offline este acceptată în ca
 
 ### Limita de dispozitive
 
-Fiecare plan Chloros
-
-+ oferă un număr diferit de dispozitive înregistrate. Fiecare dispozitiv pe care vă conectați cu un cont Chloros
-
-+ este luat în calcul la numărul de dispozitive înregistrate. Puteți redenumi și elimina un dispozitiv de pe pagina contului dvs. MAPIR
-
-Cloud.
+Fiecare plan Chloros+ oferă un număr diferit de dispozitive înregistrate. Fiecare dispozitiv pe care vă conectați cu un cont Chloros+ este luat în calcul la numărul de dispozitive înregistrate. Puteți redenumi și elimina un dispozitiv de pe pagina contului dvs. MAPIR Cloud.
 
 <table><thead><tr><th width="168.5999755859375" align="right">Planul Chloros</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Dispozitive compatibile</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
 

@@ -1,8 +1,6 @@
 # Rețea și sincronizare temporală DAQ-E
 
-> Configurarea fizică a rețelei pentru senzor — cablarea, PoE, atribuirea adreselor IP și setările de rețea proprii ale dispozitivului — este descrisă în **[manualul de utilizare DAQ](https://mapir.gitbook.io/daq/daq-e/network-setup)**. Această pagină tratează aspectele legate de Chloros
-
-: conectarea, sincronizarea timpului și ce trebuie făcut atunci când detectarea nu dă rezultate.
+> Configurarea fizică a rețelei pentru senzor — cablarea, PoE, atribuirea adreselor IP și setările de rețea proprii ale dispozitivului — este descrisă în **[manualul de utilizare DAQ](https://mapir.gitbook.io/daq/daq-e/network-setup)**. Această pagină tratează aspectele legate de Chloros: conectarea, sincronizarea timpului și ce trebuie făcut atunci când detectarea nu dă rezultate.
 
 DAQ-E este membrul Ethernet al familiei DAQ: alimentat prin PoE, detectat prin mDNS (serviciul `_daq-e._tcp`) și adresabil printr-un nume de gazdă derivat din ID-ul senzorului său — `daq-e-<6 hex>.local`, de exemplu `daq-e-def330.local`. Această pagină prezintă modul în care acesta transferă date în rețea și modul în care participă la sincronizarea temporală PTP.
 
@@ -13,35 +11,17 @@ DAQ-E este membrul Ethernet al familiei DAQ: alimentat prin PoE, detectat prin m
 | **Multicast** (implicit) | UDP `239.10.10.10:5002` | Orice dispozitiv din aceeași rețea LAN primește același flux | Fiecare datagramă este validată prin CRC-16/CCITT |
 | **Raw** | Port TCP `5000` | Exact un singur client (exclusiv) | Compatibil la nivel de octeți cu DAQ-U |
 
-Chloros
-
-utilizează multicast în mod implicit, ceea ce permite ca interfața grafică (GUI), interfața de linie de comandă (CLI
-
-) și kitul de dezvoltare (SDK
-
-) să monitorizeze toate un singur senzor simultan.
+Chloros utilizează multicast în mod implicit, ceea ce permite ca interfața grafică (GUI), interfața de linie de comandă (CLI) și kitul de dezvoltare (SDK) să monitorizeze toate un singur senzor simultan.
 
 ## Cerințe de rețea
 
-* **Același domeniu de difuzare.** Mașina pe care rulează Chloros
-
-trebuie să se afle pe același segment de rețea L2 ca și senzorul — descoperirea mDNS nu traversează routerele.
-* **Firewall.** Pe Windows
-
-, programul de instalare adaugă regula de firewall **Chloros
-
-Backend (UDP-In)**pentru backend, în fiecare profil de rețea, care acoperă datele DAQ-E (UDP 5002), mDNS (UDP 5353) și PTP (UDP 319/320), precum și o regulă**„Chloros
-
-Backend (TCP-In)”**, limitată la subrețeaua locală, pentru conexiunea pe care un DAQ-E o stabilește înapoi către computer în timpul unei actualizări de firmware. Pe Linux
-
-, `.deb` deschide porturile UDP în `ufw` sau `firewalld` atunci când acel firewall este activ în momentul instalării. Un firewall terț sau unul activat ulterior necesită ca aceleași porturi să fie permise.
+* **Același domeniu de difuzare.** Mașina pe care rulează Chloros trebuie să se afle pe același segment de rețea L2 ca și senzorul — descoperirea mDNS nu traversează routerele.
+* **Firewall.** Pe Windows, programul de instalare adaugă regula de firewall **Chloros Backend (UDP-In)**pentru backend, în fiecare profil de rețea, care acoperă datele DAQ-E (UDP 5002), mDNS (UDP 5353) și PTP (UDP 319/320), precum și o regulă**„Chloros Backend (TCP-In)”**, limitată la subrețeaua locală, pentru conexiunea pe care un DAQ-E o stabilește înapoi către computer în timpul unei actualizări de firmware. Pe Linux, `.deb` deschide porturile UDP în `ufw` sau `firewalld` atunci când acel firewall este activ în momentul instalării. Un firewall terț sau unul activat ulterior necesită ca aceleași porturi să fie permise.
 * **Alimentare PoE, fără LED de stare.** DAQ-E nu are LED propriu — verificați alimentarea prin indicatorul link/PoE de pe comutator sau de pe portul injectorului și așteptați câteva secunde după pornire pentru ca acesta să se inițializeze și să se conecteze la rețea.
 
 ## Conectare
 
-**GUI:** Fila Senzori de lumină → Conectare senzor → Tip dispozitiv „DAQ-E (Ethernet)”. Detectarea se execută numai cât timp fereastra de conectare este afișată pe ecran (răsfoire mDNS plus o scanare ARP pe Windows
-
-), repetându-se la fiecare 15 secunde; butonul Reîmprospătare efectuează o nouă scanare imediat. Senzorii descoperiți apar în meniul derulant; primul senzor detectat este selectat automat.
+**GUI:** Fila Senzori de lumină → Conectare senzor → Tip dispozitiv „DAQ-E (Ethernet)”. Detectarea se execută numai cât timp fereastra de conectare este afișată pe ecran (răsfoire mDNS plus o scanare ARP pe Windows), repetându-se la fiecare 15 secunde; butonul Reîmprospătare efectuează o nouă scanare imediat. Senzorii descoperiți apar în meniul derulant; primul senzor detectat este selectat automat.
 
 <!-- SCREENSHOT-NEEDED: DAQ connect dialog with Device Type set to "DAQ-E (Ethernet)" and at least one discovered sensor listed in the Hostname/IP dropdown (e.g. daq-e-xxxxxx.local), Connect button enabled. -->
 
@@ -67,23 +47,9 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local
 
 ## Setările dispozitivului și firmware-ul
 
-Senzorul însuși păstrează setările sale de rețea: DHCP (setarea din fabrică, care revine la o adresă locală de legătură 169.254.x.x atunci când niciun server DHCP nu răspunde) sau o adresă statică. De asemenea, reține dacă începe transmisia la pornire. Modificați-le în interfața grafică (setările rotiței de angrenaj ale senzorului, **Rețea**:**Modificare…**,**Transmisie la pornire**,**Repornire senzor**; consultați [Fila DAQ](gui.md)), sau din CLI
+Senzorul însuși păstrează setările sale de rețea: DHCP (setarea din fabrică, care revine la o adresă locală de legătură 169.254.x.x atunci când niciun server DHCP nu răspunde) sau o adresă statică. De asemenea, reține dacă începe transmisia la pornire. Modificați-le în interfața grafică (setările rotiței de angrenaj ale senzorului, **Rețea**:**Modificare…**,**Transmisie la pornire**,**Repornire senzor**; consultați [Fila DAQ](gui.md)), sau din CLI și SDK cu `pool-set-network`, `pool-set-auto-stream` și `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; consultați [Referința CLI](../reference/cli-reference.md#daq-e-device-settings)). Senzorul se repornește pentru a aplica o modificare de rețea, iar Chloros îl reconectează. O adresă statică trebuie să se afle în rețeaua computerului pe care rulează Chloros: Chloros refuză o adresă la care nu a putut accesa după repornire. ID-ul senzorului și numele său de gazdă `daq-e-<id>.local` nu se schimbă niciodată. Noutate în versiunea 1.3.0.
 
-și SDK
-
-cu `pool-set-network`, `pool-set-auto-stream` și `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; consultați [Referința CLI
-
-](../reference/cli-reference.md#daq-e-device-settings)). Senzorul se repornește pentru a aplica o modificare de rețea, iar Chloros
-
-îl reconectează. O adresă statică trebuie să se afle în rețeaua computerului pe care rulează Chloros
-
-: Chloros
-
-refuză o adresă la care nu a putut accesa după repornire. ID-ul senzorului și numele său de gazdă `daq-e-<id>.local` nu se schimbă niciodată. Noutate în versiunea 1.3.0.
-
-**Actualizările de firmware sunt integrate în interfața grafică (GUI).** Când un DAQ-E conectat rulează o versiune de firmware mai veche decât imaginea inclusă în pachetul Chloros
-
-, rândul senzorului respectiv afișează o pictogramă portocalie **Actualizare disponibilă**, iar fereastra de setări sub formă de roată dințată oferă un <version>buton</version>
+**Actualizările de firmware sunt integrate în interfața grafică (GUI).** Când un DAQ-E conectat rulează o versiune de firmware mai veche decât imaginea inclusă în pachetul Chloros, rândul senzorului respectiv afișează o pictogramă portocalie **Actualizare disponibilă**, iar fereastra de setări sub formă de roată dințată oferă un <version>buton</version>
 
 „Actualizează la<version>”. Actualizarea se descarcă prin rețea în aproximativ 30 de secunde; senzorul se repornește și se reconectează automat, iar o întrerupere a transferului lasă firmware-ul curent intact. Din CLI sau SDK și pe Linux, care nu are interfață grafică, rulați `chloros-cli daq pool-update-firmware --sensor-id <id>` (`DAQSensorSession.update_firmware()`).
 
