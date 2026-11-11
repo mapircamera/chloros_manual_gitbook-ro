@@ -1,6 +1,6 @@
 # Fluxul de procesare
 
-Chloros1.2.0 utilizează un flux de procesare cu 4 fire de execuție care funcționează ca o linie de asamblare pe etape. Fiecare fir de execuție gestionează o fază distinctă a fluxului de lucru, astfel încât mai multe imagini pot fi în curs de procesare în diferite etape simultan.
+Chloros 1.3.0 utilizează un flux de procesare cu 4 fire de execuție care funcționează ca o linie de asamblare pe etape. Fiecare fir de execuție gestionează o fază distinctă a fluxului de lucru, astfel încât mai multe imagini pot fi în curs de procesare în diferite etape simultan.
 
 <figure><img src="../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
 
@@ -13,9 +13,9 @@ Chloros1.2.0 utilizează un flux de procesare cu 4 fire de execuție care funcț
 Images In → [Thread 1: Detection] → [Thread 2: Calibration] → [Thread 3: Processing] → [Thread 4: Export] → Files Out
 ```
 
-Fiecare imagine trece prin toate cele patru fire de execuție în ordine. Cu procesarea multi-thread a Chloros+, mai multe imagini ocupă simultan fire de execuție diferite — în timp ce firul 3 procesează o imagine, firul 1 poate detecta următoarea, firul 2 poate calibra o altă imagine, iar firul 4 poate scrie pe disc o imagine finalizată.
+Fiecare imagine trece prin toate cele patru fire de execuție în ordine. Cu procesarea multithread a Chloros+, mai multe imagini ocupă simultan fire de execuție diferite — în timp ce firul 3 procesează o imagine, firul 1 poate detecta următoarea, firul 2 poate calibra o altă imagine, iar firul 4 poate scrie pe disc o imagine finalizată.
 
-Progresul este raportat pentru fiecare fir de execuție și transmis prin Server-Sent Events (backend-ul le publică pe `/api/events`). În afișajul live al progresului din CLI, cele patru etape sunt etichetate **Detectare, Analizare, Prelucrare, Export**.***
+Progresul este raportat pentru fiecare fir de execuție și transmis prin Server-Sent Events (backend-ul le publică pe `/api/events`). În afișajul în timp real al progresului din CLI, cele patru etape sunt etichetate **Detectare, Analizare, Procesare, Export**.***
 
 ## Detalii despre firele de execuție
 
@@ -25,7 +25,7 @@ Progresul este raportat pentru fiecare fir de execuție și transmis prin Server
 
 * Citește fișierele imagine de pe disc — perechile Survey3 `.raw`+`.jpg`, capturi LATTICE `.tif`/`.tiff` și `.dng`
 * Extrage metadatele EXIF (GPS, modelul camerei, marcaje temporale, expunere)
-* Detectează țintele de calibrare: geometrii ale țintelor marcate cu ArUco pentru capturile LATTICE și detectorul clasic de tip panou pentru fotografiile cu ținte de calibrare dSurvey3
+* Detectează țintele de calibrare: geometrii ale țintelor marcate cu ArUco pentru capturile LATTICE și detectorul clasic cu panou pentru fotografiile cu ținte de calibrare dSurvey3
 * Rezultate: date de imagine + metadate + rezultate ale detectării țintelor
 
 În principal, un thread limitat de I/O și de CPU.
@@ -39,18 +39,18 @@ Progresul este raportat pentru fiecare fir de execuție și transmis prin Server
 * Determină curbele de calibrare pentru fiecare bandă
 * Rezultate: parametrii de calibrare pentru fiecare imagine
 
-Un thread de calcul limitat de CPU. Threadul 3 așteaptă finalizarea acestuia atunci când calibrarea reflectanței este activată, astfel încât coeficienții să fie gata înainte ca orice imagine să fie procesată.
+Un fir de calcul limitat de CPU. Într-o execuție Survey3 sau mixtă, Firul 3 așteaptă finalizarea acestuia atunci când calibrarea reflectanței este activată, astfel încât coeficienții săi să fie gata înainte ca orice imagine să fie procesată. Într-o execuție exclusiv LATTICE, Firul 3 rulează în timpul detectării: fiecare cadru începe odată ce ancora țintei sale este definitivă. Un cadru preia ținta cea mai apropiată în timp, fie din partea stângă, fie din partea dreaptă, așa că așteaptă până când fiecare cadru al camerei sale, mai apropiat în timp decât cea mai apropiată țintă actuală, a fost scanat. Produsele sunt aceleași, doar că sunt obținute mai repede.
 
 ### Firul 3: Procesare (GPU)
 
 **Scop**: Aplicarea corecțiilor și calcularea indicilor de vegetație.**Acesta este firul cu cea mai mare intensitate de calcul.*** **Debayering**: convertește datele RAW Bayer în imagini multicanal
   * Standard (rapid, calitate medie) — implicit, `--debayer standard`
   * Texture Aware (lent, calitate maximă) — numai pentru Chloros+, `--debayer texture-aware`, utilizează un model de eliminare a zgomotului bazat pe AI/ML
-  * Capturile LATTICE mono (M3M) sunt monobandă: etapele de demosaic și de echilibrare a albului sunt omise pentru acestea (cu un mesaj de jurnal de o singură linie), în timp ce orice imagini M3C/Bayer din aceeași serie beneficiază în continuare de acestea
+  * Capturile LATTICE mono (M3M) sunt monobandă: etapele de demosaic și de echilibrare a albului sunt omise pentru acestea (cu un mesaj de jurnal de o singură linie), în timp ce orice imagini M3C/Bayer din aceeași execuție beneficiază în continuare de acestea
 * **Corecția vignetării**: aplică corecția vignetării obiectivului pe întreaga imagine
 * **Calibrarea reflectanței**: aplică coeficienți de calibrare pentru a converti valorile în valori de reflectanță
 * **Calculul indicilor**: calculează indicii de vegetație (NDVI, NDRE, GNDVI, …)
-* Rezultate: date de imagine procesate, gata pentru export
+* Rezultate: date de imagine procesate, gata de export
 
 Acest fir beneficiază cel mai mult de accelerarea GPU și este firul pe care îl reglează [Adaptarea dinamică a calculului](dynamic-compute-adaptation.md).
 
@@ -58,26 +58,26 @@ Acest fir beneficiază cel mai mult de accelerarea GPU și este firul pe care î
 
 **Scop**: Scrierea imaginilor procesate pe disc.
 
-* Scrie fișierele de ieșire în formatul selectat — `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`
-* Încorporează metadate în fișierele de ieșire (GPS, marcaje temporale, parametri de procesare)
+* Scrie fișierele de ieșire în formatul selectat — `TIFF (16-bit)`, `TIFF (8-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`
+* Încorporează metadate în fișierele de ieșire (GPS, marcaje temporale, parametri de procesare) — inclusiv etichetele de procesare `Chloros:*`, care, începând cu versiunea 1.3.0, sunt scrise în fiecare mod de procesare, atât pentru Survey3, cât și pentru LATTICE
 * Organizează fișierele de ieșire în folderul proiectului sub forma `<camera>/<format>/<Product>_Images/` — de exemplu, `LATT-M3M-L41-F550/tiff16/Reflectance_Calibrated_Images/`. **Fișierele exportate păstrează numele fișierului sursă; folderul identifică produsul.**
-* Pentru capturile LATTICE, un cadru sursă poate genera mai multe produse (Debayered, Preview, Radiance, Reflectance, Index), fiecare în propriul folder de produse
+* Pentru capturile LATTICE, un cadru sursă poate genera mai multe produse (Debayered, Preview, Radiance, Reflectance, Index), fiecare în propriul său folder de produse. Produsele Index sunt calculate pe baza produsului de reflectanță generat de execuție (când nu există unul, pe baza unui alt produs generat de execuție, cum ar fi radianța). Produsele de radianță și reflectanță ale camerelor multispectrale M3C pot primi, de asemenea, o mască de limitare pe pixel în `<format>/clamp_masks/` (a se vedea [Formate de imagine de ieșire](../output-image-formats.md#clamp-masks))
 * Rezultate: fișiere finale pe disc
 
-În principal, un thread limitat de I/O — stocarea pe SSD îmbunătățește semnificativ performanța.
+În principal, un thread limitat de operațiunile de I/O — stocarea pe SSD îmbunătățește semnificativ performanța.
 
 ***
 
-## În detaliu: Executori
+## Detalii tehnice: Executori
 
-În cadrul Thread 3, procesarea fiecărei imagini este paralelizată cu `concurrent.futures`-ul standard dPython:
+În cadrul Thread-ului 3, operațiunile pentru fiecare imagine sunt paralelizate după cum urmează:
 
-* **Strategiile GPU**(`GPU_SINGLE`, `GPU_PARALLEL`) utilizează un `ProcessPoolExecutor` cu metoda**spawn** — fiecare procesor este un proces separat, cu propriul context CUDA (`fork` ar moșteni starea CUDA inițializată a părintelui și ar corupe procesele fiice)
-* **`CPU_PARALLEL`** utilizează un `ThreadPoolExecutor` — NumPy și OpenCV eliberează GIL-ul, astfel încât thread-urile sunt suficiente
+* **Strategiile GPU**(`GPU_SINGLE`, `GPU_PARALLEL`) utilizează un grup de**procese de lucru**, fiecare fiind un proces separat al sistemului de operare, cu propriul context CUDA. Chloros pornește fiecare proces de lucru prin relansarea propriului program backend instalat — nu prin intermediul `multiprocessing` din Python, a cărui pornire a proceselor de lucru nu funcționează în interiorul aplicației pachetizate
+* **`CPU_PARALLEL`** utilizează un grup de fire (`ThreadPoolExecutor` din Python) — NumPy și OpenCV eliberează GIL, astfel încât firele sunt suficiente
 * Dispozitivele Jetson cu 8 GB sau mai puțină memorie RAM partajată omit complet executorul și procesează în cadrul procesului, secvențial
 * Texture Aware pe un GPU cu sub 7 GB VRAM rulează, de asemenea, secvențial — modelul de denoizare nu se poate încadra decât o singură dată
 
-Chlorosnu utilizează niciun cadru distribuit de la terți (cum ar fi Ray). Consultați [Adaptarea dinamică a calculului](dynamic-compute-adaptation.md) pentru a afla cum sunt alese strategia și numărul de lucrători.
+Chloros nu utilizează niciun cadru distribuit terț (cum ar fi Ray). Consultați [Adaptarea dinamică a calculului](dynamic-compute-adaptation.md) pentru a afla cum sunt alese strategia și numărul de lucrători.
 
 ***
 
@@ -93,11 +93,11 @@ Image 1: [Detect] → [Calibrate] → [Process] → [Export]
                                                          Image 2: [Detect] → [Calibrate] → [Process] → [Export]
 ```
 
-Interfața grafică afișează o bară de progres simplificată în modul gratuit; fazele sale seriale sunt indicate ca **Detectarea țintei**și apoi**Procesare**.
+Interfața grafică afișează o bară de progres simplificată în modul gratuit; fazele sale seriale sunt indicate ca **Detectarea țintelor**și apoi**Procesare**.
 
-### Modul „Chloros” (în serie)
+### Modul Chloros+ (în serie)
 
-Cu o licență „Chloros”, toate cele patru fire de execuție funcționează **concomitent** pe imagini diferite:
+Cu o licență Chloros+, toate cele patru fire de execuție funcționează **concomitent** pe imagini diferite:
 
 ```
 
@@ -107,37 +107,37 @@ Thread 3:                     [Image 1] [Image 2] ...
 Thread 4:                               [Image 1] ...
 ```
 
-Bara de progres din interfața grafică (GUI) afișează cele patru etape; treceți cu mouse-ul peste ea pentru a vedea progresul fiecărui thread. În interfața de linie de comandă (CLI), aceleași patru etape sunt afișate în timp real ca **Detectare, Analizare, Procesare, Export**.
+Bara de progres din interfața grafică (GUI) afișează cele patru etape; treceți cu cursorul peste ea pentru a vedea progresul fiecărui thread. În interfața de linie de comandă (CLI), aceleași patru etape sunt afișate în timp real ca **Detectare, Analiză, Procesare, Export**.
 
 {% hint style="info" %}
-**O singură etichetă, două denumiri.** CLI numește etapa 3 _Procesare_. Fluxul de progres din modul premium al backend-ului — cel redat de bara de progres din interfața grafică — etichetează aceeași etapă ca _Calibrare_. Este vorba despre același thread care efectuează aceeași operațiune (Thread 3: debayer, corecții, indici).
+**O singură etichetă, două denumiri.** CLI-ul numește etapa 3 _Prelucrare_. Fluxul de progres al modului premium al backend-ului — cel afișat de bara de progres din GUI — denumește aceeași etapă _Calibrare_. Este vorba despre același thread care efectuează aceeași operațiune (Thread 3: debayer, corecții, indici).
 {% endhint %}
 
 {% hint style="success" %}
-**Prelucrarea în serie cu „Chloros”+** poate fi de 3-5 ori mai rapidă decât prelucrarea secvențială, în funcție de hardware și de dimensiunea setului de date. Creșterea de viteză este maximă pe sistemele cu GPU-uri rapide și SSD-uri.
+**Prelucrarea în serie cu Chloros+** poate fi de 3-5 ori mai rapidă decât prelucrarea secvențială, în funcție de hardware și de dimensiunea setului de date. Accelerarea este maximă pe sistemele cu GPU-uri rapide și SSD-uri.
 {% endhint %}
 
 ***
 
-## Progresul firului 4 de export
+## Progresul exportului în Thread 4
 
-Firul de export are propriul sistem de urmărire a progresului, pe care îl puteți interoga separat:**CLI:**
+Thread-ul de export are propriul sistem de urmărire a progresului, pe care îl puteți interoga separat:**Interfața CLI**:
 
 ```bash
 chloros-cli export-status
 ```
 
-**SDK:**
+**Interfața SDK**:
 
 ```python
 status = chloros.get_status()
 print(f"Export: {status['export']['percent']}% - Phase: {status['export']['phase']}")
 ```
 
-Prelucrarea este finalizată când firul 4 ajunge la 100%.
+Procesarea este finalizată când firul 4 ajunge la 100%.
 
 {% hint style="info" %}
-**O execuție care nu scrie nicio imagine este considerată eșuată.**În cazul unei execuții reușite, `chloros-cli process` raportează câte produse imagine a scris (`Image products written: N`). Dacă au fost solicitate produse și**niciunul**nu a fost scris — doar `project.json` și `calibration_data.json` — CLI afișează `Processing finished but wrote no image products.` și**iese cu valoare diferită de zero**, menționând numele folderului proiectului și cauzele obișnuite (folderul de intrare nu a fost recunoscut ca o captură — verificați structura și `--input-level` — sau fiecare produs solicitat era inaplicabil pentru acele camere). Scripturile se pot baza pe codul de ieșire.
+**O execuție care nu scrie nicio imagine este considerată eșuată.**În cazul unei execuții reușite, `chloros-cli process` raportează câte produse imagine a scris (`Image products written: N`). Dacă au fost solicitate produse și**niciunul**nu a fost scris — doar `project.json` și `calibration_data.json` — interfața CLI afișează `Processing finished but wrote no image products.` și**se închide cu un cod de ieșire diferit de zero**, menționând numele folderului proiectului și cauzele obișnuite (folderul de intrare nu a fost recunoscut ca o captură — verificați structura și `--input-level` — sau fiecare produs solicitat era inaplicabil pentru acele camere). Scripturile se pot baza pe codul de ieșire.
 {% endhint %}
 
 ***
@@ -148,9 +148,9 @@ Prelucrarea este finalizată când firul 4 ajunge la 100%.
 
 * **`GPU_PARALLEL`**: Thread 3 procesează simultan mai multe imagini prin GPU folosind pipeline-ul `fused_gpu`
 * **`GPU_SINGLE`**: Thread 3 serializează accesul la GPU cu ajutorul unui semafor, în timp ce procesele de lucru suprapun operațiunile de I/O, utilizând `fused_gpu` sau pipeline-ul `tiled_gpu`, eficient din punct de vedere al memoriei
-* **`CPU_PARALLEL`**: Firul 3 utilizează procesarea bazată pe CPU cu paralelism multithread
+* **`CPU_PARALLEL`**: Thread-ul 3 utilizează procesarea bazată pe CPU cu paralelism multithread
 
-Alocarea memoriei GPU a firului 3 crește, de asemenea, pe măsură ce firele 1 și 2 își finalizează execuția — consultați [Alocarea dinamică a memoriei GPU](dynamic-compute-adaptation.md#dynamic-gpu-memory-allocation).
+Alocarea de memorie GPU a firului 3 crește, de asemenea, pe măsură ce firele 1 și 2 își încheie execuția — consultați [Alocarea dinamică a memoriei GPU](dynamic-compute-adaptation.md#dynamic-gpu-memory-allocation).
 
 ***
 

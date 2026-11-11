@@ -1,16 +1,16 @@
-# CLI Ghid de pornire rapidă (pool-*)
+# Ghid de pornire rapidă pentru CLI (pool-*)
 
-Unitatea `chloros-cli` livrată controlează senzorii DAQ prin intermediul familiei de comenzi **`daq pool-*`** — clienți HTTP de tip „thin” care controlează senzorul prin intermediul grupului de senzori persistent al backend-ului Chloros. Backend-ul deține controlul asupra transportului, astfel încât interfața grafică (GUI), scripturile CLI și SDK împart toate un singur identificator activ, în loc să se concureze pentru port. Tot ce are nevoie un client este accesibil prin `pool-*`: conectare, transmisie în flux, înregistrare de fișiere `.daq` calibrate și schimbarea profilurilor de capac.
+Unitatea `chloros-cli` livrată controlează senzorii DAQ prin intermediul familiei de comenzi **`daq pool-*`** — clienți HTTP „subțiri” care gestionează senzorul prin intermediul grupului persistent de senzori al backend-ului Chloros. Backend-ul gestionează transportul, astfel încât interfața grafică (GUI), interfața de linie de comandă (CLI) și scripturile SDK împart toate un singur identificator activ, în loc să se concureze pentru port. Tot ce are nevoie un client este accesibil prin `pool-*`: conectare, transmisie în flux, înregistrare de fișiere `.daq` calibrate și schimbarea profilurilor de capacitate.
 
-`pool-*` este, de asemenea, **singura** interfață DAQ din versiunile lansate. `chloros-cli daq --help` listează subcomenzile `pool-*`, iar apelarea unei subcomenzi DAQ de acces direct la hardware într-o versiune lansată duce la ieșirea din program cu o eroare explicită care menționează pachetul lipsă și vă redirecționează către `pool-*` — nimic nu eșuează în tăcere. (Comenzile de acces direct la hardware se execută numai dintr-o versiune MAPIR a codului sursă; nici `pip install chloros-sdk` nu le pune la dispoziție.)
+`pool-*` este interfața DAQ acceptată în versiunile lansate. `chloros-cli daq --help` listează subcomenzile `pool-*`, iar `daq discover` / `daq list` execută aceeași scanare ca și `pool-discover`. În cazul în care o subcomandă DAQ directă la nivel de hardware nu este disponibilă, programul se închide cu o eroare explicită care menționează pachetul lipsă și vă redirecționează către `pool-*` — nimic nu eșuează în tăcere. (Nici `pip install chloros-sdk` nu oferă comenzi directe pentru hardware.)
 
 ***
 
 ## Cerințe preliminare
 
-* **Backend-ul Chloros trebuie să fie în execuție** — comenzile `pool-*` sunt clienți HTTP, nu drivere hardware. Pe Windows, porniți aplicația desktop Chloros (aceasta lansează backend-ul). Pe Linux/Jetson fără ecran, activați serviciul: `sudo systemctl enable --now chloros-backend.service`.
+* **Backend-ul Chloros trebuie să fie în funcțiune** — comenzile `pool-*` sunt clienți HTTP, nu drivere hardware. Pe Windows, porniți aplicația desktop Chloros (aceasta lansează backend-ul). Pe un sistem Linux/Jetson fără interfață grafică, activați serviciul ca utilizator: `sudo systemctl enable --now chloros-backend@$USER.service` (consultați [Instalarea pe Linux](../linux/linux-installation.md#always-on-ptp-for-headless-hosts)).
 * **Autentificare Chloros+ (nivel cu plată)**: rulați mai întâi `chloros-cli login`. Aplicarea se face pe partea de server — fără autentificare, comenzile eșuează cu `401 AUTH_REQUIRED`; în planul gratuit (Iron), acestea eșuează cu `403 PLAN_UPGRADE_REQUIRED`.
-* Comenzile vizează `http://127.0.0.1:5000` în mod implicit; familia `daq pool-*` respectă variabila de mediu `CHLOROS_BACKEND_URL` dacă backend-ul dvs. rulează în altă parte.
+* Comenzile vizează `http://127.0.0.1:5000` în mod implicit; familia de comenzi `daq pool-*` respectă variabila de mediu `CHLOROS_BACKEND_URL` dacă backend-ul dvs. rulează în altă parte.
 
 ***
 
@@ -22,6 +22,7 @@ chloros-cli daq pool-connect                                  # smart-detect any
 chloros-cli daq pool-connect --port COM3                      # DAQ-U on a specific COM port
 chloros-cli daq pool-connect --mac AA:BB:CC:DD:EE:FF          # DAQ-M by BLE MAC
 chloros-cli daq pool-connect --eth-host daq-e-def330.local    # DAQ-E by hostname (reliable)
+#    (a DAQ-M's BLE MAC is not printed anywhere: find it with `chloros-cli daq pool-discover --only ble`)
 
 # 2. List the pool — this shows the sensor_id used by every command below
 chloros-cli daq pool-list
@@ -46,7 +47,7 @@ chloros-cli daq pool-disconnect --sensor-id daq-e-def330
 | `daq pool-connect` | Detectare inteligentă: găsește orice DAQ de pe această mașină. |
 | `daq pool-connect --port PORT` | DAQ-U pe un port serial specific (de ex. `COM3`, `/dev/ttyUSB0`). |
 | `daq pool-connect --ble` | DAQ-M prin BLE, adresă MAC scanată automat. |
-| `daq pool-connect --mac MAC` | DAQ-M la un MAC BLE cunoscut (implică `--ble`). |
+| `daq pool-connect --mac MAC` | DAQ-M la o adresă MAC BLE cunoscută (implică `--ble`). |
 | `daq pool-connect --eth-host HOST` | DAQ-E la un nume de gazdă sau o adresă IP cunoscută — **calea fiabilă**. |
 | `daq pool-connect --eth` | DAQ-E cu detectare automată (mDNS, cu recurgere la ARP). A se vedea avertismentul de mai jos. |
 
@@ -57,21 +58,35 @@ Opțiuni de configurare, toate opționale:
 | `--integration-time MS` / `-t MS` | Timpul de integrare manual în milisecunde. |
 | `--frame-avg N` / `-f N` | Numărul mediu de cadre pe spectru raportat. |
 | `--no-ae` | Dezactivează expunerea automată (AE este activată implicit). |
-| `--no-stream` | Conectare fără pornirea fluxului (se reia mai târziu cu `pool-stream --start`). |
-| `--cap-id CAP` | Profil de corecție a plafonului; valoarea implicită a backend-ului este `sunshine_cosine`. Vezi [`pool-set-cap`](#pool-set-cap-declare-the-fitted-cap). |
+| `--no-stream` | Conectare fără pornirea fluxului (se reia ulterior cu `pool-stream --start`). |
+| `--cap-id CAP` | Profil de corecție a plafonului; valoarea implicită a backend-ului este `sunshine_cosine`. A se vedea [`pool-set-cap`](#pool-set-cap-declare-the-fitted-cap). |
+
+Conectarea unui DAQ-E care se află deja în grup sub o altă adresă a sa — numele de gazdă `daq-e-<id>.local` sau adresa IP — returnează intrarea existentă din grup în loc să deschidă unitatea a doua oară.
 
 {% hint style="warning" %}
-**Avertisment privind descoperirea automată a `--eth`.** Pe o gazdă cu mai multe interfețe de rețea (mai mult de o interfață de rețea activă), primul `pool-connect --eth` după pornire poate rămâne gol chiar și dacă senzorul este în stare bună — procesul de descoperire poate omite interfața senzorului cât timp cache-ul ARP este gol. Dacă `--eth` nu găsește nimic, reîncercați sau omiteți complet procesul de detectare folosind `--eth-host <ip-or-hostname>`, care este calea fiabilă pe mașinile cu mai multe interfețe de rețea. Numele de gazdă al DAQ-E este `daq-e-<id>.local` (de exemplu, `daq-e-def330.local`); funcționează și adresa IP simplă a acestuia.
+**Atenție privind detectarea automată a `--eth`.** Pe o gazdă cu mai multe interfețe de rețea (mai mult de o interfață de rețea activă), *prima* comandă `pool-connect --eth` după pornire poate reveni cu rezultatul gol chiar dacă senzorul este în stare bună — procesul de descoperire poate omite interfața senzorului cât timp cache-ul ARP este gol. Dacă `--eth` nu găsește nimic, reîncercați sau omiteți complet procesul de detectare folosind `--eth-host <ip-or-hostname>`, care reprezintă calea fiabilă pe mașinile cu mai multe interfețe de rețea. Numele de gazdă al DAQ-E este `daq-e-<id>.local` (de exemplu, `daq-e-def330.local`); se poate folosi și adresa IP simplă a acestuia.
 {% endhint %}
 
-## `pool-list` — vedeți ce este conectat
+## `pool-discover` — scanare fără conectare
 
-Afișează fiecare senzor din grupul din fundal, inclusiv `sensor_id`, de care au nevoie toate celelalte comenzi:
+```bash
+chloros-cli daq pool-discover                  # USB, BLE and Ethernet
+chloros-cli daq pool-discover --only ble       # BLE only: this is how you find a DAQ-M's MAC
+chloros-cli daq pool-discover --json           # machine-readable
+```
 
-| Model | Format `sensor_id` | Exemplu |
+Scanează senzorii la care v-ați putea conecta și afișează adresa de conectare, fără a realiza conexiunea. `--only` acceptă un subset separat prin virgulă din `usb,ble,eth`; `--timeout SEC` setează durata de scanare per transport (implicit 5 s, limitată la 1–20 s). Senzorii deja deschisi în grup nu sunt afișați (un DAQ-M conectat încetează să mai transmită informații) — utilizați `pool-list` pentru aceștia. Într-o versiune livrată, `chloros-cli daq discover` și `daq list` execută aceeași scanare.
+
+## `pool-list` — afișează ce este conectat
+
+Afișează fiecare senzor din grupul din backend, inclusiv `sensor_id`, de care au nevoie toate celelalte comenzi:
+
+| Model | Forma `sensor_id` | Exemplu |
 | --- | --- | --- |
-| DAQ-U / DAQ-M | 5 octeți cu cratime | `CB-7C-A8-2E-5F` |
+| DAQ-U / DAQ-M | 5 octeți cu cratimă | `CB-7C-A8-2E-5F` |
 | DAQ-E | `daq-e-<6 hex digits>` | `daq-e-def330` |
+
+Un DAQ-E al cărui PTP a fost dezactivat (setarea este salvată pe unitate) este marcat în `pool-list` cu `!! PTP is switched OFF on this unit (saved in its flash): its timestamps are not PTP-synced.` și comanda care îl reactivează — vezi [`pool-enable-ptp`](#pool-enable-ptp-switch-a-daq-es-ptp-back-on).
 
 ## `pool-latest` — citirea cadrelor de spectru
 
@@ -79,16 +94,16 @@ Afișează fiecare senzor din grupul din fundal, inclusiv `sensor_id`, de care a
 chloros-cli daq pool-latest --sensor-id daq-e-def330 --recent 10 --json
 ```
 
-Returnează cel mai recent cadru sau cele mai recente cadre `--recent N`; `--json` generează o ieșire lizibilă de către mașini pentru scripturi. Cadrele reprezintă iradianța spectrală (W/m²/nm) calibrată radiometric pe grila de 135 de puncte, cu intervalul 340–1010 nm, cu profilul capacului senzorului deja aplicat. Pentru valori cantitative ale iradianței, se calculează media a cel puțin 15 secunde de cadre — aceasta este o caracteristică a instrumentului, nu un defect.
+Returnează cel mai recent cadru sau cele mai recente cadre `--recent N`; `--json` generează o ieșire lizibilă de către mașini pentru scripturi. Cadrele reprezintă iradianța spectrală (W/m²/nm) calibrată radiometric pe o grilă de 135 de puncte, în intervalul 340–1010 nm, cu profilul capacului senzorului deja aplicat. Pentru valori cantitative ale iradianței, calculați media a cel puțin 15 secunde de cadre — aceasta este o caracteristică a instrumentului, nu un defect.
 
-## `pool-stream` — întrerupere sau reluare a transmiterii în flux
+## `pool-stream` — întrerupeți sau reluați transmisia
 
 ```bash
 chloros-cli daq pool-stream --sensor-id daq-e-def330 --stop    # pause
 chloros-cli daq pool-stream --sensor-id daq-e-def330 --start   # resume
 ```
 
-## `pool-record` — înregistrați un fișier `.daq`
+## `pool-record` — înregistrare a unui fișier `.daq`
 
 ```bash
 chloros-cli daq pool-record --sensor-id daq-e-def330 --duration 150 \
@@ -99,12 +114,14 @@ chloros-cli daq pool-record --sensor-id daq-e-def330 --stop
 | Indicator | Implicit | Semnificație |
 | --- | --- | --- |
 | `--duration SEC` / `-d SEC` | `0` | Durata înregistrării în secunde; `0` înseamnă rulare până la emiterea comenzii `--stop`. |
-| `--output DIR` / `-o DIR` | `~/Documents/DAQ Live View/` | Directorul de ieșire, rezolvat **pe mașina care rulează backend-ul**. |
+| `--output DIR` / `-o DIR` | `~/Documents/DAQ Live View/` | Directorul de ieșire. Cu backend-ul pe acest computer, o cale relativă este rezolvată în raport cu folderul în care ați rulat comanda; cu un backend la distanță, calea este rezolvată **pe mașina care rulează backend-ul**. |
 | `--device-name NAME` | — | Etichetă stocată împreună cu înregistrarea. |
-| `--stop` | — | Oprește o înregistrare în curs de desfășurare. |
+| `--stop` | — | Oprește o înregistrare în curs. |
+| `--confirm-after SEC` | `20` | După pornire, așteaptă până la această durată pentru ca primul rând să fie scris și avertizează cu un sunet puternic (`!! WARNING: no rows written after …s. This recording is producing an EMPTY file.`) dacă nu sosește niciunul. `0` dezactivează verificarea. |
+| `--heartbeat SEC` | `30` | Cu `--duration`, afișează numărul de rânduri la fiecare SEC secunde și avertizează dacă acesta nu mai crește. `0` o dezactivează. |
 
 {% hint style="info" %}
-Înregistrarea are loc în backend, astfel încât fișierul `.daq` ajunge în sistemul de fișiere al **mașinii backend** — în mod implicit în `~/Documents/DAQ Live View/` acolo, nu neapărat acolo unde ați rulat CLI. Numele fișierelor includ ID-ul senzorului și o marcă temporală.
+Înregistrarea are loc în backend, astfel încât fișierul `.daq` ajunge în sistemul de fișiere al **mașinii backend** — în mod implicit în `~/Documents/DAQ Live View/` acolo, nu neapărat acolo unde ați rulat CLI-ul. Numele fișierelor includ ID-ul senzorului și o marcă temporală.
 {% endhint %}
 
 ## `pool-set-cap` — declararea capacului montat
@@ -113,7 +130,7 @@ chloros-cli daq pool-record --sensor-id daq-e-def330 --stop
 chloros-cli daq pool-set-cap --sensor-id daq-e-def330 --cap-id sunshine_cosine
 ```
 
-ID-ul capacului selectează profilul de corecție măsurat din fabrică aplicat fiecărui spectru și **trebuie să corespundă cu capacul montat fizic pe senzor** — nici senzorul, nici software-ul nu pot detecta singure capacul, iar selecția este înregistrată în fiecare fișier `.daq`. Valoarea implicită peste tot este `sunshine_cosine` (fiecare DAQ este livrat cu capacul de corecție cosinus „Sunshine” instalat, cu o atenuare de ~12× conform proiectului — o schimbare nedeclarată a capacului corectează eronat spectrele cu aproximativ acest factor).
+ID-ul capacului selectează profilul de corecție măsurat din fabrică aplicat fiecărui spectru și **trebuie să corespundă cu capacul montat fizic pe senzor** — nici senzorul, nici software-ul nu pot detecta singure capacul, iar selecția este înregistrată în fiecare fișier `.daq`. Valoarea implicită peste tot este `sunshine_cosine` (fiecare DAQ este livrat cu capacul de corecție cosinus Sunshine instalat, cu o atenuare de aproximativ 12× conform proiectului — o schimbare nedeclarată a capacului corectează eronat spectrele cu aproximativ acest factor).
 
 | `--cap-id` | Disponibil pe |
 | --- | --- |
@@ -122,7 +139,7 @@ ID-ul capacului selectează profilul de corecție măsurat din fabrică aplicat 
 | `fov_30`, `fov_60` | numai DAQ-U |
 | `none` | numai DAQ-E — a se vedea nota |
 
-Un ID de capac care nu face parte din setul senzorului este respins la conectare, generând o eroare clară. `none` (DAQ-E) înseamnă că capacul a fost îndepărtat fizic — se aplică în continuare un profil geometric din fabrică pentru difuzorul de sticlă încastrat al DAQ-E, deci nu este o operație inactivă, iar un DAQ-E fără capac reprezintă o configurație de banc de testare, nu o configurație de teren acceptată. (Un DAQ-U fără capac este cu adevărat „gol” și nu necesită deloc profil de corecție; DAQ-M se utilizează împreună cu capacul său Sunshine.)
+Un ID de capac care nu face parte din setul senzorului este respins la conectare, generând o eroare clară. `none` (DAQ-E) înseamnă că capacul este îndepărtat fizic — se aplică în continuare un profil geometric din fabrică pentru difuzorul de sticlă încastrat al DAQ-E, deci nu este o operațiune inactivă, iar un DAQ-E fără capac reprezintă o configurație de banc de testare, nu o configurație de teren acceptată. (Un DAQ-U fără capac este cu adevărat „gol” și nu necesită deloc un profil de corecție; DAQ-M se utilizează împreună cu capacul său Sunshine.)
 
 ## `pool-disconnect` — eliberarea senzorilor
 
@@ -131,28 +148,60 @@ chloros-cli daq pool-disconnect --sensor-id daq-e-def330   # one sensor
 chloros-cli daq pool-disconnect --all                      # everything in the pool
 ```
 
-***
+`pool-disconnect` eliberează un senzor indiferent de cine l-a deschis, deci eliberează și un senzor lăsat în pool de un script care s-a blocat (înregistrarea de pe acesta trebuie să se termine mai întâi). Un senzor care nu se află în pool nu are nimic de eliberat: comanda afișează `<sensor-id>: already released (not in the pool)` și iese din `0`. O eliberare refuzată sau neconfirmată de backend iese din `1`.
+
+## `pool-enable-ptp` — reactivarea PTP-ului unui DAQ-E
+
+```bash
+chloros-cli daq pool-enable-ptp --sensor-id daq-e-def330
+```
+
+Un DAQ-E păstrează setarea de activare/dezactivare a PTP în propria memorie, astfel încât o unitate al cărei PTP a fost dezactivat rămâne dezactivată — iar marcajele sale de timp nu sunt sincronizate prin PTP — până când este reactivat. `pool-list` semnalează o astfel de unitate și afișează această comandă pentru ea. Chloros nu reactivează niciodată o unitate de la sine, deoarece dezactivarea poate fi intenționată. Noutate în versiunea 1.3.0.
+
+## Setările dispozitivului DAQ-E
+
+```bash
+chloros-cli daq pool-info --sensor-id daq-e-def330
+chloros-cli daq pool-set-network --sensor-id daq-e-def330 \
+  --static 192.168.1.50 --gateway 192.168.1.1
+chloros-cli daq pool-set-network --sensor-id daq-e-def330 --auto
+chloros-cli daq pool-set-auto-stream --sensor-id daq-e-def330 --on
+chloros-cli daq pool-reboot --sensor-id daq-e-def330
+chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
+```
+
+`pool-info` afișează firmware-ul senzorului (și dacă această versiune Chloros conține una mai nouă), adresa acestuia și modul în care a fost obținută, setările de rețea salvate în cazul în care acestea diferă de cele curente, transmisia la pornire și PTP. `pool-set-network` repornește senzorul pentru a aplica modificarea și îl reconectează cu setările pe care le avea; `--no-reboot` doar le salvează. O adresă statică trebuie să existe în rețeaua acestui computer, altfel Chloros-ul o respinge; `--force` ignoră această restricție, doar pentru un computer care va fi redirecționat sau rutate către acesta. Repornirile sunt refuzate în timp ce senzorul înregistrează date. `pool-update-firmware` este echivalentul comenzii **Update to \<version\>** </version\>din interfața grafică <version\>pentru linia de comandă și reprezintă modalitatea de a actualiza un DAQ-E pe Linux, care nu dispune de interfață grafică. Noutate în versiunea 1.3.0.***
 
 ## Rezumatul comenzilor
 
 | Comandă | Scop |
 | --- | --- |
-| `daq pool-connect [--port P \| --ble \| --mac M \| --eth \| --eth-host H] [-t MS] [-f N] [--no-ae] [--no-stream] [--cap-id CAP]` | Deschide un senzor din grupul de senzori din backend. |
-| `daq pool-list` | Afișează fiecare senzor din grup împreună cu `sensor_id`. |
+| `daq pool-connect [--port P \| --ble \| --mac M \| --eth \| --eth-host H] [-t MS] [-f N] [--no-ae] [--no-stream] [--cap-id CAP]` | Deschide un senzor în grupul de backend. |
+| `daq pool-discover [--only usb,ble,eth] [--timeout SEC] [--json]` | Scanează senzorii fără a se conecta (găsește adresa MAC BLE a unui DAQ-M). |
+| `daq pool-list` | Afișează fiecare senzor din grup împreună cu `sensor_id`-ul acestuia. |
 | `daq pool-latest --sensor-id ID [--recent N] [--json]` | Cele mai recente N cadre de spectru calibrate. |
 | `daq pool-stream --sensor-id ID [--start \| --stop]` | Reluare / pauză a transmiterii în flux. |
-| `daq pool-record --sensor-id ID [-d SEC] [-o DIR] [--device-name NAME] [--stop]` | Pornire / oprire a unei înregistrări `.daq` (pe partea backend). |
+| `daq pool-record --sensor-id ID [-d SEC] [-o DIR] [--device-name NAME] [--confirm-after SEC] [--heartbeat SEC] [--stop]` | Pornire / oprire a unei înregistrări `.daq` (pe partea de backend). |
 | `daq pool-set-cap --sensor-id ID --cap-id CAP` | Schimbă profilul de corecție a capacității în timpul rulării. |
 | `daq pool-disconnect --sensor-id ID [--all]` | Eliberează un senzor sau pe toți. |
+| `daq pool-enable-ptp --sensor-id ID` | Reactivează PTP pentru un DAQ-E al cărui PTP este dezactivat. |
+| `daq pool-info --sensor-id ID [--json]` | Firmware-ul, adresa, setările de rețea salvate, streamingul la pornire și PTP-ul unui DAQ-E. |
+| `daq pool-set-network --sensor-id ID (--auto \| --static IP [--mask M] [--gateway G]) [--no-reboot] [--force]` | DHCP sau o adresă statică; repornește și reconectează senzorul. |
+| `daq pool-set-auto-stream --sensor-id ID (--on \| --off)` | Transmite la pornire. |
+| `daq pool-reboot --sensor-id ID` | Repornirea unui DAQ-E și reconectarea acestuia. |
+| `daq pool-update-firmware --sensor-id ID` | Instalarea firmware-ului DAQ-E din această versiune pe un senzor mai vechi. |
 
 ***
 
-## Depanarea primei conectări a DAQ-E
+## Depanarea primei conectări a unui DAQ-E
 
-1. DAQ-E nu are LED de stare — verificați alimentarea prin intermediul indicatorului PoE/link de pe comutator sau de pe portul injectorului și așteptați câteva secunde după pornire pentru ca acesta să se inițializeze și să se conecteze la rețea.
-2. Calculatorul backend trebuie să se afle în **același domeniu de difuzare** cu senzorul — mDNS nu traversează routerele.
-3. Pe Windows, acceptați solicitarea firewall-ului Defender la prima rulare (mDNS UDP 5353, date DAQ-E UDP 5002, PTP UDP 319/320).
-4. Încă nu primiți nimic de la `--eth`? Utilizați `--eth-host` cu numele de gazdă al unității (`daq-e-<id>.local`) sau cu adresa IP — aceasta este calea fiabilă, în special în cazul gazdelor cu mai multe adrese IP.
+1. DAQ-E nu are LED de stare — verificați alimentarea prin indicatorul PoE/link de pe comutator sau portul injectorului și așteptați câteva secunde după pornire pentru ca acesta să se inițializeze și să se conecteze la rețea.
+2. Calculatorul backend trebuie să se afle în **același domeniu de difuzare** ca și senzorul — mDNS nu traversează routerele.
+3. Un firewall trebuie să permită accesul pentru mDNS (UDP 5353), datele DAQ-E (UDP 5002) și PTP (UDP 319/320). Programul de instalare pentru Windows adaugă o regulă în acest sens, iar pentru Linux, `.deb` le deschide într-un `ufw` / `firewalld` care era activ la momentul instalării; un firewall terț sau unul activat ulterior trebuie să le permită accesul.
+4. Tot nu primiți nimic de la `--eth`? Utilizați `--eth-host` cu numele de gazdă al unității (`daq-e-<id>.local`) sau cu adresa IP, ceea ce omite procesul de descoperire.
 
-***{% hint style="info" %}**Sfat pentru asistenții AI.** Fiecare pagină a acestui manual este furnizată în format Markdown brut — adăugați `.md` la slug-ul cu litere mici al paginii, URL (această pagină: `https://mapir.gitbook.io/chloros/daq/cli-quick-start.md`); indexul lizibil de către mașini este `https://mapir.gitbook.io/chloros/llms.txt`. Pentru documentația completă la nivel de opțiuni a `chloros-cli daq` și a oricărei alte familii de comenzi, accesați [Referința CLI](../reference/cli-reference.md) (`https://mapir.gitbook.io/chloros/reference/cli-reference.md`); calea către Python este `chloros_sdk.connect_daq_sensor()` în [Referința SDK](../reference/sdk-reference.md).
+***
+{% hint style="info" %}
+**Sfat pentru asistenții AI.** Fiecare pagină a acestui manual este furnizată în format Markdown brut — adăugați `.md` la slug-ul URL-ului unei pagini scris cu litere mici (această pagină: `https://mapir.gitbook.io/chloros/daq/cli-quick-start.md`); indexul lizibil de către mașini este `https://mapir.gitbook.io/chloros/llms.txt`. Pentru documentația completă la nivel de opțiuni a `chloros-cli daq` și a oricărei alte familii de comenzi, accesați [Referința CLI](../reference/cli-reference.md) (`https://mapir.gitbook.io/chloros/reference/cli-reference.md`); calea Python este `chloros_sdk.connect_daq_sensor()` în [Referința SDK](../reference/sdk-reference.md).
 {% endhint %}
+</version\>

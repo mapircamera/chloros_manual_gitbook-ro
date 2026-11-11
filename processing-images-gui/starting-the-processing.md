@@ -1,13 +1,13 @@
 # Începerea procesării
 
-După ce ați importat imaginile, ați marcat țintele de calibrare și ați configurat setările proiectului, sunteți gata să începeți procesarea. Această pagină vă ghidează în inițierea fluxului de procesare Chloros.
+După ce ați importat imaginile, ați marcat țintele de calibrare și ați configurat setările proiectului, sunteți gata să începeți procesarea. Această pagină vă ghidează prin inițierea fluxului de procesare Chloros.
 
 ## Lista de verificare pentru preprocesare
 
-Înainte de a face clic pe butonul Start, verificați dacă totul este pregătit:
+Înainte de a face clic pe butonul „Start”, verificați dacă totul este pregătit:
 
 * [ ] **Fișiere importate** – Toate imaginile apar în File Browser
-* [ ] **Imagini țintă marcate** – Coloana „Target” a fost verificată pentru imaginile de calibrare (sau a fost importată o înregistrare `.daq` pentru LATTICE)
+* [ ] **Imagini țintă marcate** – Coloana „Target” este bifată pentru imaginile de calibrare (sau o înregistrare `.daq` importată pentru LATTICE)
 * [ ] **Modele de camere detectate** – Coloana „Model cameră” afișează camerele corecte
 * [ ] **Setări configurate** – Setările proiectului au fost verificate și ajustate
 * [ ] **Indici selectați** – Indicii multispectrali doriti au fost adăugați (dacă este necesar)
@@ -23,21 +23,22 @@ După ce ați importat imaginile, ați marcat țintele de calibrare și ați con
 
 ### Localizați butonul „Start”
 
-Butonul „Start/Play” se află în bara de antet superioară a ferestrei Chloros:
+Butonul „Start/Play” se află în bara de antet din partea de sus a aplicației Chloros:
 
-* Poziție: în centrul părții superioare a ferestrei
-* Pictogramă: **Butonul Redare/Start** <img src="../.gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
-* Stare: Butonul este activat (luminos) când este gata de procesare
+* Poziție: în centrul părții de sus a ferestrei
+* Pictogramă: **Butonul „Play/Start”** <img src="../.gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
+* Stare: butonul este activat (luminos) când este gata de procesare
 
 ### Faceți clic pentru a începe
 
 1. Faceți clic pe **butonul Redare/Start** din bara de sus
 2. Procesarea începe imediat
-3. Butonul devine un buton **Oprire** în timpul procesării
+3. În timpul procesării, butonul se transformă în butonul **Oprire**
+
 4. Bara de progres se actualizează, afișând starea procesării
 
 {% hint style="success" %}
-**Procesarea a început**: Odată ce ați făcut clic, Chloros gestionează automat toate etapele de procesare – detectarea țintelor, debayering, calibrare, calculul indexului și exportul. Acesta detectează automat dacă proiectul dvs. este de tip Survey3, LATTICE sau o combinație a acestora și aplică fluxul de procesare corespunzător fiecărei camere.
+**Prelucrare începută**: Odată ce ați făcut clic, Chloros gestionează automat toate etapele de prelucrare – detectarea țintelor, debayering, calibrare, calculul indexului și exportul. Detectează automat dacă proiectul dvs. este de tip Survey3, LATTICE sau o combinație a celor două și aplică fluxul de lucru corespunzător fiecărei camere.
 {% endhint %}
 
 ***
@@ -58,10 +59,10 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 
 **Bara de progres afișează 2 etape:**
 
-1.**Detectarea țintelor** - Scanarea țintelor de calibrare
-2. **Prelucrare** - Aplicarea calibrării și exportarea imaginilor**Timp de procesare:**
+1.**Detectarea țintelor** – Scanarea țintelor de calibrare
+2. **Prelucrare** – Aplicarea calibrării și exportarea imaginilor**Timp de procesare:**
 
-* Mult mai lent decât modul paralel Chloros+
+* Mult mai lent decât modul paralel dChloros+
 * Potrivit pentru seturi de date mici și medii (&lt; 200 de imagini)
 
 ### Modul Chloros+ (procesare paralelă)
@@ -72,13 +73,13 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 
 * Procesează simultan mai multe imagini folosind un [flux de procesare cu 4 fire](../processing-architecture/processing-pipeline.md)
 * [Adaptarea dinamică a calculului](../processing-architecture/dynamic-compute-adaptation.md) selectează automat strategia optimă pentru hardware-ul dvs. la pornirea programului
-* Accelerare GPU (CUDA) cu plăci grafice NVIDIA (desktop și Jetson)
-* **Numărul de procesori de lucru se adaptează la hardware**: strategiile GPU rulează**1-4 procesori de lucru simultan** (scalate în funcție de VRAM — un Jetson cu memorie redusă rulează 1, o placă grafică de desktop de 12 GB+ rulează până la 4); sistemele care utilizează doar CPU rulează un procesor de lucru pe fiecare nucleu fizic, minus unul**Bara de progres afișează 4 etape** (corespunzătoare celor 4 fire de execuție din pipeline):
+* Accelerare GPU (CUDA) cu plăci grafice NVIDIA
+* **Numărul de procesori de lucru se adaptează la hardware**: strategiile GPU rulează**2–4 procesori de lucru simultan** (scalate în funcție de VRAM — 3 pe un GPU de 2–12 GB, 2–4 pe un GPU de 12 GB sau mai mult); Sistemele care utilizează doar CPU rulează un worker pe fiecare nucleu fizic, minus unul**Bara de progres afișează 4 etape** (corespunzătoare celor 4 fire de execuție din pipeline):
 
-1. **Detectare** (Firul 1) – Identificarea țintelor de calibrare
-2. **Analiză** (Firul 2) – Examinarea metadatelor imaginii și calcularea calibrării
+1. **Detectare** (Fir 1) — Identificarea țintelor de calibrare
+2. **Analiză** (Fir 2) – Examinarea metadatelor imaginii și calcularea calibrării
 3. **Calibrare** (Fir 3) – Debayering, corectarea vignetării, calibrare, calcularea indexului
-4. **Export** (Fir 4) – Salvarea imaginilor procesate și a indexurilor**Interacțiunea cu bara de progres:*** **Treceți cu mouse-ul** peste bară pentru a vedea panoul derulant detaliat cu 4 etape
+4. **Export** (Fir 4) – Salvarea imaginilor procesate și a indexurilor**Interacțiunea cu bara de progres:*** **Treceți cu mouse-ul** peste bară pentru a vedea panoul derulant detaliat cu cele 4 etape
 * **Faceți clic** pe bara de progres pentru a fixa panoul derulant în poziție
 * **Faceți clic din nou** pentru a debloca și a ascunde panoul**Timp de procesare:**
 
@@ -86,7 +87,7 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 * Accelerarea GPU îmbunătățește și mai mult viteza
 
 {% hint style="info" %}
-**Chloros+ Viteză**: Procesarea paralelă poate fi de 5-10 ori mai rapidă decât modul secvențial pentru seturi mari de date. Un proiect de 500 de imagini care durează 2 ore în modul gratuit se poate finaliza în 15-20 de minute cu Chloros+.
+**Viteza Chloros+**: Procesarea paralelă poate fi de 5-10 ori mai rapidă decât modul secvențial pentru seturi mari de date. Un proiect de 500 de imagini care durează 2 ore în modul gratuit se poate finaliza în 15-20 de minute cu Chloros+.
 {% endhint %}
 
 ***
@@ -108,8 +109,8 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 
 **Ce face Chloros:**
 
-* Convertește datele RAW în format Bayer în imagini complete cu 3 canale (modulele mono LATTICE rămân monobandă — pentru acestea, procesul de debayering este omis, cu o notă în jurnal)
-* Aplică algoritmul de demosaic selectat
+* Convertește datele RAW în format Bayer în imagini complete cu 3 canale (modulele mono LATTICE rămân monobandă — debayeringul este omis pentru acestea, cu o notă în jurnal)
+* Aplică algoritmul de demosaicing selectat
 * Păstrează calitatea maximă a imaginii și detaliile
 
 **Durată:** Variază în funcție de numărul de imagini și de viteza procesorului (CPU) sau a plăcii grafice (GPU)
@@ -119,7 +120,7 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 **Ce face Chloros:*** **Corecția vignetării**: Elimină întunecarea produsă de obiectiv la margini
 * **Calibrarea reflectanței**: Normalizează folosind valorile țintă ale reflectanței și/sau datele de radiație descendentă din DAQ
 * Aplică corecții pe toate benzile/canalele
-* Utilizează referința de calibrare adecvată pentru fiecare imagine în funcție de marcajul temporal
+* Utilizează referința de calibrare adecvată pentru fiecare imagine în funcție de data și ora înregistrării
 
 **Durată:** Majoritatea timpului de procesare
 
@@ -129,7 +130,7 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 
 * Calculează indicii multispectrali configurați (NDVI, NDRE etc.)
 * Aplică operații matematice pe benzi imaginilor calibrate
-* Generează imagini-index pentru fiecare indice selectat
+* Generează imagini de indice pentru fiecare indice selectat
 
 **Durată:** Câteva secunde pe imagine
 
@@ -138,7 +139,7 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 **Ce face Chloros:**
 
 * Salvează imaginile procesate în formatul selectat
-* **LATTICE fan-out**: fiecare cadru LATTICE brut este exportat ca fiecare produs activat într-o singură etapă — debayering, previzualizare, radianță (întotdeauna float32), reflectanță
+* **LATTICE fan-out**: fiecare cadru LATTICE brut este exportat ca fiecare produs activat într-o singură trecere — debayered, previzualizare, radianță (întotdeauna float32), reflectanță
 * Scrie fișierele în arborele de ieșire al proiectului: `<project>/<camera>/<format>/<Product>_Images/`
 * **Păstrează numele fișierului sursă** — folderul identifică produsul, nu se adaugă niciun sufix**Durată:** Variază în funcție de formatul de export și de dimensiunea fișierului***
 
@@ -150,18 +151,18 @@ Odată pornit, întregul flux se execută automat:
 
 * Nu este necesară interacțiunea utilizatorului
 * Toate etapele configurate se execută în ordine
-* Actualizări ale progresului afișate în timp real
-* Fișierele exportate sunt salvate pe disc pe măsură ce sunt finalizate — puteți deschide rezultatele finalizate în timp ce procesul continuă
+* Actualizări privind progresul afișate în timp real
+* Fișierele exportate sunt salvate pe disc pe măsură ce sunt finalizate — puteți deschide rezultatele finale în timp ce procesul continuă
 
 ### Utilizarea computerului în timpul procesării
 
-**Mod liber:**
+**Modul Free:**
 
 * Utilizare relativ redusă a procesorului (un singur thread)
-* Calculatorul rămâne receptiv pentru alte sarcini
-* Puteți minimiza fereastra Chloros fără probleme și puteți lucra în alte aplicații
+* Computerul rămâne receptiv pentru alte sarcini
+* Este sigur să minimizați Chloros și să lucrați în alte aplicații
 
-**Chloros+ Mod paralel:**
+**Modul paralel Chloros+:**
 
 * Utilizare ridicată a procesorului (CPU) în cadrul grupului de procesare al strategiei
 * Cu accelerare GPU: utilizare ridicată a GPU-ului
@@ -169,27 +170,27 @@ Odată pornit, întregul flux se execută automat:
 * Evitați să porniți alte sarcini care solicită intens procesorul (CPU)
 
 {% hint style="warning" %}
-**Sfat de performanță**: Pentru o performanță optimă a Chloros+, închideți celelalte aplicații și permiteți Chloros să utilizeze toate resursele sistemului.
+**Sfat privind performanța**: Pentru o performanță optimă a Chloros+, închideți celelalte aplicații și permiteți Chloros să utilizeze toate resursele sistemului.
 {% endhint %}
 
-### Procesarea nu poate fi pusă în pauză (dar oprirea se face complet)
+### Procesarea nu poate fi pusă în pauză (dar oprirea se face în mod curat)
 
 * Odată pornită, procesarea nu poate fi pusă în pauză și reluată ulterior
-* Dând clic pe **Stop**, rularea se oprește complet încă de la primul clic
+* Dacă faceți clic pe **Stop**, rularea se oprește complet încă de la primul clic
 * Produsele deja exportate înainte de oprire rămân pe disc
 * O rulare oprită raportează cu exactitate ce a finalizat (consultați liniile `[RUN-SUMMARY]` din jurnal)
-* O nouă execuție pornește fluxul de lucru de la început
+* O nouă execuție pornește procesul de la început
 
-**Sfat de planificare:** Pentru proiecte foarte mari, luați în considerare procesarea în loturi sau utilizarea CLI pentru un control mai bun.***
+**Sfat de planificare:** Pentru proiecte foarte mari, luați în considerare procesarea în loturi sau utilizarea interfeței CLI pentru un control mai bun.***
 
 ## Monitorizarea procesării
 
 În timp ce procesarea se desfășoară, puteți:
 
 * **Urmăriți bara de progres** – Vedeți procentajul general de finalizare
-* **Vizualizați etapa curentă** – Detectare, Analiză, Calibrare sau Export
-* **Verificați fila „Jurnal”** — Vedeți mesaje detaliate de procesare și avertismente
-* **Previzualizați imaginile finalizate** — Fișierele de export apar pe disc în timpul procesării
+* **Vizualizați etapa curentă** – Detectare, Analizare, Calibrare sau Export
+* **Verificați fila jurnal** – Vedeți mesaje detaliate de procesare și avertismente
+* **Previzualizați imaginile finalizate** – Fișierele de export apar pe disc în timpul procesării
 
 Pentru informații detaliate despre monitorizare, consultați [Monitorizarea procesării](monitoring-the-processing.md).
 
@@ -201,35 +202,35 @@ Dacă trebuie să opriți procesarea:
 
 ### Cum se oprește
 
-1. Localizați **butonul Oprire** (înlocuiește butonul Start în timpul procesării)
-2. Faceți clic o dată pe el — bara afișează **„Se oprește...”** în timp ce imaginea în curs de procesare se finalizează
+1. Localizați **butonul Stop** (înlocuiește butonul „Start” în timpul procesării)
+2. Faceți clic o dată pe acesta — bara afișează **„Oprire...”** în timp ce imaginea în curs de procesare se finalizează
 3. Procesul se încheie într-o stare definitivă de oprire, iar jurnalul afișează un raport detaliat `[RUN-SUMMARY]` cu privire la ceea ce a fost finalizat
 
-### Când să opriți procesarea
+### Când să opriți
 
 **Motive valabile pentru oprire:**
 
 * Ați constatat că au fost utilizate setări incorecte
 * Ați uitat să marcați imaginile țintă
 * Au fost importate imagini greșite
-* Sistemul rulează prea lent sau nu răspunde
+* Sistemul funcționează prea lent sau nu răspunde
 
 **După oprire:**
 
 * Produsele exportate înainte de oprire rămân pe disc
 * Verificați și remediați eventualele probleme, ajustați setările după cum este necesar
-* Reporniți procesarea — procesul începe de la început
+* Reporniți procesarea — execuția începe de la început
 
 ***
 
-## Estimări privind durata procesării
+## Estimări privind timpul de procesare
 
 Timpul real de procesare variază semnificativ în funcție de:
 
 * Numărul de imagini
 * Rezoluția imaginilor
-* Formatul de intrare RAW sau JPG
-* Modul de procesare (Free sau Chloros+)
+* Formatul de intrare RAW vs JPG
+* Modul de procesare (Free vs Chloros+)
 * Viteza procesorului și numărul de nuclee
 * Disponibilitatea GPU-ului (numai pentru Chloros+)
 * Numărul de indici de calculat
@@ -269,7 +270,7 @@ Timpul real de procesare variază semnificativ în funcție de:
 3. Reporniți Chloros dacă butonul rămâne dezactivat
 4. Verificați jurnalul de depanare pentru mesaje de eroare
 
-### Procesarea începe, apoi eșuează imediat
+### Procesarea începe, dar eșuează imediat
 
 **Cauze posibile:**
 
@@ -287,15 +288,27 @@ Timpul real de procesare variază semnificativ în funcție de:
 
 ### Procesarea se finalizează, dar nu se scriu imagini
 
-O execuție care a solicitat produse imagistice, dar nu a scris niciuna, este tratată ca un **eșec, nu ca un succes** — Chloros raportează acest lucru în mod clar:
+O execuție care a solicitat produse imagistice, dar nu a scris niciunul, este tratată ca un **eșec, nu ca un succes** — Chloros raportează acest lucru în mod vizibil:
 
-* Jurnalul GUI afișează indicii `[RUN-SUMMARY]` care indică cauza probabilă — nu s-au importat imagini, nu s-a detectat nicio țintă sau toate produsele solicitate au fost omise ca fiind inaplicabile (de exemplu, solicitarea de radianță/reflectanță de la camere care utilizează doar RGB)
-* Echivalentul CLI (`chloros-cli process`) afișează `Processing finished but wrote no image products.` și **iese cu un cod de ieșire diferit de zero**, astfel încât scripturile să îl poată detecta
-* O execuție deliberată numai cu metadate (toate produsele de export dezactivate, fără indici) este totuși considerată reușită
+* Jurnalul GUI afișează indicii de tip `[RUN-SUMMARY]` care indică cauza probabilă — nu s-au importat imagini, nu s-a detectat nicio țintă sau toate produsele solicitate au fost omise ca fiind inaplicabile (de exemplu, solicitarea de radianță/reflectanță de la camere care înregistrează doar RGB)
+* Echivalentul din CLI (`chloros-cli process`) afișează `Processing finished but wrote no image products.` și **iese cu un cod de ieșire diferit de zero**, astfel încât scripturile să poată detecta această situație
+* O execuție deliberată care generează doar metadate (toate produsele de export dezactivate, fără indici) este totuși considerată un succes
 
 Consultați [Referința CLI](../reference/cli-reference.md#a-run-that-writes-no-images-fails) pentru semantica completă.
 
-### Avertisment „Nu s-au detectat ținte”
+### Dosarul proiectului este prea adânc pentru acest computer
+
+**Numai pentru Windows, noutate în versiunea 1.3.0.** Windows vine cu opțiunea pentru căi lungi dezactivată, iar în acest caz nicio cale de fișier nu poate depăși 260 de caractere. Produsele Chloros se află la aproximativ 130 de caractere sub folderul proiectului, astfel încât un folder de proiect situat mai adânc decât aceasta nu ar putea primi produsele sale. În loc să ruleze și să nu scrie nimic, Chloros verifică acum înainte de începerea procesării:
+
+* Dacă faceți clic pe „Start”, execuția nu pornește: bara de progres afișează motivul, iar jurnalul de depanare afișează `[PROCESS] refused: The project folder is too deep for this computer…`. Mesajul indică lungimea folderului de proiect și cel mai lung folder de proiect care se încadrează.
+* Crearea sau deschiderea unui proiect într-un folder prea adânc chiar și pentru propriile fișiere ale proiectului este, de asemenea, refuzată. O fereastră de mesaj explică motivul, indicând cel mai lung nume de folder de proiect care se încadrează și modul de activare a căilor lungi, iar nimic nu este creat sau deschis; jurnalul de depanare înregistrează acest lucru ca `[PROJECT] refused: …`. Duplicarea unui proiect sub un nume mai lung poate depăși, de asemenea, limita: copia este realizată, dar nu este deschisă, iar același mesaj explică motivul.
+
+**Soluții:**
+
+1. Păstrați proiectele într-un folder cu nume mai scurt — modificați**Directorul de lucru** în [Setări proiect](../project-settings/project-settings.md) și creați din nou proiectul, sau
+2. Activați căile lungi Windows și reporniți Chloros: rulați din nou programul de instalare Chloros cu opțiunea **Activați căile lungi Windows** bifată (este bifată implicit) sau utilizați Politica de grup: *Configurare computer &gt; Șabloane administrative &gt; Sistem &gt; Sistem de fișiere &gt; Activați căile lungi Win32*.
+
+### Avertismentul „Nu s-au detectat ținte”
 
 **Cauze posibile:**
 
@@ -316,27 +329,27 @@ Consultați [Referința CLI](../reference/cli-reference.md#a-run-that-writes-no-
 
 ### Înainte de a începe
 
-1. **Testați mai întâi cu un subset mic** – Prelucrați 10-20 de imagini pentru a verifica setările
+1. **Testați mai întâi cu un subset mic** – Procesați 10-20 de imagini pentru a verifica setările
 2. **Verificați spațiul disponibil pe disc** – Asigurați-vă că aveți liber un spațiu de 2-3 ori mai mare decât dimensiunea setului de date (mai mult dacă sunt activate toate produsele LATTICE)
-3. **Închideți aplicațiile inutile** – Eliberați resursele sistemului
+3. **Închideți aplicațiile inutile** – Eliberați resurse de sistem
 4. **Verificați imaginile țintă** – Previzualizați țintele marcate pentru a vă asigura de calitate
-5. **Salvați proiectul** – Proiectul se salvează automat, dar este recomandat să îl salvați manual
+5. **Salvați proiectul** – Proiectul se salvează automat, dar este recomandat să salvați manual
 
 ### În timpul procesării
 
 1. **Evitați trecerea sistemului în modul de repaus** – Dezactivați modurile de economisire a energiei
-2. **Mențineți Chloros în prim-plan** — Sau cel puțin vizibil în bara de activități
-3. **Monitorizați ocazional progresul** — Verificați dacă există avertismente sau erori
+2. **Mențineți Chloros în prim-plan** – Sau cel puțin vizibil în bara de activități
+3. **Monitorizați ocazional progresul** – Verificați dacă există avertismente sau erori
 4. **Nu încărcați alte aplicații grele** – În special în modul paralel Chloros+
 
-### Accelerare GPU Chloros+
+### Accelerare GPU cu Chloros+
 
 Dacă utilizați accelerarea GPU NVIDIA:
 
 1. Actualizați driverele NVIDIA la cea mai recentă versiune
-2. Asigurați-vă că GPU-ul are 4 GB+ VRAM (7 GB+ pentru debayering simultan cu suport pentru texturi)
+2. Asigurați-vă că GPU-ul are 4 GB+ VRAM (7 GB+ pentru debayering simultan cu Texture Aware)
 3. Închideți aplicațiile care solicită intens GPU-ul (jocuri, editare video)
-4. Monitorizați temperatura GPU-ului (asigurați o răcire adecvată)
+4. Monitorizați temperatura GPU-ului (asigurați-vă că răcirea este adecvată)
 
 ***
 
