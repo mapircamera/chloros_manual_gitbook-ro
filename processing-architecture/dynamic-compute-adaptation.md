@@ -136,7 +136,9 @@ Cifrele sunt guvernate de două reguli:
 * Un thread care este **singurul** activ primește alocarea maximă prevăzută de profilul său.
 * Când sunt active mai multe sarcini *grele* pe GPU, alocarea de bază a fiecărei sarcini grele este împărțită între ele (niciodată sub minimul configurat).
 
-Valoarea utilizată efectiv în timpul rulării este cea **mai mică** dintre alocarea profilului platformei și recomandarea în timp real a monitorului de memorie GPU, astfel încât o placă ocupată are întotdeauna prioritate față de un profil optimist.***
+Valoarea utilizată efectiv în timpul rulării este cea **mai mică** dintre alocarea profilului platformei și recomandarea în timp real a monitorului de memorie GPU, astfel încât o placă ocupată are întotdeauna prioritate față de un profil optimist.
+
+***
 
 ## Procesare sensibilă la textură
 

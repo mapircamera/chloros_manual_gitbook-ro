@@ -17,7 +17,9 @@ MAPIR măsoară lumina ambientală sub formă de spectre calibrate radiometric. 
 | --- | --- | --- |
 | **DAQ-U** | USB (serial) | scanare prin port serial |
 | **DAQ-M** | Bluetooth Low Energy | scanare BLE după nume |
-| **DAQ-E** | Ethernet (IPv4, alimentat prin PoE) | mDNS `_daq-e._tcp` (nume de gazdă `daq-e-<id>.local`) |**DAQ-E-S (nou în versiunea 1.3.0).** Un DAQ-E cu un difuzor permanent și un senzor de înclinare. Chloros îl listează ca `DAQ-E-S` și îl operează exact ca un DAQ-E, cu excepția faptului că nu necesită corecție de capac și fiecare citire include înclinația, rularea și pasul unității. A se vedea [DAQ-E-S: difuzor fix și înclinare](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
+| **DAQ-E** | Ethernet (IPv4, alimentat prin PoE) | mDNS `_daq-e._tcp` (nume de gazdă `daq-e-<id>.local`) |
+
+**DAQ-E-S (nou în versiunea 1.3.0).** Un DAQ-E cu un difuzor permanent și un senzor de înclinare. Chloros îl listează ca `DAQ-E-S` și îl operează exact ca un DAQ-E, cu excepția faptului că nu necesită corecție de capac și fiecare citire include înclinația, rularea și pasul unității. A se vedea [DAQ-E-S: difuzor fix și înclinare](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
 
 Toate cele trei utilizează același protocol de comunicație și furnizează date identice:
 

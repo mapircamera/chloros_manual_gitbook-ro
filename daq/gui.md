@@ -194,7 +194,9 @@ Pentru valori cantitative ale iradianței, calculați media a cel puțin 15 secu
 
 * Combinați mai mulți senzori pe un singur grafic (axe comune), păstrați grafice separate (dispunere automată în grilă), mutați senzorii între grafice, reordonați rândurile/casetele prin glisare și ascundeți senzori individuali cu comutatorul sub formă de ochi.
 * Pentru fiecare proiect, Chloros păstrează: numele dispozitivelor, culorile graficelor, dimensiunea graficelor, modul de vizualizare și setările fiecărui senzor (timp de integrare, medierea cadrelor, starea AE, selecția capacului).
-* **Redeschiderea unui proiect reconectează automat senzorii acestuia** după adresă — portul COM pentru DAQ-U, dispozitivul BLE pentru DAQ-M, numele de gazdă mDNS pentru DAQ-E (rezolvat chiar dacă IP-ul unității s-a schimbat) — și reaplică profilul de capac salvat al fiecărui senzor, medierea cadrelor, starea AE și timpul de integrare manual.***
+* **Redeschiderea unui proiect reconectează automat senzorii acestuia** după adresă — portul COM pentru DAQ-U, dispozitivul BLE pentru DAQ-M, numele de gazdă mDNS pentru DAQ-E (rezolvat chiar dacă IP-ul unității s-a schimbat) — și reaplică profilul de capac salvat al fiecărui senzor, medierea cadrelor, starea AE și timpul de integrare manual.
+
+***
 
 ## Asocierea camerei (DLS)
 

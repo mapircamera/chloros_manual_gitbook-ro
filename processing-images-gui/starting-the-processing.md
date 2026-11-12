@@ -181,7 +181,9 @@ Odată pornit, întregul flux se execută automat:
 * O rulare oprită raportează cu exactitate ce a finalizat (consultați liniile `[RUN-SUMMARY]` din jurnal)
 * O nouă execuție pornește procesul de la început
 
-**Sfat de planificare:** Pentru proiecte foarte mari, luați în considerare procesarea în loturi sau utilizarea interfeței CLI pentru un control mai bun.***
+**Sfat de planificare:** Pentru proiecte foarte mari, luați în considerare procesarea în loturi sau utilizarea interfeței CLI pentru un control mai bun.
+
+***
 
 ## Monitorizarea procesării
 

@@ -10,7 +10,9 @@ Utilizați glisorul de zoom din colțul din dreapta sus pentru a regla dimensiun
 * **Ctrl + `+`**/**Ctrl + `=`**și**Ctrl + `−`** modifică dimensiunea cu 4 px la fiecare apăsare. Intervalul de dimensiuni accesibil prin tastatură se oprește la 64 px la dimensiunea minimă și, la dimensiunea maximă, la orice dimensiune care încap exact două miniaturi pe rând în fereastra curentă.
 * Dimensiunea aleasă este salvată odată cu proiectul (`UI → Grid thumbnail size` în `project.json`, implicit `160`), astfel încât redeschiderea proiectului o restabilește.
 
-<figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>*Rezoluția* miniaturii este o setare separată de *dimensiunea* miniaturii: consultați **Afișare → Rezoluția miniaturii imaginii** în [Setări proiect](../project-settings/project-settings.md) (implicit 512 px pe latura lungă). Dimensiunea se referă la cât de mare este redată caseta; rezoluția se referă la cât de multe detalii sunt preluate pentru a o umple.***
+<figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>*Rezoluția* miniaturii este o setare separată de *dimensiunea* miniaturii: consultați **Afișare → Rezoluția miniaturii imaginii** în [Setări proiect](../project-settings/project-settings.md) (implicit 512 px pe latura lungă). Dimensiunea se referă la cât de mare este redată caseta; rezoluția se referă la cât de multe detalii sunt preluate pentru a o umple.
+
+***
 
 ## Bara de instrumente a grilei
 

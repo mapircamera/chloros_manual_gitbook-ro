@@ -170,7 +170,9 @@ chloros-cli daq pool-reboot --sensor-id daq-e-def330
 chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
 ```
 
-`pool-info` afișează firmware-ul senzorului (și dacă această versiune Chloros conține una mai nouă), adresa acestuia și modul în care a fost obținută, setările de rețea salvate în cazul în care acestea diferă de cele curente, transmisia la pornire și PTP. `pool-set-network` repornește senzorul pentru a aplica modificarea și îl reconectează cu setările pe care le avea; `--no-reboot` doar le salvează. O adresă statică trebuie să existe în rețeaua acestui computer, altfel Chloros-ul o respinge; `--force` ignoră această restricție, doar pentru un computer care va fi redirecționat sau rutate către acesta. Repornirile sunt refuzate în timp ce senzorul înregistrează date. `pool-update-firmware` este echivalentul comenzii **Update to \<version\>** </version\>din interfața grafică <version\>pentru linia de comandă și reprezintă modalitatea de a actualiza un DAQ-E pe Linux, care nu dispune de interfață grafică. Noutate în versiunea 1.3.0.***
+`pool-info` afișează firmware-ul senzorului (și dacă această versiune Chloros conține una mai nouă), adresa acestuia și modul în care a fost obținută, setările de rețea salvate în cazul în care acestea diferă de cele curente, transmisia la pornire și PTP. `pool-set-network` repornește senzorul pentru a aplica modificarea și îl reconectează cu setările pe care le avea; `--no-reboot` doar le salvează. O adresă statică trebuie să existe în rețeaua acestui computer, altfel Chloros-ul o respinge; `--force` ignoră această restricție, doar pentru un computer care va fi redirecționat sau rutate către acesta. Repornirile sunt refuzate în timp ce senzorul înregistrează date. `pool-update-firmware` este echivalentul comenzii **Update to \<version\>** </version\>din interfața grafică <version\>pentru linia de comandă și reprezintă modalitatea de a actualiza un DAQ-E pe Linux, care nu dispune de interfață grafică. Noutate în versiunea 1.3.0.
+
+***
 
 ## Rezumatul comenzilor
 

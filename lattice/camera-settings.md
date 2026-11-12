@@ -196,7 +196,9 @@ Tot ce se află în această secțiune se referă **doar la afișare**— modifi
 | **Saturație** | 0–200 (100 = neutru) | 100 | Numai RGB | Saturația HSV în previzualizarea live. |
 | **Contrast** | 0–200 (100 = neutru) | 100 | Numai RGB | Contrast liniar în jurul tonului de gri mediu în previzualizarea live. |
 | **Oglindire orizontală / Oglindire verticală** | Casete de selectare | Dezactivat | Toate | Răsuci previzualizarea pe orizontală / pe verticală. |
-| **Rotație**| 0° / 90° / 180° / 270° | 0° | Toate | Rotește previzualizarea. Orientarea se aplică la sfârșitul lanțului de previzualizare din backend.**Capturi salvate (1.3.0):**produsele de tip Previzualizare, Radianță, Reflectanță și Indice ale unei camere independente sunt rotite prin Oglinzire/Rotație, în timp ce**fișierele Raw și Debayered rămân în orientarea nativă a camerei**; fiecare fișier de captură înregistrează setarea în XMP-ul său, astfel încât procesarea ulterioară a unui fișier raw o aplică în același mod.**Fișierele membre ale matricei rămân native** (setarea este înregistrată, nu aplicată), iar vizualizările compozite ale matricei o ignoră. |**Semantica profilurilor de culoare** (camere RGB):
+| **Rotație**| 0° / 90° / 180° / 270° | 0° | Toate | Rotește previzualizarea. Orientarea se aplică la sfârșitul lanțului de previzualizare din backend.**Capturi salvate (1.3.0):**produsele de tip Previzualizare, Radianță, Reflectanță și Indice ale unei camere independente sunt rotite prin Oglinzire/Rotație, în timp ce**fișierele Raw și Debayered rămân în orientarea nativă a camerei**; fiecare fișier de captură înregistrează setarea în XMP-ul său, astfel încât procesarea ulterioară a unui fișier raw o aplică în același mod.**Fișierele membre ale matricei rămân native** (setarea este înregistrată, nu aplicată), iar vizualizările compozite ale matricei o ignoră. |
+
+**Semantica profilurilor de culoare** (camere RGB):
 
 * **Raw** — ocolește complet lanțul de procesare.
 * **Liniar** — semnal întunecat + câmp plat + balans de alb; fără matrice de culoare, fără gamma.

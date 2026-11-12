@@ -15,7 +15,9 @@ Images In → [Thread 1: Detection] → [Thread 2: Calibration] → [Thread 3: P
 
 Fiecare imagine trece prin toate cele patru fire de execuție în ordine. Cu procesarea multithread a Chloros+, mai multe imagini ocupă simultan fire de execuție diferite — în timp ce firul 3 procesează o imagine, firul 1 poate detecta următoarea, firul 2 poate calibra o altă imagine, iar firul 4 poate scrie pe disc o imagine finalizată.
 
-Progresul este raportat pentru fiecare fir de execuție și transmis prin Server-Sent Events (backend-ul le publică pe `/api/events`). În afișajul în timp real al progresului din CLI, cele patru etape sunt etichetate **Detectare, Analizare, Procesare, Export**.***
+Progresul este raportat pentru fiecare fir de execuție și transmis prin Server-Sent Events (backend-ul le publică pe `/api/events`). În afișajul în timp real al progresului din CLI, cele patru etape sunt etichetate **Detectare, Analizare, Procesare, Export**.
+
+***
 
 ## Detalii despre firele de execuție
 

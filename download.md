@@ -194,7 +194,9 @@ Deblocați funcții avansate cu un abonament Chloros+:
 * **🐻 Metodă avansată de debayerizare cu recunoaștere a texturii** - o metodă de debayerizare de înaltă calitate, cu recunoaștere a marginilor, combinată cu un model de eliminare a zgomotului bazat pe AI/ML, care elimină aproape tot zgomotul generat de debayerizare.
 * 🧮 **Formule personalizate** - Creați indici multispectrali personalizați
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Vedeți planurile și prețurile Chloros+</a></p>***
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Vedeți planurile și prețurile Chloros+</a></p>
+
+***
 
 ## Ajutor pentru instalare
 
@@ -235,7 +237,9 @@ Aveți nevoie de ajutor cu instalarea sau configurarea?
 * 📧 **E-mail**: info@mapir.camera
 * 🌐 **Site web**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Documentație**: [Noțiuni introductive](./)
-* ❓ **Întrebări frecvente**: [Întrebări frecvente](faq.md)***
+* ❓ **Întrebări frecvente**: [Întrebări frecvente](faq.md)
+
+***
 
 ## Actualizări software
 

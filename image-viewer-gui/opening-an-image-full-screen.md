@@ -57,7 +57,9 @@ Mărirea „efectivă” ține cont de dimensiunea blocului GSD: cu o dimensiune
 | **←**                           | Ecran complet | Imaginea anterioară                      |
 | **Ctrl + R**                    | Ecran complet | Resetează indexul/sandbox-ul LUT         |
 | **Ctrl + `+`**/**Ctrl + `=`** | Grilă        | Miniaturi mai mari (4 px la fiecare apăsare)  |
-| **Ctrl + `−`**                  | Grilă        | Miniaturi mai mici (4 px la fiecare apăsare) |***
+| **Ctrl + `−`**                  | Grilă        | Miniaturi mai mici (4 px la fiecare apăsare) |
+
+***
 
 ## Valori ale cursorului
 
@@ -100,7 +102,9 @@ Vizualizatorul, mediul de testare index/LUT și exportul indexului rezolvă toat
 Două consecințe demne de reținut:
 
 * Un **procent pe 32 de biți**TIFF stochează DN/65535 ca număr cu virgulă mobilă, iar un export**pe 8 biți** PNG/JPG stochează DN × 255/65535 — vizualizatorul le convertește pe amândouă înapoi înainte de a afișa procentul.
-* Un caz nu poate fi recuperat: un **export TIFF pe 8 biți al unei capturi cu sursă pe 8 biți** este decupat la intervalul 0–255 în loc să fie redimensionat și nu conține în mod deliberat nicio etichetă de scală. Pentru aceste fișiere, panoul afișează doar valoarea DN, fără coloana de procente. Acesta este răspunsul sincer, nu o eroare.***
+* Un caz nu poate fi recuperat: un **export TIFF pe 8 biți al unei capturi cu sursă pe 8 biți** este decupat la intervalul 0–255 în loc să fie redimensionat și nu conține în mod deliberat nicio etichetă de scală. Pentru aceste fișiere, panoul afișează doar valoarea DN, fără coloana de procente. Acesta este răspunsul sincer, nu o eroare.
+
+***
 
 ## Histograma stratului
 
@@ -126,7 +130,9 @@ Deasupra histogramei se află trei butoane:
 | **INDEX**| Activat      | Apare doar cât timp un indice este activ. Comută histograma de la benzile sursă la**distribuția valorilor indicelui**, cu cele două praguri de decupare trasate ca linii punctate portocalii și valoarea indicelui cursorului ca o linie albă                                                          |
 | **RGB**| Dezactivat    | Comută de la curba combinată la curbele pe canale. Pe un senzor mono, acest buton afișează**MONO** și este dezactivat — există un singur canal de afișat                                                                                                                                  |
 
-Histograma este calculată pe baza **blocurilor vizibile**, nu a pixelilor sursă din spatele acestora: modificați dimensiunea blocului GSD și distribuția se recalculează, astfel încât histograma, marcajul cursorului și imaginea afișată să corespundă întotdeauna.***
+Histograma este calculată pe baza **blocurilor vizibile**, nu a pixelilor sursă din spatele acestora: modificați dimensiunea blocului GSD și distribuția se recalculează, astfel încât histograma, marcajul cursorului și imaginea afișată să corespundă întotdeauna.
+
+***
 
 ## Dimensiunea blocului GSD
 
@@ -185,7 +191,9 @@ Aplicați indicii multispectrali și tabele de consultare (LUT) pentru culori di
 
 3. Alegeți filtrul camerei și o formulă de indice, apoi trageți cercurile canalelor în sloturile formulei
 4. Adăugați o LUT și alegeți un gradient, praguri și un mod de decupare
-5. Citiți valorile la nivelul cursorului și salvați rezultatul cu **Export/Salvare imagine(i)**Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru ghidul complet.***
+5. Citiți valorile la nivelul cursorului și salvați rezultatul cu **Export/Salvare imagine(i)**Consultați [Index/LUT Sandbox](index-lut-sandbox.md) pentru ghidul complet.
+
+***
 
 ## Depanare
 

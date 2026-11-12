@@ -153,7 +153,9 @@ Această secțiune apare **numai** atunci când cel puțin o imagine din proiect
 
 * **Aplicare aliniere matrice** (implicit: activată): deformează fiecare produs procesat (debayering / previzualizare / radianță / reflectanță / indice) în geometria de referință comună a matricei. Dezactivată = export în geometria nativă a senzorului.
 * **Decupare la suprapunerea comună** (implicit: activat): decupează exporturile aliniate la regiunea comună tuturor modulelor, astfel încât fiecare bandă să aibă aceeași amprentă. Dezactivat păstrează întreaga suprafață a senzorului (umplere neagră în afara sursei).
-* **Reeșantionare**:**Biliniară (uniformă, implicită)**,**Cea mai apropiată (păstrează valorile exacte)**— fără amestecare între pixeli, pentru analize radiometrice stricte — sau**Cubică (cea mai clară)**.***
+* **Reeșantionare**:**Biliniară (uniformă, implicită)**,**Cea mai apropiată (păstrează valorile exacte)**— fără amestecare între pixeli, pentru analize radiometrice stricte — sau**Cubică (cea mai clară)**.
+
+***
 
 ## Salvarea și încărcarea setărilor
 

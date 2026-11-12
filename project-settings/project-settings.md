@@ -34,7 +34,9 @@ din bara laterală din stânga
 * **Opțiuni**: `Default (512 px)`, `1024 px`, `2048 px`, `Full resolution`
 * **Implicit**: Implicit (512 px)
 * **Descriere**: Rezoluția (latura cea mai lungă, în pixeli) la care sunt redate miniaturile din grila de imagini. Valorile mai mari oferă o imagine mai clară la mărire, dar se încarcă mai lent și consumă mai multă memorie. Rezoluția completă corespunde dimensiunii originale a imaginii.
-* **Notă**: Doar pentru afișare — această setare nu afectează niciodată procesarea sau fișierele exportate.***
+* **Notă**: Doar pentru afișare — această setare nu afectează niciodată procesarea sau fișierele exportate.
+
+***
 
 ## Detectarea țintelor
 
@@ -186,7 +188,9 @@ Scanările țintelor **măsurate** pe unitate sunt căutate după numărul de se
   * O singură cameră + un singur pin: Pinul 2 este setat automat la „Nu utilizați”
   * O singură cameră + două pini: Pinul 2 este setat automat la „Nu utilizați”
   * Mai multe camere: Este necesară selectarea manuală
-* **Notă**: Aceeași cameră nu poate fi atribuită simultan atât pinului 1, cât și pinului 2.***
+* **Notă**: Aceeași cameră nu poate fi atribuită simultan atât pinului 1, cât și pinului 2.
+
+***
 
 ## Senzor de lumină DAQ
 
@@ -207,7 +211,9 @@ Fiecare rând afișează fișierul, modelul senzorului și corecția capacului d
 * **Descriere**: `Auto` utilizează capacul înregistrat pentru fiecare fișier (se presupune capacul Sunshine dacă nu s-a înregistrat nimic, dar DAQ-U, DAQ-M și DAQ-E sunt livrate fără capac, iar Chloros nu poate vedea ce este montat, așa că procesarea afișează un avertisment privind un capac presupus: alegeți capacul care a fost montat). Alegerea unui capac specific are prioritate asupra **tuturor** fișierelor de înregistrare a radiației descendente din proiect, cu excepția celor de la un DAQ-E-S, al cărui difuzor face parte din calibrarea sa; un proiect care conține doar DAQ-E-S nu afișează nicio listă derulantă: înregistrările brute sunt corectate cu acesta, iar înregistrările care au deja un capac sunt re-referențiate (corecția înregistrată este anulată și se aplică cea selectată).
 * **Important**: Capacitatea selectată trebuie să corespundă cu cea montată fizic în timpul înregistrării. Nici senzorul, nici software-ul nu pot detecta capacul fizic — un ID de capac nepotrivit corectează greșit spectrele.
 
-Există în mod deliberat **un singur** control la nivel de proiect, în loc de meniuri derulante pentru fiecare fișier: setarea se aplică tuturor surselor descendente din proiect.***
+Există în mod deliberat **un singur** control la nivel de proiect, în loc de meniuri derulante pentru fiecare fișier: setarea se aplică tuturor surselor descendente din proiect.
+
+***
 
 ## Alinierea matricei
 

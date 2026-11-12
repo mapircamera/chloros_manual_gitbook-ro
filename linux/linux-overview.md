@@ -10,7 +10,8 @@ Chloros 1.3.0 oferă suport nativ pentru Linux pentru **CLI**și**Python SDK** �
 
 ## Matrice de compatibilitate cu platformele
 
-| Caracteristică | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/ --- | --- | --- | --- |
+| Caracteristică | Windows (GUI) | Windows (CLI/SDK) | Linux amd64 (CLI/SDK) | Linux arm64 / Jetson (CLI/SDK) |
+| --- | --- | --- | --- | --- |
 | **Interfață grafică pentru desktop** | Da | N/A | Nu | Nu |
 | **Interfață CLI** (`chloros-cli`) | Da | Da | Da | Da |
 | **SDK Python** (`chloros-sdk`) | Da | Da | Da | Da |
@@ -22,7 +23,9 @@ Chloros 1.3.0 oferă suport nativ pentru Linux pentru **CLI**și**Python SDK** �
 | **Debayer cu recunoaștere a texturilor** (necesită un GPU CUDA) | Da (Chloros+) | Da (Chloros+) | Da (Chloros+) | Da (Chloros+) |
 | **Adaptare dinamică a calculului** | Da | Da | Da | Da |
 | **Backend ca serviciu de sistem** (`chloros-backend@<user>.service`) | Nu | Nu | Da (opțional) | Da (opțional) |
-| **Program de actualizare directă** (`chloros-cli update`) | Nu (rulați programul de instalare) | Nu (rulați programul de instalare) | Da | Da |***
+| **Program de actualizare directă** (`chloros-cli update`) | Nu (rulați programul de instalare) | Nu (rulați programul de instalare) | Da | Da |
+
+***
 
 ## Arhitecturi acceptate
 
@@ -35,7 +38,9 @@ Chloros 1.3.0 oferă suport nativ pentru Linux pentru **CLI**și**Python SDK** �
 
 * **Ubuntu 22.04 LTS sau o versiune mai recentă** (amd64)
 * **Debian 12 sau o versiune mai recentă** (amd64)
-* **NVIDIA JetPack 6** (arm64 — platforme Jetson Orin)***
+* **NVIDIA JetPack 6** (arm64 — platforme Jetson Orin)
+
+***
 
 ## Ce beneficiază utilizatorii Linux
 
@@ -54,7 +59,9 @@ Chloros 1.3.0 oferă suport nativ pentru Linux pentru **CLI**și**Python SDK** �
 
 * **Interfață grafică pentru desktop** — nu există interfață grafică; toată interacțiunea se realizează prin CLI sau Python SDK
 * **Vizualizator de imagini** — nu există vizualizator interactiv de imagini, vizualizare în grilă sau marcaje pe hartă
-* **Gestionarea vizuală a proiectelor** — proiectele sunt create și gestionate prin comenzi CLI și apeluri SDK (hardware-ul în sine — camere, senzori, captură — rămâne pe deplin controlabil din terminal)***
+* **Gestionarea vizuală a proiectelor** — proiectele sunt create și gestionate prin comenzi CLI și apeluri SDK (hardware-ul în sine — camere, senzori, captură — rămâne pe deplin controlabil din terminal)
+
+***
 
 ## Cerințe de licență
 

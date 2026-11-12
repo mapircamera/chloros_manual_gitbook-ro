@@ -102,4 +102,4 @@ Detalii pentru utilizatorii care necesită aliniere strictă:
 | Domeniu de difuzare | Gazda și senzorul se află pe același segment L2; mDNS nu rutează |
 | Firewall | Windows: regula **Chloros Backend (UDP-In)** a programului de instalare permite intrarea fluxului DAQ-E (UDP 5002), mDNS (5353) și PTP (319/320); un firewall terț trebuie să permită același lucru. Linux: `.deb` deschide aceste porturi în `ufw` / `firewalld` numai dacă firewall-ul era activ la momentul instalării — permiteți-le manual într-unul activat ulterior |
 | Gazdă cu mai multe plăci de rețea | Funcția de descoperire scanează mDNS cu o opțiune de rezervă ARP; `--eth-host <ip-or-hostname>` omite descoperirea și se conectează direct |
-| Rescanare din interfața grafică | Funcția de descoperire rulează numai cât timp este deschis dialogul de conectare; utilizați opțiunea „Refresh” |</version>
+| Rescanare din interfața grafică | Funcția de descoperire rulează numai cât timp este deschis dialogul de conectare; utilizați opțiunea „Refresh” |

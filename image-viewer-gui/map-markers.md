@@ -78,7 +78,9 @@ Fiecare imagine cu date GPS primește un marcaj la coordonatele sale.
 | Furnizor        | Note                                                                                                                                                             |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Google Maps** | Acoperire globală extinsă; acceptă toate cele patru tipuri de plăci                                                                                                            |
-| **Esri ArcGIS**| Imagini aeriene adesea cu rezoluție mai mare în anumite regiuni. Tipul de placă**Terrain** nu este disponibil pentru Esri, iar butonul corespunzător este dezactivat atunci când este selectat Esri |***
+| **Esri ArcGIS**| Imagini aeriene adesea cu rezoluție mai mare în anumite regiuni. Tipul de placă**Terrain** nu este disponibil pentru Esri, iar butonul corespunzător este dezactivat atunci când este selectat Esri |
+
+***
 
 ## Tipuri de plăci de hartă
 
@@ -93,7 +95,9 @@ Alegeți tipul stratului de hartă folosind butoanele (de la stânga la dreapta)
 | **Satelit**        | Imagini detaliate din satelit, fără etichete — opțiunea cu cea mai mare lățime de bandă |
 | **Hibrid** (implicit) | Imagini din satelit cu drumuri și etichete suprapuse                |
 
-Fila „Harta” se deschide pe modul **Hibrid**. Alegerea dvs. se aplică și la schimbarea furnizorului, acolo unde acesta suportă această opțiune.***
+Fila „Harta” se deschide pe modul **Hibrid**. Alegerea dvs. se aplică și la schimbarea furnizorului, acolo unde acesta suportă această opțiune.
+
+***
 
 ## Navigarea pe hartă
 
@@ -141,7 +145,9 @@ Fila „Harta” se deschide pe modul **Hibrid**. Alegerea dvs. se aplică și l
 
 ### Harta este goală sau încărcarea secțiunilor se oprește
 
-Furnizorii de segmente sunt servicii online. Dacă segmentele nu mai sunt încărcate, verificați conexiunea la rețea a dispozitivului, apoi încercați să schimbați furnizorul. Dacă ați mărit foarte mult imaginea, apăsați butonul de resetare **×** pentru a reveni la un nivel normal de zoom și permiteți hărții să solicite din nou segmentele.***
+Furnizorii de segmente sunt servicii online. Dacă segmentele nu mai sunt încărcate, verificați conexiunea la rețea a dispozitivului, apoi încercați să schimbați furnizorul. Dacă ați mărit foarte mult imaginea, apăsați butonul de resetare **×** pentru a reveni la un nivel normal de zoom și permiteți hărții să solicite din nou segmentele.
+
+***
 
 ## Pagini conexe
 

@@ -64,7 +64,9 @@ Ghid complet: [Utilizarea Chloros cu asistenții AI](ai-assistants.md).
 * **Semantică onestă a eșecurilor.** O execuție `chloros-cli process` care a solicitat produse, dar nu a generat niciunul, eșuează acum în mod evident și se închide cu un cod de ieșire diferit de zero; execuțiile reușite raportează câte produse de imagine au generat.
 * **Nou format de ieșire.** Produsele sunt salvate în dosare `<project>/<camera>/<format>/<Product>_Images/` și păstrează numele fișierului sursă — dosarul, nu sufixul numelui fișierului, identifică produsul. Consultați [Formate de imagine de ieșire](output-image-formats.md).
 * **Mai multe intrări, planuri și limbi.** Suport pentru intrări `.dng`; toate cele 38 de limbi ale interfeței sunt complet disponibile; limite hardware per plan, cu utilizare gratuită (fără autentificare) de până la 4 camere și 2 senzori de lumină.
-* **Fiabilitate.** Opțiunea „Stop Processing” se închide corect, cu un rezumat sincer al execuției, proiectele cu mai multe camere exportă datele de la fiecare cameră, iar actualizările programului de instalare nu vă mai deconectează.***
+* **Fiabilitate.** Opțiunea „Stop Processing” se închide corect, cu un rezumat sincer al execuției, proiectele cu mai multe camere exportă datele de la fiecare cameră, iar actualizările programului de instalare nu vă mai deconectează.
+
+***
 
 Chloros este disponibil în 3 interfețe de utilizare:
 

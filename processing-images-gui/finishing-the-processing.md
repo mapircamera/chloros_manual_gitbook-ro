@@ -111,7 +111,9 @@ Reflectanța este stocată ca număr întreg DN, iar **valoarea DN care corespun
 | LATTICE (M3C/M3M) | **32768** (marjă de până la ρ 2,0) | Eticheta XMP `Chloros:PixelScale=32768` este înscrisă în fișier |
 | Survey3          | **65535** (tăiat la ρ 1,0)     | Nu există eticheta `Chloros:PixelScale` — această absență este semnalul (produsele Survey3 conțin alte etichete de procesare de tip `Chloros:*`) |
 
-**Citiți eticheta `Chloros:PixelScale` și împărțiți la valoarea acesteia**, în loc să presupuneți o valoare generală de 65535 — împărțirea reflectanței LATTICE la 65535 reduce în mod silențios la jumătate fiecare valoare. Un fișier de reflectanță dinainte de versiunea 1.3.0, scris pe 8 biți, a fost decupat, nu redimensionat, și nu are etichetă de scalare: reexportați-l pe 16 biți sau 32 de biți în loc să-l împărțiți. Consultați [Formate de imagine de ieșire](../output-image-formats.md) pentru detalii complete.***
+**Citiți eticheta `Chloros:PixelScale` și împărțiți la valoarea acesteia**, în loc să presupuneți o valoare generală de 65535 — împărțirea reflectanței LATTICE la 65535 reduce în mod silențios la jumătate fiecare valoare. Un fișier de reflectanță dinainte de versiunea 1.3.0, scris pe 8 biți, a fost decupat, nu redimensionat, și nu are etichetă de scalare: reexportați-l pe 16 biți sau 32 de biți în loc să-l împărțiți. Consultați [Formate de imagine de ieșire](../output-image-formats.md) pentru detalii complete.
+
+***
 
 ## Metadate transferate în exporturi
 
@@ -166,7 +168,9 @@ Pentru a păstra o evidență a procesării sau pentru a-l trimite serviciului d
 3. Includeți-l în documentația proiectului
 4. Trimiteți-l serviciului de asistență MAPIR dacă întâmpinați probleme
 
-Pentru a raporta o problemă direct către MAPIR, utilizați pictograma de eroare (**Raportați o eroare**) din partea de sus a filei Jurnal de depanare — consultați [Raportarea unei erori din fila Jurnal](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+Pentru a raporta o problemă direct către MAPIR, utilizați pictograma de eroare (**Raportați o eroare**) din partea de sus a filei Jurnal de depanare — consultați [Raportarea unei erori din fila Jurnal](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).
+
+***
 
 ## Probleme frecvente legate de ieșire și soluții
 

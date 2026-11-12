@@ -62,7 +62,9 @@ output/
 * Un dosar de capturi salvat **fără** fișiere raw se importă și se afișează normal, dar procesarea îl omite și menționează acest lucru în jurnal. (Indicatorul CLI `--input-level` poate forța un punct de intrare pentru acest caz — consultați [Referința CLI](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * Începând cu versiunea 1.3.0, un dosar de capturi poate conține și un dosar `clamp_masks/` (măști pe pixel pentru nivelurile de radianță și reflectanță — consultați [Formate de imagine de ieșire](../output-image-formats.md#clamp-masks)). Măștile nu sunt imagini ale scenei, iar Chloros le ignoră la import, indiferent unde se află.
 
-**Sesiunile LATTICE hub** se importă în același mod: selectați „Add Folder” (Adăugare folder) în folderul sesiunii copiat din hub (acesta conține `raw/` plus `previews/`), împreună cu orice jurnal de date descendente DAQ-M `.csv`. Dacă calibrarea camerei sau a DAQ-ului nu este încă stocată în memoria cache a computerului dvs., Chloros o preia automat pe baza numărului de serie la import (necesită o singură conexiune la internet).***
+**Sesiunile LATTICE hub** se importă în același mod: selectați „Add Folder” (Adăugare folder) în folderul sesiunii copiat din hub (acesta conține `raw/` plus `previews/`), împreună cu orice jurnal de date descendente DAQ-M `.csv`. Dacă calibrarea camerei sau a DAQ-ului nu este încă stocată în memoria cache a computerului dvs., Chloros o preia automat pe baza numărului de serie la import (necesită o singură conexiune la internet).
+
+***
 
 ## Înțelegerea tabelului din browserul de fișiere
 
@@ -104,7 +106,9 @@ Dacă faceți clic pe butonul de comutare din colțul din dreapta sus, deasupra 
 
 * Fișierele `.daq` și `.csv` apar în lista File Browser, dar nu sunt imagini pe care se poate face clic — acestea furnizează iradianța descendentă pentru calibrarea reflectanței.
 * Fiecare fișier `.daq`/`.csv` importat este listat în **Setări proiect → Senzor de lumină DAQ**, unde puteți verifica corecția capacului difuzorului aplicată pentru fiecare fișier. Consultați [Reglarea setărilor proiectului](adjusting-project-settings.md).
-* Înregistrările efectuate în fila **Senzori de lumină** sunt adăugate automat la proiectul deschis — nu este necesară importarea manuală.***
+* Înregistrările efectuate în fila **Senzori de lumină** sunt adăugate automat la proiectul deschis — nu este necesară importarea manuală.
+
+***
 
 ## Gestionarea fișierelor din proiectul dvs.
 
@@ -221,7 +225,9 @@ Dacă proiectul dvs. conține imagini de la mai multe camere MAPIR:
 
 ### Proiectul redeschis semnalează fișiere lipsă
 
-Dacă fișierele sursă au fost mutate sau șterse de la ultima deschidere a proiectului, Chloros vă indică **care**fișiere lipsesc, în loc să se deschidă pe o grilă goală. Dacă folderul proiectului în sine a fost mutat, Chloros redirecționează căile sursă către folderul în care se află acum `project.json` și păstrează o copie de rezervă (`project.json.before-relink-<date>-<time>`). Când acestea nu sunt găsite, fereastra**Fișiere sursă neidentificate**oferă opțiunea**Răsfoire** către noua locație, urmată de opțiunile Proiect nou sau Ștergere proiect. Din CLI, utilizați `chloros-cli project open PATH --relink FOLDER`; din SDK, `open_project(path, relink=...)`.***
+Dacă fișierele sursă au fost mutate sau șterse de la ultima deschidere a proiectului, Chloros vă indică **care**fișiere lipsesc, în loc să se deschidă pe o grilă goală. Dacă folderul proiectului în sine a fost mutat, Chloros redirecționează căile sursă către folderul în care se află acum `project.json` și păstrează o copie de rezervă (`project.json.before-relink-<date>-<time>`). Când acestea nu sunt găsite, fereastra**Fișiere sursă neidentificate**oferă opțiunea**Răsfoire** către noua locație, urmată de opțiunile Proiect nou sau Ștergere proiect. Din CLI, utilizați `chloros-cli project open PATH --relink FOLDER`; din SDK, `open_project(path, relink=...)`.
+
+***
 
 ## Pași următori
 

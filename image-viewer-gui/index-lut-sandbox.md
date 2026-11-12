@@ -71,7 +71,9 @@ Pentru referința completă a formulelor — toate cele trei liste de presetări
 
 ### Cu opțiunea „Index” bifată, dar fără LUT
 
-Imaginea este redată în **scale de gri**, întinsă între cele două valori de prag. Acest lucru este intenționat: imaginea indexată conține date scalare, iar scala de gri reprezintă redarea fidelă a acestora. Adăugați o LUT atunci când doriți culori.***
+Imaginea este redată în **scale de gri**, întinsă între cele două valori de prag. Acest lucru este intenționat: imaginea indexată conține date scalare, iar scala de gri reprezintă redarea fidelă a acestora. Adăugați o LUT atunci când doriți culori.
+
+***
 
 ## Lucrul cu LUT-uri (tabele de consultare)
 
@@ -135,7 +137,9 @@ Exemplu de ferestre NDVI:
 | Numai vegetație sănătoasă                 | 0,5  | 0,9 |
 | Evidențiază stresul                        | 0,2  | 0,5 |
 
-Restrângerea ferestrei crește contrastul în interiorul zonei de interes și împinge tot restul în afara intervalului — unde **Modul de decupare** decide ce se întâmplă cu acesta.***
+Restrângerea ferestrei crește contrastul în interiorul zonei de interes și împinge tot restul în afara intervalului — unde **Modul de decupare** decide ce se întâmplă cu acesta.
+
+***
 
 ## Moduri de decupare
 
