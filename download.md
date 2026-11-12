@@ -257,10 +257,15 @@ Chloros verifică dacă există actualizări, anunță când este disponibilă o
 
 **Data lansării: 10 februarie 2026**
 
-**Funcții noi*** **Metoda de debayering cu recunoaștere a texturii \[Numai Chloros+] -** Texture Aware utilizează un proces de debayering de înaltă calitate, sensibil la margini, combinat cu un model de eliminare a zgomotului bazat pe AI/ML, care elimină aproape tot zgomotul generat de debayering.
-* **Suport pentru ținte de calibrare T4P*** **Procesare GPU Chloros+ mai rapidă, gestionare îmbunătățită a memoriei**
+**Funcții noi**
 
-**Remedierea erorilor*** Interfață grafică (GUI) complet nouă, care ar trebui să funcționeze acum pe toate computerele cu Windows.
+* **Metoda de debayering cu recunoaștere a texturii \[Numai Chloros+] -** Texture Aware utilizează un proces de debayering de înaltă calitate, sensibil la margini, combinat cu un model de eliminare a zgomotului bazat pe AI/ML, care elimină aproape tot zgomotul generat de debayering.
+* **Suport pentru ținte de calibrare T4P**
+* **Procesare GPU Chloros+ mai rapidă, gestionare îmbunătățită a memoriei**
+
+**Remedierea erorilor**
+
+* Interfață grafică (GUI) complet nouă, care ar trebui să funcționeze acum pe toate computerele cu Windows.
 
 </details>
 
@@ -270,14 +275,18 @@ Chloros verifică dacă există actualizări, anunță când este disponibilă o
 
 **Data lansării: 5 ianuarie 2026**
 
-**Funcții noi*** **Comutator imagine/metadate**: S-a adăugat un comutator în File Browser pentru a vizualiza metadatele imaginii selectate într-un tabel, în loc de grila de imagini
+**Funcții noi**
+
+* **Comutator imagine/metadate**: S-a adăugat un comutator în File Browser pentru a vizualiza metadatele imaginii selectate într-un tabel, în loc de grila de imagini
 * **Glisor de zoom pentru grila de imagini**: Un nou glisor în interfața utilizatorului pentru a regla dimensiunea miniaturilor (acceptă și combinația CTRL + rotița mouse-ului)
 * **Butoane de export pentru grila de imagini**: butoane în rândul de sus pentru a comuta miniaturile de la format JPG la exporturi procesate (Targets, Reflectance, Index, LUT)
 * **Fila Hartă**: nouă hartă 2D interactivă care afișează marcajele de localizare GPS ale imaginilor
   * Suportă Google Maps și secțiuni de hartă ESRI (selectează automat cel mai bun serviciu de secțiuni de hartă în funcție de disponibilitatea nivelului de zoom)
   * Previzualizare miniatură la trecerea mouse-ului peste marcajele de pe hartă
 
-**Remedierea erorilor*** Suport îmbunătățit pentru instalarea Chloros pe calculatoare cu limba de sistem diferită de engleză
+**Remedierea erorilor**
+
+* Suport îmbunătățit pentru instalarea Chloros pe calculatoare cu limba de sistem diferită de engleză
 
 </details>
 
@@ -287,13 +296,21 @@ Chloros verifică dacă există actualizări, anunță când este disponibilă o
 
 **Data lansării: 20 decembrie 2025**
 
-**Funcții noi*** Lansare inițială
+**Funcții noi**
 
-**Îmbunătățiri*** Lansare inițială
+* Lansare inițială
 
-**Remedierea erorilor*** Lansare inițială
+**Îmbunătățiri**
 
-**Probleme cunoscute*** Lansare inițială
+* Lansare inițială
+
+**Remedierea erorilor**
+
+* Lansare inițială
+
+**Probleme cunoscute**
+
+* Lansare inițială
 
 </details>
 

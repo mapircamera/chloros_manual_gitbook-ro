@@ -28,7 +28,11 @@ Pentru utilizatorii cu licență Chloros+:
 1.**Detectare** – Identificarea țintelor de calibrare
 2. **Analiză** – Examinarea imaginilor și pregătirea fluxului de procesare
 3. **Calibrare** – Aplicarea corecțiilor de vignetare și de reflectanță
-4. **Export** – Salvarea fișierelor procesate**Funcții interactive:*** **Treceți cu cursorul peste** bara de progres pentru a vedea panoul extins cu cele 4 etape
+4. **Export** – Salvarea fișierelor procesate
+
+**Funcții interactive:**
+
+* **Treceți cu cursorul peste** bara de progres pentru a vedea panoul extins cu cele 4 etape
 * **Faceți clic** pe bara de progres pentru a îngheța/fixa panoul extins
 * **Faceți clic din nou** pentru a debloca panoul și a-l ascunde automat la îndepărtarea cursorului
 * Fiecare etapă afișează progresul individual (0-100%)
@@ -92,7 +96,9 @@ Pentru utilizatorii cu licență Chloros+:
 
 ### Etapa 3: Calibrarea
 
-**Ce se întâmplă:*** **Debayering**: Conversia modelului RAW Bayer în 3 canale (etapă omisă pentru modulele mono LATTICE, cu o notă)
+**Ce se întâmplă:**
+
+* **Debayering**: Conversia modelului RAW Bayer în 3 canale (etapă omisă pentru modulele mono LATTICE, cu o notă)
 * **Corecția vignetării**: Eliminarea întunecării marginilor obiectivului
 * **Calibrarea reflectanței**: Normalizarea cu valorile țintă și/sau cu semnalul de intrare DAQ
 * **Calculul indicilor**: Calcularea indicilor multispectrali
@@ -104,7 +110,9 @@ Pentru utilizatorii cu licență Chloros+:
 * Imaginea curentă în curs de procesare
 * Imagini finalizate / Total imagini
 
-**Mod de funcționare:*** **Modul liber**: Procesează o singură imagine la un moment dat, secvențial
+**Mod de funcționare:**
+
+* **Modul liber**: Procesează o singură imagine la un moment dat, secvențial
 * **Modul Chloros+**: Rulează un grup de procesori adaptabil la hardware — 1-4 procesori simultani pe sistemele cu GPU (în funcție de VRAM), un procesor pe fiecare nucleu fizic (minus unul) pe sistemele numai cu CPU. A se vedea [Adaptarea dinamică a calculului](../processing-architecture/dynamic-compute-adaptation.md)
 * **Accelerare GPU**: Accelerează semnificativ această etapă**Ce trebuie urmărit:**
 

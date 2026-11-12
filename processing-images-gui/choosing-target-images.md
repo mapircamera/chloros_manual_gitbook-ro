@@ -32,7 +32,9 @@ Dacă **nu** sunt bifate imagini, Chloros revine la scanarea fiecărei imagini d
 
 Parcurgeți imaginile importate în File Browser și identificați imaginile care conțin ținte de calibrare.
 
-**Situații frecvente:*** **Țintă pre-captură**: Capturată înainte de începerea sesiunii
+**Situații frecvente:**
+
+* **Țintă pre-captură**: Capturată înainte de începerea sesiunii
 * **Țintă post-captură**: capturată după finalizarea sesiunii
 * **Ținte în teren**: ținte amplasate în zona de captură
 * **Ținte multiple**: 2-3 imagini cu ținte pe sesiune (recomandat)
@@ -140,9 +142,17 @@ Utilizați această coloană pentru a verifica dacă ați marcat țintele pentru
 
 ### Reglarea sensibilității de detectare
 
-Dacă Chloros nu detectează corect țintele, reglați aceste setări în [Setări proiect](adjusting-project-settings.md):**Suprafață minimă a eșantionului de calibrare (px):*** **Implicit**: 25 de pixeli
+Dacă Chloros nu detectează corect țintele, reglați aceste setări în [Setări proiect](adjusting-project-settings.md):
+
+**Suprafață minimă a eșantionului de calibrare (px):**
+
+* **Implicit**: 25 de pixeli
 * **Măriți** valoarea dacă apar detectări eronate la artefacte mici
-* **Reduceți** valoarea dacă țintele nu sunt detectate**Gruparea minimă a țintelor (0-100):*** **Implicit**: 60
+* **Reduceți** valoarea dacă țintele nu sunt detectate
+
+**Gruparea minimă a țintelor (0-100):**
+
+* **Implicit**: 60
 * **Măriți** dacă țintele sunt împărțite în mai multe detectări
 * **Reduceți** dacă țintele cu variații de culoare nu sunt detectate complet
 

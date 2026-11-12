@@ -204,7 +204,7 @@ Tot ce se află în această secțiune se referă **doar la afișare**— modifi
 * **Liniar** — semnal întunecat + câmp plat + balans de alb; fără matrice de culoare, fără gamma.
 * **Natural** *(implicit)* — liniar plus matricea de corecție a culorii măsurată și o curbă de ton adaptabilă scenei.
 * **Îmbunătățit**— Natural plus vibranță și contrast local CLAHE. Costul suplimentar se aplică**numai previzualizării live** — capturile salvate beneficiază întotdeauna de finisajul complet, indiferent de profil.
-* ****Temperatură personalizată** — Natural cu balansul de alb fixat la valoarea în Kelvin aleasă de dvs.
+* **Temperatură personalizată** — Natural cu balansul de alb fixat la valoarea în Kelvin aleasă de dvs.
 
 {% hint style="warning" %}
 Pentru modurile Natural, Îmbunătățit și Temperatură personalizată, panoul afișează o notă privind tonul: cadrele sunt luminate în funcție de propria scenă, astfel încât imaginile *de afișare* salvate nu sunt comparabile între ele. **Exportați radianța sau reflectanța pentru măsurători.**
@@ -352,7 +352,7 @@ Chloros aliniază automat fiecare matrice după conectare, în ambele moduri de 
 ### Vigneta inteligentă
 
 * Caseta de selectare **Activare corecție**— aplică estimarea vignetei pentru fiecare cameră în parte la lanțul radiometric (în timp real**și** la exporturi).
-* ****Calibrare din vizualizarea curentă**— îndreptați mai întâi matricea către o țintă uniformă (ecran plat, perete sau cer); fiecare cameră este aplatizată individual, iar starea raportează un câștig de aplatizare de „n/N camere · −x,x %”.**Ștergere** elimină estimarea.
+* **Calibrare din vizualizarea curentă** — îndreptați mai întâi matricea către o țintă uniformă (ecran plat, perete sau cer); fiecare cameră este aplatizată individual, iar starea raportează un câștig de aplatizare de „n/N camere · −x,x %”.**Ștergere** elimină estimarea.
 * Stare: „Calibrat”, „Necalibrat” sau „Calibrat parțial — rulați din nou” atunci când doar estimările unor camere se aplică încă la încadrarea lor curentă (de exemplu, după ce o operațiune de recalibrare a mutat fereastra de decupare a unei camere) — rulați din nou „Calibrare”.
 * Reglați fin pentru fiecare cameră cu glisorul **Vignette** specific fiecărei camere din [Previzualizare live](#live-preview).
 
@@ -375,7 +375,7 @@ Un panou numai pentru citire, reîmprospătat la fiecare 5 s:
 
 * **Etichetă nivel**: „Captură simultană” (verde) · „Captură simultană (emisie eșalonată FTD)” (verde) · „Captură eșalonată (derivă de 100 ms)” (galben) · „Configurație prea mare” (roșu).
 * **Starea cadrelor**: „x,xx % incomplete” — verde sub 1 %, galben sub 5 %, roșu la 5 % sau mai mult.
-* ****Linia de legătură**: „NIC {mbps} Mbps – susținut {MB/s} MB/s”.
+* **Linia de legătură**: „NIC {mbps} Mbps – susținut {MB/s} MB/s”.
 
 Acesta este bugetul de lățime de bandă în timp real al matricei. Pentru detalii privind fps-ul de bază și modelul de rețea — precum și ce trebuie modificat când nivelul devine galben sau roșu — consultați [Matrice cu mai multe camere](arrays.md) și [Referința CLI](../reference/cli-reference.md).
 
@@ -401,7 +401,7 @@ Referință rapidă pentru a vedea ce se află unde atunci când o cameră face 
 Alte comportamente transversale:
 
 * **Afișare combinată vs. separată** se alege la conectarea matricei: combinată = o singură casetă compusă aliniată (membrii transmit doar prin Split View); separată = fiecare membru redă propria casetă sincronizată. O cameră nu afișează niciodată atât un flux independent, cât și o casetă din matrice.
-* ****Reconectare automată**: deschiderea unui proiect salvat restabilește camerele și matricile acestuia și reaplică toate setările salvate la backend înainte ca fluxurile să fie reluate.
+* **Reconectare automată**: deschiderea unui proiect salvat restabilește camerele și matricile acestuia și reaplică toate setările salvate la backend înainte ca fluxurile să fie reluate.
 * **Filtrare captură**: camerele ascunse sau puse pe pauză sunt excluse din opțiunea „Capture All”; o matrice este blocată complet numai atunci când TOȚI membrii sunt ascunși/pusi pe pauză. Consultați [Setări și moduri de captură](capture.md).
 
 ## Cum se păstrează setările

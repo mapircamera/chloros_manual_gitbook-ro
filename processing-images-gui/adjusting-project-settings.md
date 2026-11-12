@@ -44,7 +44,9 @@ Panoul Setări proiect este organizat în secțiunile de mai jos. Două secțiun
 
 Controlează modul în care Chloros identifică țintele de calibrare din imaginile dvs.
 
-**Setări cheie:*** **Suprafața minimă a eșantionului de calibrare (px)**: Pragul de dimensiune pentru detectarea țintelor (implicit:**25**, interval 0–10000)
+**Setări cheie:**
+
+* **Suprafața minimă a eșantionului de calibrare (px)**: Pragul de dimensiune pentru detectarea țintelor (implicit:**25**, interval 0–10000)
 * **Gruparea minimă a țintelor (0-100)**: pragul de similitudine pentru gruparea regiunilor țintă (implicit:**60**)**Când să reglați:**
 
 * Măriți suprafața eșantionului dacă apar detectări eronate
@@ -59,19 +61,26 @@ Aceste setări sunt dezactivate atunci când opțiunea **Calibrare reflectanță
 
 Opțiuni principale de procesare a imaginii și de calibrare.
 
-**Setări cheie:*** **Corecția vignetării**: Compensează întunecarea produsă de obiectiv la margini ✅ Recomandat
+**Setări cheie:**
+
+* **Corecția vignetării**: Compensează întunecarea produsă de obiectiv la margini ✅ Recomandat
 * **Calibrarea reflectanței / balansul de alb**: Calibrează imaginile folosind țintele detectate (Survey3) și/sau datele senzorului de lumină DAQ (LATTICE) ✅ Recomandat
 * **Metoda de debayerizare**: Algoritm pentru conversia formatului RAW în format multispectral cu 3 canale
 * **Interval minim de recalibrare**: Timpul minim, în secunde, între utilizarea țintelor de calibrare (implicit:**0** = se utilizează toate, interval 0–3600)**Produse de rezervă necalibrate:**Când un cadru nu poate fi calibrat din punct de vedere al reflectanței (nu există țintă disponibilă sau calibrarea este dezactivată), acesta este exportat ca unul dintre cele două produse de rezervă —**există exact unul dintre cele două pe fiecare execuție**, ales prin comutatorul de corecție a vignetării:
 
-* **Exportare răspuns senzor**: scrie `Sensor_Response_Images` — utilizat când corecția vignetării este**dezactivată*** **Export cu corecție de vignetă**: scrie `Vignette_Corrected_Images` — utilizat când corecția de vignetă este**activată**Caseta de selectare care nu este activă este estompată. Debifarea celei active oprește complet scrierea acelui fișier.**Produse de export LATTICE** (afișate pentru fiecare proiect; se aplică capturilor LATTICE):
+* **Exportare răspuns senzor**: scrie `Sensor_Response_Images` — utilizat când corecția vignetării este**dezactivată**
+* **Export cu corecție de vignetă**: scrie `Vignette_Corrected_Images` — utilizat când corecția de vignetă este**activată**Caseta de selectare care nu este activă este estompată. Debifarea celei active oprește complet scrierea acelui fișier.**Produse de export LATTICE** (afișate pentru fiecare proiect; se aplică capturilor LATTICE):
 
 * **Export debayered**: imaginea debayered liniară (`Debayered_Images`): offsetul de întuneric al pachetului de calibrare este eliminat, apoi se efectuează demosaicarea, fără câmp plat sau demixare — același fișier pe care o captură îl salvează la nivelul său debayered — în orientarea nativă a senzorului. Se aplică modulelor RGB și multispectrale.
 * **Export previzualizare**: previzualizarea afișată (`Preview_Images`). RGB = balans de alb (iluminant DAQ când este disponibil, altfel „gray-world”) + gamma; multispectral = extindere în culori false.
 * **Export radianță**: radianță spectrală float32 (`Radiance_Images`, W/m²/sr/nm). Numai pentru modulele multispectrale — nu se aplică master-urilor RGB.
-* ****Export reflectanță**: reflectanță de tip uint16 (`Reflectance_Calibrated_Images`, DN 32768 = ρ 1,0) atunci când o citire descendentă `.daq` sau o țintă din cadru acoperă cadrul. Numai pentru modulele multispectrale.
+* **Export reflectanță**: reflectanță de tip uint16 (`Reflectance_Calibrated_Images`, DN 32768 = ρ 1,0) atunci când o citire descendentă `.daq` sau o țintă din cadru acoperă cadrul. Numai pentru modulele multispectrale.
 
-Toate cele patru sunt **activate implicit**— un cadru brut LATTICE importat se distribuie către fiecare produs activat și aplicabil într-o singură etapă de procesare. Caseta de selectare**Export reflectanță** este dezactivată atunci când calibrarea reflectanței este dezactivată. Setările a căror opțiune părinte le face imposibile sunt întotdeauna dezactivate, cu un text de informație care indică opțiunea ce trebuie modificată.**Setări avansate:*** **Decalaj de fus orar al senzorului de lumină**: Ore față de UTC pentru sincronizarea orei senzorului de lumină (implicit: 0, interval de la −12 la +12)
+Toate cele patru sunt **activate implicit**— un cadru brut LATTICE importat se distribuie către fiecare produs activat și aplicabil într-o singură etapă de procesare. Caseta de selectare**Export reflectanță** este dezactivată atunci când calibrarea reflectanței este dezactivată. Setările a căror opțiune părinte le face imposibile sunt întotdeauna dezactivate, cu un text de informație care indică opțiunea ce trebuie modificată.
+
+**Setări avansate:**
+
+* **Decalaj de fus orar al senzorului de lumină**: Ore față de UTC pentru sincronizarea orei senzorului de lumină (implicit: 0, interval de la −12 la +12)
 * **Aplicare corecții PPK**: Utilizează datele GPS/pin de expunere din fișierele `.daq` (implicit: dezactivat)
 * **Pin de expunere 1/2**: Alocă camerele la pinii de expunere pentru configurații cu două camere
 
@@ -105,7 +114,9 @@ Configurați ce indici de vegetație să fie calculați și exportați. Meniul d
 3. Configurați setările de vizualizare (culori LUT, intervale de valori)
 4. Adăugați mai mulți indici, după cum este necesar
 
-**Indici populari:*** **NDVI**: Starea generală de sănătate a vegetației (cel mai frecvent)
+**Indici populari:**
+
+* **NDVI**: Starea generală de sănătate a vegetației (cel mai frecvent)
 * **NDRE**: Detectarea timpurie a stresului cu RedEdge
 * **GNDVI**: Sensibil la concentrația de clorofilă
 * **OSAVI**: Funcționează bine cu solul vizibil
@@ -215,7 +226,11 @@ Dacă utilizați înregistratoare DAQ MAPIR cu GPS pentru geolocalizare precisă
 3. Setați**„Decalajul fusului orar al senzorului de lumină”**, dacă este necesar (implicit: 0 pentru UTC)
 4. Alocați camerele la pinii de expunere:
    * **O singură cameră**: Alocată automat la Pinul 1
-   * **Două camere**: Alocați manual fiecare cameră la pinul corespunzător**Alocarea pinilor de expunere:*** **Pin de expunere 1**: Selectați modelul camerei din meniul derulant
+   * **Două camere**: Alocați manual fiecare cameră la pinul corespunzător
+
+**Alocarea pinilor de expunere:**
+
+* **Pin de expunere 1**: Selectați modelul camerei din meniul derulant
 * **Pin de expunere 2**: Selectați a doua cameră sau „Nu se utilizează”
 * Aceeași cameră nu poate fi alocată ambilor pini
 

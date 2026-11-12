@@ -81,7 +81,9 @@ Nu numărați după o formulă — numărul de ieșiri depinde de produsele care
 
 ### Previzualizare în vizualizatoare de imagini externe
 
-**Vizualizatoare recomandate:*** **QGIS** - Software GIS gratuit (cel mai potrivit pentru analiza multispectrală georeferențiată)
+**Vizualizatoare recomandate:**
+
+* **QGIS** - Software GIS gratuit (cel mai potrivit pentru analiza multispectrală georeferențiată)
 * **IrfanView** – Vizualizator de imagini rapid și ușor (suportă formatul TIFF)
 * **Adobe Photoshop** – Editare profesională (suportă formatul TIFF)
 * **GIMP** – Alternativă gratuită la Photoshop
@@ -223,7 +225,9 @@ Pentru a raporta o problemă direct către MAPIR, utilizați pictograma de eroar
 
 ### Problemă: Valorile NDVI par incorecte
 
-**Intervale NDVI așteptate:*** **Apă, roci, sol**: de la -0,1 la 0,2
+**Intervale NDVI așteptate:**
+
+* **Apă, roci, sol**: de la -0,1 la 0,2
 * **Vegetație rară/nesănătoasă**: de la 0,2 la 0,4
 * **Vegetație moderată**: de la 0,4 la 0,6
 * **Vegetație sănătoasă și densă**: 0,6 – 0,9**Dacă valorile se află în afara acestor intervale:**
@@ -277,12 +281,18 @@ Pentru a raporta o problemă direct către MAPIR, utilizați pictograma de eroar
 
 ### Strategia recomandată pentru copiile de rezervă
 
-**Ce trebuie salvat:*** ✅ **Imagini RAW/JPG originale sau capturi RAW LATTICE** – Arhivați pe o unitate separată/în cloud; fișierele RAW reprezintă sursa procesului de prelucrare, iar toate celelalte elemente pot fi regenerate pe baza acestora
+**Ce trebuie salvat:**
+
+* ✅ **Imagini RAW/JPG originale sau capturi RAW LATTICE** – Arhivați pe o unitate separată/în cloud; fișierele RAW reprezintă sursa procesului de prelucrare, iar toate celelalte elemente pot fi regenerate pe baza acestora
 * ✅ **Fișiere ale senzorului de lumină `.daq` / `.csv`** – Necesare pentru a recalcula reflectanța ulterior
 * ✅ **Rezultate procesate** – Păstrați imaginile calibrate și indicii
 * ✅ **Dosarul proiectului** (`project.json` și fișierele asociate) – Conține toate setările necesare pentru reprocesare, dacă este nevoie
 * ✅ **Jurnal de depanare** – Documentează detaliile procesării
-* ✅ **Imagini țintă de calibrare** – Pentru verificare și reprocesare**Recomandări de stocare:*** **Copie de rezervă imediată**: hard disk extern
+* ✅ **Imagini țintă de calibrare** – Pentru verificare și reprocesare
+
+**Recomandări de stocare:**
+
+* **Copie de rezervă imediată**: hard disk extern
 * **Arhivare pe termen lung**: stocare în cloud (Google Drive, Dropbox etc.)
 * **Date critice**: păstrați 2-3 copii în locații diferite***
 

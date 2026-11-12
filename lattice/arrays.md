@@ -196,7 +196,7 @@ Afișajul fps al plăcii matricei raportează, de asemenea, starea fluxului:**�
 Informații utile privind modul combinat:
 
 * Imaginea compozită este aliniată la cadrul camerei **master**. Țintirea AE-ROI și măsurarea punctuală pe imaginea compozită sunt exacte pentru camera master și aproximative pentru camerele slave; utilizați**Split View** (setări matrice → „Afișează camerele membre”) pentru casete exacte la nivel de pixel pentru fiecare cameră, fără a deschide conexiuni suplimentare pentru camere.
-* ****Straturi de afișare**(setări matrice; dezactivat implicit) vă permite să alegeți un strat de prim-plan și unul de fundal — orice cameră membră sau**Index**. Cu prim-planul setat la Index, pixelii aflați în afara intervalului minim/maxim al LUT-ului afișează stratul de fundal.
+* **Straturi de afișare** (setări matrice; dezactivat implicit) vă permite să alegeți un strat de prim-plan și unul de fundal — orice cameră membră sau**Index**. Cu prim-planul setat la Index, pixelii aflați în afara intervalului minim/maxim al LUT-ului afișează stratul de fundal.
 * **Rezoluția de randare** (implicit 720p) stabilește înălțimea fluxului live *și* dimensiunea de export a imaginii compozite salvate. Imaginile pentru fiecare cameră se exportă întotdeauna la rezoluție maximă.
 * Alinierea este calculată pentru fiecare sesiune și nu este niciodată păstrată. Chloros aliniază **fiecare matrice automat după conectare, în ambele moduri de afișare**, odată ce expunerea automată a camerelor membre s-a stabilizat (continuă să încerce până la 5 minute). Secțiunea**Aliniere**din panoul de setări al matricei afișează reziduurile RMS și butonul**Recalibrare aliniere** — inclusiv pentru matrice separate, care nu au o secțiune compozită.
 

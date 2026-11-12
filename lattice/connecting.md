@@ -17,7 +17,7 @@ Deschideți fila **Camere** din bara laterală a Chloros (filele de hardware apa
 * Rândurile cu o insignă **„În matrice”** aparțin unei matrice de camere conectate în prezent. Deconectați mai întâi grupul pentru a utiliza camera respectivă în mod independent.
 * **Conectare** — conectează camera (camerele) selectată (selectate); butonul afișează un număr, de exemplu „Conectare (3)”, atunci când sunt selectate mai multe camere.
 * **Rescanare** — reia procesul de detectare.
-* ****Închidere**** — închide fereastra de dialog.
+* **Închidere** — închide fereastra de dialog.
 * Dacă scanarea se încheie fără rezultate, fereastra de dialog afișează **„Nu s-au găsit camere în rețea”** — consultați secțiunea [Depanare](connecting.md#troubleshooting) de mai jos.
 
 <figure><img src="../.gitbook/assets/image (38).png" alt=""><figcaption><p>Fereastra de dialog „Conectare cameră(e)” — afișată aici fără camere în rețea</p></figcaption></figure>

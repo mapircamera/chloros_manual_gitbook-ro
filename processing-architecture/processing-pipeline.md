@@ -45,7 +45,11 @@ Un fir de calcul limitat de CPU. Într-o execuție Survey3 sau mixtă, Firul 3 a
 
 ### Firul 3: Procesare (GPU)
 
-**Scop**: Aplicarea corecțiilor și calcularea indicilor de vegetație.**Acesta este firul cu cea mai mare intensitate de calcul.*** **Debayering**: convertește datele RAW Bayer în imagini multicanal
+**Scop**: Aplicarea corecțiilor și calcularea indicilor de vegetație.
+
+**Acesta este firul cu cea mai mare intensitate de calcul.**
+
+* **Debayering**: convertește datele RAW Bayer în imagini multicanal
   * Standard (rapid, calitate medie) — implicit, `--debayer standard`
   * Texture Aware (lent, calitate maximă) — numai pentru Chloros+, `--debayer texture-aware`, utilizează un model de eliminare a zgomotului bazat pe AI/ML
   * Capturile LATTICE mono (M3M) sunt monobandă: etapele de demosaic și de echilibrare a albului sunt omise pentru acestea (cu un mesaj de jurnal de o singură linie), în timp ce orice imagini M3C/Bayer din aceeași execuție beneficiază în continuare de acestea

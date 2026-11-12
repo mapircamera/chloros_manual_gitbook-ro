@@ -57,7 +57,11 @@ output/
 └── *.daq          the downwelling reading matched to the capture
 ```
 
-**Selectați „Adăugați folder” la directorul rădăcină al capturilor** (`output/` de mai sus). Când folderul selectat nu conține imagini, dar are subfoldere, Chloros le accesează automat — subfolderele de nivel și folderul rădăcină `.daq` sunt preluate toate dintr-o singură mișcare.**Modul de importare a capturilor:*** Fiecare captură se importă ca o **singură imagine**, grupată pe captură (nu câte o intrare per nivel). Celelalte niveluri ale aceleiași capturi apar ca moduri de vizualizare ale acelei singure imagini.
+**Selectați „Adăugați folder” la directorul rădăcină al capturilor** (`output/` de mai sus). Când folderul selectat nu conține imagini, dar are subfoldere, Chloros le accesează automat — subfolderele de nivel și folderul rădăcină `.daq` sunt preluate toate dintr-o singură mișcare.
+
+**Modul de importare a capturilor:**
+
+* Fiecare captură se importă ca o **singură imagine**, grupată pe captură (nu câte o intrare per nivel). Celelalte niveluri ale aceleiași capturi apar ca moduri de vizualizare ale acelei singure imagini.
 * **Prelucrarea începe întotdeauna de la cadrul brut.** Celelalte niveluri sunt vizibile, dar numai `raw` este procesat prin fluxul de lucru — reprocesarea unui produs deja prelucrat ar aplica de două ori corecțiile, așa că Chloros refuză acest lucru. Un export reimportat nu poate ocupa niciodată slotul raw al unei capturi.
 * Un dosar de capturi salvat **fără** fișiere raw se importă și se afișează normal, dar procesarea îl omite și menționează acest lucru în jurnal. (Indicatorul CLI `--input-level` poate forța un punct de intrare pentru acest caz — consultați [Referința CLI](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * Începând cu versiunea 1.3.0, un dosar de capturi poate conține și un dosar `clamp_masks/` (măști pe pixel pentru nivelurile de radianță și reflectanță — consultați [Formate de imagine de ieșire](../output-image-formats.md#clamp-masks)). Măștile nu sunt imagini ale scenei, iar Chloros le ignoră la import, indiferent unde se află.

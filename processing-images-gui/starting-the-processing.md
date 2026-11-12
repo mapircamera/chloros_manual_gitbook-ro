@@ -79,7 +79,11 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 1. **Detectare** (Fir 1) — Identificarea țintelor de calibrare
 2. **Analiză** (Fir 2) – Examinarea metadatelor imaginii și calcularea calibrării
 3. **Calibrare** (Fir 3) – Debayering, corectarea vignetării, calibrare, calcularea indexului
-4. **Export** (Fir 4) – Salvarea imaginilor procesate și a indexurilor**Interacțiunea cu bara de progres:*** **Treceți cu mouse-ul** peste bară pentru a vedea panoul derulant detaliat cu cele 4 etape
+4. **Export** (Fir 4) – Salvarea imaginilor procesate și a indexurilor
+
+**Interacțiunea cu bara de progres:**
+
+* **Treceți cu mouse-ul** peste bară pentru a vedea panoul derulant detaliat cu cele 4 etape
 * **Faceți clic** pe bara de progres pentru a fixa panoul derulant în poziție
 * **Faceți clic din nou** pentru a debloca și a ascunde panoul**Timp de procesare:**
 
@@ -117,7 +121,9 @@ Chloros funcționează în două moduri diferite de procesare, în funcție de l
 
 ### Etapa 3: Calibrare
 
-**Ce face Chloros:*** **Corecția vignetării**: Elimină întunecarea produsă de obiectiv la margini
+**Ce face Chloros:**
+
+* **Corecția vignetării**: Elimină întunecarea produsă de obiectiv la margini
 * **Calibrarea reflectanței**: Normalizează folosind valorile țintă ale reflectanței și/sau datele de radiație descendentă din DAQ
 * Aplică corecții pe toate benzile/canalele
 * Utilizează referința de calibrare adecvată pentru fiecare imagine în funcție de data și ora înregistrării
