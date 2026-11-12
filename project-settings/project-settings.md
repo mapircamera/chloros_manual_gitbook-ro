@@ -99,13 +99,13 @@ Pentru proiectele care conțin capturi LATTICE, fiecare cadru LATTICE importat s
 | --- | --- | --- |
 | **Export debayered** | `Debayered_Images/` | Imaginea debayered liniară: cu offsetul de întuneric al pachetului de calibrare eliminat, urmată de o demosaicare sensibilă la margini, fără corecție de liniaritate, câmp plat sau separare — același fișier pe care o captură îl salvează la nivelul său debayerat. Păstrată în orientarea nativă a senzorului (înregistrată în XMP). Se aplică camerelor RGB și multispectrale. |
 | **Export previzualizare** | `Preview_Images/` | Previzualizarea afișată. RGB = balans de alb (iluminant DAQ, dacă este disponibil; altfel, „gray-world”) + gamma; multispectral = extindere în culori false. |
-| ****Radianță de export** | `Radiance_Images/` | Radianță spectrală Float32 în W/m²/sr/nm. Numai pentru multispectrale (M3C/M3M) — nu se aplică masterelor RGB. Se salvează întotdeauna ca fișier TIFF pe 32 de biți, indiferent de setarea *Format imagine calibrată*. |
+| **Radianță de export** | `Radiance_Images/` | Radianță spectrală Float32 în W/m²/sr/nm. Numai pentru multispectrale (M3C/M3M) — nu se aplică masterelor RGB. Se salvează întotdeauna ca fișier TIFF pe 32 de biți, indiferent de setarea *Format imagine calibrată*. |
 | **Export reflectanță**| `Reflectance_Calibrated_Images/` | Reflectanță Uint16, scalată astfel încât**32768 = reflectanță 1,0** (marcat ca XMP `Chloros:PixelScale`). Numai pentru imagini multispectrale, înregistrat atunci când o înregistrare corespunzătoare de tip `.daq` cu radiație descendentă (sau o țintă în cadru care a trecut testul de control al calității) acoperă cadrul. |
 
 * Camerele principale RGB emit date debayered + previzualizare; radianța/reflectanța sunt omise pentru acestea, deoarece nu sunt aplicabile.
 * Adâncimea de biți a datelor debayered/previzualizare respectă setarea *Format imagine calibrat*; radianța este întotdeauna float32.
 * Procesarea Survey3 nu este afectată de aceste patru comutatoare.
-* Produsele de radianță și reflectanță ale camerelor multispectrale M3C pot scrie, de asemenea, o ****** într-un dosar `clamp_masks/` situat lângă dosarele produselor, înregistrând locurile în care demixarea benzii a redus o valoare negativă la zero. A se vedea [Formate de imagine de ieșire](../output-image-formats.md#clamp-masks).
+* Produsele de radianță și reflectanță ale camerelor multispectrale M3C pot scrie, de asemenea, o **mască de limitare** într-un dosar `clamp_masks/` situat lângă dosarele produselor, înregistrând locurile în care demixarea benzii a redus o valoare negativă la zero. A se vedea [Formate de imagine de ieșire](../output-image-formats.md#clamp-masks).
 
 Aceleași patru comutatoare există și în varianta fără interfață grafică, sub denumirea `chloros-cli process --debayered / --preview / --radiance / --reflectance`. Acestea au înlocuit vechiul indicator CLI, `--radiometric-output`, care nu mai există.
 
